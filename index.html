@@ -3,208 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <!-- PWA uchun kerakli meta teglar -->
-    <meta name="theme-color" content="#00a53c">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="1xBet Signals">
-    <link rel="apple-touch-icon" href="https://i.ibb.co/fVPq08Xq/1xbet-logo.png">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" id="app-manifest">
-    
-    <title>1xBet Signals | Bukmeker</title>
-    
+    <title>Kelajakni Bashorat Qilish | Oldindan Ko'rish Platformasi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Telegram uchun maxsus banner */
-        #telegramBanner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #0088cc, #00a53c);
-            color: white;
-            z-index: 10000;
-            display: none;
-            animation: slideDown 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .telegram-banner-content {
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        
-        .telegram-banner-text {
-            flex: 1;
-        }
-        
-        .telegram-banner-text h4 {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        
-        .telegram-banner-text p {
-            font-size: 11px;
-            opacity: 0.9;
-            margin-bottom: 0;
-        }
-        
-        .telegram-banner-buttons {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        
-        .telegram-open-btn {
-            white-space: nowrap;
-            padding: 6px 12px;
-            font-size: 11px;
-            background: white;
-            color: #0088cc;
-            border: none;
-            border-radius: 8px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .telegram-close-btn {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        /* PWA uchun qo'shimcha stillar */
-        @media (display-mode: standalone) {
-            .app-header {
-                padding-top: env(safe-area-inset-top);
-            }
-            
-            body {
-                padding-top: env(safe-area-inset-top);
-                padding-bottom: calc(70px + env(safe-area-inset-bottom));
-            }
-            
-            .bottom-nav {
-                padding-bottom: env(safe-area-inset-bottom);
-            }
-            
-            #installPrompt, #telegramBanner, .telegram-open-btn {
-                display: none !important;
-            }
-        }
-        
-        @media (max-height: 600px) {
-            .bottom-nav {
-                padding: 6px 0;
-            }
-            
-            .nav-icon {
-                font-size: 16px;
-                margin-bottom: 1px;
-            }
-            
-            .nav-text {
-                font-size: 9px;
-            }
-        }
-        
-        /* Ekranga qo'shish uchun tugma va banner */
-        #installPrompt {
-            position: fixed;
-            bottom: 80px;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(135deg, #00a53c, #ffcc00);
-            padding: 12px 20px;
-            display: none;
-            z-index: 1000;
-            animation: slideUp 0.3s ease;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .install-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-        
-        .install-text h3 {
-            font-size: 14px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 4px;
-        }
-        
-        .install-text p {
-            font-size: 11px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        #installBtn {
-            white-space: nowrap;
-            padding: 8px 16px;
-            font-size: 12px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        
-        #closeInstallBtn {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        /* Asosiy stillar davomi... */
         :root {
             --primary: #00a53c;
             --primary-dark: #00852f;
@@ -227,7 +28,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Courier New', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -237,10 +37,8 @@
             line-height: 1.5;
             padding-bottom: 70px;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
         }
 
-        /* Qolgan stillar oldingi kabi... */
         .btn {
             padding: 12px 20px;
             border: none;
@@ -254,9 +52,6 @@
             gap: 8px;
             transition: all 0.2s ease;
             text-decoration: none;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         .btn-primary {
@@ -431,14 +226,16 @@
         .logo-icon {
             width: 36px;
             height: 36px;
-            background-image: url('https://i.ibb.co/fVPq08Xq/1xbet-logo.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .logo-icon i {
+            font-size: 20px;
+            color: white;
         }
 
         .logo-text {
@@ -660,7 +457,6 @@
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease;
-            -webkit-touch-callout: none;
         }
 
         .action-card:hover {
@@ -851,7 +647,6 @@
             padding: 6px 0;
             transition: all 0.2s ease;
             cursor: pointer;
-            -webkit-tap-highlight-color: transparent;
         }
 
         .nav-item.active {
@@ -1005,7 +800,6 @@
             letter-spacing: 2px;
             outline: none;
             transition: all 0.3s ease;
-            -webkit-appearance: none;
         }
 
         .id-input:focus {
@@ -1809,86 +1603,16 @@
         .fade-in {
             animation: fadeIn 0.5s ease forwards;
         }
-        
-        /* Telegram uchun pastki o'ng burchakdagi "Brauzerda ochish" tugmasi */
-        .telegram-float-btn {
-            position: fixed;
-            bottom: 80px;
-            right: 10px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #0088cc, #00a53c);
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 10px 15px;
-            font-size: 12px;
-            font-weight: 700;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(0, 136, 204, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- Telegram uchun maxsus banner -->
-    <div id="telegramBanner">
-        <div class="telegram-banner-content">
-            <div class="telegram-banner-text">
-                <h4>📱 Ilovani to'liq ishlatish uchun</h4>
-                <p>Telegram ichida PWA ishlamaydi. Ilovani brauzeringizda oching</p>
-            </div>
-            <div class="telegram-banner-buttons">
-                <button class="telegram-open-btn" id="telegramOpenBtn">
-                    <i class="fas fa-external-link-alt"></i> Brauzerda ochish
-                </button>
-                <button class="telegram-close-btn" id="telegramCloseBtn">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Ekranga qo'shish banneri -->
-    <div id="installPrompt">
-        <div class="install-content">
-            <div class="install-text">
-                <h3>📱 1xBet Signals ilovasini o'rnating</h3>
-                <p>Brauzerdan ilova kabi ishlating</p>
-            </div>
-            <div style="display: flex; gap: 8px; align-items: center;">
-                <button class="btn btn-primary" id="installBtn">
-                    <i class="fas fa-plus-circle"></i> Qo'shish
-                </button>
-                <button id="closeInstallBtn">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Language Selector -->
     <div id="languageSelector">
         <div class="language-logo">
-            <i class="fas fa-trophy"></i>
+            <i class="fas fa-crystal-ball"></i>
         </div>
-        <h2 id="languageTitle">1xBet Signals</h2>
-        <p id="languageSubtitle">Bukmeker platformasi</p>
+        <h2 id="languageTitle">Kelajakni Bashorat Qilish</h2>
+        <p id="languageSubtitle">Oldindan ko'rish platformasi</p>
         
         <div class="language-grid">
             <div class="lang-card" data-lang="uz">
@@ -1916,9 +1640,9 @@
         <header class="app-header">
             <div class="logo">
                 <div class="logo-icon">
-                    <!-- 1xBet logo image applied via CSS -->
+                    <i class="fas fa-crystal-ball"></i>
                 </div>
-                <div class="logo-text">1xBet Signals</div>
+                <div class="logo-text">Kelajakni Bashorat</div>
             </div>
             
             <div class="header-controls">
@@ -1970,8 +1694,8 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
                 <div class="register-text">
-                    <h3 id="registerPromoTitle">SIGNAL OLISH UCHUN RO'YXATDAN O'TING</h3>
-                    <p id="registerPromoDesc">AIFUT promokod orqali 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling</p>
+                    <h3 id="registerPromoTitle">KELAJAKNI BILISH QOBILIYATIGA KIRISH</h3>
+                    <p id="registerPromoDesc">AIFUT promokodi bilan ro'yxatdan o'ting va yuqori aniqlikdagi kelajak bashoratlariga ega bo'ling</p>
                 </div>
                 
                 <div class="register-promo-code">
@@ -1987,12 +1711,12 @@
 
         <!-- Quick Actions -->
         <section class="quick-actions">
-            <div class="action-card" id="signalBtn">
+            <div class="action-card" id="predictionBtn">
                 <div class="action-icon">
-                    <i class="fas fa-bolt"></i>
+                    <i class="fas fa-eye"></i>
                 </div>
-                <div class="action-title" id="signalTitle">SIGNAL</div>
-                <div class="action-desc" id="signalDesc">Yuqori aniqlik</div>
+                <div class="action-title" id="predictionTitle">OLDINDAN KO'RISH</div>
+                <div class="action-desc" id="predictionDesc">Kelajakni bilish</div>
             </div>
             
             <div class="action-card" id="vipBtn">
@@ -2000,7 +1724,7 @@
                     <i class="fas fa-crown"></i>
                 </div>
                 <div class="action-title" id="vipTitle">VIP</div>
-                <div class="action-desc" id="vipDesc">Ekskluziv</div>
+                <div class="action-desc" id="vipDesc">Ekskluziv qobiliyat</div>
             </div>
             
             <div class="action-card" id="apkBtn">
@@ -2028,7 +1752,7 @@
                 </div>
                 <div class="vip-text">
                     <h3 id="vipBannerTitle">VIP A'ZO BO'LING</h3>
-                    <p id="vipBannerDesc">30% ko'proq bonus</p>
+                    <p id="vipBannerDesc">30% ko'proq aniq bashoratlar</p>
                 </div>
             </div>
             <div class="vip-badge">VIP</div>
@@ -2047,209 +1771,35 @@
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
-            <div class="nav-item active" data-page="main">
-                <div class="nav-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <div class="nav-text" id="navHomeText">ASOSIY</div>
-            </div>
-            
-            <div class="nav-item" data-page="signal">
-                <div class="nav-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="nav-text" id="navSignalText">SIGNAL</div>
-            </div>
-            
-            <div class="nav-item" data-page="vip">
-                <div class="nav-icon">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <div class="nav-text" id="navVipText">VIP</div>
-            </div>
-            
-            <div class="nav-item" data-page="apk">
-                <div class="nav-icon">
-                    <i class="fas fa-download"></i>
-                </div>
-                <div class="nav-text" id="navApkText">APK</div>
-            </div>
-            
-            <div class="nav-item" data-page="settings">
-                <div class="nav-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <div class="nav-text" id="navSettingsText">SOZLAMALAR</div>
-            </div>
-        </nav>
-    </div>
-
-    <!-- Signal Page -->
-    <div class="page-container" id="signalPage">
-        <header class="page-header">
-            <div class="page-back" data-page="main">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-            <div class="page-title">SIGNAL</div>
-        </header>
-        
-        <div class="page-content">
-            <div class="page-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <div class="card-title">SIGNAL OLISH</div>
-                </div>
-                
-                <div class="card-desc">
-                    Signal olish uchun pastdagi tugmani bosing va o'yinni boshlang.
-                    Har bir bosqichda butun olmani topishingiz kerak.
-                </div>
-                
-                <div class="next-signal-timer" id="nextSignalTimer">
-                    <div class="timer-title">KEYINGI SIGNAL UCHUN QOLGAN VAQT</div>
-                    <div class="timer-display" id="timerDisplay">02:00:00</div>
-                    <div class="timer-note">VIP a'zolar kutish vaqtini o'tkazib yuborishlari mumkin</div>
-                </div>
-                
-                <button class="btn btn-primary" id="startGameBtn" style="width: 100%;">
-                    <i class="fas fa-play"></i> O'YINNI BOSHLASH
-                </button>
-            </div>
-        </div>
-        
-        <nav class="bottom-nav">
-            <div class="nav-item" data-page="main">
+            <div class="nav-item active" id="navHome">
                 <div class="nav-icon">
                     <i class="fas fa-home"></i>
                 </div>
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item active" data-page="signal">
+            <div class="nav-item" id="navPrediction">
                 <div class="nav-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-eye"></i>
                 </div>
-                <div class="nav-text">SIGNAL</div>
+                <div class="nav-text">KO'RISH</div>
             </div>
             
-            <div class="nav-item" data-page="vip">
+            <div class="nav-item" id="navVip">
                 <div class="nav-icon">
                     <i class="fas fa-crown"></i>
                 </div>
                 <div class="nav-text">VIP</div>
             </div>
             
-            <div class="nav-item" data-page="apk">
+            <div class="nav-item" id="navApk">
                 <div class="nav-icon">
                     <i class="fas fa-download"></i>
                 </div>
                 <div class="nav-text">APK</div>
             </div>
             
-            <div class="nav-item" data-page="settings">
-                <div class="nav-icon">
-                    <i class="fas fa-cog"></i>
-                </div>
-                <div class="nav-text">SOZLAMALAR</div>
-            </div>
-        </nav>
-    </div>
-
-    <!-- VIP Page -->
-    <div class="page-container" id="vipPage">
-        <header class="page-header">
-            <div class="page-back" data-page="main">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-            <div class="page-title">VIP</div>
-        </header>
-        
-        <div class="page-content">
-            <div class="page-card">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <div class="card-title">VIP A'ZO BO'LISH</div>
-                </div>
-                
-                <div class="card-value">
-                    30% KO'PROQ BONUS
-                </div>
-                
-                <div class="card-desc">
-                    VIP a'zo bo'lish uchun 5 ta do'st taklif qiling yoki to'g'ridan-to'g'ri VIP paketini sotib oling.
-                    VIP a'zolar:
-                </div>
-                
-                <div class="vip-features">
-                    <div class="vip-feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Kutish vaqti yo'q</h4>
-                            <p>Har qanday vaqt signal olish</p>
-                        </div>
-                    </div>
-                    <div class="vip-feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Yuqori aniqlik</h4>
-                            <p>95% gacha aniqlikdagi signallar</p>
-                        </div>
-                    </div>
-                    <div class="vip-feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Maxsus bonuslar</h4>
-                            <p>VIP a'zolar uchun maxsus promokodlar</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="btn btn-vip" id="getVipBtn" style="width: 100%;">
-                    <i class="fas fa-crown"></i> VIP A'ZO BO'LISH
-                </button>
-            </div>
-        </div>
-        
-        <nav class="bottom-nav">
-            <div class="nav-item" data-page="main">
-                <div class="nav-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <div class="nav-text">ASOSIY</div>
-            </div>
-            
-            <div class="nav-item" data-page="signal">
-                <div class="nav-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="nav-text">SIGNAL</div>
-            </div>
-            
-            <div class="nav-item active" data-page="vip">
-                <div class="nav-icon">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <div class="nav-text">VIP</div>
-            </div>
-            
-            <div class="nav-item" data-page="apk">
-                <div class="nav-icon">
-                    <i class="fas fa-download"></i>
-                </div>
-                <div class="nav-text">APK</div>
-            </div>
-            
-            <div class="nav-item" data-page="settings">
+            <div class="nav-item" id="navSettings">
                 <div class="nav-icon">
                     <i class="fas fa-cog"></i>
                 </div>
@@ -2261,7 +1811,7 @@
     <!-- APK Page -->
     <div class="page-container" id="apkPage">
         <header class="page-header">
-            <div class="page-back" data-page="main">
+            <div class="page-back" id="backFromApk">
                 <i class="fas fa-arrow-left"></i>
             </div>
             <div class="page-title">APK YUKLASH</div>
@@ -2281,7 +1831,7 @@
                 </div>
                 
                 <p class="card-desc" id="apkDescText">
-                    1xBet mobil ilovasini yuklab oling va istalgan joydan signallar oling.
+                    Mobil ilovamizni yuklab oling va istalgan joydan kelajak bashoratlariga ega bo'ling.
                     To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud.
                 </p>
                 
@@ -2297,35 +1847,133 @@
         </div>
         
         <nav class="bottom-nav">
-            <div class="nav-item" data-page="main">
+            <div class="nav-item" id="navHome2">
                 <div class="nav-icon">
                     <i class="fas fa-home"></i>
                 </div>
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item" data-page="signal">
+            <div class="nav-item" id="navPrediction2">
                 <div class="nav-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-eye"></i>
                 </div>
-                <div class="nav-text">SIGNAL</div>
+                <div class="nav-text">KO'RISH</div>
             </div>
             
-            <div class="nav-item" data-page="vip">
+            <div class="nav-item" id="navVip2">
                 <div class="nav-icon">
                     <i class="fas fa-crown"></i>
                 </div>
                 <div class="nav-text">VIP</div>
             </div>
             
-            <div class="nav-item active" data-page="apk">
+            <div class="nav-item active" id="navApk2">
                 <div class="nav-icon">
                     <i class="fas fa-download"></i>
                 </div>
                 <div class="nav-text">APK</div>
             </div>
             
-            <div class="nav-item" data-page="settings">
+            <div class="nav-item" id="navSettings2">
+                <div class="nav-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="nav-text">SOZLAMALAR</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Bonus Page -->
+    <div class="page-container" id="bonusPage">
+        <header class="page-header">
+            <div class="page-back" id="backFromBonus">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="page-title">BONUSLAR</div>
+        </header>
+        
+        <div class="page-content">
+            <div class="page-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="card-title">AIFUT BONUSI</div>
+                </div>
+                
+                <div class="card-value">
+                    30% KO'PROQ ANIQLIK
+                </div>
+                
+                <p class="card-desc" id="bonusDescText">
+                    AIFUT promokodi bilan ro'yxatdan o'ting va VIP kelajak bashoratlariga kirish imkoniyatiga ega bo'ling.
+                    Premium tahlillar va yuqori aniqlikdagi bashoratlar.
+                </p>
+                
+                <button class="btn btn-primary" id="getBonusBtn">
+                    <i class="fas fa-gift"></i> <span id="getBonusText">BONUS OLISH</span>
+                </button>
+                
+                <div class="promo-code">
+                    <div class="code">AIFUT</div>
+                    <div class="label">Promokod bilan ro'yxatdan o'ting</div>
+                </div>
+            </div>
+            
+            <div class="page-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-title">DO'STLARNI TAKLIF QILISH</div>
+                </div>
+                
+                <div class="card-value" id="inviteFriendsValue">
+                    DARAJANI OSHIRISH
+                </div>
+                
+                <p class="card-desc" id="inviteFriendsDescText">
+                    Har bir taklif qilingan do'st bilan darajangiz oshadi.
+                    5 ta do'st taklif qilsangiz, VIP kelajak bashoratlariga ega bo'lasiz!
+                </p>
+                
+                <button class="btn btn-secondary" id="inviteFriendsBtn">
+                    <i class="fas fa-share-alt"></i> <span id="inviteFriendsText">DO'STLARNI TAKLIF QILISH</span>
+                </button>
+            </div>
+        </div>
+        
+        <nav class="bottom-nav">
+            <div class="nav-item" id="navHome3">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-text">ASOSIY</div>
+            </div>
+            
+            <div class="nav-item" id="navPrediction3">
+                <div class="nav-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <div class="nav-text">KO'RISH</div>
+            </div>
+            
+            <div class="nav-item" id="navVip3">
+                <div class="nav-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="nav-text">VIP</div>
+            </div>
+            
+            <div class="nav-item" id="navApk3">
+                <div class="nav-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="nav-text">APK</div>
+            </div>
+            
+            <div class="nav-item active" id="navSettings3">
                 <div class="nav-icon">
                     <i class="fas fa-cog"></i>
                 </div>
@@ -2337,7 +1985,7 @@
     <!-- SETTINGS PAGE -->
     <div class="page-container" id="settingsPage">
         <header class="page-header">
-            <div class="page-back" data-page="main">
+            <div class="page-back" id="backFromSettings">
                 <i class="fas fa-arrow-left"></i>
             </div>
             <div class="page-title">SOZLAMALAR</div>
@@ -2366,7 +2014,7 @@
                             <i class="fas fa-id-card"></i>
                         </div>
                         <div class="settings-text">
-                            <h4 id="settingsChangeIdTitle">ID raqamni o'zgartirish</h4>
+                            <h4 id="settingsChangeIdTitle">ID raqamini o'zgartirish</h4>
                             <p id="settingsChangeIdDesc">ID raqamingizni yangilang</p>
                         </div>
                     </div>
@@ -2396,40 +2044,8 @@
                             <i class="fas fa-question-circle"></i>
                         </div>
                         <div class="settings-text">
-                            <h4 id="settingsGuideTitle">Ishlatish qo'llanmasi</h4>
+                            <h4 id="settingsGuideTitle">Ishletish qo'llanmasi</h4>
                             <p id="settingsGuideDesc">Qanday ishlatish haqida</p>
-                        </div>
-                    </div>
-                    <div class="settings-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-                
-                <!-- PWA uchun qo'shimcha sozlamalar -->
-                <div class="settings-item" id="settingsInstall">
-                    <div class="settings-item-left">
-                        <div class="settings-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <div class="settings-text">
-                            <h4>Ilovani o'rnatish</h4>
-                            <p>Telefon ekraniga qo'shish</p>
-                        </div>
-                    </div>
-                    <div class="settings-arrow">
-                        <i class="fas fa-chevron-right"></i>
-                    </div>
-                </div>
-                
-                <!-- Telegram uchun qo'shimcha sozlama -->
-                <div class="settings-item" id="settingsOpenInBrowser">
-                    <div class="settings-item-left">
-                        <div class="settings-icon">
-                            <i class="fas fa-external-link-alt"></i>
-                        </div>
-                        <div class="settings-text">
-                            <h4>Brauzerda ochish</h4>
-                            <p>Ilovani tashqi brauzerda ochish</p>
                         </div>
                     </div>
                     <div class="settings-arrow">
@@ -2442,10 +2058,10 @@
                 <div class="guide-step">
                     <div class="guide-step-title">
                         <span class="guide-step-number">1</span>
-                        <span id="guideStep1Title">1xBet-da ro'yxatdan o'tish</span>
+                        <span id="guideStep1Title">Platformada ro'yxatdan o'tish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep1Desc">
-                        AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting. Bu sizga signal olish imkoniyatini beradi.
+                        AIFUT promokodi bilan platformamizda ro'yxatdan o'ting. Bu sizga kelajakni bashorat qilish imkoniyatini beradi.
                     </p>
                 </div>
                 
@@ -2455,17 +2071,17 @@
                         <span id="guideStep2Title">ID raqamni kiritish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep2Desc">
-                        1xBet akkauntingizning ID raqamini kiritib, signal olish o'yiniga kirish.
+                        Akkauntingizning ID raqamini kiritib, kelajakni bashorat qilish o'yiniga kirish.
                     </p>
                 </div>
                 
                 <div class="guide-step">
                     <div class="guide-step-title">
                         <span class="guide-step-number">3</span>
-                        <span id="guideStep3Title">Signal o'yini</span>
+                        <span id="guideStep3Title">Kelajakni bashorat qilish o'yini</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep3Desc">
-                        Butun olmalarni tanlang. Har bir yutuqli bosqich sizga 1xBet uchun signal beradi.
+                        Butun olmalarni tanlang. Har bir yutuqli bosqich sizga kelajakni bilish qobiliyatini beradi.
                     </p>
                 </div>
                 
@@ -2475,52 +2091,52 @@
                         <span id="guideStep4Title">Do'stlarni taklif qilish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep4Desc">
-                        5 ta do'st taklif qiling va VIP signalga ega bo'ling.
+                        5 ta do'st taklif qiling va VIP kelajak bashoratlariga ega bo'ling.
                     </p>
                 </div>
                 
                 <div class="guide-step">
                     <div class="guide-step-title">
                         <span class="guide-step-number">5</span>
-                        <span id="guideStep5Title">1xBet signal olish</span>
+                        <span id="guideStep5Title">Kelajakni bilish qobiliyatini olish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep5Desc">
-                        O'yin yutqazilsa, 2 soat kutish kerak. VIP signal bilan kutish vaqtini o'tkazib yuborish mumkin.
+                        O'yin yutqazilsa, 2 soat kutish kerak. VIP bashorat bilan kutish vaqtini o'tkazib yuborish mumkin.
                     </p>
                 </div>
             </div>
         </div>
         
         <nav class="bottom-nav">
-            <div class="nav-item" data-page="main">
+            <div class="nav-item" id="navHome4">
                 <div class="nav-icon">
                     <i class="fas fa-home"></i>
                 </div>
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item" data-page="signal">
+            <div class="nav-item" id="navPrediction4">
                 <div class="nav-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-eye"></i>
                 </div>
-                <div class="nav-text">SIGNAL</div>
+                <div class="nav-text">KO'RISH</div>
             </div>
             
-            <div class="nav-item" data-page="vip">
+            <div class="nav-item" id="navVip4">
                 <div class="nav-icon">
                     <i class="fas fa-crown"></i>
                 </div>
                 <div class="nav-text">VIP</div>
             </div>
             
-            <div class="nav-item" data-page="apk">
+            <div class="nav-item" id="navApk4">
                 <div class="nav-icon">
                     <i class="fas fa-download"></i>
                 </div>
                 <div class="nav-text">APK</div>
             </div>
             
-            <div class="nav-item active" data-page="settings">
+            <div class="nav-item active" id="navSettings4">
                 <div class="nav-icon">
                     <i class="fas fa-cog"></i>
                 </div>
@@ -2529,73 +2145,160 @@
         </nav>
     </div>
 
-    <!-- Game Modal -->
+    <!-- Modals -->
     <div class="modal-overlay" id="gameModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="gameModalTitle">SIGNAL OLISH</h3>
+                <h3 class="modal-title" id="gameModalTitle">KELAJAKNI BILISH QOBILIYATINI OLISH</h3>
                 <div class="modal-close" id="closeGameModal">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
-            <div class="modal-body" id="gameModalBody">
-                <!-- Game content will be injected here -->
+            
+            <div class="modal-body">
+                <div class="game-user-id">
+                    <div class="user-id-display" id="modalUserIdDisplay">ID: 12345678901</div>
+                    <div class="game-id-message" id="gameIdMessage">
+                        Kelajakni bilish qobiliyatini olish uchun AIFUT promokodi orqali ro'yxatdan o'ting. 
+                        Akkaunt ID raqamingizni kiriting va butun olmalarni tanlang.
+                    </div>
+                </div>
+                
+                <div class="stage-transition" id="stageTransition">
+                    <div class="hacking-container">
+                        <div class="hacking-line"></div>
+                        <div class="hacking-text">BASHORAT</div>
+                        <div class="hacking-subtitle">Kelajak yuklanmoqda...</div>
+                        <div class="hacking-percentage" id="hackingPercentage">0%</div>
+                        <div class="hacking-message">
+                            Ma'lumotlar tahlili jarayoni...<br>
+                            Kelajak bashoratlari yuklanmoqda...
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-result-overlay" id="gameResultOverlay">
+                    <div class="result-icon" id="resultIcon">🎉</div>
+                    <h2 class="result-title" id="resultTitle">TABRIKLAYMIZ!</h2>
+                    <div class="result-message" id="resultMessage">Yutuqni oling!</div>
+                    
+                    <button class="btn btn-vip" id="getVipPredictionBtn">
+                        <i class="fas fa-crown"></i> <span id="getVipPredictionText">VIP BASHORAT OLISH</span>
+                    </button>
+                    
+                    <button class="btn btn-success" id="restartGameBtn">
+                        <i class="fas fa-redo"></i> <span id="restartGameText">QAYTA BOSHLASH</span>
+                    </button>
+                    <button class="btn btn-secondary" id="closeGameBtn" style="margin-top: 10px;">
+                        <i class="fas fa-times"></i> <span id="closeGameText">YOPISH</span>
+                    </button>
+                </div>
+                
+                <div class="id-input-section" id="idInputSection">
+                    <div class="id-input-label" id="idInputLabel">ID RAQAMINGIZNI KIRITING</div>
+                    <div class="id-input-wrapper">
+                        <input type="text" 
+                               class="id-input" 
+                               id="userIdInput" 
+                               placeholder="1XXXXXXXXXX" 
+                               maxlength="11"
+                               inputmode="numeric">
+                    </div>
+                    <div class="id-input-hint" id="idInputHint">
+                        ID raqam tasdiqlang
+                    </div>
+                    <div class="game-actions">
+                        <button class="btn btn-primary" id="verifyIdBtn">
+                            <i class="fas fa-check-circle"></i> <span id="verifyIdText">TASDIQLASH</span>
+                        </button>
+                        <button class="btn btn-secondary" id="registerInModalBtn">
+                            <i class="fas fa-user-plus"></i> <span id="registerInModalText">RO'YXATDAN O'TISH</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="game-section" id="gameSection" style="display: none;">
+                    <div class="game-header">
+                        <h2 class="game-title">Kelajakni bilish qobiliyati</h2>
+                        <p class="game-subtitle" id="gameSubtitle">G'alaba qilish uchun butun olmalarni tanlang</p>
+                    </div>
+                    
+                    <div class="vip-timer-action" id="vipTimerAction">
+                        <div class="timer-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="timer-message">Vaqtdan oldin kelajakni bilish</div>
+                        <div class="timer-submessage">VIP bashorat bilan kutish vaqtini o'tkazib yuboring</div>
+                        <button class="btn btn-vip" id="getVipPredictionEarlyBtn" style="margin-top: 12px;">
+                            <i class="fas fa-crown"></i> <span id="getVipPredictionEarlyText">VIP BASHORAT OLISH</span>
+                        </button>
+                    </div>
+                    
+                    <div class="timer-active-message" id="timerActiveMessage">
+                        <div class="timer-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="timer-message">Keyingi kelajak bashoratini kutmoqdasiz</div>
+                        <div class="timer-submessage" id="timerSubmessage">Taymer tugagandan so'ng bashorat olish mumkin</div>
+                    </div>
+                    
+                    <div class="next-signal-timer" id="nextSignalTimer">
+                        <div class="timer-title">KEYINGI KELAJAK BASHORATI</div>
+                        <div class="timer-display" id="timerDisplay">02:00:00</div>
+                        <div class="timer-note">VIP bashorat olish uchun yuqoridagi tugmani bosing</div>
+                    </div>
+                    
+                    <div class="game-apples-container" id="gameApplesContainer">
+                        <!-- 5 ta olma bu yerga qo'shiladi -->
+                    </div>
+                    
+                    <div class="game-info">
+                        <p class="game-instruction" id="gameInstruction">
+                            Olmalarni ko'rish tugmasini bosing va butun olmalarni tanlang.
+                            Har bir bosqichda 5 ta olma bor.
+                        </p>
+                    </div>
+                    
+                    <div class="game-actions">
+                        <button class="btn btn-secondary" id="revealApplesBtn">
+                            <i class="fas fa-eye"></i> <span id="revealText">OLMALARNI KO'RISH</span>
+                        </button>
+                        <button class="btn btn-primary" id="nextStageBtn" disabled>
+                            <i class="fas fa-arrow-right"></i> <span id="nextStageText">KEYINGI BASHORAT</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- VIP MODAL -->
+    <!-- VIP MODAL - 5 TA DO'ST TAKLIF QILISH BILAN -->
     <div class="modal-overlay" id="vipModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">VIP A'ZO BO'LISH</h3>
+                <h3 class="modal-title" id="vipModalTitle">VIP KELAJAK BASHORATI</h3>
                 <div class="modal-close" id="closeVipModal">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
+            
             <div class="modal-body">
-                <div class="game-user-id">
-                    <div class="user-id-display" id="vipUserId">ID: 12345678901</div>
-                    <div class="game-id-message">
-                        VIP a'zo bo'lish uchun 5 ta do'st taklif qiling yoki to'g'ridan-to'g'ri VIP paketini sotib oling
+                <div class="text-center mb-16">
+                    <div style="font-size: 48px; color: #ff9800; margin-bottom: 12px;">
+                        <i class="fas fa-gem"></i>
                     </div>
-                </div>
-                
-                <div class="vip-features">
-                    <div class="vip-feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Kutish vaqti yo'q</h4>
-                            <p>Har qanday vaqt signal olish</p>
-                        </div>
-                    </div>
-                    <div class="vip-feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Yuqori aniqlik</h4>
-                            <p>95% gacha aniqlikdagi signallar</p>
-                        </div>
-                    </div>
-                    <div class="vip-feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-gift"></i>
-                        </div>
-                        <div class="feature-text">
-                            <h4>Maxsus bonuslar</h4>
-                            <p>VIP a'zolar uchun maxsus promokodlar</p>
-                        </div>
-                    </div>
+                    <h3 style="font-size: 18px; color: var(--light); margin-bottom: 8px;" id="vipMainTitle">VIP A'ZO BO'LING</h3>
+                    <p style="color: var(--gray); font-size: 13px;" id="vipMainDesc">30% ko'proq aniq bashoratlar va ekskluziv imtiyozlar</p>
                 </div>
                 
                 <div class="invite-section">
-                    <div class="invite-title">DO'STLARNI TAKLIF QILISH</div>
-                    <div class="invite-description">
-                        5 ta do'st taklif qiling va VIP bo'ling
+                    <div class="invite-title" id="inviteForVipTitle">VIP KELAJAK BASHORATI OLISH UCHUN</div>
+                    <div class="invite-description" id="inviteForVipDesc">
+                        VIP kelajak bashorati olish uchun 5 ta do'stingizni taklif qiling.
+                        Har bir taklif qilingan do'st bilan darajangiz oshadi.
+                        5 ta do'st taklif qilsangiz, VIP kelajak bashorati olishingiz mumkin.
                     </div>
+                    
                     <div class="invite-progress">
                         <div class="invite-progress-item completed">1</div>
                         <div class="invite-progress-item active">2</div>
@@ -2603,13 +2306,50 @@
                         <div class="invite-progress-item">4</div>
                         <div class="invite-progress-item">5</div>
                     </div>
-                    <button class="btn btn-secondary" id="inviteFriendsBtnModal">
-                        <i class="fas fa-share-alt"></i> DO'STLARNI TAKLIF QILISH
+                    
+                    <button class="btn btn-vip" id="inviteForVipBtn" style="width: 100%;">
+                        <i class="fas fa-share-alt"></i> <span id="inviteForVipBtnText">DO'STLARNI TAKLIF QILISH</span>
                     </button>
+                    
+                    <div class="timer-note" id="inviteNote">
+                        Taklif qilingan do'stlar: <span id="invitedCount">1</span>/5
+                    </div>
                 </div>
                 
-                <button class="btn btn-vip" id="buyVipBtn" style="width: 100%; margin-top: 16px;">
-                    <i class="fas fa-crown"></i> VIP PAKETNI SOTIB OLISH
+                <div class="vip-features">
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 id="vipFeature1Title">30% Ko'proq Aniqlik</h4>
+                            <p id="vipFeature1Desc">Standart bashoratlardan 30% ko'proq aniq bashoratlar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 id="vipFeature2Title">Real-vaqtda bashorat</h4>
+                            <p id="vipFeature2Desc">Darhol bildirishnomalar va yangilanishlar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4 id="vipFeature3Title">Yuqori aniqlikdagi kelajak bashoratlari</h4>
+                            <p id="vipFeature3Desc">Chuqur tahlillar va oldindan ko'rish imkoniyati</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" id="getVipBtn" style="width: 100%; margin-top: 20px;" disabled>
+                    <i class="fas fa-crown"></i> <span id="getVipText">VIP KELAJAK BASHORATI OLISH</span>
                 </button>
             </div>
         </div>
@@ -2619,551 +2359,507 @@
     <div class="modal-overlay" id="changeIdModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">ID RAQAMNI O'ZGARTIRISH</h3>
+                <h3 class="modal-title" id="changeIdModalTitle">ID O'ZGARTIRISH</h3>
                 <div class="modal-close" id="closeChangeIdModal">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
+            
             <div class="modal-body">
-                <div class="id-input-section active">
-                    <div class="id-input-label">1xBet ID raqamingizni kiriting</div>
-                    <div class="id-input-wrapper">
-                        <input type="text" class="id-input" id="userIdInput" placeholder="12345678901" maxlength="11">
-                    </div>
-                    <div class="id-input-hint">
-                        1xBet akkauntingizning ID raqami 11 raqamdan iborat
-                    </div>
-                    <button class="btn btn-primary" id="saveUserIdBtn" style="width: 100%;">
-                        SAQLASH
+                <div class="id-input-label">YANGI ID RAQAMNI KIRITING</div>
+                <div class="id-input-wrapper">
+                    <input type="text" 
+                           class="id-input" 
+                           id="newUserIdInput" 
+                           placeholder="1XXXXXXXXXX" 
+                           maxlength="11"
+                           inputmode="numeric">
+                </div>
+                <div class="id-input-hint">
+                    Akkauntingizning yangi ID raqamini kiriting. AIFUT promokodi bilan ro'yxatdan o'ting.
+                </div>
+                
+                <div class="game-actions">
+                    <button class="btn btn-primary" id="saveNewIdBtn">
+                        <i class="fas fa-save"></i> <span id="saveNewIdText">SAQLASH</span>
+                    </button>
+                    <button class="btn btn-secondary" id="cancelChangeIdBtn">
+                        <i class="fas fa-times"></i> <span id="cancelChangeIdText">BEKOR QILISH</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Toast container -->
-    <div id="toastContainer"></div>
-
     <script>
-        // ==================== PWA MANIFEST ====================
-        const manifestContent = {
-            "name": "1xBet Signals",
-            "short_name": "1xBet Signals",
-            "description": "1xBet bukmeker platformasi uchun signal berish ilovasi",
-            "start_url": "/",
-            "display": "standalone",
-            "background_color": "#0a0a0a",
-            "theme_color": "#00a53c",
-            "orientation": "portrait",
-            "icons": [
-                {
-                    "src": "https://i.ibb.co/fVPq08Xq/1xbet-logo.png",
-                    "sizes": "192x192",
-                    "type": "image/png",
-                    "purpose": "any maskable"
-                },
-                {
-                    "src": "https://i.ibb.co/fVPq08Xq/1xbet-logo.png",
-                    "sizes": "512x512",
-                    "type": "image/png",
-                    "purpose": "any maskable"
-                }
-            ],
-            "categories": ["finance", "entertainment", "sports"],
-            "shortcuts": [
-                {
-                    "name": "Signal olish",
-                    "short_name": "Signal",
-                    "description": "Signal olish o'yinini boshlash",
-                    "url": "/?page=signal",
-                    "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", "sizes": "96x96" }]
-                },
-                {
-                    "name": "VIP bo'lish",
-                    "short_name": "VIP",
-                    "description": "VIP a'zo bo'lish",
-                    "url": "/?page=vip",
-                    "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", "sizes": "96x96" }]
-                }
-            ]
-        };
-
-        // Manifestni yaratish va ulash
-        function setupManifest() {
-            const manifestJson = JSON.stringify(manifestContent);
-            const blob = new Blob([manifestJson], { type: 'application/json' });
-            const manifestUrl = URL.createObjectURL(blob);
-            document.getElementById('app-manifest').href = manifestUrl;
-        }
-
-        // ==================== SERVICE WORKER ====================
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                // Service worker registratsiyasini 3 soniya kechiktirish
-                setTimeout(() => {
-                    navigator.serviceWorker.register('/service-worker.js')
-                        .then(function(registration) {
-                            console.log('ServiceWorker registration successful');
-                        })
-                        .catch(function(err) {
-                            console.log('ServiceWorker registration failed: ', err);
-                            // Fallback: online service worker
-                            const fallbackSW = `
-                                self.addEventListener('install', event => {
-                                    console.log('Fallback Service Worker installing...');
-                                });
-                                
-                                self.addEventListener('fetch', event => {
-                                    // Online faqat fetch
-                                    event.respondWith(fetch(event.request));
-                                });
-                            `;
-                            
-                            const blob = new Blob([fallbackSW], { type: 'application/javascript' });
-                            const url = URL.createObjectURL(blob);
-                            navigator.serviceWorker.register(url)
-                                .then(reg => console.log('Fallback Service Worker registered'))
-                                .catch(e => console.log('Fallback Service Worker failed:', e));
-                        });
-                }, 3000);
-            });
-        }
-
-        // ==================== TELEGRAM DETECTION ====================
-        function isInTelegram() {
-            const ua = navigator.userAgent.toLowerCase();
-            return ua.includes('telegram') || 
-                   ua.includes('webview') ||
-                   typeof window.TelegramWebviewProxy !== 'undefined' ||
-                   typeof window.Telegram !== 'undefined' ||
-                   document.referrer.includes('t.me') ||
-                   window.location.href.includes('tgWebApp');
-        }
-
-        function isInIOS() {
-            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-        }
-
-        function isInAndroid() {
-            return /Android/.test(navigator.userAgent);
-        }
-
-        function detectEnvironment() {
-            const env = {
-                isTelegram: isInTelegram(),
-                isIOS: isInIOS(),
-                isAndroid: isInAndroid(),
-                isStandalone: window.matchMedia('(display-mode: standalone)').matches || 
-                             window.navigator.standalone === true,
-                userAgent: navigator.userAgent
-            };
-            
-            console.log('Environment detected:', env);
-            return env;
-        }
-
-        // ==================== BRAUZERDA OCHISH ====================
-        function openInBrowser() {
-            const currentUrl = window.location.href;
-            let browserUrl;
-            
-            // Agar URL da parametrlar bo'lsa
-            if (currentUrl.includes('?')) {
-                browserUrl = `${currentUrl}&external=true`;
-            } else {
-                browserUrl = `${currentUrl}?external=true`;
-            }
-            
-            const env = detectEnvironment();
-            
-            if (env.isTelegram) {
-                if (env.isIOS) {
-                    // iOS uchun universal link
-                    const chromeUrl = `googlechromes://${browserUrl.replace('https://', '')}`;
-                    window.location.href = chromeUrl;
-                    
-                    // Agar Chrome yo'q bo'lsa, Safari ga o'tish
-                    setTimeout(() => {
-                        window.location.href = browserUrl;
-                    }, 1000);
-                } else if (env.isAndroid) {
-                    // Android uchun Chrome intent
-                    const intentUrl = `intent://${browserUrl.replace('https://', '')}#Intent;scheme=https;package=com.android.chrome;end`;
-                    window.location.href = intentUrl;
-                    
-                    // Intent ishlamasa, oddiy ochish
-                    setTimeout(() => {
-                        window.open(browserUrl, '_blank');
-                    }, 500);
-                } else {
-                    // Desktop va boshqa platformalar
-                    window.open(browserUrl, '_blank');
-                }
-            } else {
-                // Oddiy brauzer
-                window.open(browserUrl, '_blank');
-            }
-            
-            showToast('Brauzerda ochilmoqda...', 'info');
-        }
-
-        // ==================== TELEGRAM BANNER ====================
-        function manageTelegramBanner() {
-            const banner = document.getElementById('telegramBanner');
-            const env = detectEnvironment();
-            
-            if (env.isTelegram && !env.isStandalone) {
-                // 24 soat ichida yashirilganmi tekshirish
-                const lastHidden = localStorage.getItem('telegramBannerHidden');
-                if (lastHidden) {
-                    const timeDiff = Date.now() - parseInt(lastHidden);
-                    const hoursDiff = timeDiff / (1000 * 60 * 60);
-                    if (hoursDiff < 24) {
-                        banner.style.display = 'none';
-                        return;
-                    }
-                }
-                
-                // Banner ko'rsatish
-                banner.style.display = 'block';
-                
-                // Tugmalarga event listener
-                document.getElementById('telegramOpenBtn').addEventListener('click', function() {
-                    openInBrowser();
-                    hideTelegramBanner();
-                });
-                
-                document.getElementById('telegramCloseBtn').addEventListener('click', function() {
-                    hideTelegramBanner();
-                    // 24 soat davomida yashirish
-                    localStorage.setItem('telegramBannerHidden', Date.now().toString());
-                });
-                
-                // 10 soniyadan keyin avtomatik yashirish
-                setTimeout(() => {
-                    if (banner.style.display === 'block') {
-                        banner.style.opacity = '1';
-                        setTimeout(() => {
-                            if (banner.style.display === 'block') {
-                                banner.style.transition = 'opacity 0.5s ease';
-                                banner.style.opacity = '0';
-                                setTimeout(() => {
-                                    banner.style.display = 'none';
-                                }, 500);
-                            }
-                        }, 10000);
-                    }
-                }, 100);
-            } else {
-                banner.style.display = 'none';
-            }
-        }
-
-        function hideTelegramBanner() {
-            const banner = document.getElementById('telegramBanner');
-            banner.style.transition = 'opacity 0.3s ease';
-            banner.style.opacity = '0';
-            setTimeout(() => {
-                banner.style.display = 'none';
-            }, 300);
-        }
-
-        // ==================== TELEGRAM FLOAT BUTTON ====================
-        function addTelegramFloatButton() {
-            const env = detectEnvironment();
-            
-            if (env.isTelegram && !env.isStandalone) {
-                // Har bir sahifada float button qo'shish
-                const pages = ['mainContainer', 'signalPage', 'vipPage', 'apkPage', 'settingsPage'];
-                
-                pages.forEach(pageId => {
-                    const page = document.getElementById(pageId);
-                    if (page) {
-                        // Agar allaqachon button mavjud bo'lmasa
-                        if (!page.querySelector('.telegram-float-btn')) {
-                            const floatBtn = document.createElement('button');
-                            floatBtn.className = 'telegram-float-btn';
-                            floatBtn.innerHTML = '<i class="fas fa-external-link-alt"></i> Brauzerda ochish';
-                            floatBtn.addEventListener('click', openInBrowser);
-                            page.appendChild(floatBtn);
-                        }
-                    }
-                });
-            } else {
-                // Float buttonlarni olib tashlash
-                document.querySelectorAll('.telegram-float-btn').forEach(btn => btn.remove());
-            }
-        }
-
-        // ==================== PWA INSTALL PROMPT ====================
-        let deferredPrompt;
-        let isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
-                          window.navigator.standalone === true;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            const env = detectEnvironment();
-            
-            if (env.isTelegram) {
-                console.log('Telegram ichida - PWA o\'rnatish mavjud emas');
-                // Telegram uchun maxsus prompt
-                setTimeout(() => {
-                    showTelegramInstallPrompt();
-                }, 5000);
-            } else {
-                // Oddiy brauzer uchun
-                if (!isStandalone) {
-                    setTimeout(() => {
-                        showInstallPrompt();
-                    }, 3000);
-                }
-            }
-        });
-
-        window.addEventListener('appinstalled', () => {
-            console.log('1xBet Signals ilovasi o\'rnatildi!');
-            hideInstallPrompt();
-            isStandalone = true;
-            showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
-            
-            // Telegram float buttonlarini olib tashlash
-            addTelegramFloatButton();
-        });
-
-        function showInstallPrompt() {
-            const prompt = document.getElementById('installPrompt');
-            const env = detectEnvironment();
-            
-            if (prompt && deferredPrompt && !isStandalone && !env.isTelegram) {
-                prompt.style.display = 'block';
-                
-                // Oxirgi ko'rsatilgan vaqtni tekshirish
-                const lastShown = localStorage.getItem('installPromptLastShown');
-                const now = Date.now();
-                const oneWeek = 7 * 24 * 60 * 60 * 1000;
-                
-                if (!lastShown || (now - lastShown) > oneWeek) {
-                    prompt.style.display = 'block';
-                    localStorage.setItem('installPromptLastShown', now.toString());
-                }
-            }
-        }
-
-        function showTelegramInstallPrompt() {
-            const prompt = document.getElementById('installPrompt');
-            const env = detectEnvironment();
-            
-            if (prompt && env.isTelegram && !isStandalone) {
-                prompt.innerHTML = `
-                    <div class="install-content">
-                        <div class="install-text">
-                            <h3>📱 1xBet Signals ilovasini o'rnating</h3>
-                            <p>Telegram ichida ilova to'liq ishlamaydi. Ilovani brauzerda oching va ekraningizga qo'shing</p>
-                        </div>
-                        <div style="display: flex; gap: 8px; align-items: center;">
-                            <button class="btn btn-primary" id="openInBrowserBtn">
-                                <i class="fas fa-external-link-alt"></i> Brauzerda ochish
-                            </button>
-                            <button id="closeInstallBtn">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                
-                document.getElementById('openInBrowserBtn').addEventListener('click', openInBrowser);
-                document.getElementById('closeInstallBtn').addEventListener('click', hideInstallPrompt);
-                
-                prompt.style.display = 'block';
-                
-                // 10 soniyadan keyin avtomatik yashirish
-                setTimeout(() => {
-                    if (prompt.style.display === 'block') {
-                        hideInstallPrompt();
-                    }
-                }, 10000);
-            }
-        }
-
-        function hideInstallPrompt() {
-            const prompt = document.getElementById('installPrompt');
-            if (prompt) {
-                prompt.style.display = 'none';
-            }
-        }
-
-        async function installApp() {
-            const env = detectEnvironment();
-            
-            if (env.isTelegram) {
-                // Telegram ichida bo'lsa, brauzerda ochish
-                openInBrowser();
-                return;
-            }
-            
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                
-                if (outcome === 'accepted') {
-                    console.log('Foydalanuvchi ilovani o\'rnatishni tanladi');
-                    showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
-                    
-                    // Telegram ichida bo'lsa, ekran qayta yuklash
-                    if (env.isTelegram) {
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1000);
-                    }
-                } else {
-                    console.log('Foydalanuvchi ilovani o\'rnatishdan bosh tortdi');
-                    showToast('Ilova o\'rnatilmadi. Keyinroq urinib ko\'ring', 'info');
-                }
-                
-                deferredPrompt = null;
-                hideInstallPrompt();
-            } else {
-                showToast('Ilova o\'rnatish mavjud emas. Brauzeringizni yangilang', 'warning');
-            }
-        }
-
-        // ==================== ASOSIY ILOVA LOGIKASI ====================
         const translations = {
             uz: {
-                languageTitle: "1xBet Signals",
-                languageSubtitle: "Bukmeker platformasi",
+                languageTitle: "Kelajakni Bashorat Qilish",
+                languageSubtitle: "Oldindan ko'rish platformasi",
                 userName: "Foydalanuvchi",
+                userLevel: "YANGI",
                 levelLabel: "DARAJASI",
                 invitesLabel: "TAKLIFLAR",
                 accuracyLabel: "ANIQLIK",
                 friendsLabel: "DO'STLAR",
-                registerPromoTitle: "SIGNAL OLISH UCHUN RO'YXATDAN O'TING",
-                registerPromoDesc: "AIFUT promokod orqali 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling",
-                mainRegisterText: "RO'YXATDAN O'TISH",
-                signalTitle: "SIGNAL",
-                signalDesc: "Yuqori aniqlik",
+                predictionTitle: "OLDINDAN KO'RISH",
+                predictionDesc: "Kelajakni bilish",
                 vipTitle: "VIP",
-                vipDesc: "Ekskluziv",
+                vipDesc: "Ekskluziv qobiliyat",
                 apkTitle: "APK",
                 apkDesc: "Yuklab olish",
                 bonusTitle: "BONUS",
                 bonusDesc: "Promokodlar",
                 vipBannerTitle: "VIP A'ZO BO'LING",
-                vipBannerDesc: "30% ko'proq bonus",
+                vipBannerDesc: "30% ko'proq aniq bashoratlar",
+                registerPromoTitle: "KELAJAKNI BILISH QOBILIYATIGA KIRISH",
+                registerPromoDesc: "AIFUT promokodi bilan ro'yxatdan o'ting va yuqori aniqlikdagi kelajak bashoratlariga ega bo'ling",
+                mainRegisterText: "RO'YXATDAN O'TISH",
                 statsTitle: "KUNLIK STATISTIKA",
-                navHomeText: "ASOSIY",
-                navSignalText: "SIGNAL",
-                navVipText: "VIP",
-                navApkText: "APK",
-                navSettingsText: "SOZLAMALAR",
+                dailyActive: "KUNLIK FAOL",
+                dailyAvgIncome: "O'RTACHA DAROMAD",
+                profit: "FOYDA",
+                onlinePlayers: "ONLAYN O'YINCHILAR",
+                gameModalTitle: "KELAJAKNI BILISH QOBILIYATINI OLISH",
+                gameSubtitle: "G'alaba qilish uchun butun olmalarni tanlang",
+                gameInstruction: "Olmalarni ko'rish tugmasini bosing va butun olmalarni tanlang. Har bir bosqichda 5 ta olma bor.",
+                gameIdMessage: "Kelajakni bilish qobiliyatini olish uchun AIFUT promokodi orqali ro'yxatdan o'ting. Akkaunt ID raqami orqali oyinga kiring va kelajak bashoratlarini oling.",
+                revealText: "OLMALARNI KO'RISH",
+                nextStageText: "KEYINGI BASHORAT",
+                vipModalTitle: "VIP KELAJAK BASHORATI",
+                vipMainTitle: "VIP A'ZO BO'LING",
+                vipMainDesc: "30% ko'proq aniq bashoratlar va ekskluziv imtiyozlar",
+                vipFeature1Title: "30% Ko'proq Aniqlik",
+                vipFeature1Desc: "Standart bashoratlardan 30% ko'proq aniq bashoratlar",
+                vipFeature2Title: "Real-vaqtda bashorat",
+                vipFeature2Desc: "Darhol bildirishnomalar va yangilanishlar",
+                vipFeature3Title: "Yuqori aniqlikdagi kelajak bashoratlari",
+                vipFeature3Desc: "Chuqur tahlillar va oldindan ko'rish imkoniyati",
+                getVipText: "VIP KELAJAK BASHORATI OLISH",
+                getVipPredictionText: "VIP BASHORAT OLISH",
+                getVipPredictionEarlyText: "VIP BASHORAT OLISH",
+                inviteForVipTitle: "VIP KELAJAK BASHORATI OLISH UCHUN",
+                inviteForVipDesc: "VIP kelajak bashorati olish uchun 5 ta do'stingizni taklif qiling. Har bir taklif qilingan do'st bilan darajangiz oshadi. 5 ta do'st taklif qilsangiz, VIP kelajak bashorati olishingiz mumkin.",
+                inviteForVipBtnText: "DO'STLARNI TAKLIF QILISH",
+                inviteFriendsValue: "DARAJANI OSHIRISH",
+                inviteFriendsDescText: "Har bir taklif qilingan do'st bilan darajangiz oshadi. 5 ta do'st taklif qilsangiz, VIP kelajak bashoratlariga ega bo'lasiz!",
+                apkDescText: "Mobil ilovamizni yuklab oling va istalgan joydan kelajak bashoratlariga ega bo'ling. To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud.",
+                downloadApkText: "YUKLASH",
+                bonusDescText: "AIFUT promokodi bilan ro'yxatdan o'ting va VIP kelajak bashoratlariga kirish imkoniyatiga ega bo'ling. Premium tahlillar va yuqori aniqlikdagi bashoratlar.",
+                getBonusText: "BONUS OLISH",
+                inviteFriendsText: "DO'STLARNI TAKLIF QILISH",
+                successPrediction: "✅ Kelajakni bilish qobiliyati olindi!",
+                errorPrediction: "❌ O'yin tugadi.",
+                successBonus: "✅ Bonus olindi!",
+                successInvite: "✅ Do'st taklif qilindi! Darajangiz oshdi!",
+                loading: "⏳ Yuklanmoqda...",
+                winGame: "TABRIKLAYMIZ!",
+                winMessage: "Yutuqni oling!",
+                loseGame: "O'YIN TUGADI",
+                loseMessage: "Keyinroq urinib ko'ring",
+                restartGameText: "QAYTA BOSHLASH",
+                closeGameText: "YOPISH",
+                chooseApple: "🫱 Iltimos, olma tanlang",
+                applesRevealed: "👁️ Olmalar ko'rsatildi",
+                nextStageReady: "👉 Keyingi bosqichga o'tish mumkin",
+                timerTitle: "KEYINGI KELAJAK BASHORATI",
+                timerNote: "VIP bashorat olish uchun yuqoridagi tugmani bosing",
+                idInputLabel: "ID RAQAMINGIZNI KIRITING",
+                idInputHint: "ID raqam tasdiqlang",
+                verifyIdText: "TASDIQLASH",
+                registerInModalText: "RO'YXATDAN O'TISH",
+                idRequired: "⚠️ Iltimos, ID raqamingizni kiriting",
+                idInvalid: "❌ Noto'g'ri ID raqam.",
+                idVerified: "✅ ID raqam tasdiqlandi! Kelajak bashoratini olish mumkin",
+                idExample: "Misol: 12345678901",
+                timerActiveMessage: "Keyingi kelajak bashoratini kutmoqdasiz",
+                timerSubmessage: "Taymer tugagandan so'ng bashorat olish mumkin",
+                changeIdText: "ID o'zgartirish",
+                registerText: "Ro'yxatdan o'tish",
+                changeIdModalTitle: "ID O'ZGARTIRISH",
+                saveNewIdText: "SAQLASH",
+                cancelChangeIdText: "BEKOR QILISH",
+                idChangeSuccess: "✅ ID raqam muvaffaqiyatli o'zgartirildi! Kelajak bashoratini olish mumkin.",
+                registerSuccess: "✅ Muvaffaqiyatli ro'yxatdan o'tdingiz!",
+                vipTimerActionMessage: "Vaqtdan oldin kelajakni bilish",
+                vipTimerActionSubmessage: "VIP bashorat bilan kutish vaqtini o'tkazib yuboring",
+                getVipPredictionEarlyText: "VIP BASHORAT OLISH",
+                inviteForVipSuccess: "✅ Taklif xabari yuborildi! Do'stlaringizni taklif qiling.",
+                vipPredictionUnavailable: "❌ VIP kelajak bashorati olish uchun 5 ta do'st taklif qilishingiz kerak",
+                vipPredictionAvailable: "✅ VIP kelajak bashorati olish mumkin!",
+                registerLinkOpened: "✅ Ro'yxatdan o'tish sahifasi ochildi",
+                timerReset: "✅ Taymer to'xtatildi! Yangi ID bilan kelajak bashoratini olishingiz mumkin.",
+                levelUp: "✅ Darajangiz oshdi! Yangi daraja: ",
                 settingsLanguageTitle: "Tilni o'zgartirish",
                 settingsLanguageDesc: "Dastur tilini tanlash",
-                settingsChangeIdTitle: "ID raqamni o'zgartirish",
+                settingsChangeIdTitle: "ID raqamini o'zgartirish",
                 settingsChangeIdDesc: "ID raqamingizni yangilang",
                 settingsInviteTitle: "Do'stlarni taklif qilish",
                 settingsInviteDesc: "Darajangizni oshiring",
-                settingsGuideTitle: "Ishlatish qo'llanmasi",
+                settingsGuideTitle: "Ishletish qo'llanmasi",
                 settingsGuideDesc: "Qanday ishlatish haqida",
-                guideStep1Title: "1xBet-da ro'yxatdan o'tish",
-                guideStep1Desc: "AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting. Bu sizga signal olish imkoniyatini beradi.",
+                guideStep1Title: "Platformada ro'yxatdan o'tish",
+                guideStep1Desc: "AIFUT promokodi bilan platformamizda ro'yxatdan o'ting. Bu sizga kelajakni bashorat qilish imkoniyatini beradi.",
                 guideStep2Title: "ID raqamni kiritish",
-                guideStep2Desc: "1xBet akkauntingizning ID raqamini kiritib, signal olish o'yiniga kirish.",
-                guideStep3Title: "Signal o'yini",
-                guideStep3Desc: "Butun olmalarni tanlang. Har bir yutuqli bosqich sizga 1xBet uchun signal beradi.",
+                guideStep2Desc: "Akkauntingizning ID raqamini kiritib, kelajakni bashorat qilish o'yiniga kirish.",
+                guideStep3Title: "Kelajakni bashorat qilish o'yini",
+                guideStep3Desc: "Butun olmalarni tanlang. Har bir yutuqli bosqich sizga kelajakni bilish qobiliyatini beradi.",
                 guideStep4Title: "Do'stlarni taklif qilish",
-                guideStep4Desc: "5 ta do'st taklif qiling va VIP signalga ega bo'ling.",
-                guideStep5Title: "1xBet signal olish",
-                guideStep5Desc: "O'yin yutqazilsa, 2 soat kutish kerak. VIP signal bilan kutish vaqtini o'tkazib yuborish mumkin."
+                guideStep4Desc: "5 ta do'st taklif qiling va VIP kelajak bashoratlariga ega bo'ling.",
+                guideStep5Title: "Kelajakni bilish qobiliyatini olish",
+                guideStep5Desc: "O'yin yutqazilsa, 2 soat kutish kerak. VIP bashorat bilan kutish vaqtini o'tkazib yuborish mumkin."
             },
             ru: {
-                languageTitle: "1xBet Signals",
-                languageSubtitle: "Букмекерская платформа",
+                languageTitle: "Предсказание Будущего",
+                languageSubtitle: "Платформа предварительного просмотра",
                 userName: "Пользователь",
+                userLevel: "НОВЫЙ",
                 levelLabel: "УРОВЕНЬ",
                 invitesLabel: "ПРИГЛАШЕНИЯ",
                 accuracyLabel: "ТОЧНОСТЬ",
                 friendsLabel: "ДРУЗЬЯ",
-                registerPromoTitle: "ЗАРЕГИСТРИРУЙТЕСЬ ДЛЯ ПОЛУЧЕНИЯ СИГНАЛОВ",
-                registerPromoDesc: "Зарегистрируйтесь в 1xBet с промокодом AIFUT и получайте высокоточные сигналы",
-                mainRegisterText: "РЕГИСТРАЦИЯ",
-                signalTitle: "СИГНАЛ",
-                signalDesc: "Высокая точность",
+                predictionTitle: "ПРЕДПРОСМОТР",
+                predictionDesc: "Знание будущего",
                 vipTitle: "VIP",
-                vipDesc: "Эксклюзив",
+                vipDesc: "Эксклюзивные возможности",
                 apkTitle: "APK",
                 apkDesc: "Скачать",
                 bonusTitle: "БОНУС",
                 bonusDesc: "Промокоды",
-                vipBannerTitle: "СТАНЬТЕ VIP-УЧАСТНИКОМ",
-                vipBannerDesc: "На 30% больше бонуса",
+                vipBannerTitle: "СТАНЬТЕ VIP",
+                vipBannerDesc: "30% более точных предсказаний",
+                registerPromoTitle: "ДОСТУП К ЗНАНИЮ БУДУЩЕГО",
+                registerPromoDesc: "Зарегистрируйтесь с промокодом AIFUT и получите доступ к высокоточным предсказаниям будущего",
+                mainRegisterText: "РЕГИСТРАЦИЯ",
                 statsTitle: "ЕЖЕДНЕВНАЯ СТАТИСТИКА",
-                navHomeText: "ГЛАВНАЯ",
-                navSignalText: "СИГНАЛ",
-                navVipText: "VIP",
-                navApkText: "APK",
-                navSettingsText: "НАСТРОЙКИ"
+                dailyActive: "АКТИВНЫХ",
+                dailyAvgIncome: "СРЕДНИЙ ДОХОД",
+                profit: "ПРИБЫЛЬ",
+                onlinePlayers: "ОНЛАЙН ИГРОКОВ",
+                gameModalTitle: "ПОЛУЧИТЬ ЗНАНИЕ БУДУЩЕГО",
+                gameSubtitle: "Выбирайте целые яблоки для победы",
+                gameInstruction: "Нажмите кнопку показать яблоки и выберите целые яблоки. На каждом этапе 5 яблок.",
+                gameIdMessage: "Зарегистрируйтесь через промокод AIFUT для получения знания будущего. Введите ваш зарегистрированный ID номер и выбирайте целые яблоки.",
+                revealText: "ПОКАЗАТЬ ЯБЛОКИ",
+                nextStageText: "СЛЕДУЮЩИЙ ЭТАП",
+                vipModalTitle: "VIP ПРЕДСКАЗАНИЕ БУДУЩЕГО",
+                vipMainTitle: "СТАНЬТЕ VIP",
+                vipMainDesc: "30% более точных предсказаний и эксклюзивные привилегии",
+                vipFeature1Title: "30% Более Точные Предсказания",
+                vipFeature1Desc: "На 30% более точные предсказания чем стандартные",
+                vipFeature2Title: "Реальное время",
+                vipFeature2Desc: "Мгновенные уведомления и обновления",
+                vipFeature3Title: "Высокоточные предсказания будущего",
+                vipFeature3Desc: "Глубокий анализ и возможность предварительного просмотра",
+                getVipText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ БУДУЩЕГО",
+                getVipPredictionText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ",
+                getVipPredictionEarlyText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ",
+                inviteForVipTitle: "ДЛЯ ПОЛУЧЕНИЯ VIP ПРЕДСКАЗАНИЯ БУДУЩЕГО",
+                inviteForVipDesc: "Пригласите 5 друзей для получения VIP предсказания будущего. С каждым приглашенным другом ваш уровень повышается. После приглашения 5 друзей вы можете получить VIP предсказание будущего.",
+                inviteForVipBtnText: "ПРИГЛАСИТЬ ДРУЗЕЙ",
+                inviteFriendsValue: "ПОВЫШЕНИЕ УРОВНЯ",
+                inviteFriendsDescText: "С каждым приглашенным другом ваш уровень повышается. После приглашения 5 друзей вы получите VIP предсказание будущего!",
+                apkDescText: "Скачайте наше мобильное приложение и получайте предсказания будущего из любого места. Полная функциональность и удобный интерфейс. Приложение доступно для iOS и Android.",
+                downloadApkText: "СКАЧАТЬ",
+                bonusDescText: "Зарегистрируйтесь с промокодом AIFUT и получите доступ к VIP предсказаниям будущего. Премиум аналитика и высокоточные предсказания.",
+                getBonusText: "ПОЛУЧИТЬ БОНУС",
+                inviteFriendsText: "ПРИГЛАСИТЬ ДРУЗЕЙ",
+                successPrediction: "✅ Знание будущего получено!",
+                errorPrediction: "❌ Игра окончена.",
+                successBonus: "✅ Бонус получен!",
+                successInvite: "✅ Друг приглашен! Ваш уровень повысился!",
+                loading: "⏳ Загрузка...",
+                winGame: "ПОЗДРАВЛЯЕМ!",
+                winMessage: "Получите приз!",
+                loseGame: "ИГРА ОКОНЧЕНА",
+                loseMessage: "Попробуйте позже",
+                restartGameText: "ПЕРЕЗАПУСТИТЬ",
+                closeGameText: "ЗАКРЫТЬ",
+                chooseApple: "🫱 Пожалуйста, выберите яблоко",
+                applesRevealed: "👁️ Яблоки показаны",
+                nextStageReady: "👉 Можно перейти на следующий этап",
+                timerTitle: "СЛЕДУЮЩЕЕ ПРЕДСКАЗАНИЕ БУДУЩЕГО",
+                timerNote: "Нажмите кнопку выше, чтобы получить VIP предсказание",
+                idInputLabel: "ВВЕДИТЕ ВАШ ID НОМЕР",
+                idInputHint: "Подтвердите ID номер",
+                verifyIdText: "ПОДТВЕРДИТЬ",
+                registerInModalText: "РЕГИСТРАЦИЯ",
+                idRequired: "⚠️ Пожалуйста, введите ваш ID номер",
+                idInvalid: "❌ Неверный ID номер.",
+                idVerified: "✅ ID номер подтвержден! Можно получать предсказания будущего",
+                idExample: "Пример: 12345678901",
+                timerActiveMessage: "Вы ждете следующее предсказание будущего",
+                timerSubmessage: "Можно получить предсказание после завершения таймера",
+                changeIdText: "Изменить ID",
+                registerText: "Регистрация",
+                changeIdModalTitle: "ИЗМЕНИТЬ ID",
+                saveNewIdText: "СОХРАНИТЬ",
+                cancelChangeIdText: "ОТМЕНА",
+                idChangeSuccess: "✅ ID номер успешно изменен! Можно получать предсказания будущего.",
+                registerSuccess: "✅ Вы успешно зарегистрировались!",
+                vipTimerActionMessage: "Получить знание будущего раньше времени",
+                vipTimerActionSubmessage: "Пропустите время ожидания с VIP предсказанием",
+                getVipPredictionEarlyText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ",
+                inviteForVipSuccess: "✅ Сообщение приглашения отправлено! Пригласите своих друзей.",
+                vipPredictionUnavailable: "❌ Для получения VIP предсказания будущего нужно пригласить 5 друзей",
+                vipPredictionAvailable: "✅ VIP предсказание будущего доступно!",
+                registerLinkOpened: "✅ Страница регистрации открыта",
+                timerReset: "✅ Таймер остановлен! Вы можете получать предсказания с новым ID.",
+                levelUp: "✅ Ваш уровень повысился! Новый уровень: ",
+                settingsLanguageTitle: "Сменить язык",
+                settingsLanguageDesc: "Выберите язык приложения",
+                settingsChangeIdTitle: "Изменить ID номер",
+                settingsChangeIdDesc: "Обновите ваш ID номер",
+                settingsInviteTitle: "Пригласить друзей",
+                settingsInviteDesc: "Повысьте свой уровень",
+                settingsGuideTitle: "Инструкция по использованию",
+                settingsGuideDesc: "Как пользоваться",
+                guideStep1Title: "Регистрация на платформе",
+                guideStep1Desc: "Зарегистрируйтесь через промокод AIFUT на нашей платформе. Это даст вам возможность получать предсказания будущего.",
+                guideStep2Title: "Ввод ID номера",
+                guideStep2Desc: "Введите ваш зарегистрированный ID номер для входа в игру получения предсказаний будущего.",
+                guideStep3Title: "Игра предсказания будущего",
+                guideStep3Desc: "Выбирайте целые яблоки. Каждый успешный этап дает вам знание будущего.",
+                guideStep4Title: "Приглашение друзей",
+                guideStep4Desc: "Пригласите 5 друзей и получите VIP предсказание будущего.",
+                guideStep5Title: "Получение знания будущего",
+                guideStep5Desc: "Если игра проиграна, нужно ждать 2 часа. С VIP предсказанием можно пропустить время ожидания."
             },
             en: {
-                languageTitle: "1xBet Signals",
-                languageSubtitle: "Bookmaker platform",
+                languageTitle: "Future Prediction",
+                languageSubtitle: "Preview Platform",
                 userName: "User",
+                userLevel: "NEW",
                 levelLabel: "LEVEL",
                 invitesLabel: "INVITES",
                 accuracyLabel: "ACCURACY",
                 friendsLabel: "FRIENDS",
-                registerPromoTitle: "REGISTER TO GET SIGNALS",
-                registerPromoDesc: "Register at 1xBet with AIFUT promo code and get high accuracy signals",
-                mainRegisterText: "REGISTER",
-                signalTitle: "SIGNAL",
-                signalDesc: "High accuracy",
+                predictionTitle: "PREVIEW",
+                predictionDesc: "Knowledge of future",
                 vipTitle: "VIP",
-                vipDesc: "Exclusive",
+                vipDesc: "Exclusive ability",
                 apkTitle: "APK",
                 apkDesc: "Download",
                 bonusTitle: "BONUS",
-                bonusDesc: "Promocodes",
-                vipBannerTitle: "BECOME VIP MEMBER",
-                vipBannerDesc: "30% more bonus",
+                bonusDesc: "Promo codes",
+                vipBannerTitle: "BECOME VIP",
+                vipBannerDesc: "30% more accurate predictions",
+                registerPromoTitle: "ACCESS TO FUTURE KNOWLEDGE",
+                registerPromoDesc: "Register with AIFUT promo code and get access to high accuracy future predictions",
+                mainRegisterText: "REGISTER",
                 statsTitle: "DAILY STATISTICS",
-                navHomeText: "HOME",
-                navSignalText: "SIGNAL",
-                navVipText: "VIP",
-                navApkText: "APK",
-                navSettingsText: "SETTINGS"
+                dailyActive: "DAILY ACTIVE",
+                dailyAvgIncome: "AVG INCOME",
+                profit: "PROFIT",
+                onlinePlayers: "ONLINE PLAYERS",
+                gameModalTitle: "GET FUTURE KNOWLEDGE",
+                gameSubtitle: "Choose whole apples to win",
+                gameInstruction: "Click show apples button and choose whole apples. There are 5 apples at each stage.",
+                gameIdMessage: "Register through AIFUT promo code to get future knowledge. Enter your registered account ID number and choose whole apples.",
+                revealText: "SHOW APPLES",
+                nextStageText: "NEXT PREDICTION",
+                vipModalTitle: "VIP FUTURE PREDICTION",
+                vipMainTitle: "BECOME VIP",
+                vipMainDesc: "30% more accurate predictions and exclusive privileges",
+                vipFeature1Title: "30% More Accuracy",
+                vipFeature1Desc: "30% more accurate predictions than standard ones",
+                vipFeature2Title: "Real-time prediction",
+                vipFeature2Desc: "Instant notifications and updates",
+                vipFeature3Title: "High Accuracy Future Predictions",
+                vipFeature3Desc: "Deep analysis and preview capability",
+                getVipText: "GET VIP FUTURE PREDICTION",
+                getVipPredictionText: "GET VIP PREDICTION",
+                getVipPredictionEarlyText: "GET VIP PREDICTION",
+                inviteForVipTitle: "TO GET VIP FUTURE PREDICTION",
+                inviteForVipDesc: "Invite 5 friends to get VIP future prediction. With each invited friend, your level increases. After inviting 5 friends, you can get VIP future prediction.",
+                inviteForVipBtnText: "INVITE FRIENDS",
+                inviteFriendsValue: "LEVEL UP",
+                inviteFriendsDescText: "With each invited friend, your level increases. After inviting 5 friends, you will get VIP future prediction!",
+                apkDescText: "Download our mobile app and get future predictions from anywhere. Full functionality and convenient interface. App available for iOS and Android.",
+                downloadApkText: "DOWNLOAD",
+                bonusDescText: "Register with AIFUT promo code and get access to VIP future predictions. Premium analytics and high accuracy forecasts.",
+                getBonusText: "GET BONUS",
+                inviteFriendsText: "INVITE FRIENDS",
+                successPrediction: "✅ Future knowledge received!",
+                errorPrediction: "❌ Game over.",
+                successBonus: "✅ Bonus received!",
+                successInvite: "✅ Friend invited! Your level increased!",
+                loading: "⏳ Loading...",
+                winGame: "CONGRATULATIONS!",
+                winMessage: "Get your prize!",
+                loseGame: "GAME OVER",
+                loseMessage: "Try again later",
+                restartGameText: "RESTART GAME",
+                closeGameText: "CLOSE",
+                chooseApple: "🫱 Please choose an apple",
+                applesRevealed: "👁️ Apples revealed",
+                nextStageReady: "👉 Can go to next stage",
+                timerTitle: "NEXT FUTURE PREDICTION",
+                timerNote: "Click button above to get VIP prediction",
+                idInputLabel: "ENTER YOUR ID NUMBER",
+                idInputHint: "Confirm ID number",
+                verifyIdText: "VERIFY",
+                registerInModalText: "REGISTER",
+                idRequired: "⚠️ Please enter your ID number",
+                idInvalid: "❌ Invalid ID number.",
+                idVerified: "✅ ID number verified! Can get future predictions now",
+                idExample: "Example: 12345678901",
+                timerActiveMessage: "Waiting for next future prediction",
+                timerSubmessage: "You can get prediction after timer ends",
+                changeIdText: "Change ID",
+                registerText: "Register",
+                changeIdModalTitle: "CHANGE ID",
+                saveNewIdText: "SAVE",
+                cancelChangeIdText: "CANCEL",
+                idChangeSuccess: "✅ ID number changed successfully! You can get future predictions now.",
+                registerSuccess: "✅ Registration successful!",
+                vipTimerActionMessage: "Get future knowledge before time",
+                vipTimerActionSubmessage: "Skip waiting time with VIP prediction",
+                getVipPredictionEarlyText: "GET VIP PREDICTION",
+                inviteForVipSuccess: "✅ Invitation message sent! Invite your friends.",
+                vipPredictionUnavailable: "❌ To get VIP future prediction, you need to invite 5 friends",
+                vipPredictionAvailable: "✅ VIP future prediction available!",
+                registerLinkOpened: "✅ Registration page opened",
+                timerReset: "✅ Timer stopped! You can get future predictions with new ID.",
+                levelUp: "✅ Your level increased! New level: ",
+                settingsLanguageTitle: "Change Language",
+                settingsLanguageDesc: "Select app language",
+                settingsChangeIdTitle: "Change ID Number",
+                settingsChangeIdDesc: "Update your ID number",
+                settingsInviteTitle: "Invite Friends",
+                settingsInviteDesc: "Increase your level",
+                settingsGuideTitle: "User Guide",
+                settingsGuideDesc: "How to use",
+                guideStep1Title: "Register on platform",
+                guideStep1Desc: "Register through AIFUT promo code on our platform. This gives you the opportunity to get future predictions.",
+                guideStep2Title: "Enter ID Number",
+                guideStep2Desc: "Enter your registered ID number to enter the future prediction game.",
+                guideStep3Title: "Future Prediction Game",
+                guideStep3Desc: "Choose whole apples. Each successful stage gives you future knowledge.",
+                guideStep4Title: "Invite Friends",
+                guideStep4Desc: "Invite 5 friends and get VIP future prediction.",
+                guideStep5Title: "Get Future Knowledge",
+                guideStep5Desc: "If the game is lost, you need to wait 2 hours. With VIP prediction you can skip waiting time."
             },
             ar: {
-                languageTitle: "1xBet Signals",
-                languageSubtitle: "منصة المراهنات",
-                userName: "مستخدم",
+                languageTitle: "توقع المستقبل",
+                languageSubtitle: "منصة المعاينة",
+                userName: "المستخدم",
+                userLevel: "جديد",
                 levelLabel: "المستوى",
                 invitesLabel: "الدعوات",
                 accuracyLabel: "الدقة",
                 friendsLabel: "الأصدقاء",
-                registerPromoTitle: "سجل للحصول على الإشارات",
-                registerPromoDesc: "سجل في 1xBet مع الرمز الترويجي AIFUT واحصل على إشارات عالية الدقة",
-                mainRegisterText: "تسجيل",
-                signalTitle: "إشارة",
-                signalDesc: "دقة عالية",
+                predictionTitle: "معاينة مسبقة",
+                predictionDesc: "معرفة المستقبل",
                 vipTitle: "VIP",
-                vipDesc: "حصري",
+                vipDesc: "قدرة حصرية",
                 apkTitle: "APK",
                 apkDesc: "تحميل",
                 bonusTitle: "مكافأة",
                 bonusDesc: "رموز ترويجية",
-                vipBannerTitle: "كن عضو VIP",
-                vipBannerDesc: "30٪ مكافأة أكثر",
+                vipBannerTitle: "كن VIP",
+                vipBannerDesc: "30٪ تنبؤات أكثر دقة",
+                registerPromoTitle: "الوصول إلى معرفة المستقبل",
+                registerPromoDesc: "سجل باستخدام الرمز الترويجي AIFUT واحصل على تنبؤات مستقبلية عالية الدقة",
+                mainRegisterText: "تسجيل",
                 statsTitle: "الإحصائيات اليومية",
-                navHomeText: "الرئيسية",
-                navSignalText: "إشارة",
-                navVipText: "VIP",
-                navApkText: "APK",
-                navSettingsText: "الإعدادات"
+                dailyActive: "نشط يوميًا",
+                dailyAvgIncome: "متوسط الدخل",
+                profit: "الربح",
+                onlinePlayers: "اللاعبون عبر الإنترنت",
+                gameModalTitle: "الحصول على معرفة المستقبل",
+                gameSubtitle: "اختر التفاح الكامل للفوز",
+                gameInstruction: "انقر على زر عرض التفاح واختر التفاح الكامل. هناك 5 تفاحات في كل مرحلة.",
+                gameIdMessage: "سجل باستخدام الرمز الترويجي AIFUT للحصول على معرفة المستقبل. أدخل رقم هوية حسابك المسجل واختر التفاح الكامل.",
+                revealText: "عرض التفاح",
+                nextStageText: "التنبؤ التالي",
+                vipModalTitle: "تنبؤ مستقبلي VIP",
+                vipMainTitle: "كن VIP",
+                vipMainDesc: "30٪ تنبؤات أكثر دقة وامتيازات حصرية",
+                vipFeature1Title: "30٪ دقة أكثر",
+                vipFeature1Desc: "30٪ تنبؤات أكثر دقة من التنبؤات القياسية",
+                vipFeature2Title: "تنبؤ في الوقت الحقيقي",
+                vipFeature2Desc: "إشعارات وتحديثات فورية",
+                vipFeature3Title: "تنبؤات مستقبلية عالية الدقة",
+                vipFeature3Desc: "تحليل عميق وإمكانية المعاينة",
+                getVipText: "الحصول على تنبؤ مستقبلي VIP",
+                getVipPredictionText: "الحصول على تنبؤ VIP",
+                getVipPredictionEarlyText: "الحصول على تنبؤ VIP",
+                inviteForVipTitle: "للحصول على تنبؤ مستقبلي VIP",
+                inviteForVipDesc: "قم بدعوة 5 أصدقاء للحصول على تنبؤ مستقبلي VIP. مع كل صديق مدعو، يرتفع مستواك. بعد دعوة 5 أصدقاء، يمكنك الحصول على تنبؤ مستقبلي VIP.",
+                inviteForVipBtnText: "دعوة الأصدقاء",
+                inviteFriendsValue: "رفع المستوى",
+                inviteFriendsDescText: "مع كل صديق مدعو، يرتفع مستواك. بعد دعوة 5 أصدقاء، ستحصل على تنبؤ مستقبلي VIP!",
+                apkDescText: "قم بتنزيل تطبيقنا المحمول واحصل على تنبؤات مستقبلية من أي مكان. وظائف كاملة وواجهة مريحة. التطبيق متاح لنظامي iOS و Android.",
+                downloadApkText: "تحميل",
+                bonusDescText: "سجل باستخدام الرمز الترويجي AIFUT واحصل على الوصول إلى تنبؤات مستقبلية VIP. تحليلات متميزة وتنبؤات عالية الدقة.",
+                getBonusText: "الحصول على مكافأة",
+                inviteFriendsText: "دعوة الأصدقاء",
+                successPrediction: "✅ تم استلام معرفة المستقبل!",
+                errorPrediction: "❌ انتهت اللعبة.",
+                successBonus: "✅ تم استلام المكافأة!",
+                successInvite: "✅ تمت دعوة الصديق! ارتفع مستواك!",
+                loading: "⏳ جاري التحميل...",
+                winGame: "مبروك!",
+                winMessage: "احصل على جائزتك!",
+                loseGame: "انتهت اللعبة",
+                loseMessage: "حاول مرة أخرى لاحقًا",
+                restartGameText: "إعادة التشغيل",
+                closeGameText: "إغلاق",
+                chooseApple: "🫱 الرجاء اختيار تفاحة",
+                applesRevealed: "👁️ تم عرض التفاح",
+                nextStageReady: "👉 يمكن الانتقال إلى المرحلة التالية",
+                timerTitle: "التنبؤ المستقبلي التالي",
+                timerNote: "انقر على الزر أعلاه للحصول على تنبؤ VIP",
+                idInputLabel: "أدخل رقم معرفك",
+                idInputHint: "تأكيد رقم الهوية",
+                verifyIdText: "تأكيد",
+                registerInModalText: "التسجيل",
+                idRequired: "⚠️ يرجى إدخال رقم معرفك",
+                idInvalid: "❌ رقم معرف غير صالح.",
+                idVerified: "✅ تم التحقق من رقم المعرف! يمكنك الحصول على تنبؤات مستقبلية الآن",
+                idExample: "مثال: 12345678901",
+                timerActiveMessage: "في انتظار التنبؤ المستقبلي التالي",
+                timerSubmessage: "يمكنك الحصول على تنبؤ بعد انتهاء المؤقت",
+                changeIdText: "تغيير المعرف",
+                registerText: "تسجيل",
+                changeIdModalTitle: "تغيير المعرف",
+                saveNewIdText: "حفظ",
+                cancelChangeIdText: "إلغاء",
+                idChangeSuccess: "✅ تم تغيير رقم المعرف بنجاح! يمكنك الحصول على تنبؤات مستقبلية الآن.",
+                registerSuccess: "✅ تم التسجيل بنجاح!",
+                vipTimerActionMessage: "احصل على معرفة المستقبل قبل الوقت",
+                vipTimerActionSubmessage: "تخطى وقت الانتظار مع تنبؤ VIP",
+                getVipPredictionEarlyText: "الحصول على تنبؤ VIP",
+                inviteForVipSuccess: "✅ تم إرسال رسالة الدعوة! قم بدعوة أصدقائك.",
+                vipPredictionUnavailable: "❌ للحصول على تنبؤ مستقبلي VIP، تحتاج إلى دعوة 5 أصدقاء",
+                vipPredictionAvailable: "✅ تنبؤ مستقبلي VIP متاح!",
+                registerLinkOpened: "✅ تم فتح صفحة التسجيل",
+                timerReset: "✅ تم إيقاف المؤقت! يمكنك الحصول على تنبؤات مستقبلية بالمعرف الجديد.",
+                levelUp: "✅ ارتفع مستواك! المستوى الجديد: ",
+                settingsLanguageTitle: "تغيير اللغة",
+                settingsLanguageDesc: "اختر لغة التطبيق",
+                settingsChangeIdTitle: "تغيير رقم الهوية",
+                settingsChangeIdDesc: "قم بتحديث رقم هويتك",
+                settingsInviteTitle: "دعوة الأصدقاء",
+                settingsInviteDesc: "ارفع مستواك",
+                settingsGuideTitle: "دليل المستخدم",
+                settingsGuideDesc: "كيفية الاستخدام",
+                guideStep1Title: "التسجيل في المنصة",
+                guideStep1Desc: "سجل في منصتنا من خلال الرمز الترويجي AIFUT. هذا يمنحك فرصة للحصول على تنبؤات مستقبلية.",
+                guideStep2Title: "إدخال رقم الهوية",
+                guideStep2Desc: "أدخل رقم هويتك المسجل للدخول إلى لعبة التنبؤات المستقبلية.",
+                guideStep3Title: "لعبة توقع المستقبل",
+                guideStep3Desc: "اختر التفاح الكامل. كل مرحلة ناجحة تمنحك معرفة مستقبلية.",
+                guideStep4Title: "دعوة الأصدقاء",
+                guideStep4Desc: "ادعُ 5 أصدقاء واحصل على تنبؤ مستقبلي VIP.",
+                guideStep5Title: "الحصول على معرفة المستقبل",
+                guideStep5Desc: "إذا خسرت اللعبة، يجب أن تنتظر ساعتين. مع تنبؤ VIP يمكنك تخطي وقت الانتظار."
             }
         };
 
-        let currentLang = localStorage.getItem('xbetSignalsLang') || 'uz';
+        let currentLang = localStorage.getItem('futurePredictionLang') || 'uz';
         let userData = {
             level: "YANGI",
             invites: 0,
@@ -3195,34 +2891,22 @@
             userId: null
         };
 
-        // ==================== ILOVANI ISHGA TUSHIRISH ====================
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM yuklandi, ilova boshlanmoqda...');
             initApp();
         });
 
         function initApp() {
-            console.log('Ilova ishga tushirilmoqda...');
-            
-            // PWA Manifestni sozlash
-            setupManifest();
-            
-            // Muhitni aniqlash
-            const env = detectEnvironment();
-            isStandalone = env.isStandalone;
-            
-            // Ma'lumotlarni yuklash
-            const savedData = localStorage.getItem('xbetSignalsData');
+            const savedData = localStorage.getItem('futurePredictionData');
             if (savedData) {
                 userData = JSON.parse(savedData);
             }
 
-            const savedStats = localStorage.getItem('xbetSignalsStats');
+            const savedStats = localStorage.getItem('futurePredictionStats');
             if (savedStats) {
                 dailyStats = JSON.parse(savedStats);
             }
 
-            const savedTimer = localStorage.getItem('xbetSignalsTimer');
+            const savedTimer = localStorage.getItem('futurePredictionTimer');
             if (savedTimer) {
                 gameState.timerEndTime = parseInt(savedTimer);
                 const now = Date.now();
@@ -3232,12 +2916,12 @@
                 }
             }
 
-            const savedIdVerified = localStorage.getItem('xbetSignalsIdVerified');
+            const savedIdVerified = localStorage.getItem('futurePredictionIdVerified');
             if (savedIdVerified === 'true') {
                 gameState.idVerified = true;
             }
 
-            const savedUserId = localStorage.getItem('xbetSignalsUserId');
+            const savedUserId = localStorage.getItem('futurePredictionUserId');
             if (savedUserId) {
                 gameState.userId = savedUserId;
                 updateUserIdDisplay();
@@ -3245,481 +2929,313 @@
 
             setupListeners();
             
-            // Til avval tanlangan bo'lsa
-            if (localStorage.getItem('xbetSignalsLang')) {
-                console.log('Til avval tanlangan, asosiy sahifaga o\'tilmoqda...');
+            if (localStorage.getItem('futurePredictionLang')) {
                 selectLanguage(currentLang);
             } else {
-                console.log('Til tanlanmagan, til tanlash ekrani ko\'rsatilmoqda...');
                 document.getElementById('languageSelector').style.display = 'flex';
             }
             
             updateDailyStats();
-            updateUserData();
-            
-            // Telegram banner va float button
-            manageTelegramBanner();
-            addTelegramFloatButton();
-            
-            // URL parametrlarini tekshirish
-            checkUrlParams();
-            
-            console.log('Ilova muvaffaqiyatli ishga tushirildi');
-        }
-
-        function checkUrlParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const external = urlParams.get('external');
-            
-            if (external === 'true') {
-                showToast('Brauzerda ochildi. Endi ilovani ekraningizga qo\'shishingiz mumkin!', 'success');
-                
-                // URL dan parametrni olib tashlash
-                if (window.history.replaceState) {
-                    const newUrl = window.location.pathname;
-                    window.history.replaceState({}, document.title, newUrl);
-                }
-            }
         }
 
         function setupListeners() {
-            console.log('Event listenerlar o\'rnatilmoqda...');
-            
-            // Til tanlash
             document.querySelectorAll('.lang-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
-                    console.log('Til tanlandi:', lang);
                     selectLanguage(lang);
                 });
             });
 
-            // Navigation - event delegation
-            document.addEventListener('click', function(event) {
-                // Nav item bosilganda
-                const navItem = event.target.closest('.nav-item');
-                if (navItem) {
-                    const page = navItem.getAttribute('data-page');
-                    if (page) {
-                        event.preventDefault();
-                        showPage(page);
-                        return;
-                    }
-                }
-                
-                // Page back bosilganda
-                const pageBack = event.target.closest('.page-back');
-                if (pageBack) {
-                    const page = pageBack.getAttribute('data-page');
-                    if (page) {
-                        event.preventDefault();
-                        showPage(page);
-                        return;
-                    }
-                }
-                
-                // Settings btn bosilganda
-                if (event.target.closest('#settingsBtn')) {
-                    event.preventDefault();
-                    showPage('settings');
-                    return;
-                }
-            });
+            document.getElementById('settingsBtn').addEventListener('click', () => showPage('settingsPage'));
 
-            // Quick actions
-            document.getElementById('signalBtn').addEventListener('click', () => {
-                console.log('Signal tugmasi bosildi');
-                if (!gameState.idVerified) {
-                    showIdVerificationModal();
-                } else {
-                    showPage('signal');
-                }
-            });
+            document.getElementById('navHome').addEventListener('click', () => showPage('mainContainer'));
+            document.getElementById('navPrediction').addEventListener('click', () => showGameModal());
+            document.getElementById('navVip').addEventListener('click', () => showVipModal());
+            document.getElementById('navApk').addEventListener('click', () => showPage('apkPage'));
+            document.getElementById('navSettings').addEventListener('click', () => showPage('settingsPage'));
 
-            document.getElementById('vipBtn').addEventListener('click', () => {
-                console.log('VIP tugmasi bosildi');
-                showPage('vip');
-            });
+            document.getElementById('navHome2').addEventListener('click', () => showPage('mainContainer'));
+            document.getElementById('navPrediction2').addEventListener('click', () => showGameModal());
+            document.getElementById('navVip2').addEventListener('click', () => showVipModal());
+            document.getElementById('navApk2').addEventListener('click', () => showPage('apkPage'));
+            document.getElementById('navSettings2').addEventListener('click', () => showPage('settingsPage'));
 
-            document.getElementById('apkBtn').addEventListener('click', () => {
-                console.log('APK tugmasi bosildi');
-                showPage('apk');
-            });
+            document.getElementById('navHome3').addEventListener('click', () => showPage('mainContainer'));
+            document.getElementById('navPrediction3').addEventListener('click', () => showGameModal());
+            document.getElementById('navVip3').addEventListener('click', () => showVipModal());
+            document.getElementById('navApk3').addEventListener('click', () => showPage('apkPage'));
+            document.getElementById('navSettings3').addEventListener('click', () => showPage('settingsPage'));
 
-            document.getElementById('bonusBtn').addEventListener('click', () => {
-                console.log('Bonus tugmasi bosildi');
-                showPage('vip');
-            });
+            document.getElementById('navHome4').addEventListener('click', () => showPage('mainContainer'));
+            document.getElementById('navPrediction4').addEventListener('click', () => showGameModal());
+            document.getElementById('navVip4').addEventListener('click', () => showVipModal());
+            document.getElementById('navApk4').addEventListener('click', () => showPage('apkPage'));
+            document.getElementById('navSettings4').addEventListener('click', () => showPage('settingsPage'));
 
-            // VIP banner
-            document.getElementById('vipBanner').addEventListener('click', () => {
-                console.log('VIP banner bosildi');
-                showPage('vip');
-            });
+            document.getElementById('predictionBtn').addEventListener('click', () => showGameModal());
+            document.getElementById('vipBtn').addEventListener('click', () => showVipModal());
+            document.getElementById('vipBanner').addEventListener('click', () => showVipModal());
+            document.getElementById('apkBtn').addEventListener('click', () => showPage('apkPage'));
+            document.getElementById('bonusBtn').addEventListener('click', () => showPage('bonusPage'));
 
-            // Ro'yxatdan o'tish tugmasi
-            document.getElementById('mainRegisterBtn').addEventListener('click', () => {
-                window.open('https://1xbet.com', '_blank');
-            });
+            document.getElementById('mainRegisterBtn').addEventListener('click', registerUser);
 
-            // Signal sahifasidagi o'yinni boshlash
-            const startGameBtn = document.getElementById('startGameBtn');
-            if (startGameBtn) {
-                startGameBtn.addEventListener('click', startGame);
-            }
+            document.getElementById('backFromApk').addEventListener('click', () => showPage('mainContainer'));
+            document.getElementById('backFromBonus').addEventListener('click', () => showPage('mainContainer'));
+            document.getElementById('backFromSettings').addEventListener('click', () => showPage('mainContainer'));
 
-            // Sozlamalar tugmalari
+            document.getElementById('closeGameModal').addEventListener('click', () => closeModal('gameModal'));
+            document.getElementById('closeVipModal').addEventListener('click', () => closeModal('vipModal'));
+            document.getElementById('closeChangeIdModal').addEventListener('click', () => closeModal('changeIdModal'));
+
             document.getElementById('settingsLanguage').addEventListener('click', () => {
                 document.getElementById('languageSelector').style.display = 'flex';
+                document.getElementById('settingsPage').classList.remove('active');
             });
-
-            document.getElementById('settingsChangeId').addEventListener('click', () => {
-                document.getElementById('changeIdModal').classList.add('active');
-            });
-
+            
+            document.getElementById('settingsChangeId').addEventListener('click', showChangeIdModal);
             document.getElementById('settingsInvite').addEventListener('click', () => {
-                showToast('Do\'stlarni taklif qilish funksiyasi tez orada ishga tushadi!', 'info');
+                showPage('bonusPage');
             });
-
+            
             document.getElementById('settingsGuide').addEventListener('click', () => {
                 const guideContainer = document.getElementById('guideContainer');
-                guideContainer.style.display = guideContainer.style.display === 'block' ? 'none' : 'block';
-            });
-
-            // Modal yopish
-            document.querySelectorAll('.modal-close').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    this.closest('.modal-overlay').classList.remove('active');
-                });
-            });
-
-            // ID saqlash
-            const saveUserIdBtn = document.getElementById('saveUserIdBtn');
-            if (saveUserIdBtn) {
-                saveUserIdBtn.addEventListener('click', saveUserId);
-            }
-
-            // PWA install
-            document.getElementById('installBtn').addEventListener('click', installApp);
-            document.getElementById('closeInstallBtn').addEventListener('click', hideInstallPrompt);
-
-            // Settingsdagi ilova o'rnatish
-            document.getElementById('settingsInstall').addEventListener('click', () => {
-                const env = detectEnvironment();
-                if (env.isTelegram) {
-                    openInBrowser();
-                } else if (deferredPrompt && !isStandalone) {
-                    installApp();
+                if (guideContainer.style.display === 'none') {
+                    guideContainer.style.display = 'block';
                 } else {
-                    showToast('Ilova allaqachon o\'rnatilgan yoki brauzeringiz PWA ni qo\'llab-quvvatlamaydi', 'info');
+                    guideContainer.style.display = 'none';
                 }
             });
 
-            // Telegram uchun brauzerda ochish
-            document.getElementById('settingsOpenInBrowser').addEventListener('click', () => {
-                openInBrowser();
+            document.getElementById('saveNewIdBtn').addEventListener('click', saveNewId);
+            document.getElementById('cancelChangeIdBtn').addEventListener('click', () => closeModal('changeIdModal'));
+
+            document.getElementById('verifyIdBtn').addEventListener('click', verifyId);
+            document.getElementById('registerInModalBtn').addEventListener('click', registerUser);
+            document.getElementById('revealApplesBtn').addEventListener('click', revealApples);
+            document.getElementById('nextStageBtn').addEventListener('click', nextStage);
+            document.getElementById('restartGameBtn').addEventListener('click', restartGame);
+            document.getElementById('closeGameBtn').addEventListener('click', () => closeModal('gameModal'));
+            document.getElementById('getVipPredictionBtn').addEventListener('click', getVipPrediction);
+            document.getElementById('getVipPredictionEarlyBtn').addEventListener('click', getVipPredictionEarly);
+
+            document.getElementById('inviteForVipBtn').addEventListener('click', inviteForVip);
+            document.getElementById('getVipBtn').addEventListener('click', getVip);
+
+            document.getElementById('userIdInput').addEventListener('input', validateIdInput);
+            document.getElementById('userIdInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    verifyId();
+                }
             });
 
-            // VIP sotib olish
-            const getVipBtn = document.getElementById('getVipBtn');
-            if (getVipBtn) {
-                getVipBtn.addEventListener('click', () => {
-                    document.getElementById('vipModal').classList.add('active');
-                });
-            }
+            document.getElementById('newUserIdInput').addEventListener('input', validateNewIdInput);
 
-            const buyVipBtn = document.getElementById('buyVipBtn');
-            if (buyVipBtn) {
-                buyVipBtn.addEventListener('click', () => {
-                    showToast('VIP paket tez orada mavjud bo\'ladi!', 'info');
-                });
-            }
-
-            // APK yuklash
-            const downloadApkBtn = document.getElementById('downloadApkBtn');
-            if (downloadApkBtn) {
-                downloadApkBtn.addEventListener('click', () => {
-                    window.open('https://1xbet.com/mobile/', '_blank');
-                });
-            }
+            document.getElementById('downloadApkBtn').addEventListener('click', downloadApk);
+            document.getElementById('getBonusBtn').addEventListener('click', getBonus);
+            document.getElementById('inviteFriendsBtn').addEventListener('click', inviteFriends);
             
-            // User ID input uchun enter tugmasi
-            const userIdInput = document.getElementById('userIdInput');
-            if (userIdInput) {
-                userIdInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        saveUserId();
-                    }
-                });
-            }
-            
-            console.log('Barcha event listenerlar muvaffaqiyatli o\'rnatildi');
+            updateVipButtonState();
         }
 
         function selectLanguage(lang) {
-            console.log('Til tanlandi:', lang);
             currentLang = lang;
-            localStorage.setItem('xbetSignalsLang', lang);
-            
-            // Tarjimalarni qo'llash
+            localStorage.setItem('futurePredictionLang', lang);
+            document.getElementById('languageSelector').style.display = 'none';
+            updateTranslations(lang);
+            showPage('mainContainer');
+        }
+
+        function updateTranslations(lang) {
             const t = translations[lang];
-            
-            Object.keys(t).forEach(key => {
+            for (const key in t) {
                 const element = document.getElementById(key);
                 if (element) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = t[key];
-                    } else {
-                        element.textContent = t[key];
-                    }
+                    element.textContent = t[key];
                 }
-            });
-            
-            // Til tanlovchi ekranni yashirish va asosiy sahifani ko'rsatish
-            document.getElementById('languageSelector').style.display = 'none';
-            showPage('main');
-            
-            // Foydalanuvchi ma'lumotlarini yangilash
-            updateUserData();
+            }
+            updateVipProgress();
             updateDailyStats();
-            
-            console.log('Til muvaffaqiyatli o\'zgartirildi');
+            updateUI();
         }
 
-        function showPage(pageName) {
-            console.log('Sahifa ko\'rsatilmoqda:', pageName);
-            
-            // Barcha sahifalarni yashirish
-            document.querySelectorAll('.main-container, .page-container').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Barcha nav itemlarni faollikni olib tashlash
-            document.querySelectorAll('.nav-item').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            // Kerakli sahifani ko'rsatish
-            let activePage = null;
-            
-            switch(pageName) {
-                case 'main':
-                    activePage = document.getElementById('mainContainer');
-                    break;
-                case 'signal':
-                    activePage = document.getElementById('signalPage');
-                    checkTimer();
-                    break;
-                case 'vip':
-                    activePage = document.getElementById('vipPage');
-                    break;
-                case 'apk':
-                    activePage = document.getElementById('apkPage');
-                    break;
-                case 'settings':
-                    activePage = document.getElementById('settingsPage');
-                    break;
-            }
-            
-            if (activePage) {
-                activePage.classList.add('active');
-                
-                // Kerakli nav itemni faollashtirish
-                const navItem = activePage.querySelector(`.nav-item[data-page="${pageName}"]`);
-                if (navItem) {
-                    navItem.classList.add('active');
-                }
-            }
-            
-            // Modalarni yopish
-            document.querySelectorAll('.modal-overlay').forEach(modal => {
-                modal.classList.remove('active');
-            });
-            
-            console.log('Sahifa muvaffaqiyatli o\'zgartirildi');
-            
-            // Telegram float buttonini yangilash
-            addTelegramFloatButton();
-        }
-
-        function updateUserData() {
-            console.log('Foydalanuvchi ma\'lumotlari yangilanmoqda...');
+        function updateUI() {
             document.getElementById('level').textContent = userData.level;
             document.getElementById('invites').textContent = userData.invites;
-            document.getElementById('accuracy').textContent = userData.accuracy + '%';
+            document.getElementById('accuracy').textContent = `${userData.accuracy}%`;
             document.getElementById('friends').textContent = userData.friends;
-            document.getElementById('userLevel').textContent = userData.level;
-            
-            // User ID display
-            if (gameState.userId) {
-                document.getElementById('userIdDisplay').textContent = 'ID: ' + gameState.userId;
-                document.getElementById('vipUserId').textContent = 'ID: ' + gameState.userId;
-            }
-            
-            // VIP holatini tekshirish
-            if (userData.vipAvailable) {
-                document.getElementById('userLevel').textContent = 'VIP';
-                document.getElementById('userLevel').style.background = '#ffcc00';
-                document.getElementById('userLevel').style.color = '#000';
-            }
-            
-            console.log('Foydalanuvchi ma\'lumotlari yangilandi');
+            updateUserIdDisplay();
+            updateUserLevel();
+            updateVipProgress();
         }
 
         function updateDailyStats() {
-            console.log('Kunlik statistika yangilanmoqda...');
             const statsGrid = document.getElementById('statsGrid');
-            if (statsGrid) {
-                statsGrid.innerHTML = `
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-card-title">FAOL FOYDALANUVCHILAR</div>
+            if (!statsGrid) return;
+            const t = translations[currentLang];
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <div class="stat-card-value">${dailyStats.activeUsers}</div>
-                        <div class="stat-card-label">bugun</div>
+                        <div class="stat-card-title">${t.dailyActive}</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-card-title">O'RTACHA DAROMAD</div>
+                    <div class="stat-card-value">${dailyStats.activeUsers.toLocaleString()}</div>
+                    <div class="stat-card-label">AZOLAR</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-money-bill-wave"></i>
                         </div>
-                        <div class="stat-card-value">${dailyStats.avgIncome}$</div>
-                        <div class="stat-card-label">har bir foydalanuvchi uchun</div>
+                        <div class="stat-card-title">${t.dailyAvgIncome}</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-coins"></i>
-                            </div>
-                            <div class="stat-card-title">FOYDALILIK</div>
+                    <div class="stat-card-value">$${dailyStats.avgIncome}</div>
+                    <div class="stat-card-label">KUNLIK</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-card-value">${dailyStats.profit}%</div>
-                        <div class="stat-card-label">signal aniqligi</div>
+                        <div class="stat-card-title">${t.profit}</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-card-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <div class="stat-card-title">ONLAYN O'YINCHILAR</div>
+                    <div class="stat-card-value">${dailyStats.profit}%</div>
+                    <div class="stat-card-label">FOYDA</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <div class="stat-icon">
+                            <i class="fas fa-gamepad"></i>
                         </div>
-                        <div class="stat-card-value">${dailyStats.onlinePlayers}</div>
-                        <div class="stat-card-label">hozir onlayn</div>
+                        <div class="stat-card-title">${t.onlinePlayers}</div>
                     </div>
-                `;
-                console.log('Kunlik statistika yangilandi');
-            }
-        }
-
-        function showToast(message, type = 'info') {
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.textContent = message;
-            document.getElementById('toastContainer').appendChild(toast);
-            
-            setTimeout(() => {
-                toast.remove();
-            }, 3000);
+                    <div class="stat-card-value">${dailyStats.onlinePlayers}</div>
+                    <div class="stat-card-label">players now</div>
+                </div>
+            `;
         }
 
         function updateUserIdDisplay() {
+            const idDisplay = document.getElementById('userIdDisplay');
+            const modalIdDisplay = document.getElementById('modalUserIdDisplay');
             if (gameState.userId) {
-                document.getElementById('userIdDisplay').textContent = 'ID: ' + gameState.userId;
-                document.getElementById('vipUserId').textContent = 'ID: ' + gameState.userId;
-            }
-        }
-
-        function saveUserId() {
-            const userIdInput = document.getElementById('userIdInput');
-            const userId = userIdInput.value.trim();
-            
-            if (userId.length === 11 && /^\d+$/.test(userId)) {
-                gameState.userId = userId;
-                gameState.idVerified = true;
-                localStorage.setItem('xbetSignalsUserId', userId);
-                localStorage.setItem('xbetSignalsIdVerified', 'true');
-                
-                updateUserIdDisplay();
-                document.getElementById('changeIdModal').classList.remove('active');
-                showToast('ID raqam muvaffaqiyatli saqlandi!', 'success');
+                const formattedId = gameState.userId.replace(/(\d{4})(?=\d)/g, '$1 ');
+                if (idDisplay) idDisplay.textContent = `ID: ${formattedId}`;
+                if (modalIdDisplay) modalIdDisplay.textContent = `ID: ${formattedId}`;
             } else {
-                showToast('Iltimos, to\'g\'ri ID raqam kiriting (11 ta raqam)', 'error');
-                userIdInput.classList.add('invalid');
-                setTimeout(() => {
-                    userIdInput.classList.remove('invalid');
-                }, 2000);
+                if (idDisplay) idDisplay.textContent = `ID: 12345678901`;
+                if (modalIdDisplay) modalIdDisplay.textContent = `ID: 12345678901`;
             }
         }
 
-        function showIdVerificationModal() {
-            document.getElementById('changeIdModal').classList.add('active');
-        }
-
-        function checkTimer() {
-            const timerElement = document.getElementById('nextSignalTimer');
-            if (gameState.timerRunning && gameState.timerEndTime) {
-                timerElement.style.display = 'block';
-                startTimer();
+        function updateUserLevel() {
+            const userLevelElement = document.getElementById('userLevel');
+            const levelValueElement = document.getElementById('level');
+            if (!userLevelElement || !levelValueElement) return;
+            let levelText = '';
+            if (userData.invitedFriends >= 5) {
+                levelText = "VIP";
+                userData.vipAvailable = true;
+                userData.level = "VIP";
+            } else if (userData.invitedFriends >= 3) {
+                levelText = "ORTA";
+                userData.level = "ORTA";
+            } else if (userData.invitedFriends >= 1) {
+                levelText = "BOSHLANG'ICH";
+                userData.level = "BOSHLANG'ICH";
             } else {
-                timerElement.style.display = 'none';
+                levelText = "YANGI";
+                userData.level = "YANGI";
+            }
+            userLevelElement.textContent = levelText;
+            userLevelElement.style.background = "linear-gradient(135deg, var(--primary), var(--secondary))";
+            levelValueElement.textContent = levelText;
+            userData.invites = userData.invitedFriends;
+        }
+
+        function updateVipProgress() {
+            const invitedCount = document.getElementById('invitedCount');
+            if (invitedCount) invitedCount.textContent = userData.invitedFriends;
+            const progressItems = document.querySelectorAll('.invite-progress-item');
+            progressItems.forEach((item, index) => {
+                const itemNumber = parseInt(item.textContent);
+                if (itemNumber <= userData.invitedFriends) {
+                    item.classList.add('completed');
+                    item.classList.remove('active');
+                } else if (itemNumber === userData.invitedFriends + 1) {
+                    item.classList.add('active');
+                    item.classList.remove('completed');
+                } else {
+                    item.classList.remove('active', 'completed');
+                }
+            });
+            updateVipButtonState();
+        }
+
+        function updateVipButtonState() {
+            const getVipBtn = document.getElementById('getVipBtn');
+            if (getVipBtn) {
+                if (userData.invitedFriends >= 5) {
+                    getVipBtn.disabled = false;
+                    getVipBtn.innerHTML = '<i class="fas fa-crown"></i> <span id="getVipText">VIP KELAJAK BASHORATI OLISH</span>';
+                } else {
+                    getVipBtn.disabled = true;
+                    getVipBtn.innerHTML = `<i class="fas fa-lock"></i> <span id="getVipText">${userData.invitedFriends}/5 TAKLIF</span>`;
+                }
             }
         }
 
-        function startTimer() {
-            function updateTimerDisplay() {
-                if (!gameState.timerRunning || !gameState.timerEndTime) return;
-                
-                const now = Date.now();
-                const remaining = gameState.timerEndTime - now;
-                
-                if (remaining <= 0) {
-                    gameState.timerRunning = false;
-                    localStorage.removeItem('xbetSignalsTimer');
-                    const timerElement = document.getElementById('nextSignalTimer');
-                    if (timerElement) {
-                        timerElement.style.display = 'none';
-                    }
-                    return;
-                }
-                
-                const hours = Math.floor(remaining / (1000 * 60 * 60));
-                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-                
-                const timerDisplay = document.getElementById('timerDisplay');
-                if (timerDisplay) {
-                    timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                }
-                
-                setTimeout(updateTimerDisplay, 1000);
-            }
-            
-            updateTimerDisplay();
+        function showPage(pageId) {
+            document.getElementById('mainContainer').classList.remove('active');
+            document.getElementById('apkPage').classList.remove('active');
+            document.getElementById('bonusPage').classList.remove('active');
+            document.getElementById('settingsPage').classList.remove('active');
+            document.getElementById('gameModal').classList.remove('active');
+            document.getElementById('vipModal').classList.remove('active');
+            document.getElementById('changeIdModal').classList.remove('active');
+            const page = document.getElementById(pageId);
+            if (page) page.classList.add('active');
+            updateNavState(pageId);
         }
 
-        function startGame() {
-            if (gameState.timerRunning && !userData.vipAvailable) {
-                showToast('Iltimos, kutish vaqtini tugashini kuting yoki VIP bo\'ling', 'warning');
-                return;
+        function updateNavState(pageId) {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            let activeNavIds = [];
+            switch(pageId) {
+                case 'mainContainer':
+                    activeNavIds = ['navHome', 'navHome2', 'navHome3', 'navHome4'];
+                    break;
+                case 'apkPage':
+                    activeNavIds = ['navApk', 'navApk2', 'navApk3', 'navApk4'];
+                    break;
+                case 'bonusPage':
+                case 'settingsPage':
+                    activeNavIds = ['navSettings', 'navSettings2', 'navSettings3', 'navSettings4'];
+                    break;
             }
-            
-            if (!gameState.idVerified) {
-                showIdVerificationModal();
-                return;
-            }
-            
+            activeNavIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.classList.add('active');
+            });
+        }
+
+        function showGameModal() {
+            const modal = document.getElementById('gameModal');
+            modal.classList.add('active');
             currentStage = 1;
             gameState = {
                 applesRevealed: false,
                 canProceed: false,
                 gameOver: false,
                 selectedApple: null,
-                apples: ['mystery', 'mystery', 'mystery', 'mystery', 'mystery'],
+                apples: [],
                 stageWon: false,
                 resultType: null,
                 timerRunning: gameState.timerRunning,
@@ -3727,196 +3243,505 @@
                 idVerified: gameState.idVerified,
                 userId: gameState.userId
             };
-            
-            document.getElementById('gameModal').classList.add('active');
-            renderGameStage();
+            document.getElementById('gameResultOverlay').classList.remove('active');
+            document.getElementById('stageTransition').classList.remove('active');
+            updateUserIdDisplay();
+            const idInputSection = document.getElementById('idInputSection');
+            const gameSection = document.getElementById('gameSection');
+            const timerActiveMessage = document.getElementById('timerActiveMessage');
+            const vipTimerAction = document.getElementById('vipTimerAction');
+            const applesContainer = document.getElementById('gameApplesContainer');
+            if (gameState.idVerified) {
+                idInputSection.style.display = 'none';
+                gameSection.style.display = 'block';
+                if (gameState.timerRunning) {
+                    timerActiveMessage.style.display = 'block';
+                    vipTimerAction.style.display = 'block';
+                    applesContainer.style.display = 'none';
+                    const timerElement = document.getElementById('nextSignalTimer');
+                    if (timerElement) timerElement.style.display = 'block';
+                    document.getElementById('revealApplesBtn').disabled = true;
+                    document.getElementById('nextStageBtn').disabled = true;
+                } else {
+                    timerActiveMessage.style.display = 'none';
+                    vipTimerAction.style.display = 'none';
+                    applesContainer.style.display = 'flex';
+                    const timerElement = document.getElementById('nextSignalTimer');
+                    if (timerElement) timerElement.style.display = 'none';
+                    createApples();
+                }
+            } else {
+                idInputSection.style.display = 'block';
+                gameSection.style.display = 'none';
+                document.getElementById('userIdInput').value = '';
+                document.getElementById('userIdInput').classList.remove('valid', 'invalid');
+            }
+            updateGameUI();
         }
 
-        function renderGameStage() {
-            const modalBody = document.getElementById('gameModalBody');
-            modalBody.innerHTML = `
-                <div class="game-header">
-                    <h2 class="game-title">BOSQICH ${currentStage}/3</h2>
-                    <p class="game-subtitle">Butun olmani tanlang</p>
-                </div>
-                
-                <div class="game-info">
-                    <p class="game-instruction">
-                        Olmalarni oching va butun olmani tanlang. Har bir bosqichda faqat bitta butun olma bor.
-                    </p>
-                </div>
-                
-                <div class="game-apples-container">
-                    ${gameState.apples.map((apple, index) => `
-                        <div class="game-apple apple-${apple}" data-index="${index}"></div>
-                    `).join('')}
-                </div>
-                
-                <div class="game-actions">
-                    <button class="btn btn-secondary" id="revealApplesBtn">OLMANI OCHISH</button>
-                    <button class="btn btn-primary" id="proceedBtn" disabled>DAVOM ETISH</button>
-                </div>
-            `;
-            
-            // Event listener qo'shish
-            document.getElementById('revealApplesBtn').addEventListener('click', revealApples);
-            document.getElementById('proceedBtn').addEventListener('click', proceedToNextStage);
-            
-            // Apple elementlariga event listener qo'shish
-            document.querySelectorAll('.game-apple').forEach(apple => {
-                apple.addEventListener('click', () => {
-                    const index = parseInt(apple.getAttribute('data-index'));
-                    if (gameState.applesRevealed) {
-                        selectApple(index);
-                    }
-                });
-            });
+        function showVipModal() {
+            const modal = document.getElementById('vipModal');
+            modal.classList.add('active');
+            updateVipProgress();
+        }
+
+        function showChangeIdModal() {
+            const modal = document.getElementById('changeIdModal');
+            modal.classList.add('active');
+            document.getElementById('newUserIdInput').value = gameState.userId || '';
+            document.getElementById('newUserIdInput').focus();
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+        }
+
+        function validateIdInput() {
+            const input = document.getElementById('userIdInput');
+            const value = input.value.trim();
+            const numericValue = value.replace(/\D/g, '');
+            input.value = numericValue;
+            if (numericValue.length >= 9 && numericValue.length <= 11 && numericValue.startsWith('1')) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                return true;
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+                return false;
+            }
+        }
+
+        function validateNewIdInput() {
+            const input = document.getElementById('newUserIdInput');
+            const value = input.value.trim();
+            const numericValue = value.replace(/\D/g, '');
+            input.value = numericValue;
+            if (numericValue.length >= 9 && numericValue.length <= 11 && numericValue.startsWith('1')) {
+                input.classList.remove('invalid');
+                input.classList.add('valid');
+                return true;
+            } else {
+                input.classList.remove('valid');
+                input.classList.add('invalid');
+                return false;
+            }
+        }
+
+        function verifyId() {
+            const input = document.getElementById('userIdInput');
+            const value = input.value.trim();
+            if (!value) {
+                showToast(translations[currentLang].idRequired, 'error');
+                input.classList.add('invalid');
+                input.focus();
+                return;
+            }
+            if (!validateIdInput()) {
+                showToast(translations[currentLang].idInvalid, 'error');
+                input.focus();
+                return;
+            }
+            gameState.idVerified = true;
+            gameState.userId = value;
+            localStorage.setItem('futurePredictionIdVerified', 'true');
+            localStorage.setItem('futurePredictionUserId', value);
+            updateUserIdDisplay();
+            document.getElementById('idInputSection').style.display = 'none';
+            document.getElementById('gameSection').style.display = 'block';
+            if (gameState.timerRunning) {
+                document.getElementById('vipTimerAction').style.display = 'block';
+                document.getElementById('timerActiveMessage').style.display = 'block';
+                document.getElementById('gameApplesContainer').style.display = 'none';
+            } else {
+                createApples();
+            }
+            showToast(translations[currentLang].idVerified, 'success');
+        }
+
+        function saveNewId() {
+            const input = document.getElementById('newUserIdInput');
+            const value = input.value.trim();
+            if (!value) {
+                showToast(translations[currentLang].idRequired, 'error');
+                input.classList.add('invalid');
+                input.focus();
+                return;
+            }
+            if (!validateNewIdInput()) {
+                showToast(translations[currentLang].idInvalid, 'error');
+                input.focus();
+                return;
+            }
+            gameState.userId = value;
+            localStorage.setItem('futurePredictionUserId', value);
+            gameState.timerRunning = false;
+            localStorage.removeItem('futurePredictionTimer');
+            updateUserIdDisplay();
+            closeModal('changeIdModal');
+            showToast(translations[currentLang].idChangeSuccess, 'success');
+            showToast(translations[currentLang].timerReset, 'info');
+        }
+
+        function registerUser() {
+            window.open('https://t.me/Strategioyinlar_bot?start=aifut', '_blank');
+            showToast(translations[currentLang].registerLinkOpened, 'success');
+        }
+
+        function createApples() {
+            let wholeApples, bittenApples;
+            if (currentStage <= 2) {
+                wholeApples = 4; bittenApples = 1;
+            } else if (currentStage <= 4) {
+                wholeApples = 3; bittenApples = 2;
+            } else {
+                wholeApples = 2; bittenApples = 3;
+            }
+            let apples = [];
+            for (let i = 0; i < wholeApples; i++) apples.push('whole');
+            for (let i = 0; i < bittenApples; i++) apples.push('bitten');
+            apples = shuffleArray(apples);
+            gameState.apples = apples;
+            gameState.applesRevealed = false;
+            gameState.canProceed = false;
+            gameState.selectedApple = null;
+            gameState.stageWon = false;
+            gameState.resultType = null;
+            renderApples();
+            updateGameUI();
+        }
+
+        function renderApples() {
+            const container = document.getElementById('gameApplesContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            for (let i = 0; i < 5; i++) {
+                const appleType = gameState.apples[i];
+                const apple = document.createElement('div');
+                apple.className = 'game-apple apple-mystery';
+                apple.dataset.index = i;
+                apple.dataset.type = appleType;
+                if (gameState.applesRevealed) {
+                    apple.classList.remove('apple-mystery');
+                    apple.classList.add(`apple-${appleType}`);
+                }
+                if (gameState.selectedApple === i) {
+                    apple.style.transform = 'scale(1.1)';
+                    apple.style.boxShadow = '0 0 15px rgba(0, 165, 60, 0.7)';
+                }
+                apple.addEventListener('click', () => selectApple(i));
+                container.appendChild(apple);
+            }
+        }
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
         }
 
         function revealApples() {
-            if (gameState.applesRevealed) return;
-            
+            if (gameState.applesRevealed || gameState.gameOver || gameState.timerRunning) return;
             gameState.applesRevealed = true;
-            const wholeAppleIndex = Math.floor(Math.random() * 5);
-            
-            gameState.apples = gameState.apples.map((apple, index) => {
-                return index === wholeAppleIndex ? 'whole' : 'bitten';
-            });
-            
-            // UI ni yangilash
-            document.querySelectorAll('.game-apple').forEach((appleEl, index) => {
-                appleEl.className = `game-apple apple-${gameState.apples[index]}`;
-            });
-            
-            // Tugmalarni yangilash
-            document.getElementById('revealApplesBtn').disabled = true;
-            document.getElementById('proceedBtn').disabled = false;
-            document.getElementById('revealApplesBtn').textContent = 'OLMALAR OCHILDI';
-            
-            showToast('Endi butun olmani tanlang!', 'info');
+            renderApples();
+            setTimeout(() => {
+                const wholeAppleIndex = gameState.apples.findIndex(apple => apple === 'whole');
+                if (wholeAppleIndex !== -1) {
+                    selectApple(wholeAppleIndex);
+                }
+            }, 500);
+            updateGameUI();
+            showToast(translations[currentLang].applesRevealed, 'info');
         }
 
         function selectApple(index) {
-            if (!gameState.applesRevealed || gameState.gameOver) return;
-            
+            if (!gameState.applesRevealed || gameState.gameOver || gameState.stageWon || gameState.timerRunning) return;
+            const appleType = gameState.apples[index];
             gameState.selectedApple = index;
-            gameState.stageWon = gameState.apples[index] === 'whole';
+            renderApples();
+            if (appleType === 'whole') {
+                gameState.stageWon = true;
+                gameState.canProceed = true;
+                showToast(translations[currentLang].nextStageReady, 'success');
+            } else {
+                showGameResult('lose');
+            }
+            updateGameUI();
+        }
+
+        function showGameResult(resultType) {
             gameState.gameOver = true;
-            
-            showResult();
+            gameState.canProceed = false;
+            gameState.resultType = resultType;
+            const overlay = document.getElementById('gameResultOverlay');
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultMessage = document.getElementById('resultMessage');
+            if (resultType === 'win') {
+                dailyStats.activeUsers += Math.floor(Math.random() * 10) + 1;
+                dailyStats.avgIncome += Math.floor(Math.random() * 5) + 1;
+                dailyStats.onlinePlayers += Math.floor(Math.random() * 3) + 1;
+                updateUI();
+                updateDailyStats();
+                saveData();
+                startPredictionTimer();
+                resultIcon.textContent = '🎉';
+                resultIcon.style.color = '#4caf50';
+                resultTitle.textContent = translations[currentLang].winGame;
+                resultMessage.textContent = translations[currentLang].winMessage;
+                showToast(translations[currentLang].successPrediction, 'success');
+            } else {
+                resultIcon.textContent = '😔';
+                resultIcon.style.color = '#e74c3c';
+                resultTitle.textContent = translations[currentLang].loseGame;
+                resultMessage.textContent = translations[currentLang].loseMessage;
+                showToast(translations[currentLang].errorPrediction, 'error');
+            }
+            overlay.classList.add('active');
+            overlay.classList.add('fade-in');
         }
 
-        function showResult() {
-            const modalBody = document.getElementById('gameModalBody');
-            modalBody.innerHTML += `
-                <div class="game-result-overlay active">
-                    <div class="result-icon">${gameState.stageWon ? '🎉' : '😢'}</div>
-                    <h3 class="result-title">${gameState.stageWon ? 'TABRIKLAYMIZ!' : 'AFSUS!'}</h3>
-                    <p class="result-message">${gameState.stageWon ? 'Siz butun olmani topdingiz!' : 'Siz teshilgan olmani tanladingiz.'}</p>
-                    <div class="game-actions">
-                        <button class="btn btn-primary" id="continueBtn">
-                            ${gameState.stageWon ? 'KEYINGI BOSQICH' : 'TAMOM'}
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            document.getElementById('continueBtn').addEventListener('click', handleGameResult);
+        function showStageTransition() {
+            const transition = document.getElementById('stageTransition');
+            const percentage = document.getElementById('hackingPercentage');
+            transition.classList.add('active');
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 8 + 7;
+                if (progress > 100) progress = 100;
+                percentage.textContent = Math.floor(progress) + '%';
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        transition.classList.remove('active');
+                        createApples();
+                    }, 1000);
+                }
+            }, 120);
         }
 
-        function handleGameResult() {
-            if (gameState.stageWon) {
+        function restartGame() {
+            currentStage = 1;
+            gameState = {
+                applesRevealed: false,
+                canProceed: false,
+                gameOver: false,
+                selectedApple: null,
+                apples: [],
+                stageWon: false,
+                resultType: null,
+                timerRunning: gameState.timerRunning,
+                timerEndTime: gameState.timerEndTime,
+                idVerified: gameState.idVerified,
+                userId: gameState.userId
+            };
+            document.getElementById('gameResultOverlay').classList.remove('active');
+            if (!gameState.timerRunning) createApples();
+            updateGameUI();
+        }
+
+        function nextStage() {
+            if (!gameState.canProceed || gameState.gameOver || gameState.timerRunning) return;
+            if (currentStage < 7) {
                 currentStage++;
-                if (currentStage <= 3) {
-                    gameState.apples = ['mystery', 'mystery', 'mystery', 'mystery', 'mystery'];
-                    gameState.applesRevealed = false;
-                    gameState.gameOver = false;
-                    gameState.selectedApple = null;
-                    renderGameStage();
-                    showToast(`Bosqich ${currentStage-1} muvaffaqiyatli yakunlandi!`, 'success');
-                } else {
-                    // O'yin tugadi, signal berish
-                    giveSignal();
+                showStageTransition();
+                if (currentStage >= 2 && currentStage <= 7) {
+                    const randomChance = Math.random();
+                    if (randomChance < 0.3) {
+                        setTimeout(() => {
+                            showGameResult('win');
+                        }, 2500);
+                        return;
+                    }
                 }
             } else {
-                // Mag'lubiyat, timer boshlash
-                startWaitingTimer();
-                document.getElementById('gameModal').classList.remove('active');
+                showGameResult('win');
+            }
+            updateGameUI();
+        }
+
+        function updateGameUI() {
+            const revealBtn = document.getElementById('revealApplesBtn');
+            const nextBtn = document.getElementById('nextStageBtn');
+            if (revealBtn) {
+                if (gameState.applesRevealed || gameState.gameOver || gameState.timerRunning) {
+                    revealBtn.disabled = true;
+                } else {
+                    revealBtn.disabled = false;
+                }
+            }
+            if (nextBtn) {
+                if (gameState.canProceed && !gameState.gameOver && !gameState.timerRunning) {
+                    nextBtn.disabled = false;
+                } else {
+                    nextBtn.disabled = true;
+                }
+            }
+            const instruction = document.getElementById('gameInstruction');
+            if (instruction) {
+                if (!gameState.applesRevealed) {
+                    instruction.textContent = translations[currentLang].gameInstruction;
+                } else if (!gameState.selectedApple && !gameState.gameOver) {
+                    instruction.textContent = translations[currentLang].chooseApple;
+                } else if (gameState.stageWon) {
+                    instruction.textContent = translations[currentLang].nextStageReady;
+                }
             }
         }
 
-        function proceedToNextStage() {
-            showToast('Iltimos, avval olmani tanlang!', 'warning');
-        }
-
-        function giveSignal() {
-            document.getElementById('gameModal').classList.remove('active');
-            showToast('🎉 Tabriklaymiz! Signal muvaffaqiyatli olindi!', 'success');
-            
-            // Darajani oshirish
-            if (userData.level === 'YANGI') {
-                userData.level = 'ORTA';
-            } else if (userData.level === 'ORTA') {
-                userData.level = 'YUQORI';
-            } else if (userData.level === 'YUQORI') {
-                userData.vipAvailable = true;
-                userData.level = 'VIP';
-            }
-            
-            // Aniqlikni oshirish
-            userData.accuracy = Math.min(99, userData.accuracy + 0.5);
-            
-            // Saqlash
-            localStorage.setItem('xbetSignalsData', JSON.stringify(userData));
-            updateUserData();
-        }
-
-        function startWaitingTimer() {
+        function startPredictionTimer() {
+            const now = Date.now();
             const twoHours = 2 * 60 * 60 * 1000;
-            gameState.timerEndTime = Date.now() + twoHours;
+            gameState.timerEndTime = now + twoHours;
             gameState.timerRunning = true;
-            localStorage.setItem('xbetSignalsTimer', gameState.timerEndTime.toString());
-            
+            localStorage.setItem('futurePredictionTimer', gameState.timerEndTime.toString());
             startTimer();
-            showToast('Keyingi signal uchun 2 soat kutish kerak.', 'warning');
-            
-            // Signal sahifasida timer ko'rsatish
+            updateTimerUI();
+        }
+
+        function startTimer() {
+            if (!gameState.timerRunning || !gameState.timerEndTime) return;
+            function updateTimer() {
+                if (!gameState.timerRunning || !gameState.timerEndTime) return;
+                const now = Date.now();
+                const timeLeft = gameState.timerEndTime - now;
+                if (timeLeft <= 0) {
+                    gameState.timerRunning = false;
+                    localStorage.removeItem('futurePredictionTimer');
+                    updateTimerUI();
+                    if (document.getElementById('gameModal').classList.contains('active')) {
+                        showGameModal();
+                    }
+                    return;
+                }
+                const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                const timerDisplay = document.getElementById('timerDisplay');
+                if (timerDisplay) {
+                    timerDisplay.textContent = 
+                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+                setTimeout(updateTimer, 1000);
+            }
+            updateTimer();
+        }
+
+        function updateTimerUI() {
+            const timerActiveMessage = document.getElementById('timerActiveMessage');
+            const vipTimerAction = document.getElementById('vipTimerAction');
             const timerElement = document.getElementById('nextSignalTimer');
-            if (timerElement) {
-                timerElement.style.display = 'block';
+            const applesContainer = document.getElementById('gameApplesContainer');
+            const revealBtn = document.getElementById('revealApplesBtn');
+            const nextBtn = document.getElementById('nextStageBtn');
+            if (gameState.timerRunning) {
+                if (timerActiveMessage) timerActiveMessage.style.display = 'block';
+                if (vipTimerAction) vipTimerAction.style.display = 'block';
+                if (timerElement) timerElement.style.display = 'block';
+                if (applesContainer) applesContainer.style.display = 'none';
+                if (revealBtn) revealBtn.disabled = true;
+                if (nextBtn) nextBtn.disabled = true;
+            } else {
+                if (timerActiveMessage) timerActiveMessage.style.display = 'none';
+                if (vipTimerAction) vipTimerAction.style.display = 'none';
+                if (timerElement) timerElement.style.display = 'none';
+                if (applesContainer) applesContainer.style.display = 'flex';
+                if (revealBtn) revealBtn.disabled = false;
+                if (nextBtn && gameState.canProceed && !gameState.gameOver) {
+                    nextBtn.disabled = false;
+                }
             }
         }
 
-        // ==================== ONLINE/OFFLINE HOLAT ====================
-        function checkConnection() {
-            if (!navigator.onLine) {
-                showToast('Internet aloqasi yo\'q. Ba\'zi funksiyalar ishlamasligi mumkin.', 'warning');
+        function getVipPredictionEarly() {
+            showToast(translations[currentLang].getVipPredictionEarlyText + ' - ' + translations[currentLang].loading, 'info');
+            gameState.timerRunning = false;
+            localStorage.removeItem('futurePredictionTimer');
+            closeModal('gameModal');
+            setTimeout(() => {
+                showVipModal();
+            }, 500);
+        }
+
+        function inviteForVip() {
+            const shareMessage = `🎯 ${translations[currentLang].vipTitle} | Kelajakni Bashorat Qilish\n\n${translations[currentLang].inviteForVipDesc}\n\n👉 https://t.me/Strategioyinlar_bot?start=aifut\n\nSizning taklif kodingiz: ${gameState.userId || '1234567890'}\n\n#KelajakniBashorat #VIP`;
+            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot?start=aifut&text=${encodeURIComponent(shareMessage)}`;
+            window.open(shareUrl, '_blank');
+            if (userData.invitedFriends < 5) {
+                userData.invitedFriends++;
+                updateUI();
+                saveData();
+                updateUserLevel();
+                if (userData.invitedFriends === 5) {
+                    showToast(translations[currentLang].vipPredictionAvailable, 'success');
+                } else {
+                    showToast(translations[currentLang].successInvite, 'success');
+                }
             }
         }
 
-        window.addEventListener('online', () => {
-            showToast('Internet aloqasi tiklandi', 'success');
-        });
-
-        window.addEventListener('offline', () => {
-            showToast('Internet aloqasi uzildi', 'warning');
-        });
-
-        // Internet holatini tekshirish
-        checkConnection();
-
-        // Ilova ochilganda bir marta Telegram bannerini ko'rsatish
-        window.addEventListener('load', () => {
-            const env = detectEnvironment();
-            if (env.isTelegram && !env.isStandalone) {
-                // 3 soniyadan keyin banner ko'rsatish
-                setTimeout(() => {
-                    manageTelegramBanner();
-                }, 3000);
+        function getVip() {
+            if (userData.invitedFriends >= 5) {
+                showToast(translations[currentLang].getVipText + ' - ' + translations[currentLang].loading);
+                closeModal('vipModal');
+                userData.vipAvailable = true;
+                saveData();
+            } else {
+                showToast(translations[currentLang].vipPredictionUnavailable, 'warning');
             }
-        });
+        }
 
-        console.log('1xBet Signals PWA ilovasi to\'liq yuklandi va ishga tushdi!');
+        function getVipPrediction() {
+            if (userData.invitedFriends >= 5) {
+                showToast(translations[currentLang].getVipPredictionText + ' - ' + translations[currentLang].loading);
+                closeModal('gameModal');
+                showVipModal();
+            } else {
+                showToast(translations[currentLang].vipPredictionUnavailable, 'warning');
+            }
+        }
+
+        function downloadApk() {
+            window.open('https://t.me/Strategioyinlar_bot?start=aifut', '_blank');
+            showToast(translations[currentLang].downloadApkText + ' - Kelajakni Bashorat Qilish');
+        }
+
+        function getBonus() {
+            window.open('https://t.me/Strategioyinlar_bot?start=aifut', '_blank');
+            showToast(translations[currentLang].successBonus, 'success');
+        }
+
+        function inviteFriends() {
+            const shareMessage = `🎯 ${translations[currentLang].predictionTitle} | Kelajakni Bashorat Qilish\n\n${translations[currentLang].inviteFriendsText}\n👉 https://t.me/Strategioyinlar_bot?start=aifut\n\nID: ${gameState.userId || '1234567890'}\n\n#KelajakniBashorat`;
+            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot?start=aifut&text=${encodeURIComponent(shareMessage)}`;
+            window.open(shareUrl, '_blank');
+            if (userData.invitedFriends < 5) {
+                userData.invitedFriends++;
+                updateUI();
+                saveData();
+                updateUserLevel();
+                showToast(translations[currentLang].successInvite, 'success');
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function saveData() {
+            localStorage.setItem('futurePredictionData', JSON.stringify(userData));
+            localStorage.setItem('futurePredictionStats', JSON.stringify(dailyStats));
+        }
     </script>
 </body>
 </html>
