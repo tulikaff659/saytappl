@@ -4,16 +4,17 @@
   "description": "Bukmeker platformasi",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#00a53c",
   "background_color": "#121212",
+  "theme_color": "#00a53c",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "https://i.ibb.co/fVPq08Xq/1xbet-logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "https://i.ibb.co/fVPq08Xq/1xbet-logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
