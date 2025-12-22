@@ -1,0 +1,21 @@
+{
+  "name": "1xBet Signals",
+  "short_name": "1xBet Signals",
+  "description": "Bukmeker platformasi",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#00a53c",
+  "background_color": "#121212",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
