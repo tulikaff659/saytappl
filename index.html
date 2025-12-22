@@ -11,13 +11,96 @@
     <meta name="apple-mobile-web-app-title" content="1xBet Signals">
     <link rel="apple-touch-icon" href="https://i.ibb.co/fVPq08Xq/1xbet-logo.png">
     
-    <title>1xBet Signals | Bukmeker</title>
+    <!-- PWA Manifest -->
+    <link rel="manifest" id="app-manifest">
     
-    <!-- Manifest fayli -->
-    <link rel="manifest" href="manifest.json">
+    <title>1xBet Signals | Bukmeker</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Telegram uchun maxsus banner */
+        #telegramBanner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0088cc, #00a53c);
+            color: white;
+            z-index: 10000;
+            display: none;
+            animation: slideDown 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .telegram-banner-content {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .telegram-banner-text {
+            flex: 1;
+        }
+        
+        .telegram-banner-text h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .telegram-banner-text p {
+            font-size: 11px;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+        
+        .telegram-banner-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .telegram-open-btn {
+            white-space: nowrap;
+            padding: 6px 12px;
+            font-size: 11px;
+            background: white;
+            color: #0088cc;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .telegram-close-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
         /* PWA uchun qo'shimcha stillar */
         @media (display-mode: standalone) {
             .app-header {
@@ -33,7 +116,7 @@
                 padding-bottom: env(safe-area-inset-bottom);
             }
             
-            #installPrompt {
+            #installPrompt, #telegramBanner, .telegram-open-btn {
                 display: none !important;
             }
         }
@@ -1726,9 +1809,61 @@
         .fade-in {
             animation: fadeIn 0.5s ease forwards;
         }
+        
+        /* Telegram uchun pastki o'ng burchakdagi "Brauzerda ochish" tugmasi */
+        .telegram-float-btn {
+            position: fixed;
+            bottom: 80px;
+            right: 10px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #0088cc, #00a53c);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 136, 204, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Telegram uchun maxsus banner -->
+    <div id="telegramBanner">
+        <div class="telegram-banner-content">
+            <div class="telegram-banner-text">
+                <h4>📱 Ilovani to'liq ishlatish uchun</h4>
+                <p>Telegram ichida PWA ishlamaydi. Ilovani brauzeringizda oching</p>
+            </div>
+            <div class="telegram-banner-buttons">
+                <button class="telegram-open-btn" id="telegramOpenBtn">
+                    <i class="fas fa-external-link-alt"></i> Brauzerda ochish
+                </button>
+                <button class="telegram-close-btn" id="telegramCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Ekranga qo'shish banneri -->
     <div id="installPrompt">
         <div class="install-content">
@@ -2285,6 +2420,22 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
+                
+                <!-- Telegram uchun qo'shimcha sozlama -->
+                <div class="settings-item" id="settingsOpenInBrowser">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <div class="settings-text">
+                            <h4>Brauzerda ochish</h4>
+                            <p>Ilovani tashqi brauzerda ochish</p>
+                        </div>
+                    </div>
+                    <div class="settings-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
             </div>
             
             <div class="guide-container" id="guideContainer" style="display: none;">
@@ -2494,12 +2645,391 @@
     <div id="toastContainer"></div>
 
     <script>
-        // PWA uchun kerakli o'zgaruvchilar
+        // ==================== PWA MANIFEST ====================
+        const manifestContent = {
+            "name": "1xBet Signals",
+            "short_name": "1xBet Signals",
+            "description": "1xBet bukmeker platformasi uchun signal berish ilovasi",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#0a0a0a",
+            "theme_color": "#00a53c",
+            "orientation": "portrait",
+            "icons": [
+                {
+                    "src": "https://i.ibb.co/fVPq08Xq/1xbet-logo.png",
+                    "sizes": "192x192",
+                    "type": "image/png",
+                    "purpose": "any maskable"
+                },
+                {
+                    "src": "https://i.ibb.co/fVPq08Xq/1xbet-logo.png",
+                    "sizes": "512x512",
+                    "type": "image/png",
+                    "purpose": "any maskable"
+                }
+            ],
+            "categories": ["finance", "entertainment", "sports"],
+            "shortcuts": [
+                {
+                    "name": "Signal olish",
+                    "short_name": "Signal",
+                    "description": "Signal olish o'yinini boshlash",
+                    "url": "/?page=signal",
+                    "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", "sizes": "96x96" }]
+                },
+                {
+                    "name": "VIP bo'lish",
+                    "short_name": "VIP",
+                    "description": "VIP a'zo bo'lish",
+                    "url": "/?page=vip",
+                    "icons": [{ "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png", "sizes": "96x96" }]
+                }
+            ]
+        };
+
+        // Manifestni yaratish va ulash
+        function setupManifest() {
+            const manifestJson = JSON.stringify(manifestContent);
+            const blob = new Blob([manifestJson], { type: 'application/json' });
+            const manifestUrl = URL.createObjectURL(blob);
+            document.getElementById('app-manifest').href = manifestUrl;
+        }
+
+        // ==================== SERVICE WORKER ====================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Service worker registratsiyasini 3 soniya kechiktirish
+                setTimeout(() => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                        .then(function(registration) {
+                            console.log('ServiceWorker registration successful');
+                        })
+                        .catch(function(err) {
+                            console.log('ServiceWorker registration failed: ', err);
+                            // Fallback: online service worker
+                            const fallbackSW = `
+                                self.addEventListener('install', event => {
+                                    console.log('Fallback Service Worker installing...');
+                                });
+                                
+                                self.addEventListener('fetch', event => {
+                                    // Online faqat fetch
+                                    event.respondWith(fetch(event.request));
+                                });
+                            `;
+                            
+                            const blob = new Blob([fallbackSW], { type: 'application/javascript' });
+                            const url = URL.createObjectURL(blob);
+                            navigator.serviceWorker.register(url)
+                                .then(reg => console.log('Fallback Service Worker registered'))
+                                .catch(e => console.log('Fallback Service Worker failed:', e));
+                        });
+                }, 3000);
+            });
+        }
+
+        // ==================== TELEGRAM DETECTION ====================
+        function isInTelegram() {
+            const ua = navigator.userAgent.toLowerCase();
+            return ua.includes('telegram') || 
+                   ua.includes('webview') ||
+                   typeof window.TelegramWebviewProxy !== 'undefined' ||
+                   typeof window.Telegram !== 'undefined' ||
+                   document.referrer.includes('t.me') ||
+                   window.location.href.includes('tgWebApp');
+        }
+
+        function isInIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        function isInAndroid() {
+            return /Android/.test(navigator.userAgent);
+        }
+
+        function detectEnvironment() {
+            const env = {
+                isTelegram: isInTelegram(),
+                isIOS: isInIOS(),
+                isAndroid: isInAndroid(),
+                isStandalone: window.matchMedia('(display-mode: standalone)').matches || 
+                             window.navigator.standalone === true,
+                userAgent: navigator.userAgent
+            };
+            
+            console.log('Environment detected:', env);
+            return env;
+        }
+
+        // ==================== BRAUZERDA OCHISH ====================
+        function openInBrowser() {
+            const currentUrl = window.location.href;
+            let browserUrl;
+            
+            // Agar URL da parametrlar bo'lsa
+            if (currentUrl.includes('?')) {
+                browserUrl = `${currentUrl}&external=true`;
+            } else {
+                browserUrl = `${currentUrl}?external=true`;
+            }
+            
+            const env = detectEnvironment();
+            
+            if (env.isTelegram) {
+                if (env.isIOS) {
+                    // iOS uchun universal link
+                    const chromeUrl = `googlechromes://${browserUrl.replace('https://', '')}`;
+                    window.location.href = chromeUrl;
+                    
+                    // Agar Chrome yo'q bo'lsa, Safari ga o'tish
+                    setTimeout(() => {
+                        window.location.href = browserUrl;
+                    }, 1000);
+                } else if (env.isAndroid) {
+                    // Android uchun Chrome intent
+                    const intentUrl = `intent://${browserUrl.replace('https://', '')}#Intent;scheme=https;package=com.android.chrome;end`;
+                    window.location.href = intentUrl;
+                    
+                    // Intent ishlamasa, oddiy ochish
+                    setTimeout(() => {
+                        window.open(browserUrl, '_blank');
+                    }, 500);
+                } else {
+                    // Desktop va boshqa platformalar
+                    window.open(browserUrl, '_blank');
+                }
+            } else {
+                // Oddiy brauzer
+                window.open(browserUrl, '_blank');
+            }
+            
+            showToast('Brauzerda ochilmoqda...', 'info');
+        }
+
+        // ==================== TELEGRAM BANNER ====================
+        function manageTelegramBanner() {
+            const banner = document.getElementById('telegramBanner');
+            const env = detectEnvironment();
+            
+            if (env.isTelegram && !env.isStandalone) {
+                // 24 soat ichida yashirilganmi tekshirish
+                const lastHidden = localStorage.getItem('telegramBannerHidden');
+                if (lastHidden) {
+                    const timeDiff = Date.now() - parseInt(lastHidden);
+                    const hoursDiff = timeDiff / (1000 * 60 * 60);
+                    if (hoursDiff < 24) {
+                        banner.style.display = 'none';
+                        return;
+                    }
+                }
+                
+                // Banner ko'rsatish
+                banner.style.display = 'block';
+                
+                // Tugmalarga event listener
+                document.getElementById('telegramOpenBtn').addEventListener('click', function() {
+                    openInBrowser();
+                    hideTelegramBanner();
+                });
+                
+                document.getElementById('telegramCloseBtn').addEventListener('click', function() {
+                    hideTelegramBanner();
+                    // 24 soat davomida yashirish
+                    localStorage.setItem('telegramBannerHidden', Date.now().toString());
+                });
+                
+                // 10 soniyadan keyin avtomatik yashirish
+                setTimeout(() => {
+                    if (banner.style.display === 'block') {
+                        banner.style.opacity = '1';
+                        setTimeout(() => {
+                            if (banner.style.display === 'block') {
+                                banner.style.transition = 'opacity 0.5s ease';
+                                banner.style.opacity = '0';
+                                setTimeout(() => {
+                                    banner.style.display = 'none';
+                                }, 500);
+                            }
+                        }, 10000);
+                    }
+                }, 100);
+            } else {
+                banner.style.display = 'none';
+            }
+        }
+
+        function hideTelegramBanner() {
+            const banner = document.getElementById('telegramBanner');
+            banner.style.transition = 'opacity 0.3s ease';
+            banner.style.opacity = '0';
+            setTimeout(() => {
+                banner.style.display = 'none';
+            }, 300);
+        }
+
+        // ==================== TELEGRAM FLOAT BUTTON ====================
+        function addTelegramFloatButton() {
+            const env = detectEnvironment();
+            
+            if (env.isTelegram && !env.isStandalone) {
+                // Har bir sahifada float button qo'shish
+                const pages = ['mainContainer', 'signalPage', 'vipPage', 'apkPage', 'settingsPage'];
+                
+                pages.forEach(pageId => {
+                    const page = document.getElementById(pageId);
+                    if (page) {
+                        // Agar allaqachon button mavjud bo'lmasa
+                        if (!page.querySelector('.telegram-float-btn')) {
+                            const floatBtn = document.createElement('button');
+                            floatBtn.className = 'telegram-float-btn';
+                            floatBtn.innerHTML = '<i class="fas fa-external-link-alt"></i> Brauzerda ochish';
+                            floatBtn.addEventListener('click', openInBrowser);
+                            page.appendChild(floatBtn);
+                        }
+                    }
+                });
+            } else {
+                // Float buttonlarni olib tashlash
+                document.querySelectorAll('.telegram-float-btn').forEach(btn => btn.remove());
+            }
+        }
+
+        // ==================== PWA INSTALL PROMPT ====================
         let deferredPrompt;
         let isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
                           window.navigator.standalone === true;
-        
-        // Asosiy o'zgaruvchilar
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            const env = detectEnvironment();
+            
+            if (env.isTelegram) {
+                console.log('Telegram ichida - PWA o\'rnatish mavjud emas');
+                // Telegram uchun maxsus prompt
+                setTimeout(() => {
+                    showTelegramInstallPrompt();
+                }, 5000);
+            } else {
+                // Oddiy brauzer uchun
+                if (!isStandalone) {
+                    setTimeout(() => {
+                        showInstallPrompt();
+                    }, 3000);
+                }
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('1xBet Signals ilovasi o\'rnatildi!');
+            hideInstallPrompt();
+            isStandalone = true;
+            showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
+            
+            // Telegram float buttonlarini olib tashlash
+            addTelegramFloatButton();
+        });
+
+        function showInstallPrompt() {
+            const prompt = document.getElementById('installPrompt');
+            const env = detectEnvironment();
+            
+            if (prompt && deferredPrompt && !isStandalone && !env.isTelegram) {
+                prompt.style.display = 'block';
+                
+                // Oxirgi ko'rsatilgan vaqtni tekshirish
+                const lastShown = localStorage.getItem('installPromptLastShown');
+                const now = Date.now();
+                const oneWeek = 7 * 24 * 60 * 60 * 1000;
+                
+                if (!lastShown || (now - lastShown) > oneWeek) {
+                    prompt.style.display = 'block';
+                    localStorage.setItem('installPromptLastShown', now.toString());
+                }
+            }
+        }
+
+        function showTelegramInstallPrompt() {
+            const prompt = document.getElementById('installPrompt');
+            const env = detectEnvironment();
+            
+            if (prompt && env.isTelegram && !isStandalone) {
+                prompt.innerHTML = `
+                    <div class="install-content">
+                        <div class="install-text">
+                            <h3>📱 1xBet Signals ilovasini o'rnating</h3>
+                            <p>Telegram ichida ilova to'liq ishlamaydi. Ilovani brauzerda oching va ekraningizga qo'shing</p>
+                        </div>
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <button class="btn btn-primary" id="openInBrowserBtn">
+                                <i class="fas fa-external-link-alt"></i> Brauzerda ochish
+                            </button>
+                            <button id="closeInstallBtn">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('openInBrowserBtn').addEventListener('click', openInBrowser);
+                document.getElementById('closeInstallBtn').addEventListener('click', hideInstallPrompt);
+                
+                prompt.style.display = 'block';
+                
+                // 10 soniyadan keyin avtomatik yashirish
+                setTimeout(() => {
+                    if (prompt.style.display === 'block') {
+                        hideInstallPrompt();
+                    }
+                }, 10000);
+            }
+        }
+
+        function hideInstallPrompt() {
+            const prompt = document.getElementById('installPrompt');
+            if (prompt) {
+                prompt.style.display = 'none';
+            }
+        }
+
+        async function installApp() {
+            const env = detectEnvironment();
+            
+            if (env.isTelegram) {
+                // Telegram ichida bo'lsa, brauzerda ochish
+                openInBrowser();
+                return;
+            }
+            
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('Foydalanuvchi ilovani o\'rnatishni tanladi');
+                    showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
+                    
+                    // Telegram ichida bo'lsa, ekran qayta yuklash
+                    if (env.isTelegram) {
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    }
+                } else {
+                    console.log('Foydalanuvchi ilovani o\'rnatishdan bosh tortdi');
+                    showToast('Ilova o\'rnatilmadi. Keyinroq urinib ko\'ring', 'info');
+                }
+                
+                deferredPrompt = null;
+                hideInstallPrompt();
+            } else {
+                showToast('Ilova o\'rnatish mavjud emas. Brauzeringizni yangilang', 'warning');
+            }
+        }
+
+        // ==================== ASOSIY ILOVA LOGIKASI ====================
         const translations = {
             uz: {
                 languageTitle: "1xBet Signals",
@@ -2665,65 +3195,7 @@
             userId: null
         };
 
-        // PWA funksiyalari
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            
-            if (!isStandalone) {
-                setTimeout(() => {
-                    showInstallPrompt();
-                }, 3000);
-            }
-        });
-
-        window.addEventListener('appinstalled', () => {
-            console.log('1xBet Signals ilovasi o\'rnatildi!');
-            hideInstallPrompt();
-            isStandalone = true;
-            showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
-        });
-
-        function showInstallPrompt() {
-            const prompt = document.getElementById('installPrompt');
-            if (prompt && deferredPrompt && !isStandalone) {
-                prompt.style.display = 'block';
-                
-                const lastShown = localStorage.getItem('installPromptLastShown');
-                const now = Date.now();
-                const oneWeek = 7 * 24 * 60 * 60 * 1000;
-                
-                if (!lastShown || (now - lastShown) > oneWeek) {
-                    prompt.style.display = 'block';
-                    localStorage.setItem('installPromptLastShown', now.toString());
-                }
-            }
-        }
-
-        function hideInstallPrompt() {
-            const prompt = document.getElementById('installPrompt');
-            if (prompt) {
-                prompt.style.display = 'none';
-            }
-        }
-
-        async function installApp() {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                
-                if (outcome === 'accepted') {
-                    console.log('Foydalanuvchi ilovani o\'rnatishni tanladi');
-                } else {
-                    console.log('Foydalanuvchi ilovani o\'rnatishdan bosh tortdi');
-                }
-                
-                deferredPrompt = null;
-                hideInstallPrompt();
-            }
-        }
-
-        // Asosiy funksiyalar
+        // ==================== ILOVANI ISHGA TUSHIRISH ====================
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM yuklandi, ilova boshlanmoqda...');
             initApp();
@@ -2732,6 +3204,14 @@
         function initApp() {
             console.log('Ilova ishga tushirilmoqda...');
             
+            // PWA Manifestni sozlash
+            setupManifest();
+            
+            // Muhitni aniqlash
+            const env = detectEnvironment();
+            isStandalone = env.isStandalone;
+            
+            // Ma'lumotlarni yuklash
             const savedData = localStorage.getItem('xbetSignalsData');
             if (savedData) {
                 userData = JSON.parse(savedData);
@@ -2765,7 +3245,7 @@
 
             setupListeners();
             
-            // Til avval tanlangan bo'lsa, to'g'ridan-to'g'ri asosiy sahifaga o'tish
+            // Til avval tanlangan bo'lsa
             if (localStorage.getItem('xbetSignalsLang')) {
                 console.log('Til avval tanlangan, asosiy sahifaga o\'tilmoqda...');
                 selectLanguage(currentLang);
@@ -2777,9 +3257,28 @@
             updateDailyStats();
             updateUserData();
             
-            // PWA holatini tekshirish
-            if (isStandalone) {
-                console.log('Ilova standalone rejimida ishlayapti');
+            // Telegram banner va float button
+            manageTelegramBanner();
+            addTelegramFloatButton();
+            
+            // URL parametrlarini tekshirish
+            checkUrlParams();
+            
+            console.log('Ilova muvaffaqiyatli ishga tushirildi');
+        }
+
+        function checkUrlParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const external = urlParams.get('external');
+            
+            if (external === 'true') {
+                showToast('Brauzerda ochildi. Endi ilovani ekraningizga qo\'shishingiz mumkin!', 'success');
+                
+                // URL dan parametrni olib tashlash
+                if (window.history.replaceState) {
+                    const newUrl = window.location.pathname;
+                    window.history.replaceState({}, document.title, newUrl);
+                }
             }
         }
 
@@ -2906,11 +3405,19 @@
 
             // Settingsdagi ilova o'rnatish
             document.getElementById('settingsInstall').addEventListener('click', () => {
-                if (deferredPrompt && !isStandalone) {
+                const env = detectEnvironment();
+                if (env.isTelegram) {
+                    openInBrowser();
+                } else if (deferredPrompt && !isStandalone) {
                     installApp();
                 } else {
                     showToast('Ilova allaqachon o\'rnatilgan yoki brauzeringiz PWA ni qo\'llab-quvvatlamaydi', 'info');
                 }
+            });
+
+            // Telegram uchun brauzerda ochish
+            document.getElementById('settingsOpenInBrowser').addEventListener('click', () => {
+                openInBrowser();
             });
 
             // VIP sotib olish
@@ -2970,7 +3477,7 @@
             
             // Til tanlovchi ekranni yashirish va asosiy sahifani ko'rsatish
             document.getElementById('languageSelector').style.display = 'none';
-            showPage('main'); // ASOSIY O'ZGARTIRISH: showPage chaqirildi
+            showPage('main');
             
             // Foydalanuvchi ma'lumotlarini yangilash
             updateUserData();
@@ -2993,23 +3500,35 @@
             });
             
             // Kerakli sahifani ko'rsatish
-            if (pageName === 'main') {
-                console.log('Asosiy sahifa ko\'rsatilmoqda');
-                document.getElementById('mainContainer').classList.add('active');
-                document.querySelector('#mainContainer .nav-item[data-page="main"]').classList.add('active');
-            } else if (pageName === 'signal') {
-                document.getElementById('signalPage').classList.add('active');
-                document.querySelector('#signalPage .nav-item[data-page="signal"]').classList.add('active');
-                checkTimer();
-            } else if (pageName === 'vip') {
-                document.getElementById('vipPage').classList.add('active');
-                document.querySelector('#vipPage .nav-item[data-page="vip"]').classList.add('active');
-            } else if (pageName === 'apk') {
-                document.getElementById('apkPage').classList.add('active');
-                document.querySelector('#apkPage .nav-item[data-page="apk"]').classList.add('active');
-            } else if (pageName === 'settings') {
-                document.getElementById('settingsPage').classList.add('active');
-                document.querySelector('#settingsPage .nav-item[data-page="settings"]').classList.add('active');
+            let activePage = null;
+            
+            switch(pageName) {
+                case 'main':
+                    activePage = document.getElementById('mainContainer');
+                    break;
+                case 'signal':
+                    activePage = document.getElementById('signalPage');
+                    checkTimer();
+                    break;
+                case 'vip':
+                    activePage = document.getElementById('vipPage');
+                    break;
+                case 'apk':
+                    activePage = document.getElementById('apkPage');
+                    break;
+                case 'settings':
+                    activePage = document.getElementById('settingsPage');
+                    break;
+            }
+            
+            if (activePage) {
+                activePage.classList.add('active');
+                
+                // Kerakli nav itemni faollashtirish
+                const navItem = activePage.querySelector(`.nav-item[data-page="${pageName}"]`);
+                if (navItem) {
+                    navItem.classList.add('active');
+                }
             }
             
             // Modalarni yopish
@@ -3018,6 +3537,9 @@
             });
             
             console.log('Sahifa muvaffaqiyatli o\'zgartirildi');
+            
+            // Telegram float buttonini yangilash
+            addTelegramFloatButton();
         }
 
         function updateUserData() {
@@ -3364,6 +3886,37 @@
                 timerElement.style.display = 'block';
             }
         }
+
+        // ==================== ONLINE/OFFLINE HOLAT ====================
+        function checkConnection() {
+            if (!navigator.onLine) {
+                showToast('Internet aloqasi yo\'q. Ba\'zi funksiyalar ishlamasligi mumkin.', 'warning');
+            }
+        }
+
+        window.addEventListener('online', () => {
+            showToast('Internet aloqasi tiklandi', 'success');
+        });
+
+        window.addEventListener('offline', () => {
+            showToast('Internet aloqasi uzildi', 'warning');
+        });
+
+        // Internet holatini tekshirish
+        checkConnection();
+
+        // Ilova ochilganda bir marta Telegram bannerini ko'rsatish
+        window.addEventListener('load', () => {
+            const env = detectEnvironment();
+            if (env.isTelegram && !env.isStandalone) {
+                // 3 soniyadan keyin banner ko'rsatish
+                setTimeout(() => {
+                    manageTelegramBanner();
+                }, 3000);
+            }
+        });
+
+        console.log('1xBet Signals PWA ilovasi to\'liq yuklandi va ishga tushdi!');
     </script>
 </body>
 </html>
