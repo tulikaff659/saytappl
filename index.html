@@ -1,0 +1,3369 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- PWA uchun kerakli meta teglar -->
+    <meta name="theme-color" content="#00a53c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="1xBet Signals">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/fVPq08Xq/1xbet-logo.png">
+    
+    <title>1xBet Signals | Bukmeker</title>
+    
+    <!-- Manifest fayli -->
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* PWA uchun qo'shimcha stillar */
+        @media (display-mode: standalone) {
+            .app-header {
+                padding-top: env(safe-area-inset-top);
+            }
+            
+            body {
+                padding-top: env(safe-area-inset-top);
+                padding-bottom: calc(70px + env(safe-area-inset-bottom));
+            }
+            
+            .bottom-nav {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+            
+            #installPrompt {
+                display: none !important;
+            }
+        }
+        
+        @media (max-height: 600px) {
+            .bottom-nav {
+                padding: 6px 0;
+            }
+            
+            .nav-icon {
+                font-size: 16px;
+                margin-bottom: 1px;
+            }
+            
+            .nav-text {
+                font-size: 9px;
+            }
+        }
+        
+        /* Ekranga qo'shish uchun tugma va banner */
+        #installPrompt {
+            position: fixed;
+            bottom: 80px;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #00a53c, #ffcc00);
+            padding: 12px 20px;
+            display: none;
+            z-index: 1000;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .install-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        
+        .install-text h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .install-text p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        #installBtn {
+            white-space: nowrap;
+            padding: 8px 16px;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        #closeInstallBtn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Asosiy stillar davomi... */
+        :root {
+            --primary: #00a53c;
+            --primary-dark: #00852f;
+            --secondary: #ffcc00;
+            --accent: #fd7e14;
+            --success: #4caf50;
+            --danger: #e74c3c;
+            --dark: #121212;
+            --darker: #0a0a0a;
+            --light: #ffffff;
+            --gray: #666666;
+            --card-bg: rgba(30, 30, 30, 0.7);
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.5;
+            padding-bottom: 70px;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Qolgan stillar oldingi kabi... */
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 165, 60, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #2e7d32);
+            color: white;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #c62828);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-vip {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: #000;
+        }
+
+        .btn-vip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 204, 0, 0.3);
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 11px;
+            border-radius: 8px;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        #languageSelector {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .language-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .language-logo i {
+            font-size: 36px;
+            color: white;
+        }
+
+        #languageTitle {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        #languageSubtitle {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .lang-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .lang-card .flag {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .lang-card .name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .main-container {
+            display: none;
+            max-width: 100%;
+        }
+
+        .main-container.active {
+            display: block;
+        }
+
+        .app-header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background-image: url('https://i.ibb.co/fVPq08Xq/1xbet-logo.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .header-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .user-stats {
+            padding: 20px;
+        }
+
+        .user-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .user-info {
+            margin-bottom: 20px;
+        }
+
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .user-avatar i {
+            font-size: 20px;
+            color: white;
+        }
+
+        .user-details h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 8px;
+        }
+
+        .user-id {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(0, 165, 60, 0.2);
+            color: var(--primary);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            border: 1px solid rgba(0, 165, 60, 0.3);
+            margin-bottom: 8px;
+        }
+
+        .user-level {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--accent);
+            color: var(--dark);
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-left: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .register-promo {
+            margin: 0 20px 20px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 16px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .register-content {
+            text-align: center;
+        }
+
+        .register-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-icon i {
+            font-size: 28px;
+            color: white;
+        }
+
+        .register-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .register-text p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 16px;
+        }
+
+        .register-promo-code {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 12px 0;
+        }
+
+        .promo-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 4px;
+        }
+
+        .promo-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .quick-actions {
+            padding: 0 20px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .action-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            -webkit-touch-callout: none;
+        }
+
+        .action-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            width: 36px;
+            height: 36px;
+            margin: 0 auto 8px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-icon i {
+            font-size: 16px;
+            color: white;
+        }
+
+        .action-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 4px;
+        }
+
+        .action-desc {
+            font-size: 10px;
+            color: var(--gray);
+            line-height: 1.3;
+        }
+
+        .vip-banner {
+            margin: 0 20px 20px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 16px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .vip-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .vip-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vip-icon i {
+            font-size: 20px;
+            color: white;
+        }
+
+        .vip-text h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+        }
+
+        .vip-text p {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .vip-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .section-header {
+            padding: 0 20px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .stats-container {
+            padding: 0 20px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .stat-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon i {
+            font-size: 12px;
+            color: white;
+        }
+
+        .stat-card-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--light);
+        }
+
+        .stat-card-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .stat-card-label {
+            font-size: 10px;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--glass-border);
+            padding: 8px 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray);
+            text-decoration: none;
+            flex: 1;
+            padding: 6px 0;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-icon {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .nav-text {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .game-user-id {
+            background: rgba(0, 165, 60, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 16px;
+            text-align: center;
+            border: 1px solid rgba(0, 165, 60, 0.2);
+        }
+
+        .user-id-display {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .game-id-message {
+            font-size: 12px;
+            color: var(--light);
+            line-height: 1.4;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .game-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .game-subtitle {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .id-input-section {
+            margin: 20px 0;
+            display: none;
+        }
+
+        .id-input-section.active {
+            display: block;
+        }
+
+        .id-input-label {
+            font-size: 14px;
+            color: var(--light);
+            margin-bottom: 12px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .id-input-wrapper {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .id-input {
+            width: 100%;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            color: var(--light);
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            letter-spacing: 2px;
+            outline: none;
+            transition: all 0.3s ease;
+            -webkit-appearance: none;
+        }
+
+        .id-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 165, 60, 0.2);
+        }
+
+        .id-input.valid {
+            border-color: var(--success);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        .id-input.invalid {
+            border-color: var(--danger);
+            box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+        }
+
+        .id-input-hint {
+            font-size: 11px;
+            color: var(--gray);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .vip-timer-action {
+            background: rgba(253, 126, 20, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .vip-timer-action.active {
+            display: block;
+        }
+
+        .timer-active-message {
+            background: rgba(253, 126, 20, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .timer-active-message.active {
+            display: block;
+        }
+
+        .timer-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .timer-message {
+            font-size: 14px;
+            color: var(--light);
+            margin-bottom: 8px;
+        }
+
+        .timer-submessage {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .game-apples-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+            width: 100%;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .game-apples-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .game-apple {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .apple-mystery {
+            background-image: url('https://i.ibb.co/Gf3NcMDQ/maxresdefault.jpg');
+            border-color: var(--primary);
+        }
+
+        .apple-whole {
+            background-image: url('https://i.pinimg.com/736x/6a/aa/19/6aaa196961f40afd21cf9d21824f137e.jpg');
+            border-color: var(--success);
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+
+        .apple-bitten {
+            background-image: url('https://i.ibb.co/m5sNvNPK/62cd09ea-de08-49b9-9fea-d0100c747423-2.jpg');
+            border-color: var(--danger);
+            box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+        }
+
+        @media (max-width: 380px) {
+            .game-apple {
+                width: 50px;
+                height: 50px;
+                min-width: 50px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .game-apple {
+                width: 45px;
+                height: 45px;
+                min-width: 45px;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .game-apple {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+            }
+        }
+
+        .game-info {
+            background: rgba(0, 165, 60, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .next-signal-timer {
+            background: rgba(253, 126, 20, 0.1);
+            border: 1px dashed var(--accent);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .timer-title {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .timer-display {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--light);
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-note {
+            font-size: 11px;
+            color: var(--gray);
+            margin-top: 8px;
+        }
+
+        .game-instruction {
+            font-size: 12px;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .game-result-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .game-result-overlay.active {
+            display: flex;
+        }
+
+        .result-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: bounce 1s ease infinite;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 10px;
+        }
+
+        .result-message {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .stage-transition {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .stage-transition.active {
+            display: flex;
+        }
+
+        .hacking-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .hacking-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #00ff00;
+            animation: scanLine 2s linear infinite;
+        }
+
+        .hacking-text {
+            font-size: 32px;
+            font-weight: 700;
+            color: #00ff00;
+            text-shadow: 0 0 10px #00ff00;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 20px;
+            animation: glitch 0.5s linear infinite;
+        }
+
+        .hacking-subtitle {
+            font-size: 16px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .hacking-percentage {
+            font-size: 48px;
+            font-weight: 700;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        .hacking-message {
+            font-size: 14px;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            text-align: center;
+            padding: 0 20px;
+            opacity: 0.7;
+        }
+
+        .hacking-binary {
+            position: absolute;
+            font-size: 12px;
+            color: #00ff00;
+            opacity: 0.3;
+            font-family: 'Courier New', monospace;
+            pointer-events: none;
+        }
+
+        .game-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .game-actions .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 14px;
+        }
+
+        .vip-features {
+            margin: 20px 0;
+        }
+
+        .vip-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon i {
+            font-size: 16px;
+            color: white;
+        }
+
+        .feature-text h4 {
+            font-size: 14px;
+            color: var(--light);
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            font-size: 11px;
+            color: var(--gray);
+        }
+
+        .invite-section {
+            background: rgba(253, 126, 20, 0.1);
+            border: 1px dashed var(--accent);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .invite-title {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .invite-description {
+            font-size: 12px;
+            color: var(--light);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .invite-progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .invite-progress-item {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .invite-progress-item.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .invite-progress-item.completed {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .page-container {
+            display: none;
+        }
+
+        .page-container.active {
+            display: block;
+        }
+
+        .page-header {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .page-back {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            cursor: pointer;
+        }
+
+        .page-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .page-content {
+            padding: 20px;
+        }
+
+        .page-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon i {
+            font-size: 20px;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+            text-align: center;
+            margin: 16px 0;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .promo-code {
+            background: rgba(253, 126, 20, 0.1);
+            border: 1px dashed var(--accent);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .promo-code .code {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .promo-code .label {
+            font-size: 11px;
+            color: var(--gray);
+            margin-top: 8px;
+        }
+
+        .settings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .settings-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .settings-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .settings-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .settings-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .settings-icon i {
+            font-size: 16px;
+            color: white;
+        }
+
+        .settings-text h4 {
+            font-size: 14px;
+            color: var(--light);
+            margin-bottom: 4px;
+        }
+
+        .settings-text p {
+            font-size: 11px;
+            color: var(--gray);
+        }
+
+        .settings-arrow {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .guide-container {
+            margin-top: 20px;
+        }
+
+        .guide-step {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .guide-step-number {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .guide-step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--light);
+            margin-bottom: 8px;
+        }
+
+        .guide-step-desc {
+            font-size: 12px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        @media (min-width: 768px) {
+            .main-container, .page-container {
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 380px) {
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            
+            .action-card {
+                padding: 12px 6px;
+            }
+            
+            .game-actions .btn {
+                min-width: 100px;
+                padding: 12px;
+            }
+            
+            .hacking-text {
+                font-size: 24px;
+            }
+            
+            .hacking-percentage {
+                font-size: 36px;
+            }
+            
+            .user-actions {
+                flex-direction: column;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-16 {
+            margin-bottom: 16px;
+        }
+
+        .mt-16 {
+            margin-top: 16px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: var(--light);
+            font-size: 13px;
+            z-index: 10000;
+            animation: toastSlideIn 0.3s ease;
+            max-width: 280px;
+        }
+
+        @keyframes toastSlideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .toast.success {
+            border-left: 4px solid var(--success);
+        }
+
+        .toast.error {
+            border-left: 4px solid var(--danger);
+        }
+
+        .toast.info {
+            border-left: 4px solid var(--primary);
+        }
+
+        .toast.warning {
+            border-left: 4px solid var(--accent);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes scanLine {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+                text-shadow: 0 0 10px #00ff00;
+            }
+            20% {
+                transform: translate(-2px, 2px);
+                text-shadow: 2px -2px 10px #00ff00, -2px 2px 10px #00ff00;
+            }
+            40% {
+                transform: translate(-2px, -2px);
+                text-shadow: -2px 2px 10px #00ff00, 2px -2px 10px #00ff00;
+            }
+            60% {
+                transform: translate(2px, 2px);
+                text-shadow: 2px 2px 10px #00ff00, -2px -2px 10px #00ff00;
+            }
+            80% {
+                transform: translate(2px, -2px);
+                text-shadow: -2px -2px 10px #00ff00, 2px 2px 10px #00ff00;
+            }
+            100% {
+                transform: translate(0);
+                text-shadow: 0 0 10px #00ff00;
+            }
+        }
+
+        @keyframes binaryRain {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(1000%);
+                opacity: 0;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Ekranga qo'shish banneri -->
+    <div id="installPrompt">
+        <div class="install-content">
+            <div class="install-text">
+                <h3>📱 1xBet Signals ilovasini o'rnating</h3>
+                <p>Brauzerdan ilova kabi ishlating</p>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button class="btn btn-primary" id="installBtn">
+                    <i class="fas fa-plus-circle"></i> Qo'shish
+                </button>
+                <button id="closeInstallBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Selector -->
+    <div id="languageSelector">
+        <div class="language-logo">
+            <i class="fas fa-trophy"></i>
+        </div>
+        <h2 id="languageTitle">1xBet Signals</h2>
+        <p id="languageSubtitle">Bukmeker platformasi</p>
+        
+        <div class="language-grid">
+            <div class="lang-card" data-lang="uz">
+                <div class="flag">🇺🇿</div>
+                <div class="name">O'zbekcha</div>
+            </div>
+            <div class="lang-card" data-lang="ru">
+                <div class="flag">🇷🇺</div>
+                <div class="name">Русский</div>
+            </div>
+            <div class="lang-card" data-lang="en">
+                <div class="flag">🇺🇸</div>
+                <div class="name">English</div>
+            </div>
+            <div class="lang-card" data-lang="ar">
+                <div class="flag">🇸🇦</div>
+                <div class="name">العربية</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Home Page -->
+    <div class="main-container" id="mainContainer">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <!-- 1xBet logo image applied via CSS -->
+                </div>
+                <div class="logo-text">1xBet Signals</div>
+            </div>
+            
+            <div class="header-controls">
+                <div class="header-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- User Stats -->
+        <section class="user-stats">
+            <div class="user-card">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3 id="userName">Foydalanuvchi</h3>
+                        <div class="user-id" id="userIdDisplay">ID: 12345678901</div>
+                        <div class="user-level" id="userLevel">YANGI</div>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="level">YANGI</div>
+                        <div class="stat-label" id="levelLabel">DARAJASI</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="invites">0</div>
+                        <div class="stat-label" id="invitesLabel">TAKLIFLAR</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="accuracy">0%</div>
+                        <div class="stat-label" id="accuracyLabel">ANIQLIK</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="friends">0</div>
+                        <div class="stat-label" id="friendsLabel">DO'STLAR</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promo Registration Banner -->
+        <section class="register-promo">
+            <div class="register-content">
+                <div class="register-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="register-text">
+                    <h3 id="registerPromoTitle">SIGNAL OLISH UCHUN RO'YXATDAN O'TING</h3>
+                    <p id="registerPromoDesc">AIFUT promokod orqali 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling</p>
+                </div>
+                
+                <div class="register-promo-code">
+                    <div class="promo-label">PROMOKOD</div>
+                    <div class="promo-value">AIFUT</div>
+                </div>
+                
+                <button class="btn btn-primary" id="mainRegisterBtn" style="width: 100%; padding: 16px; font-size: 16px;">
+                    <i class="fas fa-user-plus"></i> <span id="mainRegisterText">RO'YXATDAN O'TISH</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions">
+            <div class="action-card" id="signalBtn">
+                <div class="action-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="action-title" id="signalTitle">SIGNAL</div>
+                <div class="action-desc" id="signalDesc">Yuqori aniqlik</div>
+            </div>
+            
+            <div class="action-card" id="vipBtn">
+                <div class="action-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="action-title" id="vipTitle">VIP</div>
+                <div class="action-desc" id="vipDesc">Ekskluziv</div>
+            </div>
+            
+            <div class="action-card" id="apkBtn">
+                <div class="action-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="action-title" id="apkTitle">APK</div>
+                <div class="action-desc" id="apkDesc">Yuklab olish</div>
+            </div>
+            
+            <div class="action-card" id="bonusBtn">
+                <div class="action-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+                <div class="action-title" id="bonusTitle">BONUS</div>
+                <div class="action-desc" id="bonusDesc">Promokodlar</div>
+            </div>
+        </section>
+
+        <!-- VIP Banner -->
+        <section class="vip-banner" id="vipBanner">
+            <div class="vip-content">
+                <div class="vip-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="vip-text">
+                    <h3 id="vipBannerTitle">VIP A'ZO BO'LING</h3>
+                    <p id="vipBannerDesc">30% ko'proq bonus</p>
+                </div>
+            </div>
+            <div class="vip-badge">VIP</div>
+        </section>
+
+        <!-- DAILY STATISTICS -->
+        <div class="section-header">
+            <h2 class="section-title" id="statsTitle">KUNLIK STATISTIKA</h2>
+        </div>
+        
+        <section class="stats-container">
+            <div class="stats-grid" id="statsGrid">
+                <!-- Statistics will be added here -->
+            </div>
+        </section>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" data-page="main">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-text" id="navHomeText">ASOSIY</div>
+            </div>
+            
+            <div class="nav-item" data-page="signal">
+                <div class="nav-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="nav-text" id="navSignalText">SIGNAL</div>
+            </div>
+            
+            <div class="nav-item" data-page="vip">
+                <div class="nav-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="nav-text" id="navVipText">VIP</div>
+            </div>
+            
+            <div class="nav-item" data-page="apk">
+                <div class="nav-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="nav-text" id="navApkText">APK</div>
+            </div>
+            
+            <div class="nav-item" data-page="settings">
+                <div class="nav-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="nav-text" id="navSettingsText">SOZLAMALAR</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Signal Page -->
+    <div class="page-container" id="signalPage">
+        <header class="page-header">
+            <div class="page-back" data-page="main">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="page-title">SIGNAL</div>
+        </header>
+        
+        <div class="page-content">
+            <div class="page-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="card-title">SIGNAL OLISH</div>
+                </div>
+                
+                <div class="card-desc">
+                    Signal olish uchun pastdagi tugmani bosing va o'yinni boshlang.
+                    Har bir bosqichda butun olmani topishingiz kerak.
+                </div>
+                
+                <div class="next-signal-timer" id="nextSignalTimer">
+                    <div class="timer-title">KEYINGI SIGNAL UCHUN QOLGAN VAQT</div>
+                    <div class="timer-display" id="timerDisplay">02:00:00</div>
+                    <div class="timer-note">VIP a'zolar kutish vaqtini o'tkazib yuborishlari mumkin</div>
+                </div>
+                
+                <button class="btn btn-primary" id="startGameBtn" style="width: 100%;">
+                    <i class="fas fa-play"></i> O'YINNI BOSHLASH
+                </button>
+            </div>
+        </div>
+        
+        <nav class="bottom-nav">
+            <div class="nav-item" data-page="main">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-text">ASOSIY</div>
+            </div>
+            
+            <div class="nav-item active" data-page="signal">
+                <div class="nav-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="nav-text">SIGNAL</div>
+            </div>
+            
+            <div class="nav-item" data-page="vip">
+                <div class="nav-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="nav-text">VIP</div>
+            </div>
+            
+            <div class="nav-item" data-page="apk">
+                <div class="nav-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="nav-text">APK</div>
+            </div>
+            
+            <div class="nav-item" data-page="settings">
+                <div class="nav-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="nav-text">SOZLAMALAR</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- VIP Page -->
+    <div class="page-container" id="vipPage">
+        <header class="page-header">
+            <div class="page-back" data-page="main">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="page-title">VIP</div>
+        </header>
+        
+        <div class="page-content">
+            <div class="page-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="card-title">VIP A'ZO BO'LISH</div>
+                </div>
+                
+                <div class="card-value">
+                    30% KO'PROQ BONUS
+                </div>
+                
+                <div class="card-desc">
+                    VIP a'zo bo'lish uchun 5 ta do'st taklif qiling yoki to'g'ridan-to'g'ri VIP paketini sotib oling.
+                    VIP a'zolar:
+                </div>
+                
+                <div class="vip-features">
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Kutish vaqti yo'q</h4>
+                            <p>Har qanday vaqt signal olish</p>
+                        </div>
+                    </div>
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Yuqori aniqlik</h4>
+                            <p>95% gacha aniqlikdagi signallar</p>
+                        </div>
+                    </div>
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Maxsus bonuslar</h4>
+                            <p>VIP a'zolar uchun maxsus promokodlar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-vip" id="getVipBtn" style="width: 100%;">
+                    <i class="fas fa-crown"></i> VIP A'ZO BO'LISH
+                </button>
+            </div>
+        </div>
+        
+        <nav class="bottom-nav">
+            <div class="nav-item" data-page="main">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-text">ASOSIY</div>
+            </div>
+            
+            <div class="nav-item" data-page="signal">
+                <div class="nav-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="nav-text">SIGNAL</div>
+            </div>
+            
+            <div class="nav-item active" data-page="vip">
+                <div class="nav-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="nav-text">VIP</div>
+            </div>
+            
+            <div class="nav-item" data-page="apk">
+                <div class="nav-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="nav-text">APK</div>
+            </div>
+            
+            <div class="nav-item" data-page="settings">
+                <div class="nav-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="nav-text">SOZLAMALAR</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- APK Page -->
+    <div class="page-container" id="apkPage">
+        <header class="page-header">
+            <div class="page-back" data-page="main">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="page-title">APK YUKLASH</div>
+        </header>
+        
+        <div class="page-content">
+            <div class="page-card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="card-title">MOBIL ILOVA</div>
+                </div>
+                
+                <div class="card-value">
+                    APK YUKLASH
+                </div>
+                
+                <p class="card-desc" id="apkDescText">
+                    1xBet mobil ilovasini yuklab oling va istalgan joydan signallar oling.
+                    To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud.
+                </p>
+                
+                <button class="btn btn-primary" id="downloadApkBtn">
+                    <i class="fas fa-download"></i> <span id="downloadApkText">YUKLASH</span>
+                </button>
+                
+                <div class="promo-code">
+                    <div class="code">AIFUT</div>
+                    <div class="label">Promokod bilan ro'yxatdan o'ting</div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="bottom-nav">
+            <div class="nav-item" data-page="main">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-text">ASOSIY</div>
+            </div>
+            
+            <div class="nav-item" data-page="signal">
+                <div class="nav-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="nav-text">SIGNAL</div>
+            </div>
+            
+            <div class="nav-item" data-page="vip">
+                <div class="nav-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="nav-text">VIP</div>
+            </div>
+            
+            <div class="nav-item active" data-page="apk">
+                <div class="nav-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="nav-text">APK</div>
+            </div>
+            
+            <div class="nav-item" data-page="settings">
+                <div class="nav-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="nav-text">SOZLAMALAR</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- SETTINGS PAGE -->
+    <div class="page-container" id="settingsPage">
+        <header class="page-header">
+            <div class="page-back" data-page="main">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+            <div class="page-title">SOZLAMALAR</div>
+        </header>
+        
+        <div class="page-content">
+            <div class="settings-list">
+                <div class="settings-item" id="settingsLanguage">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="settings-text">
+                            <h4 id="settingsLanguageTitle">Tilni o'zgartirish</h4>
+                            <p id="settingsLanguageDesc">Dastur tilini tanlash</p>
+                        </div>
+                    </div>
+                    <div class="settings-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="settings-item" id="settingsChangeId">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="settings-text">
+                            <h4 id="settingsChangeIdTitle">ID raqamni o'zgartirish</h4>
+                            <p id="settingsChangeIdDesc">ID raqamingizni yangilang</p>
+                        </div>
+                    </div>
+                    <div class="settings-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="settings-item" id="settingsInvite">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="settings-text">
+                            <h4 id="settingsInviteTitle">Do'stlarni taklif qilish</h4>
+                            <p id="settingsInviteDesc">Darajangizni oshiring</p>
+                        </div>
+                    </div>
+                    <div class="settings-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="settings-item" id="settingsGuide">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="settings-text">
+                            <h4 id="settingsGuideTitle">Ishlatish qo'llanmasi</h4>
+                            <p id="settingsGuideDesc">Qanday ishlatish haqida</p>
+                        </div>
+                    </div>
+                    <div class="settings-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <!-- PWA uchun qo'shimcha sozlamalar -->
+                <div class="settings-item" id="settingsInstall">
+                    <div class="settings-item-left">
+                        <div class="settings-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="settings-text">
+                            <h4>Ilovani o'rnatish</h4>
+                            <p>Telefon ekraniga qo'shish</p>
+                        </div>
+                    </div>
+                    <div class="settings-arrow">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="guide-container" id="guideContainer" style="display: none;">
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="guide-step-number">1</span>
+                        <span id="guideStep1Title">1xBet-da ro'yxatdan o'tish</span>
+                    </div>
+                    <p class="guide-step-desc" id="guideStep1Desc">
+                        AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting. Bu sizga signal olish imkoniyatini beradi.
+                    </p>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="guide-step-number">2</span>
+                        <span id="guideStep2Title">ID raqamni kiritish</span>
+                    </div>
+                    <p class="guide-step-desc" id="guideStep2Desc">
+                        1xBet akkauntingizning ID raqamini kiritib, signal olish o'yiniga kirish.
+                    </p>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="guide-step-number">3</span>
+                        <span id="guideStep3Title">Signal o'yini</span>
+                    </div>
+                    <p class="guide-step-desc" id="guideStep3Desc">
+                        Butun olmalarni tanlang. Har bir yutuqli bosqich sizga 1xBet uchun signal beradi.
+                    </p>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="guide-step-number">4</span>
+                        <span id="guideStep4Title">Do'stlarni taklif qilish</span>
+                    </div>
+                    <p class="guide-step-desc" id="guideStep4Desc">
+                        5 ta do'st taklif qiling va VIP signalga ega bo'ling.
+                    </p>
+                </div>
+                
+                <div class="guide-step">
+                    <div class="guide-step-title">
+                        <span class="guide-step-number">5</span>
+                        <span id="guideStep5Title">1xBet signal olish</span>
+                    </div>
+                    <p class="guide-step-desc" id="guideStep5Desc">
+                        O'yin yutqazilsa, 2 soat kutish kerak. VIP signal bilan kutish vaqtini o'tkazib yuborish mumkin.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="bottom-nav">
+            <div class="nav-item" data-page="main">
+                <div class="nav-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-text">ASOSIY</div>
+            </div>
+            
+            <div class="nav-item" data-page="signal">
+                <div class="nav-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="nav-text">SIGNAL</div>
+            </div>
+            
+            <div class="nav-item" data-page="vip">
+                <div class="nav-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div class="nav-text">VIP</div>
+            </div>
+            
+            <div class="nav-item" data-page="apk">
+                <div class="nav-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="nav-text">APK</div>
+            </div>
+            
+            <div class="nav-item active" data-page="settings">
+                <div class="nav-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="nav-text">SOZLAMALAR</div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Game Modal -->
+    <div class="modal-overlay" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="gameModalTitle">SIGNAL OLISH</h3>
+                <div class="modal-close" id="closeGameModal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body" id="gameModalBody">
+                <!-- Game content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- VIP MODAL -->
+    <div class="modal-overlay" id="vipModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">VIP A'ZO BO'LISH</h3>
+                <div class="modal-close" id="closeVipModal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="game-user-id">
+                    <div class="user-id-display" id="vipUserId">ID: 12345678901</div>
+                    <div class="game-id-message">
+                        VIP a'zo bo'lish uchun 5 ta do'st taklif qiling yoki to'g'ridan-to'g'ri VIP paketini sotib oling
+                    </div>
+                </div>
+                
+                <div class="vip-features">
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Kutish vaqti yo'q</h4>
+                            <p>Har qanday vaqt signal olish</p>
+                        </div>
+                    </div>
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Yuqori aniqlik</h4>
+                            <p>95% gacha aniqlikdagi signallar</p>
+                        </div>
+                    </div>
+                    <div class="vip-feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h4>Maxsus bonuslar</h4>
+                            <p>VIP a'zolar uchun maxsus promokodlar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="invite-section">
+                    <div class="invite-title">DO'STLARNI TAKLIF QILISH</div>
+                    <div class="invite-description">
+                        5 ta do'st taklif qiling va VIP bo'ling
+                    </div>
+                    <div class="invite-progress">
+                        <div class="invite-progress-item completed">1</div>
+                        <div class="invite-progress-item active">2</div>
+                        <div class="invite-progress-item">3</div>
+                        <div class="invite-progress-item">4</div>
+                        <div class="invite-progress-item">5</div>
+                    </div>
+                    <button class="btn btn-secondary" id="inviteFriendsBtnModal">
+                        <i class="fas fa-share-alt"></i> DO'STLARNI TAKLIF QILISH
+                    </button>
+                </div>
+                
+                <button class="btn btn-vip" id="buyVipBtn" style="width: 100%; margin-top: 16px;">
+                    <i class="fas fa-crown"></i> VIP PAKETNI SOTIB OLISH
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ID o'zgartirish modali -->
+    <div class="modal-overlay" id="changeIdModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">ID RAQAMNI O'ZGARTIRISH</h3>
+                <div class="modal-close" id="closeChangeIdModal">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="id-input-section active">
+                    <div class="id-input-label">1xBet ID raqamingizni kiriting</div>
+                    <div class="id-input-wrapper">
+                        <input type="text" class="id-input" id="userIdInput" placeholder="12345678901" maxlength="11">
+                    </div>
+                    <div class="id-input-hint">
+                        1xBet akkauntingizning ID raqami 11 raqamdan iborat
+                    </div>
+                    <button class="btn btn-primary" id="saveUserIdBtn" style="width: 100%;">
+                        SAQLASH
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div id="toastContainer"></div>
+
+    <script>
+        // PWA uchun kerakli o'zgaruvchilar
+        let deferredPrompt;
+        let isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                          window.navigator.standalone === true;
+        
+        // Asosiy o'zgaruvchilar
+        const translations = {
+            uz: {
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "Bukmeker platformasi",
+                userName: "Foydalanuvchi",
+                levelLabel: "DARAJASI",
+                invitesLabel: "TAKLIFLAR",
+                accuracyLabel: "ANIQLIK",
+                friendsLabel: "DO'STLAR",
+                registerPromoTitle: "SIGNAL OLISH UCHUN RO'YXATDAN O'TING",
+                registerPromoDesc: "AIFUT promokod orqali 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling",
+                mainRegisterText: "RO'YXATDAN O'TISH",
+                signalTitle: "SIGNAL",
+                signalDesc: "Yuqori aniqlik",
+                vipTitle: "VIP",
+                vipDesc: "Ekskluziv",
+                apkTitle: "APK",
+                apkDesc: "Yuklab olish",
+                bonusTitle: "BONUS",
+                bonusDesc: "Promokodlar",
+                vipBannerTitle: "VIP A'ZO BO'LING",
+                vipBannerDesc: "30% ko'proq bonus",
+                statsTitle: "KUNLIK STATISTIKA",
+                navHomeText: "ASOSIY",
+                navSignalText: "SIGNAL",
+                navVipText: "VIP",
+                navApkText: "APK",
+                navSettingsText: "SOZLAMALAR",
+                settingsLanguageTitle: "Tilni o'zgartirish",
+                settingsLanguageDesc: "Dastur tilini tanlash",
+                settingsChangeIdTitle: "ID raqamni o'zgartirish",
+                settingsChangeIdDesc: "ID raqamingizni yangilang",
+                settingsInviteTitle: "Do'stlarni taklif qilish",
+                settingsInviteDesc: "Darajangizni oshiring",
+                settingsGuideTitle: "Ishlatish qo'llanmasi",
+                settingsGuideDesc: "Qanday ishlatish haqida",
+                guideStep1Title: "1xBet-da ro'yxatdan o'tish",
+                guideStep1Desc: "AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting. Bu sizga signal olish imkoniyatini beradi.",
+                guideStep2Title: "ID raqamni kiritish",
+                guideStep2Desc: "1xBet akkauntingizning ID raqamini kiritib, signal olish o'yiniga kirish.",
+                guideStep3Title: "Signal o'yini",
+                guideStep3Desc: "Butun olmalarni tanlang. Har bir yutuqli bosqich sizga 1xBet uchun signal beradi.",
+                guideStep4Title: "Do'stlarni taklif qilish",
+                guideStep4Desc: "5 ta do'st taklif qiling va VIP signalga ega bo'ling.",
+                guideStep5Title: "1xBet signal olish",
+                guideStep5Desc: "O'yin yutqazilsa, 2 soat kutish kerak. VIP signal bilan kutish vaqtini o'tkazib yuborish mumkin."
+            },
+            ru: {
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "Букмекерская платформа",
+                userName: "Пользователь",
+                levelLabel: "УРОВЕНЬ",
+                invitesLabel: "ПРИГЛАШЕНИЯ",
+                accuracyLabel: "ТОЧНОСТЬ",
+                friendsLabel: "ДРУЗЬЯ",
+                registerPromoTitle: "ЗАРЕГИСТРИРУЙТЕСЬ ДЛЯ ПОЛУЧЕНИЯ СИГНАЛОВ",
+                registerPromoDesc: "Зарегистрируйтесь в 1xBet с промокодом AIFUT и получайте высокоточные сигналы",
+                mainRegisterText: "РЕГИСТРАЦИЯ",
+                signalTitle: "СИГНАЛ",
+                signalDesc: "Высокая точность",
+                vipTitle: "VIP",
+                vipDesc: "Эксклюзив",
+                apkTitle: "APK",
+                apkDesc: "Скачать",
+                bonusTitle: "БОНУС",
+                bonusDesc: "Промокоды",
+                vipBannerTitle: "СТАНЬТЕ VIP-УЧАСТНИКОМ",
+                vipBannerDesc: "На 30% больше бонуса",
+                statsTitle: "ЕЖЕДНЕВНАЯ СТАТИСТИКА",
+                navHomeText: "ГЛАВНАЯ",
+                navSignalText: "СИГНАЛ",
+                navVipText: "VIP",
+                navApkText: "APK",
+                navSettingsText: "НАСТРОЙКИ"
+            },
+            en: {
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "Bookmaker platform",
+                userName: "User",
+                levelLabel: "LEVEL",
+                invitesLabel: "INVITES",
+                accuracyLabel: "ACCURACY",
+                friendsLabel: "FRIENDS",
+                registerPromoTitle: "REGISTER TO GET SIGNALS",
+                registerPromoDesc: "Register at 1xBet with AIFUT promo code and get high accuracy signals",
+                mainRegisterText: "REGISTER",
+                signalTitle: "SIGNAL",
+                signalDesc: "High accuracy",
+                vipTitle: "VIP",
+                vipDesc: "Exclusive",
+                apkTitle: "APK",
+                apkDesc: "Download",
+                bonusTitle: "BONUS",
+                bonusDesc: "Promocodes",
+                vipBannerTitle: "BECOME VIP MEMBER",
+                vipBannerDesc: "30% more bonus",
+                statsTitle: "DAILY STATISTICS",
+                navHomeText: "HOME",
+                navSignalText: "SIGNAL",
+                navVipText: "VIP",
+                navApkText: "APK",
+                navSettingsText: "SETTINGS"
+            },
+            ar: {
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "منصة المراهنات",
+                userName: "مستخدم",
+                levelLabel: "المستوى",
+                invitesLabel: "الدعوات",
+                accuracyLabel: "الدقة",
+                friendsLabel: "الأصدقاء",
+                registerPromoTitle: "سجل للحصول على الإشارات",
+                registerPromoDesc: "سجل في 1xBet مع الرمز الترويجي AIFUT واحصل على إشارات عالية الدقة",
+                mainRegisterText: "تسجيل",
+                signalTitle: "إشارة",
+                signalDesc: "دقة عالية",
+                vipTitle: "VIP",
+                vipDesc: "حصري",
+                apkTitle: "APK",
+                apkDesc: "تحميل",
+                bonusTitle: "مكافأة",
+                bonusDesc: "رموز ترويجية",
+                vipBannerTitle: "كن عضو VIP",
+                vipBannerDesc: "30٪ مكافأة أكثر",
+                statsTitle: "الإحصائيات اليومية",
+                navHomeText: "الرئيسية",
+                navSignalText: "إشارة",
+                navVipText: "VIP",
+                navApkText: "APK",
+                navSettingsText: "الإعدادات"
+            }
+        };
+
+        let currentLang = localStorage.getItem('xbetSignalsLang') || 'uz';
+        let userData = {
+            level: "YANGI",
+            invites: 0,
+            accuracy: 92.5,
+            friends: 0,
+            invitedFriends: 0,
+            vipAvailable: false
+        };
+        
+        let dailyStats = {
+            activeUsers: 1245,
+            avgIncome: 245,
+            profit: 23.5,
+            onlinePlayers: 89
+        };
+        
+        let currentStage = 1;
+        let gameState = {
+            applesRevealed: false,
+            canProceed: false,
+            gameOver: false,
+            selectedApple: null,
+            apples: [],
+            stageWon: false,
+            resultType: null,
+            timerRunning: false,
+            timerEndTime: null,
+            idVerified: false,
+            userId: null
+        };
+
+        // PWA funksiyalari
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            if (!isStandalone) {
+                setTimeout(() => {
+                    showInstallPrompt();
+                }, 3000);
+            }
+        });
+
+        window.addEventListener('appinstalled', () => {
+            console.log('1xBet Signals ilovasi o\'rnatildi!');
+            hideInstallPrompt();
+            isStandalone = true;
+            showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
+        });
+
+        function showInstallPrompt() {
+            const prompt = document.getElementById('installPrompt');
+            if (prompt && deferredPrompt && !isStandalone) {
+                prompt.style.display = 'block';
+                
+                const lastShown = localStorage.getItem('installPromptLastShown');
+                const now = Date.now();
+                const oneWeek = 7 * 24 * 60 * 60 * 1000;
+                
+                if (!lastShown || (now - lastShown) > oneWeek) {
+                    prompt.style.display = 'block';
+                    localStorage.setItem('installPromptLastShown', now.toString());
+                }
+            }
+        }
+
+        function hideInstallPrompt() {
+            const prompt = document.getElementById('installPrompt');
+            if (prompt) {
+                prompt.style.display = 'none';
+            }
+        }
+
+        async function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    console.log('Foydalanuvchi ilovani o\'rnatishni tanladi');
+                } else {
+                    console.log('Foydalanuvchi ilovani o\'rnatishdan bosh tortdi');
+                }
+                
+                deferredPrompt = null;
+                hideInstallPrompt();
+            }
+        }
+
+        // Asosiy funksiyalar
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM yuklandi, ilova boshlanmoqda...');
+            initApp();
+        });
+
+        function initApp() {
+            console.log('Ilova ishga tushirilmoqda...');
+            
+            const savedData = localStorage.getItem('xbetSignalsData');
+            if (savedData) {
+                userData = JSON.parse(savedData);
+            }
+
+            const savedStats = localStorage.getItem('xbetSignalsStats');
+            if (savedStats) {
+                dailyStats = JSON.parse(savedStats);
+            }
+
+            const savedTimer = localStorage.getItem('xbetSignalsTimer');
+            if (savedTimer) {
+                gameState.timerEndTime = parseInt(savedTimer);
+                const now = Date.now();
+                if (gameState.timerEndTime > now) {
+                    gameState.timerRunning = true;
+                    startTimer();
+                }
+            }
+
+            const savedIdVerified = localStorage.getItem('xbetSignalsIdVerified');
+            if (savedIdVerified === 'true') {
+                gameState.idVerified = true;
+            }
+
+            const savedUserId = localStorage.getItem('xbetSignalsUserId');
+            if (savedUserId) {
+                gameState.userId = savedUserId;
+                updateUserIdDisplay();
+            }
+
+            setupListeners();
+            
+            // Til avval tanlangan bo'lsa, to'g'ridan-to'g'ri asosiy sahifaga o'tish
+            if (localStorage.getItem('xbetSignalsLang')) {
+                console.log('Til avval tanlangan, asosiy sahifaga o\'tilmoqda...');
+                selectLanguage(currentLang);
+            } else {
+                console.log('Til tanlanmagan, til tanlash ekrani ko\'rsatilmoqda...');
+                document.getElementById('languageSelector').style.display = 'flex';
+            }
+            
+            updateDailyStats();
+            updateUserData();
+            
+            // PWA holatini tekshirish
+            if (isStandalone) {
+                console.log('Ilova standalone rejimida ishlayapti');
+            }
+        }
+
+        function setupListeners() {
+            console.log('Event listenerlar o\'rnatilmoqda...');
+            
+            // Til tanlash
+            document.querySelectorAll('.lang-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    console.log('Til tanlandi:', lang);
+                    selectLanguage(lang);
+                });
+            });
+
+            // Navigation - event delegation
+            document.addEventListener('click', function(event) {
+                // Nav item bosilganda
+                const navItem = event.target.closest('.nav-item');
+                if (navItem) {
+                    const page = navItem.getAttribute('data-page');
+                    if (page) {
+                        event.preventDefault();
+                        showPage(page);
+                        return;
+                    }
+                }
+                
+                // Page back bosilganda
+                const pageBack = event.target.closest('.page-back');
+                if (pageBack) {
+                    const page = pageBack.getAttribute('data-page');
+                    if (page) {
+                        event.preventDefault();
+                        showPage(page);
+                        return;
+                    }
+                }
+                
+                // Settings btn bosilganda
+                if (event.target.closest('#settingsBtn')) {
+                    event.preventDefault();
+                    showPage('settings');
+                    return;
+                }
+            });
+
+            // Quick actions
+            document.getElementById('signalBtn').addEventListener('click', () => {
+                console.log('Signal tugmasi bosildi');
+                if (!gameState.idVerified) {
+                    showIdVerificationModal();
+                } else {
+                    showPage('signal');
+                }
+            });
+
+            document.getElementById('vipBtn').addEventListener('click', () => {
+                console.log('VIP tugmasi bosildi');
+                showPage('vip');
+            });
+
+            document.getElementById('apkBtn').addEventListener('click', () => {
+                console.log('APK tugmasi bosildi');
+                showPage('apk');
+            });
+
+            document.getElementById('bonusBtn').addEventListener('click', () => {
+                console.log('Bonus tugmasi bosildi');
+                showPage('vip');
+            });
+
+            // VIP banner
+            document.getElementById('vipBanner').addEventListener('click', () => {
+                console.log('VIP banner bosildi');
+                showPage('vip');
+            });
+
+            // Ro'yxatdan o'tish tugmasi
+            document.getElementById('mainRegisterBtn').addEventListener('click', () => {
+                window.open('https://1xbet.com', '_blank');
+            });
+
+            // Signal sahifasidagi o'yinni boshlash
+            const startGameBtn = document.getElementById('startGameBtn');
+            if (startGameBtn) {
+                startGameBtn.addEventListener('click', startGame);
+            }
+
+            // Sozlamalar tugmalari
+            document.getElementById('settingsLanguage').addEventListener('click', () => {
+                document.getElementById('languageSelector').style.display = 'flex';
+            });
+
+            document.getElementById('settingsChangeId').addEventListener('click', () => {
+                document.getElementById('changeIdModal').classList.add('active');
+            });
+
+            document.getElementById('settingsInvite').addEventListener('click', () => {
+                showToast('Do\'stlarni taklif qilish funksiyasi tez orada ishga tushadi!', 'info');
+            });
+
+            document.getElementById('settingsGuide').addEventListener('click', () => {
+                const guideContainer = document.getElementById('guideContainer');
+                guideContainer.style.display = guideContainer.style.display === 'block' ? 'none' : 'block';
+            });
+
+            // Modal yopish
+            document.querySelectorAll('.modal-close').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.modal-overlay').classList.remove('active');
+                });
+            });
+
+            // ID saqlash
+            const saveUserIdBtn = document.getElementById('saveUserIdBtn');
+            if (saveUserIdBtn) {
+                saveUserIdBtn.addEventListener('click', saveUserId);
+            }
+
+            // PWA install
+            document.getElementById('installBtn').addEventListener('click', installApp);
+            document.getElementById('closeInstallBtn').addEventListener('click', hideInstallPrompt);
+
+            // Settingsdagi ilova o'rnatish
+            document.getElementById('settingsInstall').addEventListener('click', () => {
+                if (deferredPrompt && !isStandalone) {
+                    installApp();
+                } else {
+                    showToast('Ilova allaqachon o\'rnatilgan yoki brauzeringiz PWA ni qo\'llab-quvvatlamaydi', 'info');
+                }
+            });
+
+            // VIP sotib olish
+            const getVipBtn = document.getElementById('getVipBtn');
+            if (getVipBtn) {
+                getVipBtn.addEventListener('click', () => {
+                    document.getElementById('vipModal').classList.add('active');
+                });
+            }
+
+            const buyVipBtn = document.getElementById('buyVipBtn');
+            if (buyVipBtn) {
+                buyVipBtn.addEventListener('click', () => {
+                    showToast('VIP paket tez orada mavjud bo\'ladi!', 'info');
+                });
+            }
+
+            // APK yuklash
+            const downloadApkBtn = document.getElementById('downloadApkBtn');
+            if (downloadApkBtn) {
+                downloadApkBtn.addEventListener('click', () => {
+                    window.open('https://1xbet.com/mobile/', '_blank');
+                });
+            }
+            
+            // User ID input uchun enter tugmasi
+            const userIdInput = document.getElementById('userIdInput');
+            if (userIdInput) {
+                userIdInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        saveUserId();
+                    }
+                });
+            }
+            
+            console.log('Barcha event listenerlar muvaffaqiyatli o\'rnatildi');
+        }
+
+        function selectLanguage(lang) {
+            console.log('Til tanlandi:', lang);
+            currentLang = lang;
+            localStorage.setItem('xbetSignalsLang', lang);
+            
+            // Tarjimalarni qo'llash
+            const t = translations[lang];
+            
+            Object.keys(t).forEach(key => {
+                const element = document.getElementById(key);
+                if (element) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = t[key];
+                    } else {
+                        element.textContent = t[key];
+                    }
+                }
+            });
+            
+            // Til tanlovchi ekranni yashirish va asosiy sahifani ko'rsatish
+            document.getElementById('languageSelector').style.display = 'none';
+            showPage('main'); // ASOSIY O'ZGARTIRISH: showPage chaqirildi
+            
+            // Foydalanuvchi ma'lumotlarini yangilash
+            updateUserData();
+            updateDailyStats();
+            
+            console.log('Til muvaffaqiyatli o\'zgartirildi');
+        }
+
+        function showPage(pageName) {
+            console.log('Sahifa ko\'rsatilmoqda:', pageName);
+            
+            // Barcha sahifalarni yashirish
+            document.querySelectorAll('.main-container, .page-container').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Barcha nav itemlarni faollikni olib tashlash
+            document.querySelectorAll('.nav-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Kerakli sahifani ko'rsatish
+            if (pageName === 'main') {
+                console.log('Asosiy sahifa ko\'rsatilmoqda');
+                document.getElementById('mainContainer').classList.add('active');
+                document.querySelector('#mainContainer .nav-item[data-page="main"]').classList.add('active');
+            } else if (pageName === 'signal') {
+                document.getElementById('signalPage').classList.add('active');
+                document.querySelector('#signalPage .nav-item[data-page="signal"]').classList.add('active');
+                checkTimer();
+            } else if (pageName === 'vip') {
+                document.getElementById('vipPage').classList.add('active');
+                document.querySelector('#vipPage .nav-item[data-page="vip"]').classList.add('active');
+            } else if (pageName === 'apk') {
+                document.getElementById('apkPage').classList.add('active');
+                document.querySelector('#apkPage .nav-item[data-page="apk"]').classList.add('active');
+            } else if (pageName === 'settings') {
+                document.getElementById('settingsPage').classList.add('active');
+                document.querySelector('#settingsPage .nav-item[data-page="settings"]').classList.add('active');
+            }
+            
+            // Modalarni yopish
+            document.querySelectorAll('.modal-overlay').forEach(modal => {
+                modal.classList.remove('active');
+            });
+            
+            console.log('Sahifa muvaffaqiyatli o\'zgartirildi');
+        }
+
+        function updateUserData() {
+            console.log('Foydalanuvchi ma\'lumotlari yangilanmoqda...');
+            document.getElementById('level').textContent = userData.level;
+            document.getElementById('invites').textContent = userData.invites;
+            document.getElementById('accuracy').textContent = userData.accuracy + '%';
+            document.getElementById('friends').textContent = userData.friends;
+            document.getElementById('userLevel').textContent = userData.level;
+            
+            // User ID display
+            if (gameState.userId) {
+                document.getElementById('userIdDisplay').textContent = 'ID: ' + gameState.userId;
+                document.getElementById('vipUserId').textContent = 'ID: ' + gameState.userId;
+            }
+            
+            // VIP holatini tekshirish
+            if (userData.vipAvailable) {
+                document.getElementById('userLevel').textContent = 'VIP';
+                document.getElementById('userLevel').style.background = '#ffcc00';
+                document.getElementById('userLevel').style.color = '#000';
+            }
+            
+            console.log('Foydalanuvchi ma\'lumotlari yangilandi');
+        }
+
+        function updateDailyStats() {
+            console.log('Kunlik statistika yangilanmoqda...');
+            const statsGrid = document.getElementById('statsGrid');
+            if (statsGrid) {
+                statsGrid.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-card-title">FAOL FOYDALANUVCHILAR</div>
+                        </div>
+                        <div class="stat-card-value">${dailyStats.activeUsers}</div>
+                        <div class="stat-card-label">bugun</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-card-title">O'RTACHA DAROMAD</div>
+                        </div>
+                        <div class="stat-card-value">${dailyStats.avgIncome}$</div>
+                        <div class="stat-card-label">har bir foydalanuvchi uchun</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="stat-card-title">FOYDALILIK</div>
+                        </div>
+                        <div class="stat-card-value">${dailyStats.profit}%</div>
+                        <div class="stat-card-label">signal aniqligi</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <div class="stat-card-title">ONLAYN O'YINCHILAR</div>
+                        </div>
+                        <div class="stat-card-value">${dailyStats.onlinePlayers}</div>
+                        <div class="stat-card-label">hozir onlayn</div>
+                    </div>
+                `;
+                console.log('Kunlik statistika yangilandi');
+            }
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            document.getElementById('toastContainer').appendChild(toast);
+            
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        function updateUserIdDisplay() {
+            if (gameState.userId) {
+                document.getElementById('userIdDisplay').textContent = 'ID: ' + gameState.userId;
+                document.getElementById('vipUserId').textContent = 'ID: ' + gameState.userId;
+            }
+        }
+
+        function saveUserId() {
+            const userIdInput = document.getElementById('userIdInput');
+            const userId = userIdInput.value.trim();
+            
+            if (userId.length === 11 && /^\d+$/.test(userId)) {
+                gameState.userId = userId;
+                gameState.idVerified = true;
+                localStorage.setItem('xbetSignalsUserId', userId);
+                localStorage.setItem('xbetSignalsIdVerified', 'true');
+                
+                updateUserIdDisplay();
+                document.getElementById('changeIdModal').classList.remove('active');
+                showToast('ID raqam muvaffaqiyatli saqlandi!', 'success');
+            } else {
+                showToast('Iltimos, to\'g\'ri ID raqam kiriting (11 ta raqam)', 'error');
+                userIdInput.classList.add('invalid');
+                setTimeout(() => {
+                    userIdInput.classList.remove('invalid');
+                }, 2000);
+            }
+        }
+
+        function showIdVerificationModal() {
+            document.getElementById('changeIdModal').classList.add('active');
+        }
+
+        function checkTimer() {
+            const timerElement = document.getElementById('nextSignalTimer');
+            if (gameState.timerRunning && gameState.timerEndTime) {
+                timerElement.style.display = 'block';
+                startTimer();
+            } else {
+                timerElement.style.display = 'none';
+            }
+        }
+
+        function startTimer() {
+            function updateTimerDisplay() {
+                if (!gameState.timerRunning || !gameState.timerEndTime) return;
+                
+                const now = Date.now();
+                const remaining = gameState.timerEndTime - now;
+                
+                if (remaining <= 0) {
+                    gameState.timerRunning = false;
+                    localStorage.removeItem('xbetSignalsTimer');
+                    const timerElement = document.getElementById('nextSignalTimer');
+                    if (timerElement) {
+                        timerElement.style.display = 'none';
+                    }
+                    return;
+                }
+                
+                const hours = Math.floor(remaining / (1000 * 60 * 60));
+                const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+                
+                const timerDisplay = document.getElementById('timerDisplay');
+                if (timerDisplay) {
+                    timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+                
+                setTimeout(updateTimerDisplay, 1000);
+            }
+            
+            updateTimerDisplay();
+        }
+
+        function startGame() {
+            if (gameState.timerRunning && !userData.vipAvailable) {
+                showToast('Iltimos, kutish vaqtini tugashini kuting yoki VIP bo\'ling', 'warning');
+                return;
+            }
+            
+            if (!gameState.idVerified) {
+                showIdVerificationModal();
+                return;
+            }
+            
+            currentStage = 1;
+            gameState = {
+                applesRevealed: false,
+                canProceed: false,
+                gameOver: false,
+                selectedApple: null,
+                apples: ['mystery', 'mystery', 'mystery', 'mystery', 'mystery'],
+                stageWon: false,
+                resultType: null,
+                timerRunning: gameState.timerRunning,
+                timerEndTime: gameState.timerEndTime,
+                idVerified: gameState.idVerified,
+                userId: gameState.userId
+            };
+            
+            document.getElementById('gameModal').classList.add('active');
+            renderGameStage();
+        }
+
+        function renderGameStage() {
+            const modalBody = document.getElementById('gameModalBody');
+            modalBody.innerHTML = `
+                <div class="game-header">
+                    <h2 class="game-title">BOSQICH ${currentStage}/3</h2>
+                    <p class="game-subtitle">Butun olmani tanlang</p>
+                </div>
+                
+                <div class="game-info">
+                    <p class="game-instruction">
+                        Olmalarni oching va butun olmani tanlang. Har bir bosqichda faqat bitta butun olma bor.
+                    </p>
+                </div>
+                
+                <div class="game-apples-container">
+                    ${gameState.apples.map((apple, index) => `
+                        <div class="game-apple apple-${apple}" data-index="${index}"></div>
+                    `).join('')}
+                </div>
+                
+                <div class="game-actions">
+                    <button class="btn btn-secondary" id="revealApplesBtn">OLMANI OCHISH</button>
+                    <button class="btn btn-primary" id="proceedBtn" disabled>DAVOM ETISH</button>
+                </div>
+            `;
+            
+            // Event listener qo'shish
+            document.getElementById('revealApplesBtn').addEventListener('click', revealApples);
+            document.getElementById('proceedBtn').addEventListener('click', proceedToNextStage);
+            
+            // Apple elementlariga event listener qo'shish
+            document.querySelectorAll('.game-apple').forEach(apple => {
+                apple.addEventListener('click', () => {
+                    const index = parseInt(apple.getAttribute('data-index'));
+                    if (gameState.applesRevealed) {
+                        selectApple(index);
+                    }
+                });
+            });
+        }
+
+        function revealApples() {
+            if (gameState.applesRevealed) return;
+            
+            gameState.applesRevealed = true;
+            const wholeAppleIndex = Math.floor(Math.random() * 5);
+            
+            gameState.apples = gameState.apples.map((apple, index) => {
+                return index === wholeAppleIndex ? 'whole' : 'bitten';
+            });
+            
+            // UI ni yangilash
+            document.querySelectorAll('.game-apple').forEach((appleEl, index) => {
+                appleEl.className = `game-apple apple-${gameState.apples[index]}`;
+            });
+            
+            // Tugmalarni yangilash
+            document.getElementById('revealApplesBtn').disabled = true;
+            document.getElementById('proceedBtn').disabled = false;
+            document.getElementById('revealApplesBtn').textContent = 'OLMALAR OCHILDI';
+            
+            showToast('Endi butun olmani tanlang!', 'info');
+        }
+
+        function selectApple(index) {
+            if (!gameState.applesRevealed || gameState.gameOver) return;
+            
+            gameState.selectedApple = index;
+            gameState.stageWon = gameState.apples[index] === 'whole';
+            gameState.gameOver = true;
+            
+            showResult();
+        }
+
+        function showResult() {
+            const modalBody = document.getElementById('gameModalBody');
+            modalBody.innerHTML += `
+                <div class="game-result-overlay active">
+                    <div class="result-icon">${gameState.stageWon ? '🎉' : '😢'}</div>
+                    <h3 class="result-title">${gameState.stageWon ? 'TABRIKLAYMIZ!' : 'AFSUS!'}</h3>
+                    <p class="result-message">${gameState.stageWon ? 'Siz butun olmani topdingiz!' : 'Siz teshilgan olmani tanladingiz.'}</p>
+                    <div class="game-actions">
+                        <button class="btn btn-primary" id="continueBtn">
+                            ${gameState.stageWon ? 'KEYINGI BOSQICH' : 'TAMOM'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('continueBtn').addEventListener('click', handleGameResult);
+        }
+
+        function handleGameResult() {
+            if (gameState.stageWon) {
+                currentStage++;
+                if (currentStage <= 3) {
+                    gameState.apples = ['mystery', 'mystery', 'mystery', 'mystery', 'mystery'];
+                    gameState.applesRevealed = false;
+                    gameState.gameOver = false;
+                    gameState.selectedApple = null;
+                    renderGameStage();
+                    showToast(`Bosqich ${currentStage-1} muvaffaqiyatli yakunlandi!`, 'success');
+                } else {
+                    // O'yin tugadi, signal berish
+                    giveSignal();
+                }
+            } else {
+                // Mag'lubiyat, timer boshlash
+                startWaitingTimer();
+                document.getElementById('gameModal').classList.remove('active');
+            }
+        }
+
+        function proceedToNextStage() {
+            showToast('Iltimos, avval olmani tanlang!', 'warning');
+        }
+
+        function giveSignal() {
+            document.getElementById('gameModal').classList.remove('active');
+            showToast('🎉 Tabriklaymiz! Signal muvaffaqiyatli olindi!', 'success');
+            
+            // Darajani oshirish
+            if (userData.level === 'YANGI') {
+                userData.level = 'ORTA';
+            } else if (userData.level === 'ORTA') {
+                userData.level = 'YUQORI';
+            } else if (userData.level === 'YUQORI') {
+                userData.vipAvailable = true;
+                userData.level = 'VIP';
+            }
+            
+            // Aniqlikni oshirish
+            userData.accuracy = Math.min(99, userData.accuracy + 0.5);
+            
+            // Saqlash
+            localStorage.setItem('xbetSignalsData', JSON.stringify(userData));
+            updateUserData();
+        }
+
+        function startWaitingTimer() {
+            const twoHours = 2 * 60 * 60 * 1000;
+            gameState.timerEndTime = Date.now() + twoHours;
+            gameState.timerRunning = true;
+            localStorage.setItem('xbetSignalsTimer', gameState.timerEndTime.toString());
+            
+            startTimer();
+            showToast('Keyingi signal uchun 2 soat kutish kerak.', 'warning');
+            
+            // Signal sahifasida timer ko'rsatish
+            const timerElement = document.getElementById('nextSignalTimer');
+            if (timerElement) {
+                timerElement.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
