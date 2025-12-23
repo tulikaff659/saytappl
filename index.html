@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kelajakni Bashorat Qilish | Oldindan Ko'rish Platformasi</title>
+    <title>1xBet Signals | Bukmeker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #00a53c;
-            --primary-dark: #00852f;
+            --primary: #1e90ff; /* Ko'k rang asosiy rang sifatida */
+            --primary-dark: #0066cc;
             --secondary: #ffcc00;
             --accent: #fd7e14;
             --success: #4caf50;
@@ -61,7 +61,7 @@
 
         .btn-primary:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 165, 60, 0.3);
+            box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
         }
 
         .btn-secondary {
@@ -226,22 +226,21 @@
         .logo-icon {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-image: url('https://i.ibb.co/fVPq08Xq/1xbet-logo.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .logo-icon i {
-            font-size: 20px;
-            color: white;
-        }
-
         .logo-text {
             font-size: 18px;
             font-weight: 700;
-            color: var(--light);
+            color: var(--primary); /* Ko'k rang */
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
         }
 
         .header-controls {
@@ -332,14 +331,14 @@
         .user-id {
             display: inline-block;
             padding: 4px 12px;
-            background: rgba(0, 165, 60, 0.2);
+            background: rgba(30, 144, 255, 0.2); /* Ko'k rang */
             color: var(--primary);
             border-radius: 12px;
             font-size: 11px;
             font-weight: 700;
             font-family: 'Courier New', monospace;
             letter-spacing: 1px;
-            border: 1px solid rgba(0, 165, 60, 0.3);
+            border: 1px solid rgba(30, 144, 255, 0.3);
             margin-bottom: 8px;
         }
 
@@ -370,7 +369,7 @@
         .stat-value {
             font-size: 20px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary); /* Ko'k rang */
             margin-bottom: 4px;
         }
 
@@ -380,13 +379,80 @@
             font-weight: 600;
         }
 
+        /* YANGI: Asosiy harakatlar tugmalari */
+        .main-actions {
+            padding: 0 20px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .main-action-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .main-action-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.2);
+        }
+
+        .main-action-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .main-action-icon i {
+            font-size: 24px;
+            color: white;
+        }
+
+        .main-action-content {
+            flex: 1;
+        }
+
+        .main-action-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .main-action-desc {
+            font-size: 12px;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .main-action-arrow {
+            color: var(--gray);
+            font-size: 16px;
+        }
+
+        /* Yangi ro'yxatdan o'tish bannerni o'zgartiramiz */
         .register-promo {
             margin: 0 20px 20px;
-            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border-radius: 16px;
             padding: 20px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.2);
         }
 
         .register-content {
@@ -483,7 +549,7 @@
         .action-title {
             font-size: 11px;
             font-weight: 600;
-            color: var(--light);
+            color: var(--primary); /* Ko'k rang */
             margin-bottom: 4px;
         }
 
@@ -558,7 +624,8 @@
         .section-title {
             font-size: 16px;
             font-weight: 700;
-            color: var(--light);
+            color: var(--primary); /* Ko'k rang */
+            text-shadow: 0 0 5px rgba(30, 144, 255, 0.2);
         }
 
         .stats-container {
@@ -605,7 +672,7 @@
         .stat-card-title {
             font-size: 12px;
             font-weight: 600;
-            color: var(--light);
+            color: var(--primary); /* Ko'k rang */
         }
 
         .stat-card-value {
@@ -650,7 +717,7 @@
         }
 
         .nav-item.active {
-            color: var(--primary);
+            color: var(--primary); /* Ko'k rang */
         }
 
         .nav-icon {
@@ -704,7 +771,7 @@
         .modal-title {
             font-size: 16px;
             font-weight: 700;
-            color: var(--light);
+            color: var(--primary); /* Ko'k rang */
         }
 
         .modal-close {
@@ -725,18 +792,18 @@
         }
 
         .game-user-id {
-            background: rgba(0, 165, 60, 0.1);
+            background: rgba(30, 144, 255, 0.1); /* Ko'k rang */
             border-radius: 12px;
             padding: 12px;
             margin-bottom: 16px;
             text-align: center;
-            border: 1px solid rgba(0, 165, 60, 0.2);
+            border: 1px solid rgba(30, 144, 255, 0.2);
         }
 
         .user-id-display {
             font-size: 18px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary); /* Ko'k rang */
             font-family: 'Courier New', monospace;
             letter-spacing: 1px;
             margin-bottom: 6px;
@@ -756,7 +823,8 @@
         .game-title {
             font-size: 20px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--primary); /* Ko'k rang */
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
             margin-bottom: 8px;
         }
 
@@ -804,7 +872,7 @@
 
         .id-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(0, 165, 60, 0.2);
+            box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
         }
 
         .id-input.valid {
@@ -923,6 +991,23 @@
                 height: 50px;
                 min-width: 50px;
             }
+            
+            .main-action-card {
+                padding: 16px;
+            }
+            
+            .main-action-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .main-action-icon i {
+                font-size: 20px;
+            }
+            
+            .main-action-title {
+                font-size: 16px;
+            }
         }
 
         @media (max-width: 320px) {
@@ -930,6 +1015,10 @@
                 width: 45px;
                 height: 45px;
                 min-width: 45px;
+            }
+            
+            .quick-actions {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -942,7 +1031,7 @@
         }
 
         .game-info {
-            background: rgba(0, 165, 60, 0.1);
+            background: rgba(30, 144, 255, 0.1); /* Ko'k rang */
             border-radius: 12px;
             padding: 16px;
             margin: 16px 0;
@@ -1061,15 +1150,15 @@
             position: absolute;
             width: 100%;
             height: 2px;
-            background: #00ff00;
+            background: var(--primary); /* Ko'k rang */
             animation: scanLine 2s linear infinite;
         }
 
         .hacking-text {
             font-size: 32px;
             font-weight: 700;
-            color: #00ff00;
-            text-shadow: 0 0 10px #00ff00;
+            color: var(--primary); /* Ko'k rang */
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
             font-family: 'Courier New', monospace;
             margin-bottom: 20px;
             animation: glitch 0.5s linear infinite;
@@ -1077,7 +1166,7 @@
 
         .hacking-subtitle {
             font-size: 16px;
-            color: #00ff00;
+            color: var(--primary); /* Ko'k rang */
             font-family: 'Courier New', monospace;
             margin-bottom: 15px;
             opacity: 0.8;
@@ -1086,15 +1175,15 @@
         .hacking-percentage {
             font-size: 48px;
             font-weight: 700;
-            color: #00ff00;
+            color: var(--primary); /* Ko'k rang */
             font-family: 'Courier New', monospace;
             margin-bottom: 30px;
-            text-shadow: 0 0 15px #00ff00;
+            text-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
         }
 
         .hacking-message {
             font-size: 14px;
-            color: #00ff00;
+            color: var(--primary); /* Ko'k rang */
             font-family: 'Courier New', monospace;
             margin-top: 20px;
             text-align: center;
@@ -1105,7 +1194,7 @@
         .hacking-binary {
             position: absolute;
             font-size: 12px;
-            color: #00ff00;
+            color: var(--primary); /* Ko'k rang */
             opacity: 0.3;
             font-family: 'Courier New', monospace;
             pointer-events: none;
@@ -1251,7 +1340,7 @@
         .page-title {
             font-size: 18px;
             font-weight: 700;
-            color: var(--light);
+            color: var(--primary); /* Ko'k rang */
         }
 
         .page-content {
@@ -1406,7 +1495,7 @@
             display: inline-block;
             width: 24px;
             height: 24px;
-            background: var(--primary);
+            background: var(--primary); /* Ko'k rang */
             color: white;
             border-radius: 50%;
             text-align: center;
@@ -1436,34 +1525,6 @@
             
             .stats-grid {
                 grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 380px) {
-            .quick-actions {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-            
-            .action-card {
-                padding: 12px 6px;
-            }
-            
-            .game-actions .btn {
-                min-width: 100px;
-                padding: 12px;
-            }
-            
-            .hacking-text {
-                font-size: 24px;
-            }
-            
-            .hacking-percentage {
-                font-size: 36px;
-            }
-            
-            .user-actions {
-                flex-direction: column;
             }
         }
 
@@ -1512,7 +1573,7 @@
         }
 
         .toast.info {
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--primary); /* Ko'k rang */
         }
 
         .toast.warning {
@@ -1559,27 +1620,27 @@
         @keyframes glitch {
             0% {
                 transform: translate(0);
-                text-shadow: 0 0 10px #00ff00;
+                text-shadow: 0 0 10px var(--primary);
             }
             20% {
                 transform: translate(-2px, 2px);
-                text-shadow: 2px -2px 10px #00ff00, -2px 2px 10px #00ff00;
+                text-shadow: 2px -2px 10px var(--primary), -2px 2px 10px var(--primary);
             }
             40% {
                 transform: translate(-2px, -2px);
-                text-shadow: -2px 2px 10px #00ff00, 2px -2px 10px #00ff00;
+                text-shadow: -2px 2px 10px var(--primary), 2px -2px 10px var(--primary);
             }
             60% {
                 transform: translate(2px, 2px);
-                text-shadow: 2px 2px 10px #00ff00, -2px -2px 10px #00ff00;
+                text-shadow: 2px 2px 10px var(--primary), -2px -2px 10px var(--primary);
             }
             80% {
                 transform: translate(2px, -2px);
-                text-shadow: -2px -2px 10px #00ff00, 2px 2px 10px #00ff00;
+                text-shadow: -2px -2px 10px var(--primary), 2px 2px 10px var(--primary);
             }
             100% {
                 transform: translate(0);
-                text-shadow: 0 0 10px #00ff00;
+                text-shadow: 0 0 10px var(--primary);
             }
         }
 
@@ -1609,10 +1670,10 @@
     <!-- Language Selector -->
     <div id="languageSelector">
         <div class="language-logo">
-            <i class="fas fa-crystal-ball"></i>
+            <i class="fas fa-trophy"></i>
         </div>
-        <h2 id="languageTitle">Kelajakni Bashorat Qilish</h2>
-        <p id="languageSubtitle">Oldindan ko'rish platformasi</p>
+        <h2 id="languageTitle">1xBet Signals</h2>
+        <p id="languageSubtitle">Bukmeker platformasi</p>
         
         <div class="language-grid">
             <div class="lang-card" data-lang="uz">
@@ -1640,9 +1701,9 @@
         <header class="app-header">
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-crystal-ball"></i>
+                    <!-- 1xBet logo image applied via CSS -->
                 </div>
-                <div class="logo-text">Kelajakni Bashorat</div>
+                <div class="logo-text">1xBet Signals</div>
             </div>
             
             <div class="header-controls">
@@ -1651,6 +1712,37 @@
                 </div>
             </div>
         </header>
+
+        <!-- YANGI: Asosiy harakatlar bloki - Eng yuqori qismda -->
+        <section class="main-actions">
+            <!-- Ro'yxatdan o'tish kartasi -->
+            <div class="main-action-card" id="mainRegisterCard">
+                <div class="main-action-icon">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+                <div class="main-action-content">
+                    <div class="main-action-title" id="mainRegisterTitle">RO'YXATDAN O'TISH</div>
+                    <div class="main-action-desc" id="mainRegisterDesc">AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling</div>
+                </div>
+                <div class="main-action-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <!-- Signal olish kartasi -->
+            <div class="main-action-card" id="mainSignalCard">
+                <div class="main-action-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="main-action-content">
+                    <div class="main-action-title" id="mainSignalTitle">SIGNAL OLISH</div>
+                    <div class="main-action-desc" id="mainSignalDesc">Yuqori aniqlikdagi 1xBet signallarini olish uchun o'yinga kirish</div>
+                </div>
+                <div class="main-action-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </section>
 
         <!-- User Stats -->
         <section class="user-stats">
@@ -1687,44 +1779,14 @@
             </div>
         </section>
 
-        <!-- Promo Registration Banner -->
-        <section class="register-promo">
-            <div class="register-content">
-                <div class="register-icon">
-                    <i class="fas fa-user-plus"></i>
-                </div>
-                <div class="register-text">
-                    <h3 id="registerPromoTitle">KELAJAKNI BILISH QOBILIYATIGA KIRISH</h3>
-                    <p id="registerPromoDesc">AIFUT promokodi bilan ro'yxatdan o'ting va yuqori aniqlikdagi kelajak bashoratlariga ega bo'ling</p>
-                </div>
-                
-                <div class="register-promo-code">
-                    <div class="promo-label">PROMOKOD</div>
-                    <div class="promo-value">AIFUT</div>
-                </div>
-                
-                <button class="btn btn-primary" id="mainRegisterBtn" style="width: 100%; padding: 16px; font-size: 16px;">
-                    <i class="fas fa-user-plus"></i> <span id="mainRegisterText">RO'YXATDAN O'TISH</span>
-                </button>
-            </div>
-        </section>
-
         <!-- Quick Actions -->
         <section class="quick-actions">
-            <div class="action-card" id="predictionBtn">
-                <div class="action-icon">
-                    <i class="fas fa-eye"></i>
-                </div>
-                <div class="action-title" id="predictionTitle">OLDINDAN KO'RISH</div>
-                <div class="action-desc" id="predictionDesc">Kelajakni bilish</div>
-            </div>
-            
             <div class="action-card" id="vipBtn">
                 <div class="action-icon">
                     <i class="fas fa-crown"></i>
                 </div>
                 <div class="action-title" id="vipTitle">VIP</div>
-                <div class="action-desc" id="vipDesc">Ekskluziv qobiliyat</div>
+                <div class="action-desc" id="vipDesc">Ekskluziv</div>
             </div>
             
             <div class="action-card" id="apkBtn">
@@ -1742,6 +1804,14 @@
                 <div class="action-title" id="bonusTitle">BONUS</div>
                 <div class="action-desc" id="bonusDesc">Promokodlar</div>
             </div>
+            
+            <div class="action-card" id="settingsBtn2">
+                <div class="action-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <div class="action-title" id="settingsTitle">SOZLAMALAR</div>
+                <div class="action-desc" id="settingsDesc">Til va boshqalar</div>
+            </div>
         </section>
 
         <!-- VIP Banner -->
@@ -1752,7 +1822,7 @@
                 </div>
                 <div class="vip-text">
                     <h3 id="vipBannerTitle">VIP A'ZO BO'LING</h3>
-                    <p id="vipBannerDesc">30% ko'proq aniq bashoratlar</p>
+                    <p id="vipBannerDesc">30% ko'proq bonus[citation:1]</p>
                 </div>
             </div>
             <div class="vip-badge">VIP</div>
@@ -1778,11 +1848,11 @@
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item" id="navPrediction">
+            <div class="nav-item" id="navSignal">
                 <div class="nav-icon">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="nav-text">KO'RISH</div>
+                <div class="nav-text">SIGNAL</div>
             </div>
             
             <div class="nav-item" id="navVip">
@@ -1831,8 +1901,8 @@
                 </div>
                 
                 <p class="card-desc" id="apkDescText">
-                    Mobil ilovamizni yuklab oling va istalgan joydan kelajak bashoratlariga ega bo'ling.
-                    To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud.
+                    1xBet mobil ilovasini yuklab oling va istalgan joydan signallar oling.
+                    To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud[citation:1].
                 </p>
                 
                 <button class="btn btn-primary" id="downloadApkBtn">
@@ -1854,11 +1924,11 @@
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item" id="navPrediction2">
+            <div class="nav-item" id="navSignal2">
                 <div class="nav-icon">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="nav-text">KO'RISH</div>
+                <div class="nav-text">SIGNAL</div>
             </div>
             
             <div class="nav-item" id="navVip2">
@@ -1903,12 +1973,12 @@
                 </div>
                 
                 <div class="card-value">
-                    30% KO'PROQ ANIQLIK
+                    30% KO'PROQ BONUS[citation:1]
                 </div>
                 
                 <p class="card-desc" id="bonusDescText">
-                    AIFUT promokodi bilan ro'yxatdan o'ting va VIP kelajak bashoratlariga kirish imkoniyatiga ega bo'ling.
-                    Premium tahlillar va yuqori aniqlikdagi bashoratlar.
+                    AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting va standart bonusdan 30% ko'proq bonus oling[citation:1].
+                    Casino va sport tikish uchun 100% bonus gacha[citation:1].
                 </p>
                 
                 <button class="btn btn-primary" id="getBonusBtn">
@@ -1935,7 +2005,7 @@
                 
                 <p class="card-desc" id="inviteFriendsDescText">
                     Har bir taklif qilingan do'st bilan darajangiz oshadi.
-                    5 ta do'st taklif qilsangiz, VIP kelajak bashoratlariga ega bo'lasiz!
+                    5 ta do'st taklif qilsangiz, VIP signalga ega bo'lasiz!
                 </p>
                 
                 <button class="btn btn-secondary" id="inviteFriendsBtn">
@@ -1952,11 +2022,11 @@
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item" id="navPrediction3">
+            <div class="nav-item" id="navSignal3">
                 <div class="nav-icon">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="nav-text">KO'RISH</div>
+                <div class="nav-text">SIGNAL</div>
             </div>
             
             <div class="nav-item" id="navVip3">
@@ -2058,10 +2128,10 @@
                 <div class="guide-step">
                     <div class="guide-step-title">
                         <span class="guide-step-number">1</span>
-                        <span id="guideStep1Title">Platformada ro'yxatdan o'tish</span>
+                        <span id="guideStep1Title">1xBet-da ro'yxatdan o'tish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep1Desc">
-                        AIFUT promokodi bilan platformamizda ro'yxatdan o'ting. Bu sizga kelajakni bashorat qilish imkoniyatini beradi.
+                        AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting. Bu sizga signal olish imkoniyatini beradi.
                     </p>
                 </div>
                 
@@ -2071,17 +2141,17 @@
                         <span id="guideStep2Title">ID raqamni kiritish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep2Desc">
-                        Akkauntingizning ID raqamini kiritib, kelajakni bashorat qilish o'yiniga kirish.
+                        1xBet akkauntingizning ID raqamini kiritib, signal olish o'yiniga kirish.
                     </p>
                 </div>
                 
                 <div class="guide-step">
                     <div class="guide-step-title">
                         <span class="guide-step-number">3</span>
-                        <span id="guideStep3Title">Kelajakni bashorat qilish o'yini</span>
+                        <span id="guideStep3Title">Signal o'yini</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep3Desc">
-                        Butun olmalarni tanlang. Har bir yutuqli bosqich sizga kelajakni bilish qobiliyatini beradi.
+                        Butun olmalarni tanlang. Har bir yutuqli bosqich sizga 1xBet uchun signal beradi.
                     </p>
                 </div>
                 
@@ -2091,17 +2161,17 @@
                         <span id="guideStep4Title">Do'stlarni taklif qilish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep4Desc">
-                        5 ta do'st taklif qiling va VIP kelajak bashoratlariga ega bo'ling.
+                        5 ta do'st taklif qiling va VIP signalga ega bo'ling.
                     </p>
                 </div>
                 
                 <div class="guide-step">
                     <div class="guide-step-title">
                         <span class="guide-step-number">5</span>
-                        <span id="guideStep5Title">Kelajakni bilish qobiliyatini olish</span>
+                        <span id="guideStep5Title">1xBet signal olish</span>
                     </div>
                     <p class="guide-step-desc" id="guideStep5Desc">
-                        O'yin yutqazilsa, 2 soat kutish kerak. VIP bashorat bilan kutish vaqtini o'tkazib yuborish mumkin.
+                        O'yin yutqazilsa, 2 soat kutish kerak. VIP signal bilan kutish vaqtini o'tkazib yuborish mumkin.
                     </p>
                 </div>
             </div>
@@ -2115,11 +2185,11 @@
                 <div class="nav-text">ASOSIY</div>
             </div>
             
-            <div class="nav-item" id="navPrediction4">
+            <div class="nav-item" id="navSignal4">
                 <div class="nav-icon">
-                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="nav-text">KO'RISH</div>
+                <div class="nav-text">SIGNAL</div>
             </div>
             
             <div class="nav-item" id="navVip4">
@@ -2149,7 +2219,7 @@
     <div class="modal-overlay" id="gameModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="gameModalTitle">KELAJAKNI BILISH QOBILIYATINI OLISH</h3>
+                <h3 class="modal-title" id="gameModalTitle">1xBet SIGNAL OLISH</h3>
                 <div class="modal-close" id="closeGameModal">
                     <i class="fas fa-times"></i>
                 </div>
@@ -2159,20 +2229,20 @@
                 <div class="game-user-id">
                     <div class="user-id-display" id="modalUserIdDisplay">ID: 12345678901</div>
                     <div class="game-id-message" id="gameIdMessage">
-                        Kelajakni bilish qobiliyatini olish uchun AIFUT promokodi orqali ro'yxatdan o'ting. 
-                        Akkaunt ID raqamingizni kiriting va butun olmalarni tanlang.
+                        1xBet signal olish uchun AIFUT promokod orqali ro'yxatdan o'ting. 
+                        1xBet akkaunt ID raqamingizni kiriting va butun olmalarni tanlang.
                     </div>
                 </div>
                 
                 <div class="stage-transition" id="stageTransition">
                     <div class="hacking-container">
                         <div class="hacking-line"></div>
-                        <div class="hacking-text">BASHORAT</div>
-                        <div class="hacking-subtitle">Kelajak yuklanmoqda...</div>
+                        <div class="hacking-text">HACKING</div>
+                        <div class="hacking-subtitle">1xBet signal yuklanmoqda...</div>
                         <div class="hacking-percentage" id="hackingPercentage">0%</div>
                         <div class="hacking-message">
-                            Ma'lumotlar tahlili jarayoni...<br>
-                            Kelajak bashoratlari yuklanmoqda...
+                            1xBet tizimiga kirish...<br>
+                            Ma'lumotlar tahlili jarayoni...
                         </div>
                     </div>
                 </div>
@@ -2182,8 +2252,8 @@
                     <h2 class="result-title" id="resultTitle">TABRIKLAYMIZ!</h2>
                     <div class="result-message" id="resultMessage">Yutuqni oling!</div>
                     
-                    <button class="btn btn-vip" id="getVipPredictionBtn">
-                        <i class="fas fa-crown"></i> <span id="getVipPredictionText">VIP BASHORAT OLISH</span>
+                    <button class="btn btn-vip" id="getVipSignalBtn">
+                        <i class="fas fa-crown"></i> <span id="getVipSignalText">VIP SIGNAL OLISH</span>
                     </button>
                     
                     <button class="btn btn-success" id="restartGameBtn">
@@ -2195,7 +2265,7 @@
                 </div>
                 
                 <div class="id-input-section" id="idInputSection">
-                    <div class="id-input-label" id="idInputLabel">ID RAQAMINGIZNI KIRITING</div>
+                    <div class="id-input-label" id="idInputLabel">1xBet ID RAQAMINGIZNI KIRITING</div>
                     <div class="id-input-wrapper">
                         <input type="text" 
                                class="id-input" 
@@ -2212,25 +2282,25 @@
                             <i class="fas fa-check-circle"></i> <span id="verifyIdText">TASDIQLASH</span>
                         </button>
                         <button class="btn btn-secondary" id="registerInModalBtn">
-                            <i class="fas fa-user-plus"></i> <span id="registerInModalText">RO'YXATDAN O'TISH</span>
+                            <i class="fas fa-user-plus"></i> <span id="registerInModalText">1xBet RO'YXATDAN O'TISH</span>
                         </button>
                     </div>
                 </div>
                 
                 <div class="game-section" id="gameSection" style="display: none;">
                     <div class="game-header">
-                        <h2 class="game-title">Kelajakni bilish qobiliyati</h2>
-                        <p class="game-subtitle" id="gameSubtitle">G'alaba qilish uchun butun olmalarni tanlang</p>
+                        <h2 class="game-title">1xBet signal</h2>
+                        <p class="game-subtitle" id="gameSubtitle">Butun olmalarni tanlang</p>
                     </div>
                     
                     <div class="vip-timer-action" id="vipTimerAction">
                         <div class="timer-icon">
                             <i class="fas fa-bolt"></i>
                         </div>
-                        <div class="timer-message">Vaqtdan oldin kelajakni bilish</div>
-                        <div class="timer-submessage">VIP bashorat bilan kutish vaqtini o'tkazib yuboring</div>
-                        <button class="btn btn-vip" id="getVipPredictionEarlyBtn" style="margin-top: 12px;">
-                            <i class="fas fa-crown"></i> <span id="getVipPredictionEarlyText">VIP BASHORAT OLISH</span>
+                        <div class="timer-message">Vaqtdan oldin signal olish</div>
+                        <div class="timer-submessage">VIP signal bilan kutish vaqtini o'tkazib yuboring</div>
+                        <button class="btn btn-vip" id="getVipSignalEarlyBtn" style="margin-top: 12px;">
+                            <i class="fas fa-crown"></i> <span id="getVipSignalEarlyText">VIP SIGNAL OLISH</span>
                         </button>
                     </div>
                     
@@ -2238,14 +2308,14 @@
                         <div class="timer-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <div class="timer-message">Keyingi kelajak bashoratini kutmoqdasiz</div>
-                        <div class="timer-submessage" id="timerSubmessage">Taymer tugagandan so'ng bashorat olish mumkin</div>
+                        <div class="timer-message">Keyingi signalni kutmoqdasiz</div>
+                        <div class="timer-submessage" id="timerSubmessage">Taymer tugagandan so'ng signal olish mumkin</div>
                     </div>
                     
                     <div class="next-signal-timer" id="nextSignalTimer">
-                        <div class="timer-title">KEYINGI KELAJAK BASHORATI</div>
+                        <div class="timer-title">KEYINGI 1xBet SIGNAL</div>
                         <div class="timer-display" id="timerDisplay">02:00:00</div>
-                        <div class="timer-note">VIP bashorat olish uchun yuqoridagi tugmani bosing</div>
+                        <div class="timer-note">VIP signal olish uchun yuqoridagi tugmani bosing</div>
                     </div>
                     
                     <div class="game-apples-container" id="gameApplesContainer">
@@ -2264,7 +2334,7 @@
                             <i class="fas fa-eye"></i> <span id="revealText">OLMALARNI KO'RISH</span>
                         </button>
                         <button class="btn btn-primary" id="nextStageBtn" disabled>
-                            <i class="fas fa-arrow-right"></i> <span id="nextStageText">KEYINGI BASHORAT</span>
+                            <i class="fas fa-arrow-right"></i> <span id="nextStageText">KEYINGI SIGNAL</span>
                         </button>
                     </div>
                 </div>
@@ -2276,7 +2346,7 @@
     <div class="modal-overlay" id="vipModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="vipModalTitle">VIP KELAJAK BASHORATI</h3>
+                <h3 class="modal-title" id="vipModalTitle">1xBet VIP SIGNAL</h3>
                 <div class="modal-close" id="closeVipModal">
                     <i class="fas fa-times"></i>
                 </div>
@@ -2287,16 +2357,16 @@
                     <div style="font-size: 48px; color: #ff9800; margin-bottom: 12px;">
                         <i class="fas fa-gem"></i>
                     </div>
-                    <h3 style="font-size: 18px; color: var(--light); margin-bottom: 8px;" id="vipMainTitle">VIP A'ZO BO'LING</h3>
-                    <p style="color: var(--gray); font-size: 13px;" id="vipMainDesc">30% ko'proq aniq bashoratlar va ekskluziv imtiyozlar</p>
+                    <h3 style="font-size: 18px; color: var(--light); margin-bottom: 8px;" id="vipMainTitle">1xBet VIP A'ZO BO'LING</h3>
+                    <p style="color: var(--gray); font-size: 13px;" id="vipMainDesc">30% ko'proq bonus[citation:1] va ekskluziv imtiyozlar</p>
                 </div>
                 
                 <div class="invite-section">
-                    <div class="invite-title" id="inviteForVipTitle">VIP KELAJAK BASHORATI OLISH UCHUN</div>
+                    <div class="invite-title" id="inviteForVipTitle">1xBet VIP SIGNAL OLISH UCHUN</div>
                     <div class="invite-description" id="inviteForVipDesc">
-                        VIP kelajak bashorati olish uchun 5 ta do'stingizni taklif qiling.
+                        1xBet VIP signal olish uchun 5 ta do'stingizni taklif qiling.
                         Har bir taklif qilingan do'st bilan darajangiz oshadi.
-                        5 ta do'st taklif qilsangiz, VIP kelajak bashorati olishingiz mumkin.
+                        5 ta do'st taklif qilsangiz, VIP signal olishingiz mumkin.
                     </div>
                     
                     <div class="invite-progress">
@@ -2322,8 +2392,8 @@
                             <i class="fas fa-check-circle"></i>
                         </div>
                         <div class="feature-text">
-                            <h4 id="vipFeature1Title">30% Ko'proq Aniqlik</h4>
-                            <p id="vipFeature1Desc">Standart bashoratlardan 30% ko'proq aniq bashoratlar</p>
+                            <h4 id="vipFeature1Title">30% Ko'proq Bonus[citation:1]</h4>
+                            <p id="vipFeature1Desc">Standart 1xBet bonusi dan 30% ko'proq bonus[citation:1]</p>
                         </div>
                     </div>
                     
@@ -2332,7 +2402,7 @@
                             <i class="fas fa-bolt"></i>
                         </div>
                         <div class="feature-text">
-                            <h4 id="vipFeature2Title">Real-vaqtda bashorat</h4>
+                            <h4 id="vipFeature2Title">Real-vaqtda signal</h4>
                             <p id="vipFeature2Desc">Darhol bildirishnomalar va yangilanishlar</p>
                         </div>
                     </div>
@@ -2342,14 +2412,14 @@
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="feature-text">
-                            <h4 id="vipFeature3Title">Yuqori aniqlikdagi kelajak bashoratlari</h4>
+                            <h4 id="vipFeature3Title">Yuqori aniqlikdagi tahmin</h4>
                             <p id="vipFeature3Desc">Chuqur tahlillar va oldindan ko'rish imkoniyati</p>
                         </div>
                     </div>
                 </div>
                 
                 <button class="btn btn-primary" id="getVipBtn" style="width: 100%; margin-top: 20px;" disabled>
-                    <i class="fas fa-crown"></i> <span id="getVipText">VIP KELAJAK BASHORATI OLISH</span>
+                    <i class="fas fa-crown"></i> <span id="getVipText">1xBet VIP SIGNAL OLISH</span>
                 </button>
             </div>
         </div>
@@ -2359,14 +2429,14 @@
     <div class="modal-overlay" id="changeIdModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="changeIdModalTitle">ID O'ZGARTIRISH</h3>
+                <h3 class="modal-title" id="changeIdModalTitle">1xBet ID O'ZGARTIRISH</h3>
                 <div class="modal-close" id="closeChangeIdModal">
                     <i class="fas fa-times"></i>
                 </div>
             </div>
             
             <div class="modal-body">
-                <div class="id-input-label">YANGI ID RAQAMNI KIRITING</div>
+                <div class="id-input-label">YANGI 1xBet ID RAQAMNI KIRITING</div>
                 <div class="id-input-wrapper">
                     <input type="text" 
                            class="id-input" 
@@ -2376,7 +2446,7 @@
                            inputmode="numeric">
                 </div>
                 <div class="id-input-hint">
-                    Akkauntingizning yangi ID raqamini kiriting. AIFUT promokodi bilan ro'yxatdan o'ting.
+                    1xBet akkauntingizning yangi ID raqamini kiriting. AIFUT promokod bilan ro'yxatdan o'ting.
                 </div>
                 
                 <div class="game-actions">
@@ -2394,62 +2464,68 @@
     <script>
         const translations = {
             uz: {
-                languageTitle: "Kelajakni Bashorat Qilish",
-                languageSubtitle: "Oldindan ko'rish platformasi",
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "Bukmeker platformasi",
                 userName: "Foydalanuvchi",
                 userLevel: "YANGI",
                 levelLabel: "DARAJASI",
                 invitesLabel: "TAKLIFLAR",
                 accuracyLabel: "ANIQLIK",
                 friendsLabel: "DO'STLAR",
-                predictionTitle: "OLDINDAN KO'RISH",
-                predictionDesc: "Kelajakni bilish",
+                mainRegisterTitle: "RO'YXATDAN O'TISH",
+                mainRegisterDesc: "AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling",
+                mainSignalTitle: "SIGNAL OLISH",
+                mainSignalDesc: "Yuqori aniqlikdagi 1xBet signallarini olish uchun o'yinga kirish",
+                signalTitle: "SIGNAL",
+                signalDesc: "Yuqori aniqlik",
                 vipTitle: "VIP",
-                vipDesc: "Ekskluziv qobiliyat",
+                vipDesc: "Ekskluziv",
                 apkTitle: "APK",
                 apkDesc: "Yuklab olish",
                 bonusTitle: "BONUS",
                 bonusDesc: "Promokodlar",
+                settingsTitle: "SOZLAMALAR",
+                settingsDesc: "Til va boshqalar",
                 vipBannerTitle: "VIP A'ZO BO'LING",
-                vipBannerDesc: "30% ko'proq aniq bashoratlar",
-                registerPromoTitle: "KELAJAKNI BILISH QOBILIYATIGA KIRISH",
-                registerPromoDesc: "AIFUT promokodi bilan ro'yxatdan o'ting va yuqori aniqlikdagi kelajak bashoratlariga ega bo'ling",
+                vipBannerDesc: "30% ko'proq bonus[citation:1]",
+                registerPromoTitle: "SIGNAL OLISH UCHUN RO'YXATDAN O'TING",
+                registerPromoDesc: "AIFUT promokod orqali 1xBet-da ro'yxatdan o'ting va yuqori aniqlikdagi signallarga ega bo'ling",
                 mainRegisterText: "RO'YXATDAN O'TISH",
                 statsTitle: "KUNLIK STATISTIKA",
                 dailyActive: "KUNLIK FAOL",
                 dailyAvgIncome: "O'RTACHA DAROMAD",
                 profit: "FOYDA",
                 onlinePlayers: "ONLAYN O'YINCHILAR",
-                gameModalTitle: "KELAJAKNI BILISH QOBILIYATINI OLISH",
-                gameSubtitle: "G'alaba qilish uchun butun olmalarni tanlang",
+                gameModalTitle: "1xBet SIGNAL OLISH",
+                gameSubtitle: "www.signal7.digital",
                 gameInstruction: "Olmalarni ko'rish tugmasini bosing va butun olmalarni tanlang. Har bir bosqichda 5 ta olma bor.",
-                gameIdMessage: "Kelajakni bilish qobiliyatini olish uchun AIFUT promokodi orqali ro'yxatdan o'ting. Akkaunt ID raqami orqali oyinga kiring va kelajak bashoratlarini oling.",
+                gameIdMessage: "1xBet signal olish uchun AIFUT promokod orqali ro'yxatdan o'ting. 1xBet akkaunt ID raqami orqali oyinga kiring va signallarni oling.",
                 revealText: "OLMALARNI KO'RISH",
-                nextStageText: "KEYINGI BASHORAT",
-                vipModalTitle: "VIP KELAJAK BASHORATI",
-                vipMainTitle: "VIP A'ZO BO'LING",
-                vipMainDesc: "30% ko'proq aniq bashoratlar va ekskluziv imtiyozlar",
-                vipFeature1Title: "30% Ko'proq Aniqlik",
-                vipFeature1Desc: "Standart bashoratlardan 30% ko'proq aniq bashoratlar",
-                vipFeature2Title: "Real-vaqtda bashorat",
+                nextStageText: "KEYINGI SIGNAL",
+                vipModalTitle: "1xBet VIP SIGNAL",
+                vipMainTitle: "1xBet VIP A'ZO BO'LING",
+                vipMainDesc: "30% ko'proq bonus[citation:1] va ekskluziv imtiyozlar",
+                vipFeature1Title: "30% Ko'proq Bonus[citation:1]",
+                vipFeature1Desc: "Standart 1xBet bonusi dan 30% ko'proq bonus[citation:1]",
+                vipFeature2Title: "Real-vaqtda",
                 vipFeature2Desc: "Darhol bildirishnomalar va yangilanishlar",
-                vipFeature3Title: "Yuqori aniqlikdagi kelajak bashoratlari",
+                vipFeature3Title: "Yuqori aniqlikdagi tahmin",
                 vipFeature3Desc: "Chuqur tahlillar va oldindan ko'rish imkoniyati",
-                getVipText: "VIP KELAJAK BASHORATI OLISH",
-                getVipPredictionText: "VIP BASHORAT OLISH",
-                getVipPredictionEarlyText: "VIP BASHORAT OLISH",
-                inviteForVipTitle: "VIP KELAJAK BASHORATI OLISH UCHUN",
-                inviteForVipDesc: "VIP kelajak bashorati olish uchun 5 ta do'stingizni taklif qiling. Har bir taklif qilingan do'st bilan darajangiz oshadi. 5 ta do'st taklif qilsangiz, VIP kelajak bashorati olishingiz mumkin.",
+                getVipText: "1xBet VIP SIGNAL OLISH",
+                getVipSignalText: "VIP SIGNAL OLISH",
+                getVipSignalEarlyText: "VIP SIGNAL OLISH",
+                inviteForVipTitle: "1xBet VIP SIGNAL OLISH UCHUN",
+                inviteForVipDesc: "1xBet VIP signal olish uchun 5 ta do'stingizni taklif qiling. Har bir taklif qilingan do'st bilan darajangiz oshadi. 5 ta do'st taklif qilsangiz, VIP signal olishingiz mumkin.",
                 inviteForVipBtnText: "DO'STLARNI TAKLIF QILISH",
                 inviteFriendsValue: "DARAJANI OSHIRISH",
-                inviteFriendsDescText: "Har bir taklif qilingan do'st bilan darajangiz oshadi. 5 ta do'st taklif qilsangiz, VIP kelajak bashoratlariga ega bo'lasiz!",
-                apkDescText: "Mobil ilovamizni yuklab oling va istalgan joydan kelajak bashoratlariga ega bo'ling. To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud.",
+                inviteFriendsDescText: "Har bir taklif qilingan do'st bilan darajangiz oshadi. 5 ta do'st taklif qilsangiz, VIP signalga ega bo'lasiz!",
+                apkDescText: "1xBet mobil ilovasini yuklab oling va istalgan joydan signallar oling. To'liq funksionallik va qulay interfeys. App iOS va Android uchun mavjud[citation:1].",
                 downloadApkText: "YUKLASH",
-                bonusDescText: "AIFUT promokodi bilan ro'yxatdan o'ting va VIP kelajak bashoratlariga kirish imkoniyatiga ega bo'ling. Premium tahlillar va yuqori aniqlikdagi bashoratlar.",
+                bonusDescText: "AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting va standart bonusdan 30% ko'proq bonus oling[citation:1]. Casino va sport tikish uchun 100% bonus gacha[citation:1].",
                 getBonusText: "BONUS OLISH",
                 inviteFriendsText: "DO'STLARNI TAKLIF QILISH",
-                successPrediction: "✅ Kelajakni bilish qobiliyati olindi!",
-                errorPrediction: "❌ O'yin tugadi.",
+                successSignal: "✅ 1xBet signal olindi!",
+                errorSignal: "❌ O'yin tugadi.",
                 successBonus: "✅ Bonus olindi!",
                 successInvite: "✅ Do'st taklif qilindi! Darajangiz oshdi!",
                 loading: "⏳ Yuklanmoqda...",
@@ -2462,33 +2538,33 @@
                 chooseApple: "🫱 Iltimos, olma tanlang",
                 applesRevealed: "👁️ Olmalar ko'rsatildi",
                 nextStageReady: "👉 Keyingi bosqichga o'tish mumkin",
-                timerTitle: "KEYINGI KELAJAK BASHORATI",
-                timerNote: "VIP bashorat olish uchun yuqoridagi tugmani bosing",
-                idInputLabel: "ID RAQAMINGIZNI KIRITING",
+                timerTitle: "KEYINGI 1xBet SIGNAL",
+                timerNote: "VIP signal olish uchun yuqoridagi tugmani bosing",
+                idInputLabel: "1xBet ID RAQAMINGIZNI KIRITING",
                 idInputHint: "ID raqam tasdiqlang",
                 verifyIdText: "TASDIQLASH",
-                registerInModalText: "RO'YXATDAN O'TISH",
-                idRequired: "⚠️ Iltimos, ID raqamingizni kiriting",
+                registerInModalText: "1xBet RO'YXATDAN O'TISH",
+                idRequired: "⚠️ Iltimos, 1xBet ID raqamingizni kiriting",
                 idInvalid: "❌ Noto'g'ri ID raqam.",
-                idVerified: "✅ ID raqam tasdiqlandi! Kelajak bashoratini olish mumkin",
+                idVerified: "✅ 1xBet ID raqam tasdiqlandi! Signal olish mumkin",
                 idExample: "Misol: 12345678901",
-                timerActiveMessage: "Keyingi kelajak bashoratini kutmoqdasiz",
-                timerSubmessage: "Taymer tugagandan so'ng bashorat olish mumkin",
+                timerActiveMessage: "Keyingi signalni kutmoqdasiz",
+                timerSubmessage: "Taymer tugagandan so'ng signal olish mumkin",
                 changeIdText: "ID o'zgartirish",
                 registerText: "Ro'yxatdan o'tish",
-                changeIdModalTitle: "ID O'ZGARTIRISH",
+                changeIdModalTitle: "1xBet ID O'ZGARTIRISH",
                 saveNewIdText: "SAQLASH",
                 cancelChangeIdText: "BEKOR QILISH",
-                idChangeSuccess: "✅ ID raqam muvaffaqiyatli o'zgartirildi! Kelajak bashoratini olish mumkin.",
-                registerSuccess: "✅ Muvaffaqiyatli ro'yxatdan o'tdingiz!",
-                vipTimerActionMessage: "Vaqtdan oldin kelajakni bilish",
-                vipTimerActionSubmessage: "VIP bashorat bilan kutish vaqtini o'tkazib yuboring",
-                getVipPredictionEarlyText: "VIP BASHORAT OLISH",
+                idChangeSuccess: "✅ 1xBet ID raqam muvaffaqiyatli o'zgartirildi! Signal olish mumkin.",
+                registerSuccess: "✅ 1xBet-da muvaffaqiyatli ro'yxatdan o'tdingiz!",
+                vipTimerActionMessage: "Vaqtdan oldin signal olish",
+                vipTimerActionSubmessage: "VIP signal bilan kutish vaqtini o'tkazib yuboring",
+                getVipSignalEarlyText: "VIP SIGNAL OLISH",
                 inviteForVipSuccess: "✅ Taklif xabari yuborildi! Do'stlaringizni taklif qiling.",
-                vipPredictionUnavailable: "❌ VIP kelajak bashorati olish uchun 5 ta do'st taklif qilishingiz kerak",
-                vipPredictionAvailable: "✅ VIP kelajak bashorati olish mumkin!",
-                registerLinkOpened: "✅ Ro'yxatdan o'tish sahifasi ochildi",
-                timerReset: "✅ Taymer to'xtatildi! Yangi ID bilan kelajak bashoratini olishingiz mumkin.",
+                vipSignalUnavailable: "❌ VIP signal olish uchun 5 ta do'st taklif qilishingiz kerak",
+                vipSignalAvailable: "✅ VIP signal olish mumkin!",
+                registerLinkOpened: "✅ 1xBet ro'yxatdan o'tish sahifasi ochildi",
+                timerReset: "✅ Taymer to'xtatildi! Yangi ID bilan signal olishingiz mumkin.",
                 levelUp: "✅ Darajangiz oshdi! Yangi daraja: ",
                 settingsLanguageTitle: "Tilni o'zgartirish",
                 settingsLanguageDesc: "Dastur tilini tanlash",
@@ -2498,74 +2574,80 @@
                 settingsInviteDesc: "Darajangizni oshiring",
                 settingsGuideTitle: "Ishletish qo'llanmasi",
                 settingsGuideDesc: "Qanday ishlatish haqida",
-                guideStep1Title: "Platformada ro'yxatdan o'tish",
-                guideStep1Desc: "AIFUT promokodi bilan platformamizda ro'yxatdan o'ting. Bu sizga kelajakni bashorat qilish imkoniyatini beradi.",
+                guideStep1Title: "1xBet-da ro'yxatdan o'tish",
+                guideStep1Desc: "AIFUT promokodi bilan 1xBet-da ro'yxatdan o'ting. Bu sizga signal olish imkoniyatini beradi.",
                 guideStep2Title: "ID raqamni kiritish",
-                guideStep2Desc: "Akkauntingizning ID raqamini kiritib, kelajakni bashorat qilish o'yiniga kirish.",
-                guideStep3Title: "Kelajakni bashorat qilish o'yini",
-                guideStep3Desc: "Butun olmalarni tanlang. Har bir yutuqli bosqich sizga kelajakni bilish qobiliyatini beradi.",
+                guideStep2Desc: "1xBet akkauntingizning ID raqamini kiritib, signal olish o'yiniga kirish.",
+                guideStep3Title: "Signal o'yini",
+                guideStep3Desc: "Butun olmalarni tanlang. Har bir yutuqli bosqich sizga 1xBet uchun signal beradi.",
                 guideStep4Title: "Do'stlarni taklif qilish",
-                guideStep4Desc: "5 ta do'st taklif qiling va VIP kelajak bashoratlariga ega bo'ling.",
-                guideStep5Title: "Kelajakni bilish qobiliyatini olish",
-                guideStep5Desc: "O'yin yutqazilsa, 2 soat kutish kerak. VIP bashorat bilan kutish vaqtini o'tkazib yuborish mumkin."
+                guideStep4Desc: "5 ta do'st taklif qiling va VIP signalga ega bo'ling.",
+                guideStep5Title: "1xBet signal olish",
+                guideStep5Desc: "O'yin yutqazilsa, 2 soat kutish kerak. VIP signal bilan kutish vaqtini o'tkazib yuborish mumkin."
             },
             ru: {
-                languageTitle: "Предсказание Будущего",
-                languageSubtitle: "Платформа предварительного просмотра",
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "Букмекерская платформа",
                 userName: "Пользователь",
                 userLevel: "НОВЫЙ",
                 levelLabel: "УРОВЕНЬ",
                 invitesLabel: "ПРИГЛАШЕНИЯ",
                 accuracyLabel: "ТОЧНОСТЬ",
                 friendsLabel: "ДРУЗЬЯ",
-                predictionTitle: "ПРЕДПРОСМОТР",
-                predictionDesc: "Знание будущего",
+                mainRegisterTitle: "РЕГИСТРАЦИЯ",
+                mainRegisterDesc: "Зарегистрируйтесь в 1xBet через промокод AIFUT и получите доступ к высокоточным сигналам",
+                mainSignalTitle: "ПОЛУЧИТЬ СИГНАЛ",
+                mainSignalDesc: "Войдите в игру, чтобы получить высокоточные сигналы 1xBet",
+                signalTitle: "СИГНАЛ",
+                signalDesc: "Высокая точность",
                 vipTitle: "VIP",
-                vipDesc: "Эксклюзивные возможности",
+                vipDesc: "Эксклюзив",
                 apkTitle: "APK",
                 apkDesc: "Скачать",
                 bonusTitle: "БОНУС",
                 bonusDesc: "Промокоды",
+                settingsTitle: "НАСТРОЙКИ",
+                settingsDesc: "Язык и другое",
                 vipBannerTitle: "СТАНЬТЕ VIP",
-                vipBannerDesc: "30% более точных предсказаний",
-                registerPromoTitle: "ДОСТУП К ЗНАНИЮ БУДУЩЕГО",
-                registerPromoDesc: "Зарегистрируйтесь с промокодом AIFUT и получите доступ к высокоточным предсказаниям будущего",
+                vipBannerDesc: "30% больше бонуса[citation:1]",
+                registerPromoTitle: "ЗАРЕГИСТРИРУЙТЕСЬ ДЛЯ ПОЛУЧЕНИЯ СИГНАЛОВ",
+                registerPromoDesc: "Зарегистрируйтесь в 1xBet через промокод AIFUT и получите доступ к высокоточным сигналам",
                 mainRegisterText: "РЕГИСТРАЦИЯ",
                 statsTitle: "ЕЖЕДНЕВНАЯ СТАТИСТИКА",
                 dailyActive: "АКТИВНЫХ",
                 dailyAvgIncome: "СРЕДНИЙ ДОХОД",
                 profit: "ПРИБЫЛЬ",
                 onlinePlayers: "ОНЛАЙН ИГРОКОВ",
-                gameModalTitle: "ПОЛУЧИТЬ ЗНАНИЕ БУДУЩЕГО",
-                gameSubtitle: "Выбирайте целые яблоки для победы",
+                gameModalTitle: "ПОЛУЧИТЬ СИГНАЛ 1xBet",
+                gameSubtitle: "Выбирайте целые яблоки",
                 gameInstruction: "Нажмите кнопку показать яблоки и выберите целые яблоки. На каждом этапе 5 яблок.",
-                gameIdMessage: "Зарегистрируйтесь через промокод AIFUT для получения знания будущего. Введите ваш зарегистрированный ID номер и выбирайте целые яблоки.",
+                gameIdMessage: "Зарегистрируйтесь через промокод AIFUT в 1xBet для получения сигналов. Введите ваш зарегистрированный ID номер 1xBet и выбирайте целые яблоки.",
                 revealText: "ПОКАЗАТЬ ЯБЛОКИ",
                 nextStageText: "СЛЕДУЮЩИЙ ЭТАП",
-                vipModalTitle: "VIP ПРЕДСКАЗАНИЕ БУДУЩЕГО",
-                vipMainTitle: "СТАНЬТЕ VIP",
-                vipMainDesc: "30% более точных предсказаний и эксклюзивные привилегии",
-                vipFeature1Title: "30% Более Точные Предсказания",
-                vipFeature1Desc: "На 30% более точные предсказания чем стандартные",
+                vipModalTitle: "VIP СИГНАЛ 1xBet",
+                vipMainTitle: "СТАНЬТЕ VIP В 1xBet",
+                vipMainDesc: "30% больше бонуса[citation:1] и эксклюзивные привилегии",
+                vipFeature1Title: "30% Больше бонуса[citation:1]",
+                vipFeature1Desc: "На 30% больше бонуса чем стандартное предложение 1xBet[citation:1]",
                 vipFeature2Title: "Реальное время",
                 vipFeature2Desc: "Мгновенные уведомления и обновления",
-                vipFeature3Title: "Высокоточные предсказания будущего",
+                vipFeature3Title: "Высокоточные прогнозы",
                 vipFeature3Desc: "Глубокий анализ и возможность предварительного просмотра",
-                getVipText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ БУДУЩЕГО",
-                getVipPredictionText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ",
-                getVipPredictionEarlyText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ",
-                inviteForVipTitle: "ДЛЯ ПОЛУЧЕНИЯ VIP ПРЕДСКАЗАНИЯ БУДУЩЕГО",
-                inviteForVipDesc: "Пригласите 5 друзей для получения VIP предсказания будущего. С каждым приглашенным другом ваш уровень повышается. После приглашения 5 друзей вы можете получить VIP предсказание будущего.",
+                getVipText: "ПОЛУЧИТЬ VIP СИГНАЛ 1xBet",
+                getVipSignalText: "ПОЛУЧИТЬ VIP СИГНАЛ",
+                getVipSignalEarlyText: "ПОЛУЧИТЬ VIP СИГНАЛ",
+                inviteForVipTitle: "ДЛЯ ПОЛУЧЕНИЯ VIP СИГНАЛА 1xBet",
+                inviteForVipDesc: "Пригласите 5 друзей для получения VIP сигнала 1xBet. С каждым приглашенным другом ваш уровень повышается. После приглашения 5 друзей вы можете получить VIP сигнал.",
                 inviteForVipBtnText: "ПРИГЛАСИТЬ ДРУЗЕЙ",
                 inviteFriendsValue: "ПОВЫШЕНИЕ УРОВНЯ",
-                inviteFriendsDescText: "С каждым приглашенным другом ваш уровень повышается. После приглашения 5 друзей вы получите VIP предсказание будущего!",
-                apkDescText: "Скачайте наше мобильное приложение и получайте предсказания будущего из любого места. Полная функциональность и удобный интерфейс. Приложение доступно для iOS и Android.",
+                inviteFriendsDescText: "С каждым приглашенным другом ваш уровень повышается. После приглашения 5 друзей вы получите VIP сигнал!",
+                apkDescText: "Скачайте мобильное приложение 1xBet и получайте сигналы из любого места. Полная функциональность и удобный интерфейс. Приложение доступно для iOS и Android[citation:1].",
                 downloadApkText: "СКАЧАТЬ",
-                bonusDescText: "Зарегистрируйтесь с промокодом AIFUT и получите доступ к VIP предсказаниям будущего. Премиум аналитика и высокоточные предсказания.",
+                bonusDescText: "Зарегистрируйтесь с промокодом AIFUT в 1xBet и получите на 30% больше бонуса чем стандартное предложение[citation:1]. Бонус 100% для казино и спортивных ставок[citation:1].",
                 getBonusText: "ПОЛУЧИТЬ БОНУС",
                 inviteFriendsText: "ПРИГЛАСИТЬ ДРУЗЕЙ",
-                successPrediction: "✅ Знание будущего получено!",
-                errorPrediction: "❌ Игра окончена.",
+                successSignal: "✅ Сигнал 1xBet получен!",
+                errorSignal: "❌ Игра окончена.",
                 successBonus: "✅ Бонус получен!",
                 successInvite: "✅ Друг приглашен! Ваш уровень повысился!",
                 loading: "⏳ Загрузка...",
@@ -2578,33 +2660,33 @@
                 chooseApple: "🫱 Пожалуйста, выберите яблоко",
                 applesRevealed: "👁️ Яблоки показаны",
                 nextStageReady: "👉 Можно перейти на следующий этап",
-                timerTitle: "СЛЕДУЮЩЕЕ ПРЕДСКАЗАНИЕ БУДУЩЕГО",
-                timerNote: "Нажмите кнопку выше, чтобы получить VIP предсказание",
-                idInputLabel: "ВВЕДИТЕ ВАШ ID НОМЕР",
+                timerTitle: "СЛЕДУЮЩИЙ СИГНАЛ 1xBet",
+                timerNote: "Нажмите кнопку выше, чтобы получить VIP сигнал",
+                idInputLabel: "ВВЕДИТЕ ВАШ ID НОМЕР 1xBet",
                 idInputHint: "Подтвердите ID номер",
                 verifyIdText: "ПОДТВЕРДИТЬ",
-                registerInModalText: "РЕГИСТРАЦИЯ",
-                idRequired: "⚠️ Пожалуйста, введите ваш ID номер",
-                idInvalid: "❌ Неверный ID номер.",
-                idVerified: "✅ ID номер подтвержден! Можно получать предсказания будущего",
+                registerInModalText: "РЕГИСТРАЦИЯ В 1xBet",
+                idRequired: "⚠️ Пожалуйста, введите ваш ID номер 1xBet",
+                idInvalid: "❌ Неверный ID номер 1xBet.",
+                idVerified: "✅ ID номер 1xBet подтвержден! Можно получать сигналы",
                 idExample: "Пример: 12345678901",
-                timerActiveMessage: "Вы ждете следующее предсказание будущего",
-                timerSubmessage: "Можно получить предсказание после завершения таймера",
+                timerActiveMessage: "Вы ждете следующий сигнал",
+                timerSubmessage: "Можно получить сигнал после завершения таймера",
                 changeIdText: "Изменить ID",
                 registerText: "Регистрация",
-                changeIdModalTitle: "ИЗМЕНИТЬ ID",
+                changeIdModalTitle: "ИЗМЕНИТЬ ID 1xBet",
                 saveNewIdText: "СОХРАНИТЬ",
                 cancelChangeIdText: "ОТМЕНА",
-                idChangeSuccess: "✅ ID номер успешно изменен! Можно получать предсказания будущего.",
-                registerSuccess: "✅ Вы успешно зарегистрировались!",
-                vipTimerActionMessage: "Получить знание будущего раньше времени",
-                vipTimerActionSubmessage: "Пропустите время ожидания с VIP предсказанием",
-                getVipPredictionEarlyText: "ПОЛУЧИТЬ VIP ПРЕДСКАЗАНИЕ",
+                idChangeSuccess: "✅ ID номер 1xBet успешно изменен! Можно получать сигналы.",
+                registerSuccess: "✅ Вы успешно зарегистрировались в 1xBet!",
+                vipTimerActionMessage: "Получить сигнал раньше времени",
+                vipTimerActionSubmessage: "Пропустите время ожидания с VIP сигналом",
+                getVipSignalEarlyText: "ПОЛУЧИТЬ VIP СИГНАЛ",
                 inviteForVipSuccess: "✅ Сообщение приглашения отправлено! Пригласите своих друзей.",
-                vipPredictionUnavailable: "❌ Для получения VIP предсказания будущего нужно пригласить 5 друзей",
-                vipPredictionAvailable: "✅ VIP предсказание будущего доступно!",
-                registerLinkOpened: "✅ Страница регистрации открыта",
-                timerReset: "✅ Таймер остановлен! Вы можете получать предсказания с новым ID.",
+                vipSignalUnavailable: "❌ Для получения VIP сигнала 1xBet нужно пригласить 5 друзей",
+                vipSignalAvailable: "✅ VIP сигнал 1xBet доступен!",
+                registerLinkOpened: "✅ Страница регистрации 1xBet открыта",
+                timerReset: "✅ Таймер остановлен! Вы можете получать сигналы с новым ID.",
                 levelUp: "✅ Ваш уровень повысился! Новый уровень: ",
                 settingsLanguageTitle: "Сменить язык",
                 settingsLanguageDesc: "Выберите язык приложения",
@@ -2614,74 +2696,80 @@
                 settingsInviteDesc: "Повысьте свой уровень",
                 settingsGuideTitle: "Инструкция по использованию",
                 settingsGuideDesc: "Как пользоваться",
-                guideStep1Title: "Регистрация на платформе",
-                guideStep1Desc: "Зарегистрируйтесь через промокод AIFUT на нашей платформе. Это даст вам возможность получать предсказания будущего.",
-                guideStep2Title: "Ввод ID номера",
-                guideStep2Desc: "Введите ваш зарегистрированный ID номер для входа в игру получения предсказаний будущего.",
-                guideStep3Title: "Игра предсказания будущего",
-                guideStep3Desc: "Выбирайте целые яблоки. Каждый успешный этап дает вам знание будущего.",
+                guideStep1Title: "Регистрация в 1xBet",
+                guideStep1Desc: "Зарегистрируйтесь через промокод AIFUT в 1xBet. Это даст вам возможность получать сигналы.",
+                guideStep2Title: "Ввод ID номера 1xBet",
+                guideStep2Desc: "Введите ваш зарегистрированный ID номер 1xBet для входа в игру получения сигналов.",
+                guideStep3Title: "Игра с яблоками",
+                guideStep3Desc: "Выбирайте целые яблоки. Каждый успешный этап дает вам сигнал для 1xBet.",
                 guideStep4Title: "Приглашение друзей",
-                guideStep4Desc: "Пригласите 5 друзей и получите VIP предсказание будущего.",
-                guideStep5Title: "Получение знания будущего",
-                guideStep5Desc: "Если игра проиграна, нужно ждать 2 часа. С VIP предсказанием можно пропустить время ожидания."
+                guideStep4Desc: "Пригласите 5 друзей и получите VIP сигнал.",
+                guideStep5Title: "Получение сигнала 1xBet",
+                guideStep5Desc: "Если игра проиграна, нужно ждать 2 часа. С VIP сигналом можно пропустить время ожидания."
             },
             en: {
-                languageTitle: "Future Prediction",
-                languageSubtitle: "Preview Platform",
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "Bookmaker Platform",
                 userName: "User",
                 userLevel: "NEW",
                 levelLabel: "LEVEL",
                 invitesLabel: "INVITES",
                 accuracyLabel: "ACCURACY",
                 friendsLabel: "FRIENDS",
-                predictionTitle: "PREVIEW",
-                predictionDesc: "Knowledge of future",
+                mainRegisterTitle: "REGISTER",
+                mainRegisterDesc: "Register at 1xBet through AIFUT promo code and get access to high accuracy signals",
+                mainSignalTitle: "GET SIGNAL",
+                mainSignalDesc: "Enter the game to get high accuracy 1xBet signals",
+                signalTitle: "SIGNAL",
+                signalDesc: "High accuracy",
                 vipTitle: "VIP",
-                vipDesc: "Exclusive ability",
+                vipDesc: "Exclusive",
                 apkTitle: "APK",
                 apkDesc: "Download",
                 bonusTitle: "BONUS",
                 bonusDesc: "Promo codes",
+                settingsTitle: "SETTINGS",
+                settingsDesc: "Language and more",
                 vipBannerTitle: "BECOME VIP",
-                vipBannerDesc: "30% more accurate predictions",
-                registerPromoTitle: "ACCESS TO FUTURE KNOWLEDGE",
-                registerPromoDesc: "Register with AIFUT promo code and get access to high accuracy future predictions",
+                vipBannerDesc: "30% More Bonus[citation:1]",
+                registerPromoTitle: "REGISTER TO GET SIGNALS",
+                registerPromoDesc: "Register at 1xBet through AIFUT promo code and get access to high accuracy signals",
                 mainRegisterText: "REGISTER",
                 statsTitle: "DAILY STATISTICS",
                 dailyActive: "DAILY ACTIVE",
                 dailyAvgIncome: "AVG INCOME",
                 profit: "PROFIT",
                 onlinePlayers: "ONLINE PLAYERS",
-                gameModalTitle: "GET FUTURE KNOWLEDGE",
-                gameSubtitle: "Choose whole apples to win",
+                gameModalTitle: "GET 1xBet SIGNAL",
+                gameSubtitle: "Choose whole apples",
                 gameInstruction: "Click show apples button and choose whole apples. There are 5 apples at each stage.",
-                gameIdMessage: "Register through AIFUT promo code to get future knowledge. Enter your registered account ID number and choose whole apples.",
+                gameIdMessage: "Register through AIFUT promo code at 1xBet to get signals. Enter your registered 1xBet account ID number and choose whole apples.",
                 revealText: "SHOW APPLES",
-                nextStageText: "NEXT PREDICTION",
-                vipModalTitle: "VIP FUTURE PREDICTION",
-                vipMainTitle: "BECOME VIP",
-                vipMainDesc: "30% more accurate predictions and exclusive privileges",
-                vipFeature1Title: "30% More Accuracy",
-                vipFeature1Desc: "30% more accurate predictions than standard ones",
-                vipFeature2Title: "Real-time prediction",
+                nextStageText: "NEXT STAGE",
+                vipModalTitle: "1xBet VIP SIGNAL",
+                vipMainTitle: "BECOME 1xBet VIP",
+                vipMainDesc: "30% more bonus[citation:1] and exclusive privileges",
+                vipFeature1Title: "30% More Bonus[citation:1]",
+                vipFeature1Desc: "30% more bonus than standard 1xBet offer[citation:1]",
+                vipFeature2Title: "Real-time",
                 vipFeature2Desc: "Instant notifications and updates",
-                vipFeature3Title: "High Accuracy Future Predictions",
+                vipFeature3Title: "High Accuracy Predictions",
                 vipFeature3Desc: "Deep analysis and preview capability",
-                getVipText: "GET VIP FUTURE PREDICTION",
-                getVipPredictionText: "GET VIP PREDICTION",
-                getVipPredictionEarlyText: "GET VIP PREDICTION",
-                inviteForVipTitle: "TO GET VIP FUTURE PREDICTION",
-                inviteForVipDesc: "Invite 5 friends to get VIP future prediction. With each invited friend, your level increases. After inviting 5 friends, you can get VIP future prediction.",
+                getVipText: "GET 1xBet VIP SIGNAL",
+                getVipSignalText: "GET VIP SIGNAL",
+                getVipSignalEarlyText: "GET VIP SIGNAL",
+                inviteForVipTitle: "TO GET 1xBet VIP SIGNAL",
+                inviteForVipDesc: "Invite 5 friends to get 1xBet VIP signal. With each invited friend, your level increases. After inviting 5 friends, you can get VIP signal.",
                 inviteForVipBtnText: "INVITE FRIENDS",
                 inviteFriendsValue: "LEVEL UP",
-                inviteFriendsDescText: "With each invited friend, your level increases. After inviting 5 friends, you will get VIP future prediction!",
-                apkDescText: "Download our mobile app and get future predictions from anywhere. Full functionality and convenient interface. App available for iOS and Android.",
+                inviteFriendsDescText: "With each invited friend, your level increases. After inviting 5 friends, you will get VIP signal!",
+                apkDescText: "Download 1xBet mobile app and get signals from anywhere. Full functionality and convenient interface. App available for iOS and Android[citation:1].",
                 downloadApkText: "DOWNLOAD",
-                bonusDescText: "Register with AIFUT promo code and get access to VIP future predictions. Premium analytics and high accuracy forecasts.",
+                bonusDescText: "Register with AIFUT promo code at 1xBet and get 30% more bonus than standard offer[citation:1]. 100% bonus for casino and sports betting[citation:1].",
                 getBonusText: "GET BONUS",
                 inviteFriendsText: "INVITE FRIENDS",
-                successPrediction: "✅ Future knowledge received!",
-                errorPrediction: "❌ Game over.",
+                successSignal: "✅ 1xBet signal received!",
+                errorSignal: "❌ Game over.",
                 successBonus: "✅ Bonus received!",
                 successInvite: "✅ Friend invited! Your level increased!",
                 loading: "⏳ Loading...",
@@ -2694,33 +2782,33 @@
                 chooseApple: "🫱 Please choose an apple",
                 applesRevealed: "👁️ Apples revealed",
                 nextStageReady: "👉 Can go to next stage",
-                timerTitle: "NEXT FUTURE PREDICTION",
-                timerNote: "Click button above to get VIP prediction",
-                idInputLabel: "ENTER YOUR ID NUMBER",
+                timerTitle: "NEXT 1xBet SIGNAL",
+                timerNote: "Click button above to get VIP signal",
+                idInputLabel: "ENTER YOUR 1xBet ID NUMBER",
                 idInputHint: "Confirm ID number",
                 verifyIdText: "VERIFY",
-                registerInModalText: "REGISTER",
-                idRequired: "⚠️ Please enter your ID number",
-                idInvalid: "❌ Invalid ID number.",
-                idVerified: "✅ ID number verified! Can get future predictions now",
+                registerInModalText: "REGISTER AT 1xBet",
+                idRequired: "⚠️ Please enter your 1xBet ID number",
+                idInvalid: "❌ Invalid 1xBet ID number.",
+                idVerified: "✅ 1xBet ID number verified! Can get signals now",
                 idExample: "Example: 12345678901",
-                timerActiveMessage: "Waiting for next future prediction",
-                timerSubmessage: "You can get prediction after timer ends",
+                timerActiveMessage: "Waiting for next signal",
+                timerSubmessage: "You can get signal after timer ends",
                 changeIdText: "Change ID",
                 registerText: "Register",
-                changeIdModalTitle: "CHANGE ID",
+                changeIdModalTitle: "CHANGE 1xBet ID",
                 saveNewIdText: "SAVE",
                 cancelChangeIdText: "CANCEL",
-                idChangeSuccess: "✅ ID number changed successfully! You can get future predictions now.",
-                registerSuccess: "✅ Registration successful!",
-                vipTimerActionMessage: "Get future knowledge before time",
-                vipTimerActionSubmessage: "Skip waiting time with VIP prediction",
-                getVipPredictionEarlyText: "GET VIP PREDICTION",
+                idChangeSuccess: "✅ 1xBet ID number changed successfully! You can get signals now.",
+                registerSuccess: "✅ Registration at 1xBet successful!",
+                vipTimerActionMessage: "Get signal before time",
+                vipTimerActionSubmessage: "Skip waiting time with VIP signal",
+                getVipSignalEarlyText: "GET VIP SIGNAL",
                 inviteForVipSuccess: "✅ Invitation message sent! Invite your friends.",
-                vipPredictionUnavailable: "❌ To get VIP future prediction, you need to invite 5 friends",
-                vipPredictionAvailable: "✅ VIP future prediction available!",
-                registerLinkOpened: "✅ Registration page opened",
-                timerReset: "✅ Timer stopped! You can get future predictions with new ID.",
+                vipSignalUnavailable: "❌ To get 1xBet VIP signal, you need to invite 5 friends",
+                vipSignalAvailable: "✅ 1xBet VIP signal available!",
+                registerLinkOpened: "✅ 1xBet registration page opened",
+                timerReset: "✅ Timer stopped! You can get signals with new ID.",
                 levelUp: "✅ Your level increased! New level: ",
                 settingsLanguageTitle: "Change Language",
                 settingsLanguageDesc: "Select app language",
@@ -2730,74 +2818,80 @@
                 settingsInviteDesc: "Increase your level",
                 settingsGuideTitle: "User Guide",
                 settingsGuideDesc: "How to use",
-                guideStep1Title: "Register on platform",
-                guideStep1Desc: "Register through AIFUT promo code on our platform. This gives you the opportunity to get future predictions.",
-                guideStep2Title: "Enter ID Number",
-                guideStep2Desc: "Enter your registered ID number to enter the future prediction game.",
-                guideStep3Title: "Future Prediction Game",
-                guideStep3Desc: "Choose whole apples. Each successful stage gives you future knowledge.",
+                guideStep1Title: "Register at 1xBet",
+                guideStep1Desc: "Register through AIFUT promo code at 1xBet. This gives you the opportunity to get signals.",
+                guideStep2Title: "Enter 1xBet ID Number",
+                guideStep2Desc: "Enter your registered 1xBet ID number to enter the signal game.",
+                guideStep3Title: "Signal Game",
+                guideStep3Desc: "Choose whole apples. Each successful stage gives you a signal for 1xBet.",
                 guideStep4Title: "Invite Friends",
-                guideStep4Desc: "Invite 5 friends and get VIP future prediction.",
-                guideStep5Title: "Get Future Knowledge",
-                guideStep5Desc: "If the game is lost, you need to wait 2 hours. With VIP prediction you can skip waiting time."
+                guideStep4Desc: "Invite 5 friends and get VIP signal.",
+                guideStep5Title: "Get 1xBet Signal",
+                guideStep5Desc: "If the game is lost, you need to wait 2 hours. With VIP signal you can skip waiting time."
             },
             ar: {
-                languageTitle: "توقع المستقبل",
-                languageSubtitle: "منصة المعاينة",
+                languageTitle: "1xBet Signals",
+                languageSubtitle: "منصة المراهنات",
                 userName: "المستخدم",
                 userLevel: "جديد",
                 levelLabel: "المستوى",
                 invitesLabel: "الدعوات",
                 accuracyLabel: "الدقة",
                 friendsLabel: "الأصدقاء",
-                predictionTitle: "معاينة مسبقة",
-                predictionDesc: "معرفة المستقبل",
+                mainRegisterTitle: "تسجيل",
+                mainRegisterDesc: "سجل في 1xBet من خلال الرمز الترويجي AIFUT واحصل على إشارات عالية الدقة",
+                mainSignalTitle: "الحصول على إشارة",
+                mainSignalDesc: "ادخل اللعبة للحصول على إشارات 1xBet عالية الدقة",
+                signalTitle: "إشارة",
+                signalDesc: "دقة عالية",
                 vipTitle: "VIP",
-                vipDesc: "قدرة حصرية",
+                vipDesc: "حصري",
                 apkTitle: "APK",
                 apkDesc: "تحميل",
                 bonusTitle: "مكافأة",
                 bonusDesc: "رموز ترويجية",
+                settingsTitle: "إعدادات",
+                settingsDesc: "اللغة والمزيد",
                 vipBannerTitle: "كن VIP",
-                vipBannerDesc: "30٪ تنبؤات أكثر دقة",
-                registerPromoTitle: "الوصول إلى معرفة المستقبل",
-                registerPromoDesc: "سجل باستخدام الرمز الترويجي AIFUT واحصل على تنبؤات مستقبلية عالية الدقة",
+                vipBannerDesc: "30٪ مكافأة أكثر[citation:1]",
+                registerPromoTitle: "سجل للحصول على إشارات",
+                registerPromoDesc: "سجل في 1xBet من خلال الرمز الترويجي AIFUT واحصل على إشارات عالية الدقة",
                 mainRegisterText: "تسجيل",
                 statsTitle: "الإحصائيات اليومية",
                 dailyActive: "نشط يوميًا",
                 dailyAvgIncome: "متوسط الدخل",
                 profit: "الربح",
                 onlinePlayers: "اللاعبون عبر الإنترنت",
-                gameModalTitle: "الحصول على معرفة المستقبل",
-                gameSubtitle: "اختر التفاح الكامل للفوز",
+                gameModalTitle: "الحصول على إشارة 1xBet",
+                gameSubtitle: "اختر التفاح الكامل",
                 gameInstruction: "انقر على زر عرض التفاح واختر التفاح الكامل. هناك 5 تفاحات في كل مرحلة.",
-                gameIdMessage: "سجل باستخدام الرمز الترويجي AIFUT للحصول على معرفة المستقبل. أدخل رقم هوية حسابك المسجل واختر التفاح الكامل.",
+                gameIdMessage: "سجل في 1xBet من خلال الرمز الترويجي AIFUT للحصول على إشارات. أدخل رقم هوية حساب 1xBet المسجل واختر التفاح الكامل.",
                 revealText: "عرض التفاح",
-                nextStageText: "التنبؤ التالي",
-                vipModalTitle: "تنبؤ مستقبلي VIP",
-                vipMainTitle: "كن VIP",
-                vipMainDesc: "30٪ تنبؤات أكثر دقة وامتيازات حصرية",
-                vipFeature1Title: "30٪ دقة أكثر",
-                vipFeature1Desc: "30٪ تنبؤات أكثر دقة من التنبؤات القياسية",
-                vipFeature2Title: "تنبؤ في الوقت الحقيقي",
+                nextStageText: "المرحلة التالية",
+                vipModalTitle: "إشارة VIP 1xBet",
+                vipMainTitle: "كن VIP في 1xBet",
+                vipMainDesc: "30٪ مكافأة أكثر[citation:1] وامتيازات حصرية",
+                vipFeature1Title: "30٪ مكافأة أكثر[citation:1]",
+                vipFeature1Desc: "30٪ مكافأة أكثر من العرض القياسي لـ 1xBet[citation:1]",
+                vipFeature2Title: "الوقت الحقيقي",
                 vipFeature2Desc: "إشعارات وتحديثات فورية",
-                vipFeature3Title: "تنبؤات مستقبلية عالية الدقة",
+                vipFeature3Title: "توقعات عالية الدقة",
                 vipFeature3Desc: "تحليل عميق وإمكانية المعاينة",
-                getVipText: "الحصول على تنبؤ مستقبلي VIP",
-                getVipPredictionText: "الحصول على تنبؤ VIP",
-                getVipPredictionEarlyText: "الحصول على تنبؤ VIP",
-                inviteForVipTitle: "للحصول على تنبؤ مستقبلي VIP",
-                inviteForVipDesc: "قم بدعوة 5 أصدقاء للحصول على تنبؤ مستقبلي VIP. مع كل صديق مدعو، يرتفع مستواك. بعد دعوة 5 أصدقاء، يمكنك الحصول على تنبؤ مستقبلي VIP.",
+                getVipText: "الحصول على إشارة VIP 1xBet",
+                getVipSignalText: "الحصول على إشارة VIP",
+                getVipSignalEarlyText: "الحصول على إشارة VIP",
+                inviteForVipTitle: "للحصول على إشارة VIP 1xBet",
+                inviteForVipDesc: "قم بدعوة 5 أصدقاء للحصول على إشارة VIP 1xBet. مع كل صديق مدعو، يرتفع مستواك. بعد دعوة 5 أصدقاء، يمكنك الحصول على إشارة VIP.",
                 inviteForVipBtnText: "دعوة الأصدقاء",
                 inviteFriendsValue: "رفع المستوى",
-                inviteFriendsDescText: "مع كل صديق مدعو، يرتفع مستواك. بعد دعوة 5 أصدقاء، ستحصل على تنبؤ مستقبلي VIP!",
-                apkDescText: "قم بتنزيل تطبيقنا المحمول واحصل على تنبؤات مستقبلية من أي مكان. وظائف كاملة وواجهة مريحة. التطبيق متاح لنظامي iOS و Android.",
+                inviteFriendsDescText: "مع كل صديق مدعو، يرتفع مستواك. بعد دعوة 5 أصدقاء، ستحصل على إشارة VIP!",
+                apkDescText: "قم بتنزيل تطبيق 1xBet المحمول واحصل على إشارات من أي مكان. وظائف كاملة وواجهة مريحة. التطبيق متاح لنظامي iOS و Android[citation:1].",
                 downloadApkText: "تحميل",
-                bonusDescText: "سجل باستخدام الرمز الترويجي AIFUT واحصل على الوصول إلى تنبؤات مستقبلية VIP. تحليلات متميزة وتنبؤات عالية الدقة.",
+                bonusDescText: "سجل باستخدام الرمز الترويجي AIFUT في 1xBet واحصل على 30٪ مكافأة أكثر من العرض القياسي[citation:1]. مكافأة 100٪ للكازينو ومراهنات الرياضة[citation:1].",
                 getBonusText: "الحصول على مكافأة",
                 inviteFriendsText: "دعوة الأصدقاء",
-                successPrediction: "✅ تم استلام معرفة المستقبل!",
-                errorPrediction: "❌ انتهت اللعبة.",
+                successSignal: "✅ تم استلام إشارة 1xBet!",
+                errorSignal: "❌ انتهت اللعبة.",
                 successBonus: "✅ تم استلام المكافأة!",
                 successInvite: "✅ تمت دعوة الصديق! ارتفع مستواك!",
                 loading: "⏳ جاري التحميل...",
@@ -2810,33 +2904,33 @@
                 chooseApple: "🫱 الرجاء اختيار تفاحة",
                 applesRevealed: "👁️ تم عرض التفاح",
                 nextStageReady: "👉 يمكن الانتقال إلى المرحلة التالية",
-                timerTitle: "التنبؤ المستقبلي التالي",
-                timerNote: "انقر على الزر أعلاه للحصول على تنبؤ VIP",
-                idInputLabel: "أدخل رقم معرفك",
+                timerTitle: "الإشارة التالية 1xBet",
+                timerNote: "انقر على الزر أعلاه للحصول على إشارة VIP",
+                idInputLabel: "أدخل رقم معرف 1xBet الخاص بك",
                 idInputHint: "تأكيد رقم الهوية",
                 verifyIdText: "تأكيد",
-                registerInModalText: "التسجيل",
-                idRequired: "⚠️ يرجى إدخال رقم معرفك",
-                idInvalid: "❌ رقم معرف غير صالح.",
-                idVerified: "✅ تم التحقق من رقم المعرف! يمكنك الحصول على تنبؤات مستقبلية الآن",
+                registerInModalText: "التسجيل في 1xBet",
+                idRequired: "⚠️ يرجى إدخال رقم معرف 1xBet الخاص بك",
+                idInvalid: "❌ رقم معرف 1xBet غير صالح.",
+                idVerified: "✅ تم التحقق من رقم معرف 1xBet! يمكنك الحصول على الإشارات الآن",
                 idExample: "مثال: 12345678901",
-                timerActiveMessage: "في انتظار التنبؤ المستقبلي التالي",
-                timerSubmessage: "يمكنك الحصول على تنبؤ بعد انتهاء المؤقت",
+                timerActiveMessage: "في انتظار الإشارة التالية",
+                timerSubmessage: "يمكنك الحصول على إشارة بعد انتهاء المؤقت",
                 changeIdText: "تغيير المعرف",
                 registerText: "تسجيل",
-                changeIdModalTitle: "تغيير المعرف",
+                changeIdModalTitle: "تغيير معرف 1xBet",
                 saveNewIdText: "حفظ",
                 cancelChangeIdText: "إلغاء",
-                idChangeSuccess: "✅ تم تغيير رقم المعرف بنجاح! يمكنك الحصول على تنبؤات مستقبلية الآن.",
-                registerSuccess: "✅ تم التسجيل بنجاح!",
-                vipTimerActionMessage: "احصل على معرفة المستقبل قبل الوقت",
-                vipTimerActionSubmessage: "تخطى وقت الانتظار مع تنبؤ VIP",
-                getVipPredictionEarlyText: "الحصول على تنبؤ VIP",
+                idChangeSuccess: "✅ تم تغيير رقم معرف 1xBet بنجاح! يمكنك الحصول على الإشارات الآن.",
+                registerSuccess: "✅ تم التسجيل في 1xBet بنجاح!",
+                vipTimerActionMessage: "احصل على إشارة قبل الوقت",
+                vipTimerActionSubmessage: "تخطى وقت الانتظار مع إشارة VIP",
+                getVipSignalEarlyText: "الحصول على إشارة VIP",
                 inviteForVipSuccess: "✅ تم إرسال رسالة الدعوة! قم بدعوة أصدقائك.",
-                vipPredictionUnavailable: "❌ للحصول على تنبؤ مستقبلي VIP، تحتاج إلى دعوة 5 أصدقاء",
-                vipPredictionAvailable: "✅ تنبؤ مستقبلي VIP متاح!",
-                registerLinkOpened: "✅ تم فتح صفحة التسجيل",
-                timerReset: "✅ تم إيقاف المؤقت! يمكنك الحصول على تنبؤات مستقبلية بالمعرف الجديد.",
+                vipSignalUnavailable: "❌ للحصول على إشارة VIP 1xBet، تحتاج إلى دعوة 5 أصدقاء",
+                vipSignalAvailable: "✅ إشارة VIP 1xBet متاحة!",
+                registerLinkOpened: "✅ تم فتح صفحة التسجيل في 1xBet",
+                timerReset: "✅ تم إيقاف المؤقت! يمكنك الحصول على إشارات بالمعرف الجديد.",
                 levelUp: "✅ ارتفع مستواك! المستوى الجديد: ",
                 settingsLanguageTitle: "تغيير اللغة",
                 settingsLanguageDesc: "اختر لغة التطبيق",
@@ -2846,20 +2940,20 @@
                 settingsInviteDesc: "ارفع مستواك",
                 settingsGuideTitle: "دليل المستخدم",
                 settingsGuideDesc: "كيفية الاستخدام",
-                guideStep1Title: "التسجيل في المنصة",
-                guideStep1Desc: "سجل في منصتنا من خلال الرمز الترويجي AIFUT. هذا يمنحك فرصة للحصول على تنبؤات مستقبلية.",
-                guideStep2Title: "إدخال رقم الهوية",
-                guideStep2Desc: "أدخل رقم هويتك المسجل للدخول إلى لعبة التنبؤات المستقبلية.",
-                guideStep3Title: "لعبة توقع المستقبل",
-                guideStep3Desc: "اختر التفاح الكامل. كل مرحلة ناجحة تمنحك معرفة مستقبلية.",
+                guideStep1Title: "التسجيل في 1xBet",
+                guideStep1Desc: "سجل في 1xBet من خلال الرمز الترويجي AIFUT. هذا يمنحك فرصة للحصول على إشارات.",
+                guideStep2Title: "إدخال رقم هوية 1xBet",
+                guideStep2Desc: "أدخل رقم هوية 1xBet المسجل للدخول إلى لعبة الإشارات.",
+                guideStep3Title: "لعبة الإشارة",
+                guideStep3Desc: "اختر التفاح الكامل. كل مرحلة ناجحة تمنحك إشارة لـ 1xBet.",
                 guideStep4Title: "دعوة الأصدقاء",
-                guideStep4Desc: "ادعُ 5 أصدقاء واحصل على تنبؤ مستقبلي VIP.",
-                guideStep5Title: "الحصول على معرفة المستقبل",
-                guideStep5Desc: "إذا خسرت اللعبة، يجب أن تنتظر ساعتين. مع تنبؤ VIP يمكنك تخطي وقت الانتظار."
+                guideStep4Desc: "ادعُ 5 أصدقاء واحصل على إشارة VIP.",
+                guideStep5Title: "الحصول على إشارة 1xBet",
+                guideStep5Desc: "إذا خسرت اللعبة، يجب أن تنتظر ساعتين. مع إشارة VIP يمكنك تخطي وقت الانتظار."
             }
         };
 
-        let currentLang = localStorage.getItem('futurePredictionLang') || 'uz';
+        let currentLang = localStorage.getItem('xbetSignalsLang') || 'uz';
         let userData = {
             level: "YANGI",
             invites: 0,
@@ -2896,17 +2990,17 @@
         });
 
         function initApp() {
-            const savedData = localStorage.getItem('futurePredictionData');
+            const savedData = localStorage.getItem('xbetSignalsData');
             if (savedData) {
                 userData = JSON.parse(savedData);
             }
 
-            const savedStats = localStorage.getItem('futurePredictionStats');
+            const savedStats = localStorage.getItem('xbetSignalsStats');
             if (savedStats) {
                 dailyStats = JSON.parse(savedStats);
             }
 
-            const savedTimer = localStorage.getItem('futurePredictionTimer');
+            const savedTimer = localStorage.getItem('xbetSignalsTimer');
             if (savedTimer) {
                 gameState.timerEndTime = parseInt(savedTimer);
                 const now = Date.now();
@@ -2916,12 +3010,12 @@
                 }
             }
 
-            const savedIdVerified = localStorage.getItem('futurePredictionIdVerified');
+            const savedIdVerified = localStorage.getItem('xbetSignalsIdVerified');
             if (savedIdVerified === 'true') {
                 gameState.idVerified = true;
             }
 
-            const savedUserId = localStorage.getItem('futurePredictionUserId');
+            const savedUserId = localStorage.getItem('xbetSignalsUserId');
             if (savedUserId) {
                 gameState.userId = savedUserId;
                 updateUserIdDisplay();
@@ -2929,7 +3023,7 @@
 
             setupListeners();
             
-            if (localStorage.getItem('futurePredictionLang')) {
+            if (localStorage.getItem('xbetSignalsLang')) {
                 selectLanguage(currentLang);
             } else {
                 document.getElementById('languageSelector').style.display = 'flex';
@@ -2947,38 +3041,40 @@
             });
 
             document.getElementById('settingsBtn').addEventListener('click', () => showPage('settingsPage'));
+            document.getElementById('settingsBtn2').addEventListener('click', () => showPage('settingsPage'));
 
             document.getElementById('navHome').addEventListener('click', () => showPage('mainContainer'));
-            document.getElementById('navPrediction').addEventListener('click', () => showGameModal());
+            document.getElementById('navSignal').addEventListener('click', () => showGameModal());
             document.getElementById('navVip').addEventListener('click', () => showVipModal());
             document.getElementById('navApk').addEventListener('click', () => showPage('apkPage'));
             document.getElementById('navSettings').addEventListener('click', () => showPage('settingsPage'));
 
             document.getElementById('navHome2').addEventListener('click', () => showPage('mainContainer'));
-            document.getElementById('navPrediction2').addEventListener('click', () => showGameModal());
+            document.getElementById('navSignal2').addEventListener('click', () => showGameModal());
             document.getElementById('navVip2').addEventListener('click', () => showVipModal());
             document.getElementById('navApk2').addEventListener('click', () => showPage('apkPage'));
             document.getElementById('navSettings2').addEventListener('click', () => showPage('settingsPage'));
 
             document.getElementById('navHome3').addEventListener('click', () => showPage('mainContainer'));
-            document.getElementById('navPrediction3').addEventListener('click', () => showGameModal());
+            document.getElementById('navSignal3').addEventListener('click', () => showGameModal());
             document.getElementById('navVip3').addEventListener('click', () => showVipModal());
             document.getElementById('navApk3').addEventListener('click', () => showPage('apkPage'));
             document.getElementById('navSettings3').addEventListener('click', () => showPage('settingsPage'));
 
             document.getElementById('navHome4').addEventListener('click', () => showPage('mainContainer'));
-            document.getElementById('navPrediction4').addEventListener('click', () => showGameModal());
+            document.getElementById('navSignal4').addEventListener('click', () => showGameModal());
             document.getElementById('navVip4').addEventListener('click', () => showVipModal());
             document.getElementById('navApk4').addEventListener('click', () => showPage('apkPage'));
             document.getElementById('navSettings4').addEventListener('click', () => showPage('settingsPage'));
 
-            document.getElementById('predictionBtn').addEventListener('click', () => showGameModal());
+            // Yangi asosiy harakatlar kartalari
+            document.getElementById('mainRegisterCard').addEventListener('click', registerUser);
+            document.getElementById('mainSignalCard').addEventListener('click', () => showGameModal());
+
             document.getElementById('vipBtn').addEventListener('click', () => showVipModal());
             document.getElementById('vipBanner').addEventListener('click', () => showVipModal());
             document.getElementById('apkBtn').addEventListener('click', () => showPage('apkPage'));
             document.getElementById('bonusBtn').addEventListener('click', () => showPage('bonusPage'));
-
-            document.getElementById('mainRegisterBtn').addEventListener('click', registerUser);
 
             document.getElementById('backFromApk').addEventListener('click', () => showPage('mainContainer'));
             document.getElementById('backFromBonus').addEventListener('click', () => showPage('mainContainer'));
@@ -3016,8 +3112,8 @@
             document.getElementById('nextStageBtn').addEventListener('click', nextStage);
             document.getElementById('restartGameBtn').addEventListener('click', restartGame);
             document.getElementById('closeGameBtn').addEventListener('click', () => closeModal('gameModal'));
-            document.getElementById('getVipPredictionBtn').addEventListener('click', getVipPrediction);
-            document.getElementById('getVipPredictionEarlyBtn').addEventListener('click', getVipPredictionEarly);
+            document.getElementById('getVipSignalBtn').addEventListener('click', getVipSignal);
+            document.getElementById('getVipSignalEarlyBtn').addEventListener('click', getVipSignalEarly);
 
             document.getElementById('inviteForVipBtn').addEventListener('click', inviteForVip);
             document.getElementById('getVipBtn').addEventListener('click', getVip);
@@ -3040,7 +3136,7 @@
 
         function selectLanguage(lang) {
             currentLang = lang;
-            localStorage.setItem('futurePredictionLang', lang);
+            localStorage.setItem('xbetSignalsLang', lang);
             document.getElementById('languageSelector').style.display = 'none';
             updateTranslations(lang);
             showPage('mainContainer');
@@ -3182,7 +3278,7 @@
             if (getVipBtn) {
                 if (userData.invitedFriends >= 5) {
                     getVipBtn.disabled = false;
-                    getVipBtn.innerHTML = '<i class="fas fa-crown"></i> <span id="getVipText">VIP KELAJAK BASHORATI OLISH</span>';
+                    getVipBtn.innerHTML = '<i class="fas fa-crown"></i> <span id="getVipText">1xBet VIP SIGNAL OLISH</span>';
                 } else {
                     getVipBtn.disabled = true;
                     getVipBtn.innerHTML = `<i class="fas fa-lock"></i> <span id="getVipText">${userData.invitedFriends}/5 TAKLIF</span>`;
@@ -3345,8 +3441,8 @@
             }
             gameState.idVerified = true;
             gameState.userId = value;
-            localStorage.setItem('futurePredictionIdVerified', 'true');
-            localStorage.setItem('futurePredictionUserId', value);
+            localStorage.setItem('xbetSignalsIdVerified', 'true');
+            localStorage.setItem('xbetSignalsUserId', value);
             updateUserIdDisplay();
             document.getElementById('idInputSection').style.display = 'none';
             document.getElementById('gameSection').style.display = 'block';
@@ -3375,9 +3471,9 @@
                 return;
             }
             gameState.userId = value;
-            localStorage.setItem('futurePredictionUserId', value);
+            localStorage.setItem('xbetSignalsUserId', value);
             gameState.timerRunning = false;
-            localStorage.removeItem('futurePredictionTimer');
+            localStorage.removeItem('xbetSignalsTimer');
             updateUserIdDisplay();
             closeModal('changeIdModal');
             showToast(translations[currentLang].idChangeSuccess, 'success');
@@ -3385,7 +3481,7 @@
         }
 
         function registerUser() {
-            window.open('https://t.me/Strategioyinlar_bot?start=aifut', '_blank');
+            window.open('https://superlative-twilight-47ef34.netlify.app/', '_blank');
             showToast(translations[currentLang].registerLinkOpened, 'success');
         }
 
@@ -3488,18 +3584,18 @@
                 updateUI();
                 updateDailyStats();
                 saveData();
-                startPredictionTimer();
+                startSignalTimer();
                 resultIcon.textContent = '🎉';
                 resultIcon.style.color = '#4caf50';
                 resultTitle.textContent = translations[currentLang].winGame;
                 resultMessage.textContent = translations[currentLang].winMessage;
-                showToast(translations[currentLang].successPrediction, 'success');
+                showToast(translations[currentLang].successSignal, 'success');
             } else {
                 resultIcon.textContent = '😔';
                 resultIcon.style.color = '#e74c3c';
                 resultTitle.textContent = translations[currentLang].loseGame;
                 resultMessage.textContent = translations[currentLang].loseMessage;
-                showToast(translations[currentLang].errorPrediction, 'error');
+                showToast(translations[currentLang].errorSignal, 'error');
             }
             overlay.classList.add('active');
             overlay.classList.add('fade-in');
@@ -3593,12 +3689,12 @@
             }
         }
 
-        function startPredictionTimer() {
+        function startSignalTimer() {
             const now = Date.now();
             const twoHours = 2 * 60 * 60 * 1000;
             gameState.timerEndTime = now + twoHours;
             gameState.timerRunning = true;
-            localStorage.setItem('futurePredictionTimer', gameState.timerEndTime.toString());
+            localStorage.setItem('xbetSignalsTimer', gameState.timerEndTime.toString());
             startTimer();
             updateTimerUI();
         }
@@ -3611,7 +3707,7 @@
                 const timeLeft = gameState.timerEndTime - now;
                 if (timeLeft <= 0) {
                     gameState.timerRunning = false;
-                    localStorage.removeItem('futurePredictionTimer');
+                    localStorage.removeItem('xbetSignalsTimer');
                     updateTimerUI();
                     if (document.getElementById('gameModal').classList.contains('active')) {
                         showGameModal();
@@ -3657,10 +3753,10 @@
             }
         }
 
-        function getVipPredictionEarly() {
-            showToast(translations[currentLang].getVipPredictionEarlyText + ' - ' + translations[currentLang].loading, 'info');
+        function getVipSignalEarly() {
+            showToast(translations[currentLang].getVipSignalEarlyText + ' - ' + translations[currentLang].loading, 'info');
             gameState.timerRunning = false;
-            localStorage.removeItem('futurePredictionTimer');
+            localStorage.removeItem('xbetSignalsTimer');
             closeModal('gameModal');
             setTimeout(() => {
                 showVipModal();
@@ -3668,8 +3764,8 @@
         }
 
         function inviteForVip() {
-            const shareMessage = `🎯 ${translations[currentLang].vipTitle} | Kelajakni Bashorat Qilish\n\n${translations[currentLang].inviteForVipDesc}\n\n👉 https://t.me/Strategioyinlar_bot?start=aifut\n\nSizning taklif kodingiz: ${gameState.userId || '1234567890'}\n\n#KelajakniBashorat #VIP`;
-            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot?start=aifut&text=${encodeURIComponent(shareMessage)}`;
+            const shareMessage = `🎯 ${translations[currentLang].vipTitle} | 1xBet Signals\n\n${translations[currentLang].inviteForVipDesc}\n\n👉 https://t.me/Strategioyinlar_bot?start=ar3232291431\n\nSizning taklif kodingiz: ${gameState.userId || '1234567890'}\n\n#1xBet #VIPSignal`;
+            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot?start=ar3232291431&text=${encodeURIComponent(shareMessage)}`;
             window.open(shareUrl, '_blank');
             if (userData.invitedFriends < 5) {
                 userData.invitedFriends++;
@@ -3677,7 +3773,7 @@
                 saveData();
                 updateUserLevel();
                 if (userData.invitedFriends === 5) {
-                    showToast(translations[currentLang].vipPredictionAvailable, 'success');
+                    showToast(translations[currentLang].vipSignalAvailable, 'success');
                 } else {
                     showToast(translations[currentLang].successInvite, 'success');
                 }
@@ -3691,33 +3787,33 @@
                 userData.vipAvailable = true;
                 saveData();
             } else {
-                showToast(translations[currentLang].vipPredictionUnavailable, 'warning');
+                showToast(translations[currentLang].vipSignalUnavailable, 'warning');
             }
         }
 
-        function getVipPrediction() {
+        function getVipSignal() {
             if (userData.invitedFriends >= 5) {
-                showToast(translations[currentLang].getVipPredictionText + ' - ' + translations[currentLang].loading);
+                showToast(translations[currentLang].getVipSignalText + ' - ' + translations[currentLang].loading);
                 closeModal('gameModal');
                 showVipModal();
             } else {
-                showToast(translations[currentLang].vipPredictionUnavailable, 'warning');
+                showToast(translations[currentLang].vipSignalUnavailable, 'warning');
             }
         }
 
         function downloadApk() {
-            window.open('https://t.me/Strategioyinlar_bot?start=aifut', '_blank');
-            showToast(translations[currentLang].downloadApkText + ' - Kelajakni Bashorat Qilish');
+            window.open('https://superlative-twilight-47ef34.netlify.app/', '_blank');
+            showToast(translations[currentLang].downloadApkText + ' - 1xBet');
         }
 
         function getBonus() {
-            window.open('https://t.me/Strategioyinlar_bot?start=aifut', '_blank');
+            window.open('https://superlative-twilight-47ef34.netlify.app/', '_blank');
             showToast(translations[currentLang].successBonus, 'success');
         }
 
         function inviteFriends() {
-            const shareMessage = `🎯 ${translations[currentLang].predictionTitle} | Kelajakni Bashorat Qilish\n\n${translations[currentLang].inviteFriendsText}\n👉 https://t.me/Strategioyinlar_bot?start=aifut\n\nID: ${gameState.userId || '1234567890'}\n\n#KelajakniBashorat`;
-            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot?start=aifut&text=${encodeURIComponent(shareMessage)}`;
+            const shareMessage = `🎯 ${translations[currentLang].signalTitle} | 1xBet Signals\n\n${translations[currentLang].inviteFriendsText}\n👉 https://t.me/Strategioyinlar_bot?start=ar3232291431\n\nID: ${gameState.userId || '1234567890'}\n\n#1xBet`;
+            const shareUrl = `https://t.me/share/url?url=https://t.me/Strategioyinlar_bot?start=ar3232291431&text=${encodeURIComponent(shareMessage)}`;
             window.open(shareUrl, '_blank');
             if (userData.invitedFriends < 5) {
                 userData.invitedFriends++;
@@ -3739,8 +3835,8 @@
         }
 
         function saveData() {
-            localStorage.setItem('futurePredictionData', JSON.stringify(userData));
-            localStorage.setItem('futurePredictionStats', JSON.stringify(dailyStats));
+            localStorage.setItem('xbetSignalsData', JSON.stringify(userData));
+            localStorage.setItem('xbetSignalsStats', JSON.stringify(dailyStats));
         }
     </script>
 </body>
