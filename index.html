@@ -2,767 +2,832 @@
 <html lang="uz">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Apple Of Fortune Premium</title>
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="data:application/manifest+json,{
-        %22name%22:%22Apple%20Of%20Fortune%20Premium%22,
-        %22short_name%22:%22AOF%20Premium%22,
-        %22description%22:%22Yuqori%20aniqlikdagi%20signallar%22,
-        %22start_url%22:%22/%22,
-        %22display%22:%22standalone%22,
-        %22theme_color%22:%22%23ff0000%22,
-        %22background_color%22:%22%23000000%22,
-        %22orientation%22:%22portrait%22,
-        %22icons%22:[
-            {%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20192%20192'%3E%3Crect%20width='192'%20height='192'%20rx='42'%20fill='%23ff0000'/%3E%3Ctext%20x='96'%20y='128'%20text-anchor='middle'%20fill='white'%20font-size='80'%20font-weight='bold'%3EA%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22,%22purpose%22:%22any%20maskable%22%7D,
-            {%22src%22:%22data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Crect%20width='512'%20height='512'%20rx='112'%20fill='%23ff0000'/%3E%3Ctext%20x='256'%20y='340'%20text-anchor='middle'%20fill='white'%20font-size='220'%20font-weight='bold'%3EA%3C/text%3E%3C/svg%3E%22,%22sizes%22:%22512x512%22,%22type%22:%22image/svg+xml%22,%22purpose%22:%22any%20maskable%22%7D
-        ]
-    }">
+<meta charset="UTF-8">
 
-    <meta name="theme-color" content="#ff0000" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="AOF Premium">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%23ff0000'/%3E%3Ctext x='96' y='128' text-anchor='middle' fill='white' font-size='80' font-weight='bold'%3EA%3C/text%3E%3C/svg%3E">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+/>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script async src="https://telegram.org/js/telegram-web-app.js"></script>
+<title>Apple Of Fortune Premium</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<meta name="theme-color" content="#ff0000"/>
 
-        body {
-            background: #000;
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            padding-bottom: 100px;
-        }
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 
-        :root {
-            --red: #ff0000;
-            --dark: #111;
-        }
+<script async src="https://telegram.org/js/telegram-web-app.js"></script>
 
-        /* PWA standalone rejimida install tugmasini yashirish */
-        @media all and (display-mode: standalone) {
-            .install-btn-container {
-                display: none !important;
-            }
-        }
+<style>
 
-        .main-container,
-        .page-container {
-            display: none;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-        .main-container.active,
-        .page-container.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
+body{
+    background:#000;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
+    padding-bottom:100px;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+:root{
+    --red:#ff0000;
+    --dark:#111;
+}
 
-        .app-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: #111;
-            border-bottom: 2px solid var(--red);
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.main-container,
+.page-container{
+    display:none;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.main-container.active,
+.page-container.active{
+    display:block;
+}
 
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #ff0000, #990000);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.app-header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#111;
+    border-bottom:2px solid var(--red);
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        .logo-text {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff3333;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
 
-        .card {
-            margin: 20px;
-            padding: 20px;
-            background: #111;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff0000,#990000);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
-        }
+.logo-text{
+    font-size:20px;
+    font-weight:bold;
+    color:#ff3333;
+}
 
-        .btn {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 16px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 12px;
-            transition: all 0.3s ease;
-        }
+.card{
+    margin:20px;
+    padding:20px;
+    background:#111;
+    border-radius:20px;
+    border:2px solid rgba(255,0,0,0.2);
+}
 
-        .btn-primary {
-            background: linear-gradient(135deg, #ff0000, #990000);
-            color: #fff;
-        }
+.btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:12px;
+}
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
-        }
+.btn-primary{
+    background:linear-gradient(135deg,#ff0000,#990000);
+    color:#fff;
+}
 
-        .btn-secondary {
-            background: #222;
-            color: #fff;
-        }
+.btn-secondary{
+    background:#222;
+    color:#fff;
+}
 
-        .btn-secondary:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
+.stat-box{
+    background:#181818;
+    padding:16px;
+    border-radius:16px;
+    text-align:center;
+}
 
-        .stat-box {
-            background: #181818;
-            padding: 16px;
-            border-radius: 16px;
-            text-align: center;
-            transition: all 0.3s;
-        }
+.stat-value{
+    font-size:22px;
+    font-weight:bold;
+    color:#ff3333;
+}
 
-        .stat-box:hover {
-            background: #202020;
-            transform: translateY(-2px);
-        }
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#111;
+    border-top:2px solid #ff0000;
+    display:flex;
+    justify-content:space-around;
+    padding:10px 0;
+    z-index:200;
+}
 
-        .stat-value {
-            font-size: 22px;
-            font-weight: bold;
-            color: #ff3333;
-        }
+.nav-item{
+    flex:1;
+    text-align:center;
+    color:#777;
+    cursor:pointer;
+}
 
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #111;
-            border-top: 2px solid #ff0000;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-            z-index: 200;
-        }
+.nav-item.active{
+    color:#ff0000;
+}
 
-        .nav-item {
-            flex: 1;
-            text-align: center;
-            color: #777;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+.toast{
+    position:fixed;
+    top:20px;
+    left:20px;
+    right:20px;
+    padding:16px;
+    border-radius:16px;
+    text-align:center;
+    font-weight:bold;
+    z-index:9999;
+    animation:fade .3s;
+}
 
-        .nav-item:hover {
-            transform: translateY(-3px);
-        }
+.toast.success{
+    background:#00aa00;
+}
 
-        .nav-item.active {
-            color: #ff0000;
-        }
+.toast.error{
+    background:#cc0000;
+}
 
-        .toast {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            padding: 16px;
-            border-radius: 16px;
-            text-align: center;
-            font-weight: bold;
-            z-index: 9999;
-            animation: slideDown 0.3s ease;
-        }
+.toast.info{
+    background:#0066cc;
+}
 
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+@keyframes fade{
 
-        .toast.success {
-            background: linear-gradient(135deg, #00aa00, #006600);
-        }
+from{
+    opacity:0;
+    transform:translateY(-20px);
+}
 
-        .toast.error {
-            background: linear-gradient(135deg, #cc0000, #990000);
-        }
+to{
+    opacity:1;
+    transform:translateY(0);
+}
 
-        .toast.info {
-            background: linear-gradient(135deg, #0066cc, #004499);
-        }
+}
 
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, .95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            z-index: 999;
-            animation: fadeIn 0.3s;
-        }
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:999;
+}
 
-        .modal-content {
-            width: 100%;
-            max-width: 420px;
-            background: #111;
-            border: 2px solid #ff0000;
-            border-radius: 20px;
-            padding: 20px;
-        }
+.modal-content{
+    width:100%;
+    max-width:420px;
+    background:#111;
+    border:2px solid #ff0000;
+    border-radius:20px;
+    padding:20px;
+}
 
-        .input {
-            width: 100%;
-            padding: 14px;
-            border-radius: 14px;
-            border: 2px solid #ff0000;
-            background: #000;
-            color: #fff;
-            margin-top: 15px;
-            font-size: 16px;
-            text-align: center;
-        }
+.input{
+    width:100%;
+    padding:14px;
+    border-radius:14px;
+    border:2px solid #ff0000;
+    background:#000;
+    color:#fff;
+    margin-top:15px;
+}
 
-        .apples {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
+.apples{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin:20px 0;
+    flex-wrap:wrap;
+}
 
-        .apple {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-            animation: pulse 0.5s ease;
-        }
+.apple{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#ff0000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    cursor:pointer;
+}
 
-        @keyframes pulse {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
+.lang-screen{
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:5000;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
 
-        .apple:hover {
-            transform: scale(1.1);
-        }
+.lang-btn{
+    width:220px;
+    padding:16px;
+    margin:10px;
+    border:none;
+    border-radius:16px;
+    background:#111;
+    border:2px solid #ff0000;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+}
 
-        .lang-screen {
-            position: fixed;
-            inset: 0;
-            background: #000;
-            z-index: 5000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            animation: fadeIn 0.5s;
-        }
+.install-btn{
+    position:fixed;
+    bottom:100px;
+    left:20px;
+    right:20px;
+    z-index:1000;
+}
 
-        .lang-btn {
-            width: 220px;
-            padding: 16px;
-            margin: 10px;
-            border: none;
-            border-radius: 16px;
-            background: #111;
-            border: 2px solid #ff0000;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+</style>
 
-        .lang-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.3);
-        }
-
-        .install-btn-container {
-            position: fixed;
-            bottom: 85px;
-            left: 20px;
-            right: 20px;
-            z-index: 1000;
-            animation: slideUp 0.5s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .install-btn {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-            color: white;
-            animation: btnPulse 2s infinite;
-        }
-
-        @keyframes btnPulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-            }
-            50% {
-                transform: scale(1.02);
-                box-shadow: 0 8px 30px rgba(255, 0, 0, 0.7);
-            }
-        }
-
-        .install-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        .telegram-btn {
-            background: linear-gradient(135deg, #0088cc, #006699);
-        }
-    </style>
 </head>
 
 <body>
 
 <div class="lang-screen" id="langScreen">
-    <h1 style="color:#ff0000;margin-bottom:30px;">
-        🍎 Apple Of Fortune
-    </h1>
-    <button class="lang-btn" onclick="selectLang('uz')">
-        🇺🇿 O'zbekcha
-    </button>
-    <button class="lang-btn" onclick="selectLang('ru')">
-        🇷🇺 Русский
-    </button>
-    <button class="lang-btn" onclick="selectLang('en')">
-        🇺🇸 English
-    </button>
+
+<h1 style="color:#ff0000;margin-bottom:30px;">
+🍎 Apple Of Fortune
+</h1>
+
+<button class="lang-btn" onclick="selectLang('uz')">
+🇺🇿 O'zbekcha
+</button>
+
+<button class="lang-btn" onclick="selectLang('ru')">
+🇷🇺 Русский
+</button>
+
+<button class="lang-btn" onclick="selectLang('en')">
+🇺🇸 English
+</button>
+
 </div>
 
-<div id="installContainer" class="install-btn-container"></div>
+<div id="installContainer"></div>
 
 <div class="main-container active" id="homePage">
-    <header class="app-header">
-        <div class="logo">
-            <div class="logo-icon">
-                <i class="fas fa-apple-alt"></i>
-            </div>
-            <div class="logo-text">
-                APPLE PREMIUM
-            </div>
-        </div>
-        <div style="cursor:pointer;" onclick="showPage('settingsPage')">
-            <i class="fas fa-cog"></i>
-        </div>
-    </header>
 
-    <div class="card">
-        <h2>🔥 PREMIUM SIGNALS</h2>
-        <p style="margin-top:10px;color:#aaa;">
-            98.5% aniqlikdagi premium signallar
-        </p>
-        <button class="btn btn-primary" onclick="openSignalModal()">
-            ⚡ SIGNAL OLISH
-        </button>
-        <button class="btn btn-secondary" onclick="joinTelegram()">
-            📢 TELEGRAM
-        </button>
-    </div>
+<header class="app-header">
 
-    <div class="card">
-        <div class="stats-grid">
-            <div class="stat-box">
-                <div class="stat-value" id="onlineCount">2580</div>
-                <div>ONLINE</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">98%</div>
-                <div>ANIQLIK</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value" id="incomeCount">$445</div>
-                <div>DAROMAD</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-value">VIP</div>
-                <div>STATUS</div>
-            </div>
-        </div>
-    </div>
+<div class="logo">
+
+<div class="logo-icon">
+<i class="fas fa-apple-alt"></i>
+</div>
+
+<div class="logo-text">
+APPLE PREMIUM
+</div>
+
+</div>
+
+<div
+style="cursor:pointer;"
+onclick="showPage('settingsPage')">
+
+<i class="fas fa-cog"></i>
+
+</div>
+
+</header>
+
+<div class="card">
+
+<h2>
+🔥 PREMIUM SIGNALS
+</h2>
+
+<p style="margin-top:10px;color:#aaa;">
+98.5% aniqlikdagi premium signallar
+</p>
+
+<button
+class="btn btn-primary"
+onclick="openSignalModal()">
+
+⚡ SIGNAL OLISH
+
+</button>
+
+<button
+class="btn btn-secondary"
+onclick="joinTelegram()">
+
+📢 TELEGRAM
+
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="stats-grid">
+
+<div class="stat-box">
+<div class="stat-value">2580</div>
+<div>ONLINE</div>
+</div>
+
+<div class="stat-box">
+<div class="stat-value">98%</div>
+<div>ANIQLIK</div>
+</div>
+
+<div class="stat-box">
+<div class="stat-value">$445</div>
+<div>DAROMAD</div>
+</div>
+
+<div class="stat-box">
+<div class="stat-value">VIP</div>
+<div>STATUS</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="page-container" id="settingsPage">
-    <header class="app-header">
-        <div class="logo">
-            <div class="logo-icon" onclick="showPage('homePage')" style="cursor:pointer;">
-                <i class="fas fa-arrow-left"></i>
-            </div>
-            <div class="logo-text">
-                SOZLAMALAR
-            </div>
-        </div>
-    </header>
 
-    <div class="card">
-        <button class="btn btn-primary" onclick="changeId()">
-            🆔 ID O'ZGARTIRISH
-        </button>
-        <button class="btn btn-secondary" onclick="resetApp()">
-            ♻️ RESET
-        </button>
-    </div>
+<header class="app-header">
+
+<div class="logo">
+
+<div
+class="logo-icon"
+onclick="showPage('homePage')"
+style="cursor:pointer;">
+
+<i class="fas fa-arrow-left"></i>
+
+</div>
+
+<div class="logo-text">
+SOZLAMALAR
+</div>
+
+</div>
+
+</header>
+
+<div class="card">
+
+<button
+class="btn btn-primary"
+onclick="changeId()">
+
+🆔 ID O'ZGARTIRISH
+
+</button>
+
+<button
+class="btn btn-secondary"
+onclick="resetApp()">
+
+♻️ RESET
+
+</button>
+
+</div>
+
 </div>
 
 <div class="modal" id="signalModal">
-    <div class="modal-content">
-        <h2>⚡ SIGNAL</h2>
-        <input type="number" id="userId" class="input" placeholder="ID kiriting" />
-        <button class="btn btn-primary" onclick="verifyId()">
-            TASDIQLASH
-        </button>
-        <div class="apples" id="appleContainer" style="display:none;"></div>
-        <button class="btn btn-primary" id="revealBtn" style="display:none;" onclick="revealApple()">
-            🍎 SIGNAL KO'RISH
-        </button>
-        <button class="btn btn-secondary" onclick="closeModal()">
-            YOPISH
-        </button>
-    </div>
+
+<div class="modal-content">
+
+<h2>
+⚡ SIGNAL
+</h2>
+
+<input
+type="number"
+id="userId"
+class="input"
+placeholder="ID kiriting"
+/>
+
+<button
+class="btn btn-primary"
+onclick="verifyId()">
+
+TASDIQLASH
+
+</button>
+
+<div
+class="apples"
+id="appleContainer"
+style="display:none;">
+
+</div>
+
+<button
+class="btn btn-primary"
+id="revealBtn"
+style="display:none;"
+onclick="revealApple()">
+
+🍎 SIGNAL KO'RISH
+
+</button>
+
+<button
+class="btn btn-secondary"
+onclick="closeModal()">
+
+YOPISH
+
+</button>
+
+</div>
+
 </div>
 
 <nav class="bottom-nav">
-    <div class="nav-item active" onclick="showPage('homePage')">
-        <i class="fas fa-home"></i>
-        <div>ASOSIY</div>
-    </div>
-    <div class="nav-item" onclick="openSignalModal()">
-        <i class="fas fa-bolt"></i>
-        <div>SIGNAL</div>
-    </div>
-    <div class="nav-item" onclick="joinTelegram()">
-        <i class="fab fa-telegram"></i>
-        <div>TELEGRAM</div>
-    </div>
-    <div class="nav-item" onclick="showPage('settingsPage')">
-        <i class="fas fa-cog"></i>
-        <div>SETTINGS</div>
-    </div>
+
+<div
+class="nav-item active"
+onclick="showPage('homePage')">
+
+<i class="fas fa-home"></i>
+
+<div>ASOSIY</div>
+
+</div>
+
+<div
+class="nav-item"
+onclick="openSignalModal()">
+
+<i class="fas fa-bolt"></i>
+
+<div>SIGNAL</div>
+
+</div>
+
+<div
+class="nav-item"
+onclick="joinTelegram()">
+
+<i class="fab fa-telegram"></i>
+
+<div>TELEGRAM</div>
+
+</div>
+
+<div
+class="nav-item"
+onclick="showPage('settingsPage')">
+
+<i class="fas fa-cog"></i>
+
+<div>SETTINGS</div>
+
+</div>
+
 </nav>
 
 <script>
-    let tg = null;
-    let deferredPrompt = null;
-    let onlineCount = 2580;
-    let incomeCount = 445;
 
-    // Telegram WebApp
-    if (window.Telegram && window.Telegram.WebApp) {
-        tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.expand();
-    }
+let tg = null;
 
-    function showToast(message, type = 'success') {
-        const toast = document.createElement('div');
-        toast.className = `toast ${type}`;
-        toast.innerHTML = message;
-        document.body.appendChild(toast);
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
-    }
+if(window.Telegram && window.Telegram.WebApp){
 
-    function selectLang(lang) {
-        localStorage.setItem('lang', lang);
-        document.getElementById('langScreen').style.display = 'none';
-        showToast('✅ Til saqlandi');
-    }
+    tg = window.Telegram.WebApp;
 
-    if (localStorage.getItem('lang')) {
-        document.getElementById('langScreen').style.display = 'none';
-    }
+    tg.ready();
 
-    function showPage(pageId) {
-        document.querySelectorAll('.main-container,.page-container').forEach(page => {
-            page.classList.remove('active');
-        });
-        document.getElementById(pageId).classList.add('active');
+    tg.expand();
 
-        // Update nav active state
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.classList.remove('active');
-        });
-        if (pageId === 'homePage') {
-            document.querySelectorAll('.nav-item')[0].classList.add('active');
-        } else if (pageId === 'settingsPage') {
-            document.querySelectorAll('.nav-item')[3].classList.add('active');
-        }
-    }
+}
 
-    function joinTelegram() {
-        window.open('https://t.me/Strategioyinlar_bot', '_blank');
-        showToast('✅ Telegram ochildi', 'info');
-        // Update stats
-        onlineCount += Math.floor(Math.random() * 5) + 1;
-        document.getElementById('onlineCount').innerText = onlineCount;
-    }
+function showToast(message,type='success'){
 
-    function openSignalModal() {
-        document.getElementById('signalModal').style.display = 'flex';
-    }
+    const toast = document.createElement('div');
 
-    function closeModal() {
-        document.getElementById('signalModal').style.display = 'none';
-        // Reset game state
-        document.getElementById('appleContainer').style.display = 'none';
-        document.getElementById('revealBtn').style.display = 'none';
-    }
+    toast.className = `toast ${type}`;
 
-    function verifyId() {
-        const val = document.getElementById('userId').value;
-        if (val.length < 9) {
-            showToast('❌ ID noto‘g‘ri', 'error');
-            return;
-        }
-        localStorage.setItem('userId', val);
-        showToast('✅ ID tasdiqlandi');
-        createApples();
-    }
+    toast.innerHTML = message;
 
-    function createApples() {
-        const cont = document.getElementById('appleContainer');
-        cont.innerHTML = '';
-        cont.style.display = 'flex';
-        document.getElementById('revealBtn').style.display = 'block';
+    document.body.appendChild(toast);
 
-        for (let i = 0; i < 5; i++) {
-            const apple = document.createElement('div');
-            apple.className = 'apple';
-            apple.innerHTML = '🍎';
-            apple.setAttribute('data-index', i);
-            cont.appendChild(apple);
-        }
-    }
+    setTimeout(()=>{
 
-    function revealApple() {
-        const apples = document.querySelectorAll('.apple');
-        const lucky = Math.floor(Math.random() * 5);
+        toast.remove();
 
-        apples.forEach((a, index) => {
-            if (index === lucky) {
-                a.innerHTML = '💎';
-                a.style.background = '#00aa00';
-            } else {
-                a.innerHTML = '❌';
-                a.style.background = '#990000';
-            }
-        });
+    },3000);
 
-        // Update income
-        incomeCount += Math.floor(Math.random() * 20) + 10;
-        document.getElementById('incomeCount').innerText = `$${incomeCount}`;
-        onlineCount += Math.floor(Math.random() * 3) + 1;
-        document.getElementById('onlineCount').innerText = onlineCount;
+}
 
-        showToast('🎉 Signal tayyor! Signal olindi!', 'success');
-    }
+function selectLang(lang){
 
-    function changeId() {
-        localStorage.removeItem('userId');
-        showToast('✅ ID o‘chirildi');
-    }
+    localStorage.setItem('lang',lang);
 
-    function resetApp() {
-        localStorage.clear();
-        location.reload();
-    }
+    document.getElementById(
+        'langScreen'
+    ).style.display='none';
 
-    // ========== PWA INSTALL - TUGMA YO'QOLADI ==========
-    function hideInstallButton() {
-        const container = document.getElementById('installContainer');
-        if (container) {
-            container.innerHTML = '';
-            container.style.display = 'none';
-        }
-    }
+    showToast('✅ Til saqlandi');
 
-    function showInstallButton() {
-        // Agar standalone rejimda bo'lsa, tugmani ko'rsatma
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            hideInstallButton();
-            return;
-        }
+}
 
-        const container = document.getElementById('installContainer');
-        container.innerHTML = '';
-        container.style.display = 'block';
+if(localStorage.getItem('lang')){
 
-        const btn = document.createElement('button');
-        btn.className = 'install-btn';
-        btn.innerHTML = '📲 ILOVANI O\'RNATISH';
-        btn.onclick = async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const choice = await deferredPrompt.userChoice;
-                if (choice.outcome === 'accepted') {
-                    showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
-                    hideInstallButton();
-                }
-                deferredPrompt = null;
-            } else {
-                // Qo'llanma ko'rsatish
-                const div = document.createElement('div');
-                div.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;border:2px solid #ff0000;border-radius:20px;padding:24px;z-index:20000;text-align:center;max-width:300px;color:white;box-shadow:0 0 30px rgba(255,0,0,0.5);';
-                div.innerHTML = '<i class="fas fa-info-circle" style="font-size:48px;color:#ff0000;margin-bottom:16px"></i><h3>Ilovani o\'rnatish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Install App" yoki "Ekranga qo\'shish" ni tanlang</li><li>"Install" tugmasini bosing</li></ol><button id="closeInstr" style="background:#ff0000;border:none;padding:10px 20px;border-radius:10px;color:white;cursor:pointer;margin-top:10px">Tushundim</button>';
-                document.body.appendChild(div);
-                document.getElementById('closeInstr').onclick = () => div.remove();
-            }
-        };
-        container.appendChild(btn);
-    }
+    document.getElementById(
+        'langScreen'
+    ).style.display='none';
 
-    // PWA event listeners
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        if (!window.matchMedia('(display-mode: standalone)').matches) {
-            setTimeout(() => {
-                if (!window.matchMedia('(display-mode: standalone)').matches) {
-                    showInstallButton();
-                }
-            }, 1500);
-        }
+}
+
+function showPage(pageId){
+
+    document
+    .querySelectorAll(
+        '.main-container,.page-container'
+    )
+    .forEach(page=>{
+
+        page.classList.remove('active');
+
     });
 
-    // App installed event - tugmani o'chirish va xabar chiqarish
-    window.addEventListener('appinstalled', () => {
-        showToast('✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
-        hideInstallButton();
+    document
+    .getElementById(pageId)
+    .classList.add('active');
+
+}
+
+function joinTelegram(){
+
+    window.open(
+        'https://t.me/Strategioyinlar_bot',
+        '_blank'
+    );
+
+    showToast(
+        '✅ Telegram ochildi',
+        'info'
+    );
+
+}
+
+function openSignalModal(){
+
+    document
+    .getElementById(
+        'signalModal'
+    )
+    .style.display='flex';
+
+}
+
+function closeModal(){
+
+    document
+    .getElementById(
+        'signalModal'
+    )
+    .style.display='none';
+
+}
+
+function verifyId(){
+
+    const val =
+    document.getElementById(
+        'userId'
+    ).value;
+
+    if(val.length < 9){
+
+        showToast(
+            '❌ ID noto‘g‘ri',
+            'error'
+        );
+
+        return;
+
+    }
+
+    localStorage.setItem(
+        'userId',
+        val
+    );
+
+    showToast(
+        '✅ ID tasdiqlandi'
+    );
+
+    createApples();
+
+}
+
+function createApples(){
+
+    const cont =
+    document.getElementById(
+        'appleContainer'
+    );
+
+    cont.innerHTML='';
+
+    cont.style.display='flex';
+
+    document
+    .getElementById(
+        'revealBtn'
+    )
+    .style.display='block';
+
+    for(let i=0;i<5;i++){
+
+        const apple =
+        document.createElement('div');
+
+        apple.className='apple';
+
+        apple.innerHTML='🍎';
+
+        cont.appendChild(apple);
+
+    }
+
+}
+
+function revealApple(){
+
+    const apples =
+    document.querySelectorAll('.apple');
+
+    const lucky =
+    Math.floor(Math.random()*5);
+
+    apples.forEach((a,index)=>{
+
+        if(index===lucky){
+
+            a.innerHTML='💎';
+
+            a.style.background='#00aa00';
+
+        }else{
+
+            a.innerHTML='❌';
+
+            a.style.background='#990000';
+
+        }
+
     });
 
-    // Agar allaqachon standalone rejimda bo'lsa (ilova o'rnatilgan)
-    if (window.matchMedia('(display-mode: standalone)').matches) {
-        hideInstallButton();
-    }
+    showToast(
+        '🎉 Signal tayyor!'
+    );
 
-    // Har doim standalone rejimni tekshirib turish
-    setInterval(() => {
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            hideInstallButton();
-        }
-    }, 1000);
+}
 
-    // Telegram uchun maxsus (agar kerak bo'lsa)
-    if (tg) {
-        setTimeout(() => {
-            if (!window.matchMedia('(display-mode: standalone)').matches) {
-                const container = document.getElementById('installContainer');
-                if (container && container.innerHTML === '') {
-                    const btn = document.createElement('button');
-                    btn.className = 'install-btn telegram-btn';
-                    btn.innerHTML = '📱 EKRANGA QO\'SHISH';
-                    btn.onclick = () => {
-                        if (tg && typeof tg.addToHomeScreen === 'function') {
-                            tg.addToHomeScreen();
-                            showToast('📱 Iltimos, ekranga qo\'shishni tasdiqlang!', 'info');
-                        } else {
-                            const div = document.createElement('div');
-                            div.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;border:2px solid #ff0000;border-radius:20px;padding:24px;z-index:20000;text-align:center;max-width:300px;color:white;';
-                            div.innerHTML = '<h3>Ekranga qo\'shish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Add to Home Screen" ni tanlang</li><li>"Add" tugmasini bosing</li></ol><button id="closeInstr2" style="background:#ff0000;border:none;padding:10px;border-radius:10px;color:white;cursor:pointer">Tushundim</button>';
-                            document.body.appendChild(div);
-                            document.getElementById('closeInstr2').onclick = () => div.remove();
-                        }
-                    };
-                    container.appendChild(btn);
-                    container.style.display = 'block';
-                }
+function changeId(){
+
+    localStorage.removeItem('userId');
+
+    showToast(
+        '✅ ID o‘chirildi'
+    );
+
+}
+
+function resetApp(){
+
+    localStorage.clear();
+
+    location.reload();
+
+}
+
+let deferredPrompt;
+
+window.addEventListener(
+'beforeinstallprompt',
+
+(e)=>{
+
+    e.preventDefault();
+
+    deferredPrompt = e;
+
+    showInstallButton();
+
+});
+
+function showInstallButton(){
+
+    const div =
+    document.getElementById(
+        'installContainer'
+    );
+
+    div.innerHTML = `
+
+    <button
+    class="btn btn-primary install-btn"
+    id="installBtn">
+
+    📲 ILOVANI O‘RNATISH
+
+    </button>
+
+    `;
+
+    document
+    .getElementById('installBtn')
+    .onclick = async()=>{
+
+        if(deferredPrompt){
+
+            deferredPrompt.prompt();
+
+            const choice =
+            await deferredPrompt.userChoice;
+
+            if(choice.outcome==='accepted'){
+
+                showToast(
+                    '✅ Ilova o‘rnatildi'
+                );
+
+                div.innerHTML='';
+
             }
-        }, 2000);
-    }
+
+        }
+
+    };
+
+}
+
+window.addEventListener(
+'appinstalled',
+
+()=>{
+
+    showToast(
+        '✅ APP O‘RNATILDI'
+    );
+
+    document
+    .getElementById(
+        'installContainer'
+    )
+    .innerHTML='';
+
+});
+
 </script>
 
 </body>
