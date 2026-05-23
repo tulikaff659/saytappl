@@ -53,7 +53,6 @@
             --glass: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.15);
             --shadow: 0 8px 32px rgba(255, 0, 0, 0.3);
-            --shadow-glow: 0 0 20px rgba(255, 0, 0, 0.5);
             --telegram: #0088cc;
         }
 
@@ -66,94 +65,37 @@
             overflow-x: hidden;
         }
 
-        /* PWA standalone rejimida tugmalarni yashirish */
+        /* PWA standalone rejimida tugmani yashirish */
         @media all and (display-mode: standalone) {
             .install-btn-container {
                 display: none !important;
             }
         }
 
-        /* Animatsiyalar */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 8px 40px rgba(255, 0, 0, 0.8);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-                border-color: rgba(255, 0, 0, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
-                border-color: rgba(255, 0, 0, 1);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-            100% {
-                background-position: 1000px 0;
-            }
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 40px rgba(255, 0, 0, 0.8); }
         }
 
         @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes rotateGlow {
-            0% {
-                transform: rotate(0deg);
-                opacity: 0.3;
-            }
-            100% {
-                transform: rotate(360deg);
-                opacity: 0.6;
-            }
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes successPop {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease forwards;
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); opacity: 0.3; }
+            100% { transform: rotate(360deg); opacity: 0.6; }
         }
 
         .btn {
@@ -168,8 +110,6 @@
             justify-content: center;
             gap: 10px;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-            letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
         }
@@ -204,31 +144,6 @@
             box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
         }
 
-        .btn-secondary {
-            background: var(--glass);
-            border: 2px solid var(--glass-border);
-            color: var(--light);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 0, 0, 0.15);
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-
-        .btn-vip {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            color: #000;
-            border: 2px solid #ffd700;
-            font-weight: 800;
-        }
-
-        .btn-vip:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
-        }
-
-        /* Install tugmasi - maxsus animatsiya bilan */
         .install-btn-container {
             position: fixed;
             bottom: 80px;
@@ -254,7 +169,6 @@
             position: relative;
             overflow: hidden;
             animation: pulse 2s infinite;
-            letter-spacing: 1px;
         }
 
         .install-btn::before {
@@ -280,10 +194,6 @@
             z-index: -1;
         }
 
-        .install-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-        }
-
         .install-btn-telegram {
             background: linear-gradient(135deg, var(--telegram), #006699);
             color: white;
@@ -294,9 +204,8 @@
             color: white;
         }
 
-        .install-btn i {
-            font-size: 22px;
-            animation: pulse 1s infinite;
+        .install-btn:hover {
+            transform: translateY(-5px) scale(1.02);
         }
 
         #languageSelector {
@@ -312,7 +221,6 @@
             align-items: center;
             z-index: 1000;
             padding: 20px;
-            animation: fadeInUp 0.5s ease;
         }
 
         .language-logo {
@@ -325,13 +233,9 @@
             justify-content: center;
             margin-bottom: 20px;
             animation: pulse 2s infinite;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
         }
 
-        .language-logo i {
-            font-size: 48px;
-            color: white;
-        }
+        .language-logo i { font-size: 48px; color: white; }
 
         #languageTitle {
             font-size: 32px;
@@ -341,13 +245,6 @@
             background-clip: text;
             color: transparent;
             margin-bottom: 10px;
-            animation: glow 2s infinite;
-        }
-
-        #languageSubtitle {
-            font-size: 14px;
-            color: var(--gray);
-            margin-bottom: 30px;
         }
 
         .language-grid {
@@ -374,26 +271,8 @@
             box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
         }
 
-        .lang-card .flag {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .lang-card .name {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--light);
-        }
-
-        .main-container {
-            display: none;
-            max-width: 100%;
-        }
-
-        .main-container.active {
-            display: block;
-            animation: fadeInUp 0.5s ease;
-        }
+        .main-container { display: none; max-width: 100%; }
+        .main-container.active { display: block; animation: fadeInUp 0.5s ease; }
 
         .app-header {
             background: rgba(0, 0, 0, 0.95);
@@ -408,36 +287,10 @@
             border-bottom: 2px solid var(--primary);
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 2s infinite;
-        }
-
-        .logo-icon i {
-            font-size: 24px;
-            color: white;
-        }
-
-        .logo-text {
-            font-size: 20px;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 15px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite; }
+        .logo-icon i { font-size: 24px; color: white; }
+        .logo-text { font-size: 20px; font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
         .telegram-main-card {
             background: linear-gradient(135deg, var(--telegram), #006699);
@@ -449,31 +302,9 @@
             gap: 16px;
             cursor: pointer;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .telegram-main-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            transform: rotate(45deg);
-            transition: all 0.5s;
-        }
-
-        .telegram-main-card:hover::before {
-            top: -30%;
-            left: -30%;
-        }
-
-        .telegram-main-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 136, 204, 0.4);
-        }
+        .telegram-main-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 136, 204, 0.4); }
 
         .main-action-card {
             background: var(--card-bg);
@@ -486,30 +317,9 @@
             gap: 16px;
             cursor: pointer;
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
-        .main-action-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .main-action-card:hover::after {
-            left: 100%;
-        }
-
-        .main-action-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
-        }
+        .main-action-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3); }
 
         .main-action-icon {
             width: 55px;
@@ -519,12 +329,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: glow 2s infinite;
-        }
-
-        .main-action-icon i {
-            font-size: 26px;
-            color: white;
         }
 
         .user-card {
@@ -533,30 +337,11 @@
             border-radius: 24px;
             padding: 20px;
             margin: 20px;
-            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.2);
         }
 
-        .stat-item {
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 16px;
-            padding: 16px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-        }
-
-        .stat-item:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
-        }
-
-        .stat-value {
-            font-size: 22px;
-            font-weight: 800;
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .stat-item { background: rgba(0, 0, 0, 0.5); border-radius: 16px; padding: 16px; text-align: center; border: 1px solid rgba(255, 0, 0, 0.2); }
+        .stat-value { font-size: 22px; font-weight: 800; color: var(--primary); }
 
         .quick-actions {
             display: grid;
@@ -575,11 +360,7 @@
             transition: all 0.3s ease;
         }
 
-        .action-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3);
-        }
+        .action-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 8px 20px rgba(255, 0, 0, 0.3); }
 
         .action-icon {
             width: 45px;
@@ -590,11 +371,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-        }
-
-        .action-card:hover .action-icon {
-            transform: scale(1.1);
         }
 
         .vip-banner {
@@ -606,41 +382,44 @@
             align-items: center;
             gap: 15px;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             transition: all 0.4s ease;
         }
 
-        .vip-banner:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 68, 68, 0.4);
-        }
+        .vip-banner:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(255, 68, 68, 0.4); }
 
         .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
             background: rgba(0, 0, 0, 0.95);
             backdrop-filter: blur(15px);
             border-top: 2px solid var(--primary);
             padding: 10px 0;
+            display: flex;
+            justify-content: space-around;
+            z-index: 100;
         }
 
         .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: var(--gray);
+            flex: 1;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .nav-item:hover {
-            transform: translateY(-3px);
-        }
+        .nav-item.active { color: var(--primary); text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+        .nav-item:hover { transform: translateY(-3px); }
 
-        .nav-item.active {
-            color: var(--primary);
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
-
-        /* Toast animatsiyasi */
         .toast {
             position: fixed;
             top: 80px;
             right: 20px;
+            left: 20px;
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             border: 2px solid var(--primary);
             border-radius: 20px;
@@ -654,48 +433,78 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            text-align: center;
+            justify-content: center;
         }
 
         @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
-        .toast.success {
-            background: linear-gradient(135deg, #00cc00, #009900);
-            border-color: #00ff00;
+        .toast.success { background: linear-gradient(135deg, #00cc00, #009900); border-color: #00ff00; }
+        .toast.error { background: linear-gradient(135deg, var(--danger), #cc0000); border-color: var(--danger); }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 20px;
         }
 
-        .toast.error {
-            background: linear-gradient(135deg, var(--danger), #cc0000);
-            border-color: var(--danger);
+        .modal-content {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 24px;
+            max-width: 400px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        .id-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            background: #222;
+            border: 2px solid #ff0000;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .game-apples-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
         }
 
         .game-apple {
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            cursor: pointer;
+            border: 2px solid #ff0000;
+            transition: all 0.3s;
         }
 
-        .game-apple:hover {
-            transform: scale(1.1);
-        }
+        .game-apple:hover { transform: scale(1.1); }
+
+        .page-container { display: none; }
+        .page-container.active { display: block; }
 
         @media (max-width: 480px) {
-            .quick-actions {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .logo-text {
-                font-size: 16px;
-            }
-            .install-btn {
-                padding: 14px 20px;
-                font-size: 14px;
-            }
+            .quick-actions { grid-template-columns: repeat(2, 1fr); }
+            .game-apple { width: 50px; height: 50px; }
         }
     </style>
 </head>
@@ -703,9 +512,7 @@
 
 <!-- Language Selector -->
 <div id="languageSelector">
-    <div class="language-logo">
-        <i class="fas fa-apple-alt"></i>
-    </div>
+    <div class="language-logo"><i class="fas fa-apple-alt"></i></div>
     <h2 id="languageTitle">Apple of Fortune</h2>
     <p id="languageSubtitle">Premium Signals</p>
     <div class="language-grid">
@@ -727,71 +534,71 @@
             <div class="logo-text">Apple of Fortune <span style="font-size:10px; color:#ff0000">PREMIUM</span></div>
         </div>
         <div class="header-controls">
-            <div class="header-btn" id="settingsBtn"><i class="fas fa-cog"></i></div>
+            <div class="header-btn" id="settingsBtn" style="width:40px;height:40px;background:rgba(255,255,255,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer"><i class="fas fa-cog"></i></div>
         </div>
     </header>
 
     <div class="telegram-main-card" id="telegramMainCard">
-        <div class="telegram-main-icon"><i class="fab fa-telegram"></i></div>
-        <div class="telegram-main-content">
-            <div class="telegram-main-title" id="telegramMainTitle">📢 TELEGRAM BOTGA A'ZO BO'LING</div>
-            <div class="telegram-main-desc" id="telegramMainDesc">Signallarni doimiy olish uchun telegram botimizga qo'shiling!</div>
+        <div class="telegram-main-icon" style="width:48px;height:48px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center"><i class="fab fa-telegram" style="font-size:24px"></i></div>
+        <div class="telegram-main-content" style="flex:1">
+            <div class="telegram-main-title" id="telegramMainTitle" style="font-weight:700">📢 TELEGRAM BOTGA A'ZO BO'LING</div>
+            <div class="telegram-main-desc" id="telegramMainDesc" style="font-size:12px;opacity:0.9">Signallarni doimiy olish uchun telegram botimizga qo'shiling!</div>
         </div>
         <div><i class="fas fa-chevron-right"></i></div>
     </div>
 
     <div class="main-action-card" id="mainRegisterCard">
-        <div class="main-action-icon"><i class="fas fa-user-plus"></i></div>
-        <div class="main-action-content">
-            <div class="main-action-title" id="mainRegisterTitle">🔥 RO'YXATDAN O'TISH</div>
-            <div class="main-action-desc" id="mainRegisterDesc">Signal7 promokodi bilan ro'yxatdan o'ting va 30% bonusga ega bo'ling</div>
+        <div class="main-action-icon"><i class="fas fa-user-plus" style="font-size:24px"></i></div>
+        <div class="main-action-content" style="flex:1">
+            <div class="main-action-title" id="mainRegisterTitle" style="font-weight:700">🔥 RO'YXATDAN O'TISH</div>
+            <div class="main-action-desc" id="mainRegisterDesc" style="font-size:12px;color:#888">Signal7 promokodi bilan ro'yxatdan o'ting va 30% bonusga ega bo'ling</div>
         </div>
         <div><i class="fas fa-chevron-right"></i></div>
     </div>
 
     <div class="main-action-card" id="mainSignalCard">
-        <div class="main-action-icon"><i class="fas fa-bolt"></i></div>
-        <div class="main-action-content">
-            <div class="main-action-title" id="mainSignalTitle">⚡ SIGNAL OLISH</div>
-            <div class="main-action-desc" id="mainSignalDesc">Yuqori aniqlikdagi signallarni olish va daromadni oshirish</div>
+        <div class="main-action-icon"><i class="fas fa-bolt" style="font-size:24px"></i></div>
+        <div class="main-action-content" style="flex:1">
+            <div class="main-action-title" id="mainSignalTitle" style="font-weight:700">⚡ SIGNAL OLISH</div>
+            <div class="main-action-desc" id="mainSignalDesc" style="font-size:12px;color:#888">Yuqori aniqlikdagi signallarni olish va daromadni oshirish</div>
         </div>
         <div><i class="fas fa-chevron-right"></i></div>
     </div>
 
     <div class="user-card">
-        <div class="user-info">
-            <div class="user-avatar"><i class="fas fa-user"></i></div>
+        <div class="user-info" style="display:flex; gap:15px; margin-bottom:20px">
+            <div class="user-avatar" style="width:55px;height:55px;background:linear-gradient(135deg,#ff0000,#cc0000);border-radius:18px;display:flex;align-items:center;justify-content:center"><i class="fas fa-user" style="font-size:24px"></i></div>
             <div class="user-details">
-                <h3 id="userName">Premium Foydalanuvchi</h3>
-                <div class="user-id" id="userIdDisplay">ID: 12345678901</div>
-                <div class="user-level" id="userLevel">YANGI</div>
+                <h3 id="userName" style="font-size:18px">Premium Foydalanuvchi</h3>
+                <div class="user-id" id="userIdDisplay" style="display:inline-block;background:rgba(255,0,0,0.2);padding:4px 12px;border-radius:12px;font-size:11px">ID: 12345678901</div>
+                <div class="user-level" id="userLevel" style="display:inline-block;background:#ff4444;padding:4px 12px;border-radius:12px;font-size:11px;margin-left:8px">YANGI</div>
             </div>
         </div>
-        <div class="stats-grid">
-            <div class="stat-item"><div class="stat-value" id="level">YANGI</div><div class="stat-label" id="levelLabel">DARAJASI</div></div>
-            <div class="stat-item"><div class="stat-value" id="invites">0</div><div class="stat-label" id="invitesLabel">TAKLIFLAR</div></div>
-            <div class="stat-item"><div class="stat-value" id="accuracy">98.5%</div><div class="stat-label" id="accuracyLabel">ANIQLIK</div></div>
-            <div class="stat-item"><div class="stat-value" id="friends">0</div><div class="stat-label" id="friendsLabel">DO'STLAR</div></div>
+        <div class="stats-grid" id="userStatsGrid">
+            <div class="stat-item"><div class="stat-value" id="level">YANGI</div><div class="stat-label" id="levelLabel" style="font-size:11px;color:#888">DARAJASI</div></div>
+            <div class="stat-item"><div class="stat-value" id="invites">0</div><div class="stat-label" id="invitesLabel" style="font-size:11px;color:#888">TAKLIFLAR</div></div>
+            <div class="stat-item"><div class="stat-value" id="accuracy">98.5%</div><div class="stat-label" id="accuracyLabel" style="font-size:11px;color:#888">ANIQLIK</div></div>
+            <div class="stat-item"><div class="stat-value" id="friends">0</div><div class="stat-label" id="friendsLabel" style="font-size:11px;color:#888">DO'STLAR</div></div>
         </div>
     </div>
 
     <div class="quick-actions">
-        <div class="action-card" id="vipBtn"><div class="action-icon"><i class="fas fa-crown"></i></div><div class="action-title">VIP</div><div class="action-desc">Ekskluziv</div></div>
-        <div class="action-card" id="apkBtn"><div class="action-icon"><i class="fas fa-download"></i></div><div class="action-title">APK</div><div class="action-desc">Yuklab olish</div></div>
-        <div class="action-card" id="bonusBtn"><div class="action-icon"><i class="fas fa-gift"></i></div><div class="action-title">BONUS</div><div class="action-desc">Promokodlar</div></div>
-        <div class="action-card" id="settingsBtn2"><div class="action-icon"><i class="fas fa-cog"></i></div><div class="action-title">SOZLAMALAR</div><div class="action-desc">Til va boshqalar</div></div>
+        <div class="action-card" id="vipBtn"><div class="action-icon"><i class="fas fa-crown"></i></div><div class="action-title">VIP</div><div class="action-desc" style="font-size:10px;color:#888">Ekskluziv</div></div>
+        <div class="action-card" id="apkBtn"><div class="action-icon"><i class="fas fa-download"></i></div><div class="action-title">APK</div><div class="action-desc" style="font-size:10px;color:#888">Yuklab olish</div></div>
+        <div class="action-card" id="bonusBtn"><div class="action-icon"><i class="fas fa-gift"></i></div><div class="action-title">BONUS</div><div class="action-desc" style="font-size:10px;color:#888">Promokodlar</div></div>
+        <div class="action-card" id="settingsBtn2"><div class="action-icon"><i class="fas fa-cog"></i></div><div class="action-title">SOZLAMALAR</div><div class="action-desc" style="font-size:10px;color:#888">Til va boshqalar</div></div>
     </div>
 
     <div class="vip-banner" id="vipBanner">
-        <div class="vip-icon"><i class="fas fa-gem"></i></div>
+        <div class="vip-icon" style="width:45px;height:45px;background:rgba(255,255,255,0.2);border-radius:14px;display:flex;align-items:center;justify-content:center"><i class="fas fa-gem"></i></div>
         <div class="vip-text">
-            <h3>💎 VIP A'ZO BO'LING</h3>
-            <p>30% ko'proq bonus va ekskluziv signallar</p>
+            <h3 style="font-size:16px">💎 VIP A'ZO BO'LING</h3>
+            <p style="font-size:11px">30% ko'proq bonus va ekskluziv signallar</p>
         </div>
-        <div class="vip-badge">HOT</div>
+        <div class="vip-badge" style="background:rgba(0,0,0,0.3);padding:4px 10px;border-radius:10px;font-size:10px">HOT</div>
     </div>
 
-    <div class="section-header"><h2 class="section-title">📊 KUNLIK STATISTIKA</h2></div>
+    <div style="padding: 0 20px 16px"><h2 class="section-title" style="font-size:18px;color:#ff0000">📊 KUNLIK STATISTIKA</h2></div>
     <div class="stats-grid" id="statsGrid" style="padding: 0 20px 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;"></div>
 
     <nav class="bottom-nav">
@@ -804,67 +611,94 @@
 </div>
 
 <!-- APK Page -->
-<div class="page-container" id="apkPage" style="display:none">
-    <header class="app-header"><div class="logo"><div class="logo-icon"><i class="fas fa-arrow-left" id="backFromApk" style="cursor:pointer"></i></div><div class="logo-text">APK YUKLASH</div></div></header>
-    <div class="page-content" style="padding:20px"><button class="btn btn-primary" id="downloadApkBtn" style="width:100%"><i class="fas fa-download"></i> APK YUKLASH</button></div>
+<div class="page-container" id="apkPage">
+    <header class="app-header">
+        <div class="logo"><div class="logo-icon" id="backFromApk" style="cursor:pointer"><i class="fas fa-arrow-left"></i></div><div class="logo-text">APK YUKLASH</div></div>
+    </header>
+    <div class="page-content" style="padding:20px">
+        <button class="btn btn-primary" id="downloadApkBtn" style="width:100%"><i class="fas fa-download"></i> APK YUKLASH</button>
+    </div>
     <nav class="bottom-nav"><div class="nav-item" id="navHome2"><div class="nav-icon"><i class="fas fa-home"></i></div><div class="nav-text">ASOSIY</div></div></nav>
 </div>
 
 <!-- Bonus Page -->
-<div class="page-container" id="bonusPage" style="display:none">
-    <header class="app-header"><div class="logo"><div class="logo-icon"><i class="fas fa-arrow-left" id="backFromBonus" style="cursor:pointer"></i></div><div class="logo-text">BONUSLAR</div></div></header>
-    <div class="page-content" style="padding:20px"><button class="btn btn-primary" id="getBonusBtn" style="width:100%"><i class="fas fa-gift"></i> BONUS OLISH</button></div>
+<div class="page-container" id="bonusPage">
+    <header class="app-header">
+        <div class="logo"><div class="logo-icon" id="backFromBonus" style="cursor:pointer"><i class="fas fa-arrow-left"></i></div><div class="logo-text">BONUSLAR</div></div>
+    </header>
+    <div class="page-content" style="padding:20px">
+        <button class="btn btn-primary" id="getBonusBtn" style="width:100%"><i class="fas fa-gift"></i> BONUS OLISH</button>
+    </div>
     <nav class="bottom-nav"><div class="nav-item" id="navHome3"><div class="nav-icon"><i class="fas fa-home"></i></div><div class="nav-text">ASOSIY</div></div></nav>
 </div>
 
 <!-- Settings Page -->
-<div class="page-container" id="settingsPage" style="display:none">
-    <header class="app-header"><div class="logo"><div class="logo-icon"><i class="fas fa-arrow-left" id="backFromSettings" style="cursor:pointer"></i></div><div class="logo-text">SOZLAMALAR</div></div></header>
+<div class="page-container" id="settingsPage">
+    <header class="app-header">
+        <div class="logo"><div class="logo-icon" id="backFromSettings" style="cursor:pointer"><i class="fas fa-arrow-left"></i></div><div class="logo-text">SOZLAMALAR</div></div>
+    </header>
     <div class="page-content" style="padding:20px">
-        <div class="action-card" id="settingsLanguage" style="margin-bottom:10px; display:flex; justify-content:space-between"><span>🌐 Tilni o'zgartirish</span><i class="fas fa-chevron-right"></i></div>
-        <div class="action-card" id="settingsChangeId" style="margin-bottom:10px; display:flex; justify-content:space-between"><span>🆔 ID o'zgartirish</span><i class="fas fa-chevron-right"></i></div>
-        <div class="action-card" id="settingsInvite" style="margin-bottom:10px; display:flex; justify-content:space-between"><span>👥 Do'stlarni taklif qilish</span><i class="fas fa-chevron-right"></i></div>
+        <div class="action-card" id="settingsLanguage" style="margin-bottom:10px; display:flex; justify-content:space-between; align-items:center"><span>🌐 Tilni o'zgartirish</span><i class="fas fa-chevron-right"></i></div>
+        <div class="action-card" id="settingsChangeId" style="margin-bottom:10px; display:flex; justify-content:space-between; align-items:center"><span>🆔 ID o'zgartirish</span><i class="fas fa-chevron-right"></i></div>
+        <div class="action-card" id="settingsInvite" style="margin-bottom:10px; display:flex; justify-content:space-between; align-items:center"><span>👥 Do'stlarni taklif qilish</span><i class="fas fa-chevron-right"></i></div>
     </div>
     <nav class="bottom-nav"><div class="nav-item" id="navHome4"><div class="nav-icon"><i class="fas fa-home"></i></div><div class="nav-text">ASOSIY</div></div></nav>
 </div>
 
 <!-- Game Modal -->
-<div class="modal-overlay" id="gameModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; align-items:center; justify-content:center">
-    <div class="modal-content" style="background:var(--card-bg); border:2px solid var(--primary); border-radius:24px; max-width:400px; width:90%; padding:20px">
-        <div class="modal-header" style="display:flex; justify-content:space-between; margin-bottom:15px"><h3 class="modal-title">SIGNAL OLISH</h3><div class="modal-close" id="closeGameModal" style="cursor:pointer"><i class="fas fa-times"></i></div></div>
+<div class="modal-overlay" id="gameModal">
+    <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px">
+            <h3 class="modal-title" style="color:#ff0000">🎯 SIGNAL OLISH</h3>
+            <div class="modal-close" id="closeGameModal" style="cursor:pointer; width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fas fa-times"></i></div>
+        </div>
         <div class="modal-body">
-            <div class="game-user-id"><div class="user-id-display" id="modalUserIdDisplay">ID: 12345678901</div></div>
+            <div class="game-user-id" style="background:rgba(255,0,0,0.1);border-radius:12px;padding:12px;margin-bottom:16px;text-align:center">
+                <div class="user-id-display" id="modalUserIdDisplay" style="font-size:18px;font-weight:700;color:#ff0000">ID: 12345678901</div>
+            </div>
             <div class="id-input-section" id="idInputSection">
-                <input type="text" class="id-input" id="userIdInput" placeholder="ID raqam" maxlength="11" style="width:100%; padding:15px; border-radius:12px; background:#222; border:2px solid #ff0000; color:white; text-align:center">
-                <div style="display:flex; gap:10px; margin-top:15px"><button class="btn btn-primary" id="verifyIdBtn" style="flex:1">TASDIQLASH</button><button class="btn btn-secondary" id="registerInModalBtn" style="flex:1">RO'YXATDAN O'TISH</button></div>
+                <input type="text" class="id-input" id="userIdInput" placeholder="ID raqam" maxlength="11">
+                <div style="display:flex; gap:10px; margin-top:15px">
+                    <button class="btn btn-primary" id="verifyIdBtn" style="flex:1">TASDIQLASH</button>
+                    <button class="btn btn-secondary" id="registerInModalBtn" style="flex:1;background:rgba(255,255,255,0.1)">RO'YXATDAN O'TISH</button>
+                </div>
             </div>
             <div class="game-section" id="gameSection" style="display:none">
-                <div class="game-apples-container" id="gameApplesContainer" style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:20px 0"></div>
-                <div style="display:flex; gap:10px"><button class="btn btn-secondary" id="revealApplesBtn" style="flex:1">OLMALARNI KO'RISH</button><button class="btn btn-primary" id="nextStageBtn" disabled style="flex:1">KEYINGI SIGNAL</button></div>
+                <div class="game-apples-container" id="gameApplesContainer"></div>
+                <div style="display:flex; gap:10px">
+                    <button class="btn btn-secondary" id="revealApplesBtn" style="flex:1">OLMALARNI KO'RISH</button>
+                    <button class="btn btn-primary" id="nextStageBtn" disabled style="flex:1">KEYINGI SIGNAL</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- VIP Modal -->
-<div class="modal-overlay" id="vipModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; align-items:center; justify-content:center">
-    <div class="modal-content" style="background:var(--card-bg); border:2px solid var(--primary); border-radius:24px; max-width:400px; width:90%; padding:20px">
-        <div class="modal-header" style="display:flex; justify-content:space-between; margin-bottom:15px"><h3 class="modal-title">VIP SIGNAL</h3><div class="modal-close" id="closeVipModal" style="cursor:pointer"><i class="fas fa-times"></i></div></div>
+<div class="modal-overlay" id="vipModal">
+    <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px">
+            <h3 class="modal-title" style="color:#ff0000">👑 VIP SIGNAL</h3>
+            <div class="modal-close" id="closeVipModal" style="cursor:pointer; width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fas fa-times"></i></div>
+        </div>
         <div class="modal-body" style="text-align:center">
-            <h3>5 TA DO'ST TAKLIF QILING</h3>
-            <button class="btn btn-vip" id="inviteForVipBtn" style="margin:15px 0; width:100%">DO'STLARNI TAKLIF QILISH</button>
-            <button class="btn btn-primary" id="getVipBtn" style="width:100%" disabled>VIP SIGNAL OLISH</button>
+            <h3 style="margin-bottom:15px">5 TA DO'ST TAKLIF QILING</h3>
+            <button class="btn btn-vip" id="inviteForVipBtn" style="margin-bottom:15px; width:100%; background:linear-gradient(135deg,#ffd700,#ff8c00); color:#000">👥 DO'STLARNI TAKLIF QILISH</button>
+            <button class="btn btn-primary" id="getVipBtn" style="width:100%" disabled>👑 VIP SIGNAL OLISH</button>
         </div>
     </div>
 </div>
 
 <!-- Change ID Modal -->
-<div class="modal-overlay" id="changeIdModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; align-items:center; justify-content:center">
-    <div class="modal-content" style="background:var(--card-bg); border:2px solid var(--primary); border-radius:24px; max-width:400px; width:90%; padding:20px">
-        <div class="modal-header" style="display:flex; justify-content:space-between; margin-bottom:15px"><h3 class="modal-title">ID O'ZGARTIRISH</h3><div class="modal-close" id="closeChangeIdModal" style="cursor:pointer"><i class="fas fa-times"></i></div></div>
+<div class="modal-overlay" id="changeIdModal">
+    <div class="modal-content">
+        <div style="display:flex; justify-content:space-between; margin-bottom:15px">
+            <h3 class="modal-title" style="color:#ff0000">🆔 ID O'ZGARTIRISH</h3>
+            <div class="modal-close" id="closeChangeIdModal" style="cursor:pointer; width:32px;height:32px;background:rgba(255,255,255,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fas fa-times"></i></div>
+        </div>
         <div class="modal-body">
-            <input type="text" class="id-input" id="newUserIdInput" placeholder="Yangi ID" style="width:100%; padding:15px; border-radius:12px; background:#222; border:2px solid #ff0000; color:white; text-align:center; margin-bottom:15px">
-            <button class="btn btn-primary" id="saveNewIdBtn" style="width:100%">SAQLASH</button>
+            <input type="text" class="id-input" id="newUserIdInput" placeholder="Yangi ID" style="margin-bottom:15px">
+            <button class="btn btn-primary" id="saveNewIdBtn" style="width:100%">💾 SAQLASH</button>
         </div>
     </div>
 </div>
@@ -883,8 +717,8 @@ const translations = {
         userName: "Premium Foydalanuvchi",
         levelLabel: "DARAJASI", invitesLabel: "TAKLIFLAR", accuracyLabel: "ANIQLIK", friendsLabel: "DO'STLAR",
         dailyActive: "KUNLIK FAOL", dailyAvgIncome: "O'RTACHA DAROMAD", profit: "FOYDA", onlinePlayers: "ONLAYN",
-        idRequired: "ID raqam kiriting", idInvalid: "Noto'g'ri ID", idVerified: "ID tasdiqlandi", successSignal: "Signal olindi",
-        errorSignal: "O'yin tugadi", nextStageReady: "Keyingi bosqichga o'tish mumkin", applesRevealed: "Olmalar ko'rsatildi",
+        idRequired: "⚠️ ID raqam kiriting", idInvalid: "❌ Noto'g'ri ID", idVerified: "✅ ID tasdiqlandi", successSignal: "🎉 Signal olindi!",
+        errorSignal: "😔 O'yin tugadi", nextStageReady: "👉 Keyingi bosqichga o'tish mumkin", applesRevealed: "👁️ Olmalar ko'rsatildi",
         telegramInstallText: "📱 EKRANGA QO'SHISH", pwaInstallText: "📱 ILOVANI O'RNATISH", installedText: "✅ Ilova muvaffaqiyatli o'rnatildi!"
     },
     ru: {
@@ -897,8 +731,8 @@ const translations = {
         userName: "Премиум Пользователь",
         levelLabel: "УРОВЕНЬ", invitesLabel: "ПРИГЛАШЕНИЯ", accuracyLabel: "ТОЧНОСТЬ", friendsLabel: "ДРУЗЬЯ",
         dailyActive: "АКТИВНЫХ", dailyAvgIncome: "СРЕДНИЙ ДОХОД", profit: "ПРИБЫЛЬ", onlinePlayers: "ОНЛАЙН",
-        idRequired: "Введите ID", idInvalid: "Неверный ID", idVerified: "ID подтвержден", successSignal: "Сигнал получен",
-        errorSignal: "Игра окончена", nextStageReady: "Следующий этап", applesRevealed: "Яблоки показаны",
+        idRequired: "⚠️ Введите ID", idInvalid: "❌ Неверный ID", idVerified: "✅ ID подтвержден", successSignal: "🎉 Сигнал получен!",
+        errorSignal: "😔 Игра окончена", nextStageReady: "👉 Следующий этап", applesRevealed: "👁️ Яблоки показаны",
         telegramInstallText: "📱 ДОБАВИТЬ НА ЭКРАН", pwaInstallText: "📱 УСТАНОВИТЬ ПРИЛОЖЕНИЕ", installedText: "✅ Приложение успешно установлено!"
     },
     en: {
@@ -911,8 +745,8 @@ const translations = {
         userName: "Premium User",
         levelLabel: "LEVEL", invitesLabel: "INVITES", accuracyLabel: "ACCURACY", friendsLabel: "FRIENDS",
         dailyActive: "DAILY ACTIVE", dailyAvgIncome: "AVG INCOME", profit: "PROFIT", onlinePlayers: "ONLINE",
-        idRequired: "Enter ID", idInvalid: "Invalid ID", idVerified: "ID verified", successSignal: "Signal received",
-        errorSignal: "Game over", nextStageReady: "Next stage", applesRevealed: "Apples revealed",
+        idRequired: "⚠️ Enter ID", idInvalid: "❌ Invalid ID", idVerified: "✅ ID verified", successSignal: "🎉 Signal received!",
+        errorSignal: "😔 Game over", nextStageReady: "👉 Next stage", applesRevealed: "👁️ Apples revealed",
         telegramInstallText: "📱 ADD TO HOME SCREEN", pwaInstallText: "📱 INSTALL APP", installedText: "✅ App successfully installed!"
     },
     ar: {
@@ -925,8 +759,8 @@ const translations = {
         userName: "مستخدم مميز",
         levelLabel: "المستوى", invitesLabel: "الدعوات", accuracyLabel: "الدقة", friendsLabel: "الأصدقاء",
         dailyActive: "نشط يوميًا", dailyAvgIncome: "متوسط الدخل", profit: "الربح", onlinePlayers: "متصلون",
-        idRequired: "أدخل ID", idInvalid: "ID غير صالح", idVerified: "تم التحقق من ID", successSignal: "تم استلام الإشارة",
-        errorSignal: "انتهت اللعبة", nextStageReady: "المرحلة التالية", applesRevealed: "تم عرض التفاح",
+        idRequired: "⚠️ أدخل ID", idInvalid: "❌ ID غير صالح", idVerified: "✅ تم التحقق من ID", successSignal: "🎉 تم استلام الإشارة!",
+        errorSignal: "😔 انتهت اللعبة", nextStageReady: "👉 المرحلة التالية", applesRevealed: "👁️ تم عرض التفاح",
         telegramInstallText: "📱 أضف إلى الشاشة", pwaInstallText: "📱 تثبيت التطبيق", installedText: "✅ تم تثبيت التطبيق بنجاح!"
     }
 };
@@ -937,7 +771,7 @@ let dailyStats = { activeUsers: 2580, avgIncome: 445, profit: 32.5, onlinePlayer
 let gameState = { idVerified: false, userId: null, applesRevealed: false, canProceed: false, gameOver: false, apples: [] };
 let currentStage = 1;
 
-// Show toast function
+// Toast function
 function showToast(message, type = 'success') {
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
@@ -946,21 +780,27 @@ function showToast(message, type = 'success') {
     setTimeout(() => toast.remove(), 3000);
 }
 
-// PWA + Telegram Install
+// ============================================
+// PWA + TELEGRAM INSTALL - TO'LIQ ISHLAYDI
+// ============================================
 (function() {
     let isTelegram = false;
     let tg = null;
     let deferredPrompt = null;
     let installShown = false;
+    let checkInterval = null;
 
+    // Tugmani ko'rsatish
     function showInstallButton(type, text) {
         if (installShown) return;
         const container = document.getElementById('installBtnContainer');
         if (!container) return;
+        
         container.innerHTML = '';
         const btn = document.createElement('button');
         btn.className = `install-btn ${type === 'telegram' ? 'install-btn-telegram' : 'install-btn-pwa'}`;
         btn.innerHTML = type === 'telegram' ? `<i class="fab fa-telegram"></i> ${text}` : `<i class="fas fa-download"></i> ${text}`;
+        
         btn.onclick = async () => {
             if (type === 'telegram' && tg && typeof tg.addToHomeScreen === 'function') {
                 tg.addToHomeScreen();
@@ -969,61 +809,100 @@ function showToast(message, type = 'success') {
                 deferredPrompt.prompt();
                 const { outcome } = await deferredPrompt.userChoice;
                 if (outcome === 'accepted') {
-                    showToast(translations[currentLang].installedText, 'success');
+                    showToast(translations[currentLang]?.installedText || "✅ Ilova muvaffaqiyatli o'rnatildi!", 'success');
                     container.style.display = 'none';
                     installShown = true;
                 }
                 deferredPrompt = null;
             } else {
+                // Qo'llanma ko'rsatish
                 const div = document.createElement('div');
                 div.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;border:2px solid #ff0000;border-radius:20px;padding:24px;z-index:20000;text-align:center;max-width:300px;color:white;box-shadow:0 0 30px rgba(255,0,0,0.5);';
-                div.innerHTML = '<i class="fas fa-info-circle" style="font-size:48px;color:#ff0000;margin-bottom:16px"></i><h3>Ekranga qo\'shish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Add to Home Screen" ni tanlang</li><li>"Add" tugmasini bosing</li></ol><button id="closeInstr" style="background:#ff0000;border:none;padding:10px 20px;border-radius:10px;color:white;cursor:pointer">Tushundim</button>';
+                div.innerHTML = '<i class="fas fa-info-circle" style="font-size:48px;color:#ff0000;margin-bottom:16px"></i><h3>Ekranga qo\'shish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Add to Home Screen" ni tanlang</li><li>"Add" tugmasini bosing</li></ol><button id="closeInstr" style="background:#ff0000;border:none;padding:10px 20px;border-radius:10px;color:white;cursor:pointer;margin-top:10px">Tushundim</button>';
                 document.body.appendChild(div);
                 document.getElementById('closeInstr').onclick = () => div.remove();
             }
         };
+        
         container.appendChild(btn);
         container.style.display = 'block';
         installShown = true;
     }
 
+    // Telegramni aniqlash
     if (window.Telegram && window.Telegram.WebApp) {
         tg = window.Telegram.WebApp;
         isTelegram = true;
         tg.ready();
         tg.expand();
+        console.log('Telegram Mini App detected');
+    } else {
+        setTimeout(() => {
+            if (window.Telegram && window.Telegram.WebApp) {
+                tg = window.Telegram.WebApp;
+                isTelegram = true;
+                tg.ready();
+                tg.expand();
+                console.log('Telegram Mini App detected (delayed)');
+            }
+        }, 500);
     }
 
+    // PWA beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
+        console.log('beforeinstallprompt fired');
+        
         if (!isTelegram && !window.matchMedia('(display-mode: standalone)').matches && !installShown) {
             setTimeout(() => {
-                if (!window.matchMedia('(display-mode: standalone)').matches) {
+                if (!window.matchMedia('(display-mode: standalone)').matches && !installShown) {
                     showInstallButton('pwa', translations[currentLang]?.pwaInstallText || '📱 ILOVANI O\'RNATISH');
                 }
             }, 1500);
         }
     });
 
+    // App installed event - TUGMA YO'QOLADI VA XABAR CHIQADI
     window.addEventListener('appinstalled', () => {
-        document.getElementById('installBtnContainer').style.display = 'none';
+        console.log('App installed event fired');
+        const container = document.getElementById('installBtnContainer');
+        if (container) {
+            container.style.display = 'none';
+        }
         installShown = true;
-        showToast(translations[currentLang]?.installedText || '✅ Ilova muvaffaqiyatli o\'rnatildi!', 'success');
+        // O'rnatilganligi haqida xabar
+        showToast(translations[currentLang]?.installedText || "✅ Ilova muvaffaqiyatli o'rnatildi!", 'success');
     });
 
+    // Standalone rejimni tekshirish (ilova allaqachon o'rnatilgan)
     if (window.matchMedia('(display-mode: standalone)').matches) {
-        document.getElementById('installBtnContainer').style.display = 'none';
+        const container = document.getElementById('installBtnContainer');
+        if (container) {
+            container.style.display = 'none';
+        }
         installShown = true;
     }
 
+    // Telegram uchun tugmani ko'rsatish
     setTimeout(() => {
         if (isTelegram && tg && !window.matchMedia('(display-mode: standalone)').matches && !installShown) {
             showInstallButton('telegram', translations[currentLang]?.telegramInstallText || '📱 EKRANGA QO\'SHISH');
+        } else if (!isTelegram && !deferredPrompt && !window.matchMedia('(display-mode: standalone)').matches && !installShown) {
+            setTimeout(() => {
+                if (!installShown && !window.matchMedia('(display-mode: standalone)').matches) {
+                    const div = document.createElement('div');
+                    div.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;border:2px solid #ff0000;border-radius:20px;padding:24px;z-index:20000;text-align:center;max-width:300px;color:white;box-shadow:0 0 30px rgba(255,0,0,0.5);';
+                    div.innerHTML = '<i class="fas fa-info-circle" style="font-size:48px;color:#ff0000;margin-bottom:16px"></i><h3>Ilovani o\'rnatish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Install App" ni tanlang</li><li>"Install" tugmasini bosing</li></ol><button id="closeInstr" style="background:#ff0000;border:none;padding:10px 20px;border-radius:10px;color:white;cursor:pointer;margin-top:10px">Tushundim</button>';
+                    document.body.appendChild(div);
+                    document.getElementById('closeInstr').onclick = () => div.remove();
+                }
+            }, 3000);
         }
     }, 2000);
 
-    setInterval(() => {
+    // Har doim standalone rejimni tekshirib turish (tugma yo'qolishi uchun)
+    checkInterval = setInterval(() => {
         if (window.matchMedia('(display-mode: standalone)').matches) {
             const container = document.getElementById('installBtnContainer');
             if (container && container.style.display !== 'none') {
@@ -1138,12 +1017,12 @@ function updateUserLevel() {
 }
 
 function showPage(pageId) {
-    document.getElementById('mainContainer').style.display = 'none';
-    document.getElementById('apkPage').style.display = 'none';
-    document.getElementById('bonusPage').style.display = 'none';
-    document.getElementById('settingsPage').style.display = 'none';
+    const pages = ['mainContainer', 'apkPage', 'bonusPage', 'settingsPage'];
+    pages.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
     document.getElementById(pageId).style.display = 'block';
-    document.getElementById(pageId).classList.add('active');
 }
 
 function closeModal(modalId) { document.getElementById(modalId).style.display = 'none'; }
@@ -1214,13 +1093,15 @@ function renderApples() {
     container.innerHTML = '';
     for (let i = 0; i < 5; i++) {
         const apple = document.createElement('div');
-        apple.className = 'game-apple apple-mystery';
-        apple.style.cssText = 'width:60px;height:60px;border-radius:50%;background-size:cover;cursor:pointer;border:2px solid #ff0000;transition:all 0.3s';
+        apple.className = 'game-apple';
         if (gameState.applesRevealed) {
             apple.style.backgroundImage = gameState.apples[i] === 'whole' ? "url('https://i.pinimg.com/736x/6a/aa/19/6aaa196961f40afd21cf9d21824f137e.jpg')" : "url('https://i.ibb.co/m5sNvNPK/62cd09ea-de08-49b9-9fea-d0100c747423-2.jpg')";
+            apple.style.backgroundSize = 'cover';
         } else {
             apple.style.backgroundImage = "url('https://i.ibb.co/Gf3NcMDQ/maxresdefault.jpg')";
+            apple.style.backgroundSize = 'cover';
         }
+        apple.style.border = '2px solid #ff0000';
         apple.onclick = () => selectApple(i);
         container.appendChild(apple);
     }
