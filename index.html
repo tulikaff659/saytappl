@@ -781,7 +781,7 @@ function showToast(message, type = 'success') {
 }
 
 // ============================================
-// PWA + TELEGRAM INSTALL - TO'LIQ ISHLAYDI
+// PWA + TELEGRAM INSTALL - TUGMA YO'QOLADI
 // ============================================
 (function() {
     let isTelegram = false;
@@ -790,9 +790,24 @@ function showToast(message, type = 'success') {
     let installShown = false;
     let checkInterval = null;
 
+    // Tugmani butunlay o'chirish funksiyasi
+    function hideInstallButton() {
+        const container = document.getElementById('installBtnContainer');
+        if (container) {
+            container.style.display = 'none';
+            container.innerHTML = '';
+        }
+        installShown = true;
+    }
+
     // Tugmani ko'rsatish
     function showInstallButton(type, text) {
         if (installShown) return;
+        // Agar standalone rejimda bo'lsa, tugmani ko'rsatma
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            hideInstallButton();
+            return;
+        }
         const container = document.getElementById('installBtnContainer');
         if (!container) return;
         
@@ -810,8 +825,11 @@ function showToast(message, type = 'success') {
                 const { outcome } = await deferredPrompt.userChoice;
                 if (outcome === 'accepted') {
                     showToast(translations[currentLang]?.installedText || "✅ Ilova muvaffaqiyatli o'rnatildi!", 'success');
-                    container.style.display = 'none';
-                    installShown = true;
+                    // O'rnatilgandan keyin tugmani o'chirish
+                    hideInstallButton();
+                } else {
+                    // Foydalanuvchi bekor qilsa, tugmani ko'rsatishda davom et
+                    console.log('User dismissed install prompt');
                 }
                 deferredPrompt = null;
             } else {
@@ -865,23 +883,14 @@ function showToast(message, type = 'success') {
 
     // App installed event - TUGMA YO'QOLADI VA XABAR CHIQADI
     window.addEventListener('appinstalled', () => {
-        console.log('App installed event fired');
-        const container = document.getElementById('installBtnContainer');
-        if (container) {
-            container.style.display = 'none';
-        }
-        installShown = true;
-        // O'rnatilganligi haqida xabar
+        console.log('App installed event fired - hiding button');
+        hideInstallButton();
         showToast(translations[currentLang]?.installedText || "✅ Ilova muvaffaqiyatli o'rnatildi!", 'success');
     });
 
     // Standalone rejimni tekshirish (ilova allaqachon o'rnatilgan)
     if (window.matchMedia('(display-mode: standalone)').matches) {
-        const container = document.getElementById('installBtnContainer');
-        if (container) {
-            container.style.display = 'none';
-        }
-        installShown = true;
+        hideInstallButton();
     }
 
     // Telegram uchun tugmani ko'rsatish
@@ -904,13 +913,9 @@ function showToast(message, type = 'success') {
     // Har doim standalone rejimni tekshirib turish (tugma yo'qolishi uchun)
     checkInterval = setInterval(() => {
         if (window.matchMedia('(display-mode: standalone)').matches) {
-            const container = document.getElementById('installBtnContainer');
-            if (container && container.style.display !== 'none') {
-                container.style.display = 'none';
-                installShown = true;
-            }
+            hideInstallButton();
         }
-    }, 1000);
+    }, 500);
 })();
 
 // Main App Logic
