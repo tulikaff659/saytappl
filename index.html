@@ -31,7 +31,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ===== STILLAR (QISQARTIRILGAN VERSIYA) ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
         :root {
             --primary: #1e90ff;
             --primary-dark: #0066cc;
@@ -46,15 +52,7 @@
             --card-bg: rgba(30, 30, 30, 0.7);
             --glass: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             --telegram: #0088cc;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Courier New', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
         }
 
         body {
@@ -66,8 +64,14 @@
             overflow-x: hidden;
         }
 
+        /* PWA standalone rejimida tugmalarni yashirish */
         @media all and (display-mode: standalone) {
-            body { padding-bottom: 70px; }
+            .install-btn-container {
+                display: none !important;
+            }
+            body {
+                padding-bottom: 70px;
+            }
         }
 
         .btn {
@@ -91,6 +95,52 @@
         .btn-success { background: linear-gradient(135deg, var(--success), #2e7d32); color: white; }
         .btn-vip { background: linear-gradient(135deg, var(--secondary), var(--accent)); color: #000; }
         .btn-telegram { background: linear-gradient(135deg, var(--telegram), #006699); color: white; }
+
+        /* Install tugmasi konteyneri */
+        .install-btn-container {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            right: 20px;
+            z-index: 10000;
+            animation: slideUp 0.3s ease;
+        }
+
+        .install-btn {
+            width: 100%;
+            border: none;
+            border-radius: 50px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .install-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .install-btn-telegram {
+            background: linear-gradient(135deg, var(--telegram), #006699);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+        }
+
+        .install-btn-pwa {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.5);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
         #languageSelector {
             position: fixed;
@@ -141,7 +191,8 @@
             border-bottom: 1px solid var(--glass-border);
         }
         .logo { display: flex; align-items: center; gap: 10px; }
-        .logo-icon { width: 36px; height: 36px; background-image: url('https://i.ibb.co/fVPq08Xq/1xbet-logo.png'); background-size: contain; border-radius: 10px; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .logo-icon i { font-size: 18px; color: white; }
         .logo-text { font-size: 18px; font-weight: 700; color: var(--primary); }
         .header-controls { display: flex; gap: 10px; }
         .header-btn { width: 36px; height: 36px; border-radius: 10px; background: var(--glass); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--light); cursor: pointer; }
@@ -293,7 +344,7 @@
         
         .page-container { display: none; }
         .page-container.active { display: block; }
-        .page-header { padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+        .page-header { padding: 16px 20px; display: flex; align-items: center; gap: 12px; background: rgba(10,10,10,0.95); border-bottom: 1px solid var(--glass-border); }
         .page-back { width: 36px; height: 36px; border-radius: 10px; background: var(--glass); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .page-title { font-size: 18px; font-weight: 700; color: var(--primary); }
         .page-content { padding: 20px; }
@@ -320,10 +371,13 @@
     </div>
 </div>
 
+<!-- Install Button Container (PWA yoki Telegram uchun) -->
+<div id="installBtnContainer" class="install-btn-container" style="display: none;"></div>
+
 <!-- Main Container -->
 <div class="main-container" id="mainContainer">
     <header class="app-header">
-        <div class="logo"><div class="logo-icon"></div><div class="logo-text">Apple of Fortune (18+)</div></div>
+        <div class="logo"><div class="logo-icon"><i class="fas fa-apple-alt"></i></div><div class="logo-text">Apple of Fortune (18+)</div></div>
         <div class="header-controls"><div class="header-btn" id="settingsBtn"><i class="fas fa-cog"></i></div></div>
     </header>
 
@@ -399,18 +453,26 @@
     </nav>
 </div>
 
-<!-- APK Page (qisqa) -->
+<!-- APK Page -->
 <div class="page-container" id="apkPage">
     <header class="page-header"><div class="page-back" id="backFromApk"><i class="fas fa-arrow-left"></i></div><div class="page-title">APK YUKLASH</div></header>
-    <div class="page-content"><div class="page-card"><button class="btn btn-primary" id="downloadApkBtn"><i class="fas fa-download"></i> YUKLASH</button></div></div>
-    <nav class="bottom-nav"><div class="nav-item" id="navHome2"><i class="fas fa-home"></i><span>ASOSIY</span></div></nav>
+    <div class="page-content">
+        <div class="page-card">
+            <button class="btn btn-primary" id="downloadApkBtn" style="width:100%"><i class="fas fa-download"></i> APK YUKLASH</button>
+        </div>
+    </div>
+    <nav class="bottom-nav"><div class="nav-item" id="navHome2"><div class="nav-icon"><i class="fas fa-home"></i></div><div class="nav-text">ASOSIY</div></div></nav>
 </div>
 
 <!-- Bonus Page -->
 <div class="page-container" id="bonusPage">
     <header class="page-header"><div class="page-back" id="backFromBonus"><i class="fas fa-arrow-left"></i></div><div class="page-title">BONUSLAR</div></header>
-    <div class="page-content"><div class="page-card"><button class="btn btn-primary" id="getBonusBtn"><i class="fas fa-gift"></i> BONUS OLISH</button></div></div>
-    <nav class="bottom-nav"><div class="nav-item" id="navHome3"><i class="fas fa-home"></i><span>ASOSIY</span></div></nav>
+    <div class="page-content">
+        <div class="page-card">
+            <button class="btn btn-primary" id="getBonusBtn" style="width:100%"><i class="fas fa-gift"></i> BONUS OLISH</button>
+        </div>
+    </div>
+    <nav class="bottom-nav"><div class="nav-item" id="navHome3"><div class="nav-icon"><i class="fas fa-home"></i></div><div class="nav-text">ASOSIY</div></div></nav>
 </div>
 
 <!-- Settings Page -->
@@ -418,12 +480,12 @@
     <header class="page-header"><div class="page-back" id="backFromSettings"><i class="fas fa-arrow-left"></i></div><div class="page-title">SOZLAMALAR</div></header>
     <div class="page-content">
         <div class="settings-list">
-            <div class="settings-item" id="settingsLanguage"><div>🌐 Tilni o'zgartirish</div><i class="fas fa-chevron-right"></i></div>
-            <div class="settings-item" id="settingsChangeId"><div>🆔 ID o'zgartirish</div><i class="fas fa-chevron-right"></i></div>
-            <div class="settings-item" id="settingsInvite"><div>👥 Do'stlarni taklif qilish</div><i class="fas fa-chevron-right"></i></div>
+            <div class="action-card" id="settingsLanguage" style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>🌐 Tilni o'zgartirish</span><i class="fas fa-chevron-right"></i></div>
+            <div class="action-card" id="settingsChangeId" style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>🆔 ID o'zgartirish</span><i class="fas fa-chevron-right"></i></div>
+            <div class="action-card" id="settingsInvite" style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>👥 Do'stlarni taklif qilish</span><i class="fas fa-chevron-right"></i></div>
         </div>
     </div>
-    <nav class="bottom-nav"><div class="nav-item" id="navHome4"><i class="fas fa-home"></i><span>ASOSIY</span></div></nav>
+    <nav class="bottom-nav"><div class="nav-item" id="navHome4"><div class="nav-icon"><i class="fas fa-home"></i></div><div class="nav-text">ASOSIY</div></div></nav>
 </div>
 
 <!-- Game Modal -->
@@ -449,8 +511,11 @@
     <div class="modal-content">
         <div class="modal-header"><h3 class="modal-title">VIP SIGNAL</h3><div class="modal-close" id="closeVipModal"><i class="fas fa-times"></i></div></div>
         <div class="modal-body">
-            <div class="invite-section"><div class="invite-title">5 TA DO'ST TAKLIF QILING</div><button class="btn btn-vip" id="inviteForVipBtn">DO'STLARNI TAKLIF QILISH</button></div>
-            <button class="btn btn-primary" id="getVipBtn" disabled>VIP SIGNAL OLISH</button>
+            <div class="invite-section" style="text-align:center; margin-bottom:20px;">
+                <h3>5 TA DO'ST TAKLIF QILING</h3>
+                <button class="btn btn-vip" id="inviteForVipBtn" style="margin-top:15px; width:100%">DO'STLARNI TAKLIF QILISH</button>
+            </div>
+            <button class="btn btn-primary" id="getVipBtn" style="width:100%" disabled>VIP SIGNAL OLISH</button>
         </div>
     </div>
 </div>
@@ -459,7 +524,10 @@
 <div class="modal-overlay" id="changeIdModal">
     <div class="modal-content">
         <div class="modal-header"><h3 class="modal-title">ID O'ZGARTIRISH</h3><div class="modal-close" id="closeChangeIdModal"><i class="fas fa-times"></i></div></div>
-        <div class="modal-body"><input type="text" class="id-input" id="newUserIdInput" placeholder="Yangi ID"><button class="btn btn-primary" id="saveNewIdBtn">SAQLASH</button></div>
+        <div class="modal-body">
+            <input type="text" class="id-input" id="newUserIdInput" placeholder="Yangi ID" style="margin-bottom:15px">
+            <button class="btn btn-primary" id="saveNewIdBtn" style="width:100%">SAQLASH</button>
+        </div>
     </div>
 </div>
 
@@ -482,7 +550,7 @@ const translations = {
         statsTitle: "KUNLIK STATISTIKA", dailyActive: "KUNLIK FAOL", dailyAvgIncome: "O'RTACHA DAROMAD", profit: "FOYDA", onlinePlayers: "ONLAYN",
         idRequired: "ID raqam kiriting", idInvalid: "Noto'g'ri ID", idVerified: "ID tasdiqlandi", successSignal: "Signal olindi",
         errorSignal: "O'yin tugadi", nextStageReady: "Keyingi bosqichga o'tish mumkin", applesRevealed: "Olmalar ko'rsatildi",
-        chooseApple: "Olma tanlang", telegramInstallText: "Ekranga qo'shish", pwaInstallText: "Ilovani o'rnatish"
+        chooseApple: "Olma tanlang", telegramInstallText: "📱 Ekranga qo'shish", pwaInstallText: "📱 Ilovani o'rnatish"
     },
     ru: {
         telegramMainTitle: "ПОДПИШИТЕСЬ НА TELEGRAM БОТ",
@@ -497,7 +565,7 @@ const translations = {
         statsTitle: "СТАТИСТИКА", dailyActive: "АКТИВНЫХ", dailyAvgIncome: "ДОХОД", profit: "ПРИБЫЛЬ", onlinePlayers: "ОНЛАЙН",
         idRequired: "Введите ID", idInvalid: "Неверный ID", idVerified: "ID подтвержден", successSignal: "Сигнал получен",
         errorSignal: "Игра окончена", nextStageReady: "Следующий этап", applesRevealed: "Яблоки показаны",
-        chooseApple: "Выберите яблоко", telegramInstallText: "Добавить на экран", pwaInstallText: "Установить приложение"
+        chooseApple: "Выберите яблоко", telegramInstallText: "📱 Добавить на экран", pwaInstallText: "📱 Установить приложение"
     },
     en: {
         telegramMainTitle: "JOIN TELEGRAM BOT",
@@ -512,7 +580,7 @@ const translations = {
         statsTitle: "DAILY STATISTICS", dailyActive: "DAILY ACTIVE", dailyAvgIncome: "AVG INCOME", profit: "PROFIT", onlinePlayers: "ONLINE",
         idRequired: "Enter ID", idInvalid: "Invalid ID", idVerified: "ID verified", successSignal: "Signal received",
         errorSignal: "Game over", nextStageReady: "Next stage", applesRevealed: "Apples revealed",
-        chooseApple: "Choose apple", telegramInstallText: "Add to Home Screen", pwaInstallText: "Install App"
+        chooseApple: "Choose apple", telegramInstallText: "📱 Add to Home Screen", pwaInstallText: "📱 Install App"
     },
     ar: {
         telegramMainTitle: "انضم إلى بوت تيليجرام",
@@ -527,7 +595,7 @@ const translations = {
         statsTitle: "الإحصائيات اليومية", dailyActive: "نشط يوميًا", dailyAvgIncome: "متوسط الدخل", profit: "الربح", onlinePlayers: "متصلون",
         idRequired: "أدخل ID", idInvalid: "ID غير صالح", idVerified: "تم التحقق من ID", successSignal: "تم استلام الإشارة",
         errorSignal: "انتهت اللعبة", nextStageReady: "المرحلة التالية", applesRevealed: "تم عرض التفاح",
-        chooseApple: "اختر تفاحة", telegramInstallText: "أضف إلى الشاشة", pwaInstallText: "تثبيت التطبيق"
+        chooseApple: "اختر تفاحة", telegramInstallText: "📱 أضف إلى الشاشة", pwaInstallText: "📱 تثبيت التطبيق"
     }
 };
 
@@ -538,12 +606,58 @@ let gameState = { idVerified: false, userId: null, applesRevealed: false, canPro
 let currentStage = 1;
 
 // ============================================
-// ===== PWA + TELEGRAM INSTALL (ASOSIY QISM) =====
+// ===== PWA + TELEGRAM INSTALL (TUGMA O'RNATILGANDAN KEYIN YO'QOLADI) =====
 // ============================================
 (function() {
     let isTelegram = false;
     let tg = null;
     let deferredPrompt = null;
+    let installShown = false;
+    
+    // Install tugmasini ko'rsatish
+    function showInstallButton(type, text) {
+        if (installShown) return;
+        const container = document.getElementById('installBtnContainer');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        const btn = document.createElement('button');
+        btn.className = `install-btn ${type === 'telegram' ? 'install-btn-telegram' : 'install-btn-pwa'}`;
+        btn.innerHTML = type === 'telegram' ? 
+            `<i class="fab fa-telegram"></i> ${text}` : 
+            `<i class="fas fa-download"></i> ${text}`;
+        
+        btn.onclick = async () => {
+            if (type === 'telegram' && tg && typeof tg.addToHomeScreen === 'function') {
+                tg.addToHomeScreen();
+                showToast("📱 Iltimos, ekranga qo'shishni tasdiqlang!", 'success');
+            } else if (type !== 'telegram' && deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    showToast("✅ Ilova o'rnatildi!", 'success');
+                    container.style.display = 'none';
+                    installShown = true;
+                }
+                deferredPrompt = null;
+            } else {
+                showInstructions();
+            }
+        };
+        
+        container.appendChild(btn);
+        container.style.display = 'block';
+        installShown = true;
+    }
+    
+    // Qo'llanma ko'rsatish
+    function showInstructions() {
+        const div = document.createElement('div');
+        div.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;border:2px solid #1e90ff;border-radius:20px;padding:24px;z-index:20000;text-align:center;max-width:300px;color:white;box-shadow:0 0 30px rgba(30,144,255,0.5);';
+        div.innerHTML = '<i class="fas fa-info-circle" style="font-size:48px;color:#1e90ff;margin-bottom:16px"></i><h3>Ekranga qo\'shish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Add to Home Screen" ni tanlang</li><li>"Add" tugmasini bosing</li></ol><button id="closeInstr" style="background:#1e90ff;border:none;padding:10px 20px;border-radius:10px;color:white;cursor:pointer;margin-top:10px">Tushundim</button>';
+        document.body.appendChild(div);
+        document.getElementById('closeInstr').onclick = () => div.remove();
+    }
     
     // Telegramni aniqlash
     if (window.Telegram && window.Telegram.WebApp) {
@@ -564,75 +678,55 @@ let currentStage = 1;
         }, 500);
     }
     
-    // Qo'llanma ko'rsatish
-    function showInstructions() {
-        const div = document.createElement('div');
-        div.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#000;border:2px solid #1e90ff;border-radius:20px;padding:24px;z-index:20000;text-align:center;max-width:300px;color:white;box-shadow:0 0 30px rgba(30,144,255,0.5);';
-        div.innerHTML = '<i class="fab fa-telegram" style="font-size:48px;color:#1e90ff;margin-bottom:16px"></i><h3>Ekranga qo\'shish uchun:</h3><ol style="text-align:left;margin:16px 0;padding-left:20px"><li>⋮ menyusini bosing</li><li>"Add to Home Screen" ni tanlang</li><li>"Add" tugmasini bosing</li></ol><button id="closeInstr" style="background:#1e90ff;border:none;padding:10px 20px;border-radius:10px;color:white;cursor:pointer">Tushundim</button>';
-        document.body.appendChild(div);
-        document.getElementById('closeInstr').onclick = () => div.remove();
-    }
-    
-    // Telegram install tugmasi
-    function showTelegramInstall() {
-        if (document.getElementById('tgInstallBtnMain')) return;
-        const btnDiv = document.createElement('div');
-        btnDiv.id = 'tgInstallBtnMain';
-        btnDiv.style.cssText = 'position:fixed;bottom:80px;left:20px;right:20px;z-index:10000';
-        btnDiv.innerHTML = `<button style="width:100%;background:linear-gradient(135deg,#0088cc,#005580);color:white;border:none;border-radius:50px;padding:16px;font-size:16px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 15px rgba(0,136,204,0.5)"><i class="fab fa-telegram"></i> <span id="tgInstallTextSpan">📱 Ekranga qo'shish</span></button>`;
-        document.body.appendChild(btnDiv);
-        
-        document.querySelector('#tgInstallBtnMain button').onclick = () => {
-            if (tg && typeof tg.addToHomeScreen === 'function') {
-                tg.addToHomeScreen();
-                showToast("📱 Iltimos, ekranga qo'shishni tasdiqlang!", 'success');
-            } else {
-                showInstructions();
-            }
-        };
-    }
-    
-    // PWA install tugmasi (brauzer uchun)
-    function showPWAInstall() {
-        if (document.getElementById('pwaInstallBtnMain')) return;
-        const btnDiv = document.createElement('div');
-        btnDiv.id = 'pwaInstallBtnMain';
-        btnDiv.style.cssText = 'position:fixed;bottom:80px;left:20px;right:20px;z-index:10000';
-        btnDiv.innerHTML = `<button style="width:100%;background:linear-gradient(135deg,#1e90ff,#0066cc);color:white;border:none;border-radius:50px;padding:16px;font-size:16px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 15px rgba(30,144,255,0.5)"><i class="fas fa-download"></i> <span id="pwaInstallTextSpan">📱 Ilovani o'rnatish</span></button>`;
-        document.body.appendChild(btnDiv);
-        
-        document.querySelector('#pwaInstallBtnMain button').onclick = async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') {
-                    showToast("✅ Ilova o'rnatildi!", 'success');
-                    btnDiv.remove();
-                }
-                deferredPrompt = null;
-            } else {
-                showInstructions();
-            }
-        };
-    }
-    
-    // PWA event
+    // PWA beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         deferredPrompt = e;
-        if (!isTelegram) setTimeout(() => showPWAInstall(), 1500);
+        if (!isTelegram && !window.matchMedia('(display-mode: standalone)').matches && !installShown) {
+            setTimeout(() => {
+                if (!window.matchMedia('(display-mode: standalone)').matches) {
+                    showInstallButton('pwa', translations[currentLang]?.pwaInstallText || '📱 Ilovani o\'rnatish');
+                }
+            }, 1500);
+        }
     });
     
+    // App installed event - tugmani o'chirish
     window.addEventListener('appinstalled', () => {
-        document.getElementById('pwaInstallBtnMain')?.remove();
-        document.getElementById('tgInstallBtnMain')?.remove();
+        const container = document.getElementById('installBtnContainer');
+        if (container) container.style.display = 'none';
+        installShown = true;
     });
     
-    // Asosiy ishga tushirish
+    // Standalone rejimni tekshirish (ilova allaqachon o'rnatilgan)
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        const container = document.getElementById('installBtnContainer');
+        if (container) container.style.display = 'none';
+        installShown = true;
+    }
+    
+    // Telegram uchun tugmani ko'rsatish (agar standalone bo'lmasa)
     setTimeout(() => {
-        if (window.matchMedia('(display-mode: standalone)').matches) return;
-        if (isTelegram && tg) showTelegramInstall();
-        else if (!isTelegram && !deferredPrompt) setTimeout(() => showInstructions(), 3000);
+        if (isTelegram && tg && !window.matchMedia('(display-mode: standalone)').matches && !installShown) {
+            showInstallButton('telegram', translations[currentLang]?.telegramInstallText || '📱 Ekranga qo\'shish');
+        } else if (!isTelegram && !deferredPrompt && !window.matchMedia('(display-mode: standalone)').matches && !installShown) {
+            setTimeout(() => {
+                if (!installShown && !window.matchMedia('(display-mode: standalone)').matches) {
+                    showInstructions();
+                }
+            }, 3000);
+        }
+    }, 2000);
+    
+    // Har doim standalone rejimni tekshirib turish (tugma yo'qolishi uchun)
+    setInterval(() => {
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            const container = document.getElementById('installBtnContainer');
+            if (container && container.style.display !== 'none') {
+                container.style.display = 'none';
+                installShown = true;
+            }
+        }
     }, 1000);
     
     function showToast(msg, type) {
@@ -707,9 +801,10 @@ function selectLanguage(lang) {
     localStorage.setItem('aofLang', lang);
     document.getElementById('languageSelector').style.display = 'none';
     const t = translations[lang];
-    for (let key in t) { let el = document.getElementById(key); if (el) el.textContent = t[key]; }
-    document.getElementById('tgInstallTextSpan') && (document.getElementById('tgInstallTextSpan').innerHTML = `📱 ${t.telegramInstallText || 'Ekranga qo\'shish'}`);
-    document.getElementById('pwaInstallTextSpan') && (document.getElementById('pwaInstallTextSpan').innerHTML = `📱 ${t.pwaInstallText || 'Ilovani o\'rnatish'}`);
+    for (let key in t) {
+        let el = document.getElementById(key);
+        if (el) el.textContent = t[key];
+    }
     showPage('mainContainer');
     updateDailyStats();
     updateUI();
@@ -727,10 +822,10 @@ function updateUI() {
 function updateDailyStats() {
     const t = translations[currentLang];
     document.getElementById('statsGrid').innerHTML = `
-        <div class="stat-card"><div class="stat-card-header"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-card-title">${t.dailyActive}</div></div><div class="stat-card-value">${dailyStats.activeUsers}</div></div>
-        <div class="stat-card"><div class="stat-card-header"><div class="stat-icon"><i class="fas fa-money-bill-wave"></i></div><div class="stat-card-title">${t.dailyAvgIncome}</div></div><div class="stat-card-value">$${dailyStats.avgIncome}</div></div>
-        <div class="stat-card"><div class="stat-card-header"><div class="stat-icon"><i class="fas fa-chart-line"></i></div><div class="stat-card-title">${t.profit}</div></div><div class="stat-card-value">${dailyStats.profit}%</div></div>
-        <div class="stat-card"><div class="stat-card-header"><div class="stat-icon"><i class="fas fa-gamepad"></i></div><div class="stat-card-title">${t.onlinePlayers}</div></div><div class="stat-card-value">${dailyStats.onlinePlayers}</div></div>
+        <div class="stat-item"><div class="stat-value">${dailyStats.activeUsers}</div><div class="stat-label">${t.dailyActive}</div></div>
+        <div class="stat-item"><div class="stat-value">$${dailyStats.avgIncome}</div><div class="stat-label">${t.dailyAvgIncome}</div></div>
+        <div class="stat-item"><div class="stat-value">${dailyStats.profit}%</div><div class="stat-label">${t.profit}</div></div>
+        <div class="stat-item"><div class="stat-value">${dailyStats.onlinePlayers}</div><div class="stat-label">${t.onlinePlayers}</div></div>
     `;
 }
 
@@ -878,17 +973,29 @@ function inviteForVip() {
     if (userData.invitedFriends < 5) {
         userData.invitedFriends++;
         updateUI();
-        if (userData.invitedFriends === 5) showToast("✅ VIP signal ochildi!", 'success');
-        else showToast(translations[currentLang].successInvite || "Do'st taklif qilindi!", 'success');
+        if (userData.invitedFriends === 5) {
+            showToast("✅ VIP signal ochildi!", 'success');
+            document.getElementById('getVipBtn').disabled = false;
+            document.getElementById('getVipBtn').innerHTML = '<i class="fas fa-crown"></i> VIP SIGNAL OLISH';
+        } else showToast("✅ Do'st taklif qilindi!", 'success');
     }
 }
 
 function getVip() {
-    if (userData.invitedFriends >= 5) { showToast("🎉 VIP signal faollashtirildi!", 'success'); closeModal('vipModal'); }
-    else showToast("❌ 5 ta do'st taklif qilishingiz kerak", 'warning');
+    if (userData.invitedFriends >= 5) { 
+        showToast("🎉 VIP signal faollashtirildi!", 'success'); 
+        closeModal('vipModal');
+        gameState.timerRunning = false;
+    } else showToast("❌ 5 ta do'st taklif qilishingiz kerak", 'warning');
 }
 
-function showToast(msg, type) { if (window.showToast) window.showToast(msg, type); else { const t = document.createElement('div'); t.className = `toast ${type}`; t.textContent = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 3000); } }
+function showToast(msg, type) { 
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 3000);
+}
 
 initApp();
 </script>
